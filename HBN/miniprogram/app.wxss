@@ -1,0 +1,166 @@
+/**app.wxss**/
+/* .container:not(.page-container) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+
+/* 添加全局自然风格样式 */
+page {
+  --birch-white: #f8f9f7;
+  --birch-light: #e9ece6;
+  --birch-bark: #e6e3dc;
+  --cedar-light: #8a9a8b;
+  --cedar-medium: #546d56;
+  --cedar-dark: #3a4c3b;
+  --accent-gold: #d2c5a0;
+  
+  background-color: var(--birch-white);
+  color: var(--cedar-dark);
+  /* 设置方正兰亭黑体作为首选字体，并提供备选字体 */
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+
+  /* 敦煌色彩系统 */
+  --dunhuang-red: #a64036;      /* 赭石红，代表敦煌壁画中常见的红色 */
+  --dunhuang-blue: #4a6f9b;     /* 矿物蓝，代表敦煌壁画中的蓝色 */
+  --dunhuang-gold: #c6a063;     /* 金色，象征敦煌壁画中的金箔装饰 */
+  --dunhuang-orange: #c37b27;   /* 赭石橙，传统敦煌壁画颜色 */
+  --dunhuang-green: #6a8368;    /* 敦煌绿，与品牌绿色接近但更具古韵 */
+  --dunhuang-brown: #8a634d;    /* 土褐色，模拟洞窟岩壁色 */
+  --dunhuang-beige: #e9e1cf;    /* 米黄色，模拟古纸效果 */
+  --dunhuang-light: #f6f2e6;    /* 浅米色，作为背景色使用 */
+}
+
+/* 自然风格卡片阴影 */
+.nature-card {
+  box-shadow: 0 8rpx 24rpx rgba(84, 109, 86, 0.08);
+  border-radius: 16rpx;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* 白桦树背景装饰 */
+.birch-bg {
+  position: relative;
+}
+
+.birch-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://img.api.aa1.cn/2025/05/07/a80093e62c237.jpg');
+  background-repeat: repeat-y;
+  background-size: 200rpx auto;
+  opacity: 0.04;
+  z-index: -1;
+}
+
+/* 雪松纹理装饰 */
+.cedar-texture {
+  position: relative;
+}
+
+.cedar-texture::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120rpx;
+  height: 100%;
+  background-image: url('https://img.api.aa1.cn/2025/05/07/a80093e62c237.jpg');
+  background-repeat: repeat-y;
+  background-size: 120rpx auto;
+  opacity: 0.06;
+  z-index: -1;
+}
+
+/* 敦煌壁画纹理类 */
+.dunhuang-texture {
+  position: relative;
+}
+
+.dunhuang-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://example.com/dunhuang-texture.png');
+  background-size: 200rpx;
+  opacity: 0.08;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 飞天装饰元素 */
+.feitian-accent {
+  position: relative;
+}
+
+.feitian-accent::after {
+  content: '';
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background-image: url('cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/请选择.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+:root {
+  /* 品牌主色调 */
+  --cedar-light: #97aa83;
+  --cedar-medium: #618a49;
+  --cedar-dark: #405d31;
+  
+  /* 辅助色系 */
+  --dunhuang-red: #a64036;
+  --dunhuang-orange: #c27136;
+  --dunhuang-yellow: #d9ad50;
+  
+  /* 中性色系 */
+  --birch-lightest: #f9f7f4;
+  --birch-light: #f3efea;
+  --birch-medium: #e7e1d9;
+  --birch-dark: #d8d0c5;
+  
+  /* 文本色系 */
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --text-light: #999999;
+  
+  /* 功能色系 */
+  --error: #e54d42;
+  --success: #39b54a;
+  --warning: #fbbd08;
+  --info: #8dc63f;
+}
+
+.cedar-bg {
+  background-color: var(--cedar-medium);
+}
+
+.cedar-accent {
+  color: var(--cedar-medium);
+}
+
+.dunhuang-accent {
+  color: var(--dunhuang-orange);
+}
+
+.birch-bg {
+  background-color: var(--birch-light);
+}

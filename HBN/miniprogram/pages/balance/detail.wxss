@@ -1,0 +1,319 @@
+/* 容器样式 */
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  padding-bottom: 40rpx;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: sticky;
+  top: 0;
+  height: 90rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  padding-top: calc(20rpx + env(safe-area-inset-top));
+  z-index: 100;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.nav-back {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.back-icon {
+  width: 36rpx;
+  height: 36rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333333"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.nav-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.nav-placeholder {
+  width: 70rpx;
+}
+
+/* 骨架屏 */
+.loading-skeleton {
+  padding: 30rpx;
+  margin-top: 30rpx;
+}
+
+.skeleton-header {
+  height: 160rpx;
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.skeleton-amount {
+  height: 80rpx;
+  width: 60%;
+  margin: 0 auto 40rpx;
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 10rpx;
+}
+
+.skeleton-line {
+  height: 40rpx;
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6rpx;
+  margin-bottom: 20rpx;
+}
+
+.skeleton-block {
+  height: 200rpx;
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* 交易详情 */
+.transaction-detail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+
+/* 详情头部 */
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50rpx 30rpx;
+  background: linear-gradient(135deg, #618a49, #8aaa75);
+  color: #fff;
+  margin: 0 30rpx 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.05)" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
+  background-repeat: repeat;
+  background-size: 60rpx;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.detail-header.type-1 {
+  background: linear-gradient(135deg, #618a49, #8aaa75);
+}
+
+.detail-header.type-2 {
+  background: linear-gradient(135deg, #a64036, #cf6a59);
+}
+
+.detail-header.type-3 {
+  background: linear-gradient(135deg, #cf985c, #e3b883);
+}
+
+.detail-header.type-4 {
+  background: linear-gradient(135deg, #666666, #999999);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+}
+
+.header-status {
+  font-size: 28rpx;
+  opacity: 0.9;
+  padding: 6rpx 20rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 30rpx;
+  display: inline-block;
+}
+
+/* 金额显示 */
+.detail-amount {
+  text-align: center;
+  padding: 40rpx 30rpx;
+  background-color: #fff;
+  margin: 0 30rpx 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.amount-prefix {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #333;
+  margin-right: 10rpx;
+}
+
+.amount-value {
+  font-size: 72rpx;
+  font-weight: 500;
+  color: #333;
+  font-family: "DIN Alternate", "DIN-Regular", sans-serif;
+}
+
+/* 交易列表 */
+.detail-list {
+  background-color: #fff;
+  margin: 0 30rpx 30rpx;
+  border-radius: 20rpx;
+  padding: 20rpx 0;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.detail-item {
+  display: flex;
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.item-label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.item-value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  word-break: break-all;
+}
+
+.copy-value {
+  display: flex;
+  align-items: center;
+}
+
+.copy-icon {
+  width: 32rpx;
+  height: 32rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999999"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 10rpx;
+  opacity: 0.6;
+}
+
+.order-link {
+  display: flex;
+  align-items: center;
+  color: #618a49;
+}
+
+.arrow-icon {
+  width: 28rpx;
+  height: 28rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 10rpx;
+}
+
+/* 底部按钮 */
+.detail-actions {
+  padding: 20rpx 30rpx;
+  margin-top: 20rpx;
+}
+
+.action-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 30rpx;
+  border-radius: 44rpx;
+}
+
+.action-btn.contact {
+  background-color: #f5f5f5;
+  color: #666;
+  border: 1rpx solid #ddd;
+}
+
+/* 错误状态 */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 30rpx;
+  margin: 100rpx 30rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.error-icon {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+  opacity: 0.6;
+}
+
+.error-text {
+  font-size: 30rpx;
+  color: #999;
+  margin-bottom: 40rpx;
+}
+
+.error-btn {
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #618a49;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+} 

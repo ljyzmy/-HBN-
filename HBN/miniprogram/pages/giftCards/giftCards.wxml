@@ -1,0 +1,238 @@
+<!-- pages/giftCards/giftCards.wxml -->
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav">
+    <view class="nav-back" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-title">我的礼品卡</view>
+    <view class="nav-right">
+      <button class="share-btn" open-type="share">
+        <view class="share-icon"></view>
+      </button>
+    </view>
+  </view>
+  
+  <!-- 卡片概览 -->
+  <view class="cards-overview">
+    <view class="value-card">
+      <view class="value-title">礼品卡总额</view>
+      <view class="value-amount">¥{{totalValue}}</view>
+      <view class="cards-count">共{{totalCards}}张礼品卡</view>
+    </view>
+  </view>
+  
+  <!-- 礼品卡列表 -->
+  <view class="cards-section">
+    <view class="section-header">
+      <view class="header-title">全部礼品卡</view>
+      <view class="header-desc">点击卡片查看详情</view>
+    </view>
+    
+    <!-- 卡片列表 -->
+    <block wx:if="{{giftCards.length > 0}}">
+      <view class="cards-list">
+        <view class="gift-card-item" 
+              wx:for="{{giftCards}}" 
+              wx:key="_id" 
+              bindtap="showCardDetail"
+              data-id="{{item._id}}"
+              style="background-color: {{item.backgroundColor}}; color: {{item.textColor}};">
+          <view class="card-watermark" wx:if="{{item.type === 'birthday'}}">生日礼</view>
+          <view class="card-watermark" wx:elif="{{item.type === 'vip'}}">会员专属</view>
+          <view class="card-header">
+            <view class="card-name">{{item.name}}</view>
+            <view class="card-status" wx:if="{{item.status === 'valid'}}">有效</view>
+            <view class="card-status expired" wx:else>已过期</view>
+          </view>
+          <view class="card-value">¥{{item.value}}</view>
+          <view class="card-valid-until">有效期至: {{item.validUntil}}</view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 空状态 -->
+    <view wx:else class="empty-state">
+      <image class="empty-image" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png" mode="aspectFit"></image>
+      <view class="empty-text">暂无礼品卡</view>
+      <view class="empty-desc">可以通过积分兑换获取礼品卡</view>
+    </view>
+  </view>
+  
+  <!-- 卡片详情弹窗 -->
+  <view class="card-detail-popup" wx:if="{{showCardDetail}}">
+    <view class="popup-mask" bindtap="closeCardDetail"></view>
+    <view class="popup-content">
+      <view class="popup-header">
+        <view class="popup-title">礼品卡详情</view>
+        <view class="popup-close" bindtap="closeCardDetail"></view>
+      </view>
+      
+      <view class="card-detail">
+        <!-- 卡片预览 -->
+        <view class="card-preview" style="background-color: {{currentCard.backgroundColor}}; color: {{currentCard.textColor}};">
+          <view class="card-watermark large" wx:if="{{currentCard.type === 'birthday'}}">生日礼</view>
+          <view class="card-watermark large" wx:elif="{{currentCard.type === 'vip'}}">会员专属</view>
+          <view class="preview-header">
+            <view class="preview-name">{{currentCard.name}}</view>
+            <view class="preview-status" wx:if="{{currentCard.status === 'valid'}}">有效</view>
+            <view class="preview-status expired" wx:else>已过期</view>
+          </view>
+          <view class="preview-value">¥{{currentCard.value}}</view>
+          <view class="preview-valid-until">有效期至: {{currentCard.validUntil}}</view>
+        </view>
+        
+        <!-- 卡片信息 -->
+        <view class="card-info">
+          <view class="info-row">
+            <view class="info-label">卡号</view>
+            <view class="info-value">{{currentCard.code}}</view>
+          </view>
+          <view class="info-row">
+            <view class="info-label">发行日期</view>
+            <view class="info-value">{{currentCard.createdAt}}</view>
+          </view>
+          <view class="info-row">
+            <view class="info-label">有效期至</view>
+            <view class="info-value">{{currentCard.validUntil}}</view>
+          </view>
+          <view class="info-row">
+            <view class="info-label">卡片类型</view>
+            <view class="info-value">
+              {{currentCard.type === 'shopping' ? '通用购物卡' : ''}}
+              {{currentCard.type === 'birthday' ? '生日特惠卡' : ''}}
+              {{currentCard.type === 'vip' ? '会员专属卡' : ''}}
+            </view>
+          </view>
+          <view class="info-row">
+            <view class="info-label">使用状态</view>
+            <view class="info-value">
+              {{currentCard.usedAmount > 0 ? '已使用: ¥' + currentCard.usedAmount : '未使用'}}
+            </view>
+          </view>
+        </view>
+        
+        <!-- 卡片操作 -->
+        <view class="card-actions">
+          <view class="action-btn {{currentCard.status !== 'valid' ? 'disabled' : ''}}" bindtap="openUsePopup">
+            <view class="action-icon use"></view>
+            <view class="action-text">使用</view>
+          </view>
+          <view class="action-btn {{!currentCard.canTransfer || currentCard.status !== 'valid' ? 'disabled' : ''}}" bindtap="openTransferPopup">
+            <view class="action-icon transfer"></view>
+            <view class="action-text">转赠</view>
+          </view>
+          <view class="action-btn" bindtap="showQrCode">
+            <view class="action-icon qrcode"></view>
+            <view class="action-text">二维码</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 使用卡片弹窗 -->
+  <view class="use-popup" wx:if="{{isUsePopupOpen}}">
+    <view class="popup-mask" bindtap="closeUsePopup"></view>
+    <view class="use-content">
+      <view class="use-header">
+        <view class="use-title">使用礼品卡</view>
+        <view class="popup-close" bindtap="closeUsePopup"></view>
+      </view>
+      
+      <view class="use-body">
+        <view class="code-section">
+          <view class="code-title">礼品卡券码</view>
+          <view class="code-value">{{cardCode}}</view>
+          <view class="copy-btn" bindtap="copyCardCode">复制</view>
+        </view>
+        
+        <view class="use-steps">
+          <view class="step-title">使用说明</view>
+          <view class="step-list">
+            <view class="step-item">
+              <view class="step-num">1</view>
+              <view class="step-text">在线下门店或线上商城结算时出示</view>
+            </view>
+            <view class="step-item">
+              <view class="step-num">2</view>
+              <view class="step-text">输入或粘贴礼品卡券码</view>
+            </view>
+            <view class="step-item">
+              <view class="step-num">3</view>
+              <view class="step-text">确认抵扣金额后完成支付</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 转赠卡片弹窗 -->
+  <view class="transfer-popup" wx:if="{{isTransferPopupOpen}}">
+    <view class="popup-mask" bindtap="closeTransferPopup"></view>
+    <view class="transfer-content">
+      <view class="transfer-header">
+        <view class="transfer-title">转赠礼品卡</view>
+        <view class="popup-close" bindtap="closeTransferPopup"></view>
+      </view>
+      
+      <view class="transfer-body">
+        <view class="transfer-card-info">
+          <view class="transfer-card-name">{{currentCard.name}}</view>
+          <view class="transfer-card-value">¥{{currentCard.value}}</view>
+        </view>
+        
+        <view class="transfer-form">
+          <view class="form-title">请选择转赠对象</view>
+          
+          <!-- 用户画像选择列表 -->
+          <view class="profile-list">
+            <view class="profile-item {{selectedUserProfile.id === profile.id ? 'selected' : ''}}" 
+                  wx:for="{{userProfiles}}" 
+                  wx:key="id" 
+                  wx:for-item="profile"
+                  bindtap="selectUserProfile"
+                  data-id="{{profile.id}}">
+              <image class="profile-avatar" src="{{profile.avatar}}" mode="aspectFill"></image>
+              <view class="profile-info">
+                <view class="profile-name">{{profile.name}}</view>
+                <view class="profile-desc">{{profile.description}}</view>
+              </view>
+              <view class="profile-select-icon" wx:if="{{selectedUserProfile.id === profile.id}}"></view>
+            </view>
+          </view>
+          
+          <view class="error-msg" wx:if="{{transferError}}">{{transferError}}</view>
+          
+          <view class="transfer-notice">
+            <view class="notice-title">转赠须知：</view>
+            <view class="notice-item">1. 转赠后礼品卡将从您的账户移除</view>
+            <view class="notice-item">2. 对方将在礼品卡页面收到您转赠的礼品卡</view>
+            <view class="notice-item">3. 转赠操作不可撤销</view>
+          </view>
+          
+          <button class="confirm-btn {{selectedUserProfile ? 'active' : ''}}" bindtap="transferCard">确认转赠</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 二维码弹窗 -->
+  <view class="qrcode-popup" wx:if="{{qrCodeVisible}}">
+    <view class="popup-mask" bindtap="hideQrCode"></view>
+    <view class="qrcode-content">
+      <view class="qrcode-header">
+        <view class="qrcode-title">礼品卡二维码</view>
+        <view class="popup-close" bindtap="hideQrCode"></view>
+      </view>
+      
+      <view class="qrcode-body">
+        <view class="qrcode-image">
+          <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/二维码.png" mode="aspectFit"></image>
+        </view>
+        <view class="qrcode-tips">在收银台出示此二维码</view>
+      </view>
+    </view>
+  </view>
+</view> 

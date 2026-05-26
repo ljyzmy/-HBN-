@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "feedback1",
+    "typeId": 1,
+    "typeName": "商品相关",
+    "content": "我购买的护肤品包装有轻微损坏，希望能改进物流包装",
+    "contactWay": "13812345678",
+    "imageFileIDs": [
+      "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/feedback/1622531245000_0.jpg"
+    ],
+    "status": "pending",
+    "createTime": "2023-09-15 14:32:15",
+    "openid": "user123456",
+    "dealt": false,
+    "dealTime": "",
+    "dealResult": ""
+  },
+  {
+    "_id": "feedback2",
+    "typeId": 5,
+    "typeName": "功能异常",
+    "content": "小程序在查看历史订单时偶尔会闪退，iPhone 13 Pro系统版本16.5",
+    "contactWay": "wx123456",
+    "imageFileIDs": [
+      "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/feedback/1622531245000_1.jpg",
+      "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/feedback/1622531245000_2.jpg"
+    ],
+    "status": "processing",
+    "createTime": "2023-09-16 09:45:22",
+    "openid": "user234567",
+    "dealt": true,
+    "dealTime": "2023-09-16 15:20:45",
+    "dealResult": "正在排查问题"
+  },
+  {
+    "_id": "feedback3",
+    "typeId": 6,
+    "typeName": "优化建议",
+    "content": "建议在商品详情页增加更多成分功效的详细介绍，方便用户了解产品",
+    "contactWay": "13987654321",
+    "imageFileIDs": [],
+    "status": "completed",
+    "createTime": "2023-09-10 16:18:33",
+    "openid": "user345678",
+    "dealt": true,
+    "dealTime": "2023-09-12 10:05:18",
+    "dealResult": "感谢您的建议，我们会在下一版本中优化此功能"
+  }
+] 

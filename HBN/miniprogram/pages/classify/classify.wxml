@@ -1,0 +1,181 @@
+<!--pages/classify/classify.wxml-->
+<view class="container">
+  <!-- 背景视频 -->
+  <video 
+    id="bg-video"
+    src="{{backgroundVideo.videoUrl}}" 
+    class="background-video"
+    object-fit="cover"
+    autoplay="{{true}}"
+    loop="{{true}}"
+    muted="{{videoBgMuted}}"
+    show-center-play-btn="{{false}}"
+    controls="{{false}}"
+    show-progress="{{false}}"
+    enable-progress-gesture="{{false}}"
+    poster="{{backgroundVideo.posterUrl}}"
+    binderror="bgVideoError">
+  </video>
+  
+  <!-- 背景视频覆盖层 -->
+  <view class="background-video-overlay"></view>
+  
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="search-btn" bindtap="goToSearch">
+      <image src="https://img.api.aa1.cn/2025/04/13/62fde02b02f79.png" mode="aspectFit" class="search-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="https://img.api.aa1.cn/2025/04/13/54754b54626e1.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+   <!-- 添加竖向滚动组件 -->
+   <scroll-view 
+    scroll-y="{{true}}" 
+    class="vertical-scroll" 
+    bindscroll="onPageScroll"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}"
+    bounces="{{true}}">
+    
+    <!-- 添加内容容器 -->
+    <view class="content-container">
+  <!-- 分类标签栏 -->
+  <view class="tab-container">
+    <view class="tab-header">
+      <view 
+        wx:for="{{categories}}" 
+        wx:key="id" 
+        class="tab-item {{activeTab === index ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-index="{{index}}">
+        {{item.name}}
+      </view>
+    </view>
+    
+    <!-- 产品系列分类内容 -->
+    <view class="tab-content" hidden="{{activeTab !== 0}}">
+      <!-- 添加视频顶部模块 -->
+      <view class="series-video-container cedar-accent">
+        <video 
+          class="series-top-video"
+          src="{{featuredVideo.videoUrl}}"
+          poster="{{featuredVideo.posterUrl}}"
+          autoplay="{{true}}"
+          loop="{{true}}"
+          muted="{{true}}"
+          object-fit="cover"
+          show-play-btn="{{false}}"
+          controls="{{false}}"
+          enable-progress-gesture="{{false}}">
+        </video>
+        <view class="video-overlay">
+          <text class="video-title">{{featuredVideo.title}}</text>
+          <text class="video-subtitle">{{featuredVideo.subtitle}}</text>
+        </view>
+      </view>
+      
+      <view class="series-list">
+        <view 
+          wx:for="{{productSeries}}" 
+          wx:key="id" 
+          class="series-item"
+          bindtap="goToCategoryList"
+          data-id="{{item.id}}"
+          data-name="{{item.name}}">
+          <!-- <image class="series-image" src="{{item.image}}" mode="aspectFill"></image> -->
+          <view class="series-name">{{item.name}}</view>
+          
+          <!-- 系列产品预览 -->
+          <view class="product-preview">
+            <view 
+              wx:for="{{item.products}}" 
+              wx:for-item="product" 
+              wx:key="id"
+              class="preview-item"
+              catchtap="goToProductDetail"
+              data-id="{{product.id}}">
+              <image class="preview-image" src="{{product.image}}" mode="aspectFill"></image>
+              <view class="preview-name">{{product.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 功效分类内容 -->
+    <view class="tab-content" hidden="{{activeTab !== 1}}">
+      <view class="category-grid">
+        <view 
+          wx:for="{{efficacyCategories}}" 
+          wx:key="id"
+          class="category-item clickable-item"
+          bindtap="goToCategoryList"
+          data-id="{{item.id}}"
+          data-name="{{item.name}}"
+          hover-class="item-hover"
+          hover-start-time="20"
+          hover-stay-time="70">
+          <view class="category-img-container">
+            <image class="category-image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="category-overlay">
+              <view class="view-more-btn">查看详情</view>
+            </view>
+          </view>
+          <view class="category-name">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 适用人群分类内容 -->
+    <view class="tab-content" hidden="{{activeTab !== 2}}">
+      <view class="category-grid">
+        <view 
+          wx:for="{{targetGroups}}" 
+          wx:key="id"
+          class="category-item clickable-item"
+          bindtap="goToCategoryList"
+          data-id="{{item.id}}"
+          data-name="{{item.name}}"
+          hover-class="item-hover"
+          hover-start-time="20"
+          hover-stay-time="70">
+          <view class="category-img-container">
+            <image class="category-image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="category-overlay">
+              <view class="view-more-btn">查看详情</view>
+            </view>
+          </view>
+          <view class="category-name">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+  <!-- 品牌理念展示 -->
+  <!-- <view class="brand-concept">
+    <view class="concept-title">品牌理念</view>
+    <view class="concept-list">
+      <view class="concept-item">
+        <view class="concept-icon">✓</view>
+        <view class="concept-text">专研成分 对抗肌肤老化</view>
+      </view>
+      <view class="concept-item">
+        <view class="concept-icon">✓</view>
+        <view class="concept-text">让"真功效"名副其实</view>
+      </view>
+      <view class="concept-item">
+        <view class="concept-icon">✓</view>
+        <view class="concept-text">专业是一种底气</view>
+      </view>
+    </view>
+  </view> -->
+    <!-- 品牌介绍区 -->
+    <view class="brand-intro">
+    <view class="brand-logo">HBN</view>
+    <!-- <view class="brand-slogan">{{brandIntro.slogan}}</view> -->
+    <view class="brand-desc">{{brandIntro.description}}</view>
+  </view>
+</scroll-view>
+</view>

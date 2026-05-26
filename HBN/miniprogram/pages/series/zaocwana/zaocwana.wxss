@@ -1,0 +1,289 @@
+.zaocwana-container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 30rpx 20rpx 30rpx;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-transparent {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.nav-opaque {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4rpx 20rpx rgba(255, 0, 0, 0.1);
+}
+
+.nav-left {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.nav-center {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 130rpx;
+  width: 240rpx;
+}
+
+.nav-placeholder {
+  width: 80rpx;
+}
+
+/* 背景视频样式 */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* 视频覆盖层样式 - 半透明效果确保内容可读 */
+.background-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(249, 249, 247, 0.7), 
+    rgba(249, 249, 247, 0.6),
+    rgba(248, 245, 240, 0.7));
+  z-index: 1;
+}
+
+/* 内容滚动区域 */
+.content-scroll {
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+  padding-top: 170rpx;
+  padding-bottom: 120rpx;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 套装介绍 */
+.suite-intro {
+  margin-top: 30rpx;
+  text-align: center;
+  padding: 40rpx 30rpx 20rpx 30rpx;
+}
+
+.suite-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #A64036;
+  margin-bottom: 18rpx;
+  letter-spacing: 2rpx;
+  font-family: "FZLiBian", "FZLTXH--GBK1-0", "PingFang SC", sans-serif;
+  text-shadow: 0 1rpx 3rpx rgba(255, 255, 255, 0.6);
+}
+
+.suite-desc {
+  font-size: 28rpx;
+  color: #6e5110;
+  opacity: 0.85;
+  line-height: 1.7;
+  text-shadow: 0 1rpx 3rpx rgba(255, 255, 255, 0.5);
+}
+
+/* 商品卡片 */
+.products {
+  margin: 40rpx 30rpx 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 40rpx;
+  z-index: 2;
+  position: relative;
+}
+
+.product-card {
+  display: flex;
+  background: rgba(255,255,255,0.9);
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 32rpx rgba(166,64,54,0.08);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.product-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(166,64,54,0.12);
+}
+
+.product-video {
+  width: 225rpx;
+  height: 270rpx;
+  object-fit: cover;
+  border-radius: 0 0 0 24rpx;
+}
+
+.product-image {
+  width: 225rpx;
+  height: 270rpx;
+  object-fit: cover;
+  border-radius: 0 0 0 24rpx;
+  display: none; /* 隐藏图片 */
+}
+
+.product-info {
+  flex: 1;
+  padding: 36rpx 30rpx 36rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+  font-family: "FZLTXH--GBK1-0", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.product-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 18rpx;
+  line-height: 1.5;
+}
+
+.view-detail {
+  font-size: 24rpx;
+  color: #618a49;
+  font-weight: bold;
+  margin-top: 8rpx;
+}
+
+/* 套装组合优惠 */
+.bundle-section {
+  margin: 60rpx 30rpx 30rpx 30rpx;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 40rpx 30rpx;
+  border-radius: 24rpx;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8rpx 30rpx rgba(166,64,54,0.1);
+}
+
+.bundle-section::before {
+  content: '限时特惠';
+  position: absolute;
+  top: -20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160rpx;
+  height: 40rpx;
+  background: #A64036;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.bundle-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.bundle-price {
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.price {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #A64036;
+  margin-right: 16rpx;
+}
+
+.original-price {
+  font-size: 28rpx;
+  color: #999;
+  text-decoration: line-through;
+  margin-right: 16rpx;
+}
+
+.save {
+  font-size: 24rpx;
+  background: #A64036;
+  color: white;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+.bundle-btn {
+  background: linear-gradient(135deg, #A64036, #CF985C);
+  color: white;
+  height: 88rpx;
+  line-height: 60rpx;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  box-shadow: 0 8rpx 20rpx rgba(166,64,54,0.2);
+}
+
+.bundle-btn:active {
+  opacity: 0.9;
+  transform: translateY(2rpx);
+}
+
+/* 底部安全区域 */
+.safe-bottom-area {
+  height: 100rpx;
+  width: 100%;
+}
+
+/* 视频加载动画 */
+@keyframes videoFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.product-video {
+  animation: videoFadeIn 0.5s ease forwards;
+} 

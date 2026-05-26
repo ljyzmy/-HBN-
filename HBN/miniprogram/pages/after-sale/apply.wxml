@@ -1,0 +1,107 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-back" bindtap="goBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-title">申请售后</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight}}px;"></view>
+  
+  <!-- 表单区域 -->
+  <view class="form-container">
+    <!-- 订单信息 -->
+    <view class="section order-info" wx:if="{{order}}">
+      <view class="section-title">订单信息</view>
+      <view class="order-product">
+        <image class="product-image" src="{{order.product.image}}" mode="aspectFill"></image>
+        <view class="product-info">
+          <view class="product-name">{{order.product.name}}</view>
+          <view class="product-specs">
+            <text wx:for="{{order.product.specs}}" wx:for-item="spec" wx:for-index="key" wx:key="key">
+              {{key}}:{{spec}}{{index < Object.keys(order.product.specs).length-1 ? ' | ' : ''}}
+            </text>
+          </view>
+          <view class="product-price-quantity">
+            <text class="product-price">¥{{order.product.price}}</text>
+            <text class="product-quantity">x{{order.product.quantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 售后类型 -->
+    <view class="section">
+      <view class="section-title">选择售后类型</view>
+      <view class="type-selector">
+        <view 
+          class="type-item {{formData.type === item.id ? 'active' : ''}}" 
+          wx:for="{{afterSaleTypes}}" 
+          wx:key="id"
+          data-type="{{item.id}}"
+          bindtap="selectType">
+          <view class="type-radio">
+            <view class="radio-inner" wx:if="{{formData.type === item.id}}"></view>
+          </view>
+          <view class="type-name">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 退款原因 -->
+    <view class="section">
+      <view class="section-title">退款原因</view>
+      <picker bindchange="selectReason" range="{{reasonTypes}}" value="{{reasonTypes.indexOf(formData.reason)}}">
+        <view class="reason-picker">
+          <view class="picker-value">{{formData.reason || '请选择退款原因'}}</view>
+          <view class="picker-arrow">
+            <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png" mode="aspectFit" class="arrow-icon"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    
+    <!-- 问题描述 -->
+    <view class="section">
+      <view class="section-title">问题描述</view>
+      <view class="description-container">
+        <textarea 
+          class="description-input" 
+          placeholder="请详细描述您遇到的问题，以便我们更好地为您解决" 
+          maxlength="200"
+          bindinput="inputDescription"
+          value="{{formData.description}}"></textarea>
+        <view class="word-count">{{formData.description.length}}/200</view>
+      </view>
+    </view>
+    
+    <!-- 上传凭证 -->
+    <view class="section">
+      <view class="section-title">上传凭证</view>
+      <view class="image-uploader">
+        <view class="image-list">
+          <view class="image-item" wx:for="{{imageUrls}}" wx:key="index">
+            <image src="{{item}}" mode="aspectFill" class="uploaded-image" bindtap="previewImage" data-index="{{index}}"></image>
+            <view class="delete-icon" catchtap="deleteImage" data-index="{{index}}">×</view>
+          </view>
+          <view class="upload-button" bindtap="uploadImage" wx:if="{{imageUrls.length < maxUpload}}">
+            <view class="upload-icon">+</view>
+            <view class="upload-text">上传图片</view>
+          </view>
+        </view>
+        <view class="upload-tip">最多上传{{maxUpload}}张图片，单张不超过5M</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部提交按钮 -->
+  <view class="footer">
+    <view class="submit-btn" bindtap="submitAfterSale">提交申请</view>
+  </view>
+  
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom"></view>
+</view> 

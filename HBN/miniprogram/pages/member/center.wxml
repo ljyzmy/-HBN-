@@ -1,0 +1,82 @@
+<view class="member-center">
+  <!-- 顶部背景和头像区域 -->
+  <view class="header" style="background-image: url({{memberCardBgUrl}});">
+    <view class="header-content">
+      <view class="user-info">
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        <view class="info-text">
+          <text class="nickname">{{userInfo.nickName}}</text>
+          <text class="member-level">{{userInfo.memberLevel}}</text>
+        </view>
+      </view>
+      <view class="member-card">
+        <view class="points-info">
+          <view class="points-row">
+            <text class="points-value">{{memberDetail.points}}</text>
+            <text class="points-label">积分</text>
+          </view>
+          <view class="points-expire" bindtap="viewPointsDetail">
+            {{memberDetail.expirePoints}}积分即将过期 >
+          </view>
+        </view>
+        <view class="growth-progress">
+          <view class="progress-info">
+            <text class="current-level">当前等级: {{userInfo.memberLevel}}</text>
+            <text class="next-level">下一等级: {{memberDetail.nextLevel.name}}</text>
+          </view>
+          <view class="progress-bar-container">
+            <view class="progress-bar" style="width: {{memberDetail.growth / memberDetail.nextLevel.needGrowth * 100}}%"></view>
+          </view>
+          <view class="growth-info">
+            <text class="current-growth">{{memberDetail.growth}}</text>
+            <text class="total-growth">{{memberDetail.nextLevel.needGrowth}}</text>
+          </view>
+          <view class="remaining-growth">
+            距离{{memberDetail.nextLevel.name}}还需{{memberDetail.nextLevel.remainingGrowth}}成长值
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 会员特权内容区域 -->
+  <view class="content">
+    <!-- 选项卡 -->
+    <view class="tabs">
+      <view class="tab {{activeSectionIndex === 0 ? 'active' : ''}}" bindtap="switchSection" data-index="0">会员特权</view>
+      <view class="tab {{activeSectionIndex === 1 ? 'active' : ''}}" bindtap="switchSection" data-index="1">等级规则</view>
+      <view class="tab {{activeSectionIndex === 2 ? 'active' : ''}}" bindtap="switchSection" data-index="2">成长值获取</view>
+    </view>
+    
+    <!-- 内容区域 -->
+    <view class="tab-content">
+      <!-- 会员特权 -->
+      <view class="privilege-list" wx:if="{{activeSectionIndex === 0}}">
+        <view class="privilege-item" wx:for="{{privileges}}" wx:key="id">
+          <image class="privilege-icon" src="{{item.icon}}"></image>
+          <text class="privilege-name">{{item.name}}</text>
+        </view>
+      </view>
+      
+      <!-- 等级规则 -->
+      <view class="level-rules" wx:if="{{activeSectionIndex === 1}}">
+        <view class="rule-title">会员等级规则</view>
+        <view class="rule-item" wx:for="{{levelRules}}" wx:key="name">
+          <text class="level-name">{{item.name}}</text>
+          <text class="level-range">
+            成长值 {{item.minGrowth}}{{item.maxGrowth ? ' - ' + item.maxGrowth : '+'}}
+          </text>
+        </view>
+      </view>
+      
+      <!-- 成长值获取 -->
+      <view class="growth-rules" wx:if="{{activeSectionIndex === 2}}">
+        <view class="rule-title">成长值获取规则</view>
+        <view class="growth-item" wx:for="{{growthRules}}" wx:key="title">
+          <view class="growth-title">{{item.title}}</view>
+          <view class="growth-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,211 @@
+<!--pages/Personal/Personal.wxml-->
+<view class="container birch-bg">
+  <!-- 顶部用户信息卡片 -->
+  <view class="user-card cedar-accent">
+    <view class="card-background">
+      <video 
+        id="bgVideo"
+        class="bg-video"
+        src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/个人中心背景.mp4"
+        autoplay="{{true}}"
+        loop="{{true}}"
+        muted="{{true}}"
+        show-play-btn="{{false}}"
+        controls="{{false}}"
+        object-fit="cover"
+        binderror="handleVideoError">
+      </video>
+      <view class="video-overlay"></view>
+    </view>
+    <view class="user-info">
+      <view class="avatar-container" bindtap="showAvatarSelector">
+        <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+        <view class="edit-icon">
+          <view class="edit-inner"></view>
+        </view>
+      </view>
+      <view class="user-details">
+        <text class="user-name">{{userInfo.nickName}}</text>
+        <view class="user-sub-info">
+          <view class="member-tag-small" bindtap="goToMemberCenter">
+            <text class="member-level-small">{{userInfo.memberLevel}}</text>
+          </view>
+          <view class="user-progress-container">
+            <view class="user-progress-text">
+              <text class="progress-tip">还需{{userInfo.nextLevel - userInfo.experience}}经验</text>
+            </view>
+            <view class="user-progress-bar">
+              <view class="progress-inner" style="width: {{userInfo.experience / userInfo.nextLevel * 100}}%"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="user-controls">
+        <view class="control-btn message" bindtap="goToMessageCenter">
+          <view class="message-icon">
+            <view class="message-dot" wx:if="{{messageCount > 0}}"></view>
+          </view>
+        </view>
+        <view class="control-btn settings" bindtap="goToSettings">
+          <view class="settings-icon"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 新增账户资产组件 -->
+  <view class="account-assets">
+    <view class="assets-content">
+      <view class="asset-column" bindtap="goToBalance">
+        <view class="asset-amount">¥{{accountBalance}}</view>
+        <view class="asset-label">账户余额</view>
+      </view>
+      <view class="asset-column" bindtap="goToAsset" data-index="0">
+        <view class="asset-amount">{{assets.points}}</view>
+        <view class="asset-label">积分</view>
+      </view>
+      <view class="asset-column" bindtap="goToAsset" data-index="2">
+        <view class="asset-amount">{{assets.giftCards}}张</view>
+        <view class="asset-label">礼品卡</view>
+      </view>
+      <view class="asset-column" bindtap="goToAsset" data-index="1">
+        <view class="asset-amount">{{assets.coupons}}张</view>
+        <view class="asset-label">优惠券</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 我的资产 -->
+  <!-- <view class="assets-card">
+    <view class="card-header">
+      <text class="card-title">我的资产</text>
+    </view>
+    <view class="assets-list">
+      <view class="asset-item" wx:for="{{accountList}}" wx:key="id" bindtap="goToAsset" data-index="{{index}}">
+        <view class="asset-icon {{item.icon}}"></view>
+        <view class="asset-name">{{item.name}}</view>
+        <view class="asset-value">{{item.value}}</view>
+      </view>
+    </view>
+  </view> -->
+  
+  <!-- 我的订单 -->
+  <view class="order-card premium-card">
+    <view class="premium-header">
+      <view class="header-left">
+        <view class="premium-title-icon"></view>
+        <text class="premium-title">我的订单</text>
+      </view>
+      <view class="premium-more" hover-class="hover-effect" bindtap="goToOrderList">
+        <text class="more-text">全部订单</text>
+        <view class="premium-arrow"></view>
+      </view>
+    </view>
+    <view class="premium-divider"></view>
+    <view class="order-status-list">
+      <view class="order-status-item hover-scale" wx:for="{{orderStatusIcons}}" wx:key="status" bindtap="goToOrderList" data-status="{{item.status}}">
+        <view class="status-icon-premium">
+          <image src="{{item.icon}}" mode="aspectFit" style="width: 100%; height: 100%;"></image>
+        </view>
+        <view class="status-text-premium">{{item.name}}</view>
+      </view>
+    </view>
+    <view class="order-summary">
+      <!-- 近30天内完成<text class="highlight">{{orderInfo.completed}}</text>笔订单 -->
+    </view>
+  </view>
+  
+  <!-- 我的服务 - 高端设计版 -->
+  <view class="service-card premium-card">
+    <view class="premium-header">
+      <view class="header-left">
+        <view class="premium-title-icon"></view>
+        <text class="premium-title">我的服务</text>
+      </view>
+    </view>
+    <view class="premium-divider"></view>
+    <view class="service-grid">
+      <view class="service-grid-item hover-scale" wx:for="{{serviceList}}" wx:key="id" bindtap="goToService" data-index="{{index}}">
+        <view class="service-icon-premium">
+          <image src="{{item.iconUrl}}" mode="aspectFit" style="width: 100%; height: 100%;"></image>
+        </view>
+        <view class="service-name-premium">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 品牌故事 - 豪华版 -->
+  <view class="brand-story-premium" bindtap="goToBrandStory">
+    <view class="brand-parallax">
+      <video 
+        class="brand-bg-video"
+        src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/分类背景视频.mp4"
+        autoplay="{{true}}"
+        loop="{{true}}"
+        muted="{{true}}"
+        show-play-btn="{{false}}"
+        controls="{{false}}"
+        object-fit="cover"
+        binderror="handleBrandVideoError">
+      </video>
+      <view class="brand-video-overlay"></view>
+    </view>
+    <view class="brand-content">
+      <view class="brand-logo-premium">HBN</view>
+      <view class="brand-slogan-premium">让"真功效"名副其实</view>
+      <view class="brand-desc-premium">专研成分 对抗肌肤老化</view>
+      <view class="brand-button">探索更多</view>
+    </view>
+  </view>
+  
+  <!-- 登录提示模态框 -->
+  <view class="login-modal" wx:if="{{showLoginModal}}">
+    <view class="modal-mask" bindtap="closeLoginModal"></view>
+    <view class="modal-content">
+      <view class="modal-title">您尚未登录</view>
+      <view class="modal-desc">登录后可查看个人信息和订单</view>
+      <view class="modal-buttons">
+        <view class="modal-btn cancel" bindtap="closeLoginModal">暂不登录</view>
+        <view class="modal-btn confirm" bindtap="goToLogin">去登录</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 用户画像选择弹窗 -->
+  <view class="avatar-modal" wx:if="{{showAvatarModal}}">
+    <view class="modal-mask" bindtap="closeAvatarModal"></view>
+    <view class="avatar-modal-content">
+      <view class="avatar-modal-title">选择用户画像</view>
+      <view class="avatar-modal-desc">请选择适合您的用户画像</view>
+      <view class="avatar-list">
+        <view class="avatar-item" wx:for="{{userProfiles}}" wx:key="id" bindtap="selectUserProfile" data-id="{{item.id}}">
+          <view class="avatar-item-header">
+            <image class="avatar-item-image" src="{{item.avatarUrl}}" mode="aspectFill"></image>
+            <view class="avatar-item-info">
+              <view class="avatar-item-name">{{item.name}}</view>
+              <view class="avatar-item-age">{{item.age}}</view>
+            </view>
+          </view>
+          <view class="avatar-item-detail">
+            <view class="avatar-item-row">
+              <view class="avatar-item-label">职业：</view>
+              <view class="avatar-item-value">{{item.occupation}}</view>
+            </view>
+            <view class="avatar-item-row">
+              <view class="avatar-item-label">生活方式：</view>
+              <view class="avatar-item-value">{{item.lifestyle}}</view>
+            </view>
+            <view class="avatar-item-row">
+              <view class="avatar-item-label">需求分析：</view>
+              <view class="avatar-item-value">{{item.needAnalysis}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="avatar-modal-btn cancel" bindtap="closeAvatarModal">取消</view>
+    </view>
+  </view>
+  
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom-area"></view>
+</view>

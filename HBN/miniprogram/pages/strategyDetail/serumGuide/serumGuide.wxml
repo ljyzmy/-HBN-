@@ -1,0 +1,167 @@
+<!--pages/strategyDetail/serumGuide/serumGuide.wxml-->
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="nav-left" bindtap="navigateBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 页面内容 -->
+  <scroll-view scroll-y="true" class="page-content" enable-back-to-top="true" enhanced="true" show-scrollbar="false">
+    <!-- 头部图片 -->
+    <view class="header-image-container">
+      <image src="{{pageImage}}" mode="aspectFill" class="header-image"></image>
+      <view class="header-overlay">
+        <view class="header-title">{{pageTitle}}</view>
+        <view class="header-info">
+          <text class="read-count">{{readCount}}人已读</text>
+          <text class="publish-date">发布于 {{publishDate}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 导言 -->
+    <view class="intro-section">
+      <view class="section-title">导言</view>
+      <view class="intro-content">{{introduction}}</view>
+    </view>
+
+    <!-- 精华乳类型 -->
+    <view class="serum-types-section">
+      <view class="section-title">精华乳类型与适用肤质</view>
+      
+      <view class="serum-type-item" wx:for="{{serumTypes}}" wx:key="type">
+        <view class="serum-type-header">
+          <view class="serum-type-title">{{item.type}}</view>
+          <view class="serum-suitable">适合肤质：{{item.suitable}}</view>
+        </view>
+        
+        <view class="serum-media-container" bindtap="playVideo" data-index="{{index}}">
+          <video 
+            id="serum-video-{{index}}"
+            src="{{item.videoUrl}}" 
+            class="serum-video"
+            poster="{{item.imageUrl}}"
+            object-fit="cover"
+            show-center-play-btn="{{true}}"
+            controls="{{true}}"
+            show-progress="{{true}}"
+            enable-progress-gesture="{{true}}"
+            binderror="handleVideoError">
+          </video>
+        </view>
+        
+        <view class="serum-ingredients">
+          <text class="ingredients-label">核心成分：</text>
+          <text class="ingredients-content">{{item.keyIngredients}}</text>
+        </view>
+        
+        <view class="serum-description">{{item.description}}</view>
+        
+        <view class="serum-recommend">
+          <view class="recommend-title">推荐产品</view>
+          <view class="recommend-products">
+            <view 
+              class="recommend-product-item" 
+              wx:for="{{item.recommendProducts}}" 
+              wx:for-item="product" 
+              wx:key="id"
+              bindtap="goToProduct"
+              data-id="{{product.id}}">
+              <text class="product-name">{{product.name}}</text>
+              <view class="arrow-right"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 选择要点 -->
+    <view class="tips-section">
+      <view class="section-title">选择精华乳的要点</view>
+      
+      <view class="tips-content">
+        <view class="tip-item">
+          <view class="tip-number">1</view>
+          <view class="tip-text">
+            <view class="tip-title">根据肤质选择</view>
+            <view class="tip-desc">干性肌肤选择保湿型，油性肌肤选择控油型，敏感肌选择舒缓型。</view>
+          </view>
+        </view>
+        
+        <view class="tip-item">
+          <view class="tip-number">2</view>
+          <view class="tip-text">
+            <view class="tip-title">关注核心成分</view>
+            <view class="tip-desc">了解产品成分表，选择含有针对你肌肤问题的有效成分的产品。</view>
+          </view>
+        </view>
+        
+        <view class="tip-item">
+          <view class="tip-number">3</view>
+          <view class="tip-text">
+            <view class="tip-title">考虑季节变化</view>
+            <view class="tip-desc">夏季选择轻薄质地，冬季可选择更滋润的配方。</view>
+          </view>
+        </view>
+        
+        <view class="tip-item">
+          <view class="tip-number">4</view>
+          <view class="tip-text">
+            <view class="tip-title">注意产品质地</view>
+            <view class="tip-desc">乳液质地适合油性肌肤，乳霜质地适合干性肌肤，啫喱质地适合混合肤质。</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 相关产品推荐 -->
+    <view class="related-products-section">
+      <view class="section-title">相关产品推荐</view>
+      
+      <scroll-view class="related-products-scroll" scroll-x="true" enhanced show-scrollbar="false">
+        <view class="related-products-container">
+          <view class="related-product" bindtap="goToProduct" data-id="1">
+            <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png" mode="aspectFill" class="related-product-image"></image>
+            <view class="related-product-info">
+              <view class="related-product-name">视黄醇精华乳2.0</view>
+              <view class="related-product-price">¥199.00</view>
+            </view>
+          </view>
+          
+          <view class="related-product" bindtap="goToProduct" data-id="103">
+            <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.png" mode="aspectFill" class="related-product-image"></image>
+            <view class="related-product-info">
+              <view class="related-product-name">视黄醇极润修护精华</view>
+              <view class="related-product-price">¥219.00</view>
+            </view>
+          </view>
+          
+          <view class="related-product" bindtap="goToProduct" data-id="203">
+            <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/5.png" mode="aspectFill" class="related-product-image"></image>
+            <view class="related-product-info">
+              <view class="related-product-name">寡肽抚纹修护眼霜</view>
+              <view class="related-product-price">¥169.00</view>
+            </view>
+          </view>
+          
+          <view class="related-product" bindtap="goToProduct" data-id="303">
+            <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/6.png" mode="aspectFill" class="related-product-image"></image>
+            <view class="related-product-info">
+              <view class="related-product-name">焕颜靓肤美容液</view>
+              <view class="related-product-price">¥239.00</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 底部安全区域 -->
+    <view class="safe-bottom-area"></view>
+  </scroll-view>
+</view>

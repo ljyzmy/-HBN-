@@ -1,0 +1,113 @@
+<view class="success-container" bindscroll="onPageScroll">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="nav-back" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-center">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 视频背景 -->
+  <video id="bgVideo" class="bg-video" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/支付背景/下载 (7).mp4" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" object-fit="cover"></video>
+  
+  <!-- 背景覆盖层 -->
+  <view class="bg-overlay"></view>
+  
+  <!-- 主内容区 -->
+  <view class="content-container">
+    <!-- 支付成功信息 -->
+    <view class="success-info-box">
+      <view class="success-title">支付成功</view>
+      <view class="success-message">恭喜您！订单已支付成功</view>
+      
+      <!-- 订单金额信息 -->
+      <view class="order-amount" wx:if="{{orderInfo && orderInfo.totalAmount}}">
+        <text>¥</text>{{orderInfo.totalAmount}}
+      </view>
+      
+      <!-- 订单信息 -->
+      <view class="order-info-card">
+        <view class="info-item">
+          <text class="info-label">订单编号：</text>
+          <text class="info-value">{{orderInfo.orderNumber || 'HBN8672889076'}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">支付时间：</text>
+          <text class="info-value">{{orderInfo.payTime || '2025-05-31 14:28:09'}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">支付方式：</text>
+          <text class="info-value">{{orderInfo.payMethod || '微信支付'}}</text>
+        </view>
+        
+        <!-- 收货地址信息 -->
+        <view class="address-info" wx:if="{{orderInfo.address}}">
+          <view class="address-title">收货信息</view>
+          <view class="info-item address-row">
+            <text class="info-label">收货人：</text>
+            <text class="info-value">{{orderInfo.address.name}} {{orderInfo.address.phone}}</text>
+          </view>
+          <view class="info-item address-row">
+            <text class="info-label">收货地址：</text>
+            <text class="info-value">{{orderInfo.address.province}}{{orderInfo.address.city}}{{orderInfo.address.district}}{{orderInfo.address.detail}}</text>
+          </view>
+        </view>
+        
+        <!-- 配送方式 -->
+        <view class="delivery-info">
+          <view class="address-title">配送信息</view>
+          <view class="info-item">
+            <text class="info-label">配送方式：</text>
+            <text class="info-value">{{orderInfo.expressType || '快递'}} {{orderInfo.expressPrice > 0 ? '¥' + orderInfo.expressPrice : '(包邮)'}}</text>
+          </view>
+          <view class="info-item" wx:if="{{orderInfo.message}}">
+            <text class="info-label">买家留言：</text>
+            <text class="info-value">{{orderInfo.message}}</text>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 操作按钮 -->
+      <view class="action-buttons">
+        <button class="btn view-order" bindtap="viewOrderDetails">查看订单</button>
+        <button class="btn continue-shopping" bindtap="continueShopping">继续购物</button>
+      </view>
+    </view>
+    
+    <!-- 推荐商品模块 -->
+    <view class="recommend-section">
+      <view class="section-title">
+        <text>为您推荐</text>
+        <view class="title-line"></view>
+      </view>
+      
+      <view class="recommend-list">
+        <view class="recommend-item" wx:for="{{recommendList}}" wx:key="id" bindtap="goToProduct" data-id="{{item.id}}">
+          <view class="recommend-image-container">
+            <image src="{{item.imageUrl}}" mode="aspectFill" class="recommend-image"></image>
+            <view class="discount-tag" wx:if="{{item.discount}}">{{item.discount}}折</view>
+          </view>
+          <view class="recommend-info">
+            <view class="recommend-title">{{item.title}}</view>
+            <view class="price-info">
+              <text class="current-price">¥{{item.price}}</text>
+              <text class="original-price" wx:if="{{item.originalPrice}}">¥{{item.originalPrice}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 底部装饰 -->
+    <view class="bottom-decoration"></view>
+  </view>
+  
+  <!-- 敦煌风格装饰元素 -->
+  <view class="dunhuang-decoration top-left"></view>
+  <view class="dunhuang-decoration top-right"></view>
+  <view class="dunhuang-decoration bottom-left"></view>
+  <view class="dunhuang-decoration bottom-right"></view>
+</view> 

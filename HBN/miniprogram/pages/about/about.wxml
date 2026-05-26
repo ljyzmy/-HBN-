@@ -1,0 +1,72 @@
+<!-- pages/about/about.wxml -->
+<view class="container">
+  <!-- 公司信息 -->
+  <view class="company-info">
+    <image class="company-logo" src="{{companyInfo.logo}}" mode="aspectFit"></image>
+    <view class="company-name">{{companyInfo.name}}</view>
+    <view class="company-slogan">{{companyInfo.slogan}}</view>
+    <view class="version">{{companyInfo.version}}</view>
+  </view>
+  
+  <!-- 公司介绍 -->
+  <view class="section">
+    <view class="section-title">公司介绍</view>
+    <view class="description">
+      <text>{{companyInfo.description}}</text>
+    </view>
+  </view>
+  
+  <!-- 功能列表 -->
+  <view class="section">
+    <view class="section-title">相关信息</view>
+    <view class="feature-list">
+      <view class="feature-item" wx:for="{{featureList}}" wx:key="id" bindtap="viewDetail" data-id="{{item.id}}">
+        <text class="feature-title">{{item.title}}</text>
+        <image class="arrow-right" src="/assets/icons/arrow_right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 联系方式 -->
+  <view class="section">
+    <view class="section-title">联系我们</view>
+    <view class="contact-list">
+      <view class="contact-item" bindtap="viewLocation">
+        <view class="contact-info">
+          <image class="contact-icon" src="/assets/icons/address.png" mode="aspectFit"></image>
+          <text class="contact-text">{{contactInfo.address}}</text>
+        </view>
+        <text class="copy-btn" catchtap="copyText" data-type="address">复制</text>
+      </view>
+      
+      <view class="contact-item" bindtap="callPhone">
+        <view class="contact-info">
+          <image class="contact-icon" src="/assets/icons/phone.png" mode="aspectFit"></image>
+          <text class="contact-text">{{contactInfo.phone}}</text>
+        </view>
+        <text class="copy-btn" catchtap="copyText" data-type="phone">复制</text>
+      </view>
+      
+      <view class="contact-item">
+        <view class="contact-info">
+          <image class="contact-icon" src="/assets/icons/email.png" mode="aspectFit"></image>
+          <text class="contact-text">{{contactInfo.email}}</text>
+        </view>
+        <text class="copy-btn" catchtap="copyText" data-type="email">复制</text>
+      </view>
+      
+      <view class="contact-item">
+        <view class="contact-info">
+          <image class="contact-icon" src="/assets/icons/website.png" mode="aspectFit"></image>
+          <text class="contact-text">{{contactInfo.website}}</text>
+        </view>
+        <text class="copy-btn" catchtap="copyText" data-type="website">复制</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部版权 -->
+  <view class="footer">
+    <text>Copyright © 2010-2025 HBN All Rights Reserved</text>
+  </view>
+</view> 

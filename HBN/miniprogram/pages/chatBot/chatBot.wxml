@@ -1,0 +1,8 @@
+<!--pages/chatBot/chatBot.wxml-->
+<view class="agent-container">
+  <!-- 背景装饰元素 -->
+  <view class="page-bg"></view>
+  
+  <!-- 智能客服组件 -->
+  <agent-ui agentConfig="{{agentConfig}}" showBotAvatar="{{showBotAvatar}}" chatMode="{{chatMode}}" modelConfig="{{modelConfig}}"></agent-ui>
+</view>

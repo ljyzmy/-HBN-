@@ -1,0 +1,111 @@
+<view class="detail-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav">
+    <view class="nav-back" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-title">交易详情</view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 加载中显示骨架屏 -->
+  <view class="loading-skeleton" wx:if="{{loading}}">
+    <view class="skeleton-header"></view>
+    <view class="skeleton-amount"></view>
+    <view class="skeleton-line"></view>
+    <view class="skeleton-block"></view>
+    <view class="skeleton-line"></view>
+    <view class="skeleton-block"></view>
+  </view>
+  
+  <!-- 交易详情 -->
+  <view class="transaction-detail" wx:if="{{!loading && transaction}}">
+    <!-- 状态头部 -->
+    <view class="detail-header type-{{transaction.type}}">
+      <view class="header-icon">
+        <view class="transaction-icon type-{{transaction.type}}"></view>
+      </view>
+      <view class="header-content">
+        <view class="header-title">{{getTransactionTypeText(transaction.type)}}</view>
+        <view class="header-status">{{getTransactionStatusText(transaction.status)}}</view>
+      </view>
+    </view>
+    
+    <!-- 金额显示 -->
+    <view class="detail-amount">
+      <text class="amount-prefix">¥</text>
+      <text class="amount-value">{{transaction.amount > 0 ? transaction.amount : -transaction.amount}}</text>
+    </view>
+    
+    <!-- 交易信息列表 -->
+    <view class="detail-list">
+      <view class="detail-item">
+        <text class="item-label">交易时间</text>
+        <text class="item-value">{{transaction.date}}</text>
+      </view>
+      
+      <view class="detail-item">
+        <text class="item-label">交易类型</text>
+        <text class="item-value">{{getTransactionTypeText(transaction.type)}}</text>
+      </view>
+      
+      <view class="detail-item">
+        <text class="item-label">交易描述</text>
+        <text class="item-value">{{transaction.desc}}</text>
+      </view>
+      
+      <view class="detail-item" wx:if="{{transaction.payMethod}}">
+        <text class="item-label">支付方式</text>
+        <text class="item-value">{{transaction.payMethod}}</text>
+      </view>
+      
+      <view class="detail-item">
+        <text class="item-label">交易单号</text>
+        <view class="item-value copy-value" bindtap="copyTransactionNo">
+          <text>{{transaction.id}}</text>
+          <view class="copy-icon"></view>
+        </view>
+      </view>
+      
+      <view class="detail-item" wx:if="{{transaction.orderNo}}">
+        <text class="item-label">订单编号</text>
+        <view class="item-value order-link" bindtap="viewRelatedOrder">
+          <text>{{transaction.orderNo}}</text>
+          <view class="arrow-icon"></view>
+        </view>
+      </view>
+      
+      <view class="detail-item" wx:if="{{transaction.payAccount}}">
+        <text class="item-label">{{transaction.amount > 0 ? '付款账户' : '收款账户'}}</text>
+        <text class="item-value">{{transaction.payAccount}}</text>
+      </view>
+      
+      <view class="detail-item" wx:if="{{transaction.receiveAccount}}">
+        <text class="item-label">{{transaction.amount > 0 ? '收款账户' : '付款账户'}}</text>
+        <text class="item-value">{{transaction.receiveAccount}}</text>
+      </view>
+      
+      <view class="detail-item" wx:if="{{transaction.operator}}">
+        <text class="item-label">操作人</text>
+        <text class="item-value">{{transaction.operator}}</text>
+      </view>
+      
+      <view class="detail-item" wx:if="{{transaction.remark}}">
+        <text class="item-label">备注</text>
+        <text class="item-value">{{transaction.remark || '无'}}</text>
+      </view>
+    </view>
+    
+    <!-- 底部按钮 -->
+    <view class="detail-actions">
+      <button class="action-btn contact" bindtap="contactService">联系客服</button>
+    </view>
+  </view>
+  
+  <!-- 错误状态 -->
+  <view class="error-state" wx:if="{{!loading && !transaction}}">
+    <image class="error-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/错误.png"></image>
+    <text class="error-text">交易数据获取失败</text>
+    <button class="error-btn" bindtap="goBack">返回</button>
+  </view>
+</view> 

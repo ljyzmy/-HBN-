@@ -1,0 +1,113 @@
+<view class="brand-container">
+  <!-- 顶部轮播图 -->
+  <view class="brand-banner">
+    <swiper autoplay="{{true}}" interval="4000" duration="500" circular="{{true}}" bindchange="onBannerChange">
+      <block wx:for="{{banners}}" wx:key="id">
+        <swiper-item>
+          <view class="banner-item" bindtap="previewImage" data-url="{{item.imageUrl}}">
+            <image src="{{item.imageUrl}}" mode="aspectFill"></image>
+            <view class="banner-title">{{item.title}}</view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="banner-indicator">
+      <view wx:for="{{banners}}" wx:key="id" class="indicator-dot {{currentBanner === index ? 'active' : ''}}"></view>
+    </view>
+  </view>
+  
+  <!-- 品牌介绍 -->
+  <view class="brand-intro section">
+    <view class="section-title">品牌理念</view>
+    <view class="intro-content">
+      <view class="intro-logo">HBN</view>
+      <view class="intro-slogan">让"真功效"名副其实</view>
+      <view class="intro-desc">
+        HBN品牌诞生于对真实功效的追求。我们坚信，护肤不仅是一种仪式感，更是科学与艺术的结合。每一款产品背后，都有着对科学的尊重和对美的执着追求。通过精选全球优质原料，结合先进科技，我们致力于为每一位消费者带来真实可感的护肤体验。
+      </view>
+    </view>
+  </view>
+  
+  <!-- 创始人介绍 -->
+  <view class="founder-section section">
+    <view class="section-title">创始人寄语</view>
+    <view class="founder-content">
+      <image class="founder-avatar" src="{{founder.avatar}}" mode="aspectFill"></image>
+      <view class="founder-info">
+        <view class="founder-name">{{founder.name}}</view>
+        <view class="founder-title">{{founder.title}}</view>
+        <view class="founder-quote">"{{founder.quote}}"</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 品牌价值观 -->
+  <view class="values-section section">
+    <view class="section-title">核心价值观</view>
+    <view class="values-grid">
+      <view class="value-item" wx:for="{{values}}" wx:key="id">
+        <image class="value-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <view class="value-title">{{item.title}}</view>
+        <view class="value-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 品牌历程 -->
+  <view class="timeline-section section">
+    <view class="section-title">品牌历程</view>
+    <view class="timeline">
+      <view class="timeline-item" wx:for="{{timeline}}" wx:key="year">
+        <view class="timeline-year">{{item.year}}</view>
+        <view class="timeline-connector">
+          <view class="timeline-dot"></view>
+          <view class="timeline-line" wx:if="{{index !== timeline.length-1}}"></view>
+        </view>
+        <view class="timeline-content">{{item.event}}</view>
+      </view>
+      <view class="timeline-footer">
+        <view class="timeline-more">向上滑动查看更多历程</view>
+      </view>
+    </view>
+          </view>
+
+  <!-- 荣誉奖项 -->
+  <view class="awards-section section">
+    <view class="section-title">荣誉奖项</view>
+    <view class="awards-list">
+      <view class="award-item" wx:for="{{awards}}" wx:key="id">
+        <image class="award-logo" src="{{item.logo}}" mode="aspectFit"></image>
+        <view class="award-info">
+          <view class="award-title">{{item.title}}</view>
+          <view class="award-year">{{item.year}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 品牌承诺 -->
+  <view class="promise-section section">
+    <view class="section-title">我们的承诺</view>
+    <view class="promise-content">
+      <view class="promise-item">
+        <view class="promise-title">真实功效</view>
+        <view class="promise-desc">我们承诺每一款产品都经过严格测试，确保功效真实可见。</view>
+      </view>
+      <view class="promise-item">
+        <view class="promise-title">品质保证</view>
+        <view class="promise-desc">精选全球优质原料，严格把控生产流程，保证产品品质。</view>
+      </view>
+      <view class="promise-item">
+        <view class="promise-title">环保责任</view>
+        <view class="promise-desc">采用环保包装，减少废弃物，共建美丽地球。</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部品牌标识 -->
+  <view class="brand-footer">
+    <view class="footer-logo">HBN</view>
+    <view class="footer-slogan">专研成分 对抗肌肤老化</view>
+    <view class="footer-copyright">© 2025 HBN 版权所有</view>
+  </view>
+</view> 

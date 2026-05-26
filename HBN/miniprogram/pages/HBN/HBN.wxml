@@ -1,0 +1,265 @@
+<!--pages/HBN/HBN.wxml-->
+<view class="container">
+    <!-- 自定义导航栏 -->
+    <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="search-btn" bindtap="goToSearch">
+      <image src="https://img.api.aa1.cn/2025/04/13/62fde02b02f79.png" mode="aspectFit" class="search-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="https://img.api.aa1.cn/2025/04/13/54754b54626e1.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 添加竖向滚动组件 -->
+  <scroll-view 
+    scroll-y="{{true}}" 
+    class="vertical-scroll" 
+    bindscroll="onPageScroll"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}"
+    bounces="{{true}}">
+    
+    <!-- 添加内容容器 -->
+    <view class="content-container">
+      <!-- 顶部横幅 - 视频 -->
+      <view class="banner">
+        <video 
+          class="banner-video"
+          src="{{banner.video}}"
+          autoplay="{{true}}"
+          loop="{{true}}"
+          muted="{{true}}"
+          object-fit="cover"
+          show-play-btn="{{false}}"
+          controls="{{false}}"
+          enable-progress-gesture="{{false}}">
+        </video>
+        <view class="banner-overlay">
+          <view class="banner-title">{{banner.title}}</view>
+          <view class="banner-subtitle">{{banner.subtitle}}</view>
+        </view>
+      </view>
+      
+      <!-- 科研实力展示 -->
+      <view class="science-proof">
+        <view wx:for="{{scienceProof}}" wx:key="text" class="proof-item">
+          <view class="proof-icon icon-{{item.icon}}"></view>
+          <view class="proof-text">{{item.text}}</view>
+        </view>
+      </view>
+      
+      <!-- 直播专区标题 -->
+      <view class="section-title">
+        <view class="title-text">直播专区</view>
+        <view class="title-desc">专业科研团队现场解析</view>
+      </view>
+      
+      <!-- 直播间列表 -->
+      <view class="live-list">
+        <view 
+          wx:for="{{liveRooms}}" 
+          wx:key="id" 
+          class="live-card {{item.status}}"
+          bindtap="enterLiveRoom"
+          data-id="{{item.id}}"
+          data-status="{{item.status}}">
+          <image class="live-cover" src="{{item.coverImage}}" mode="aspectFill"></image>
+          
+          <!-- 直播状态标签 -->
+          <view class="live-status">
+            <view wx:if="{{item.status === 'living'}}" class="status-tag living">
+              <view class="status-dot"></view>直播中
+            </view>
+            <view wx:elif="{{item.status === 'upcoming'}}" class="status-tag upcoming">预告</view>
+            <view wx:else class="status-tag replay">回放</view>
+          </view>
+          
+          <!-- 直播信息 -->
+          <view class="live-info">
+            <view class="live-title">{{item.title}}</view>
+            <view class="live-meta">
+              <view class="host-info">
+                <image class="host-avatar" src="{{item.hostAvatar}}"></image>
+                <view class="host-name">{{item.hostName}}</view>
+              </view>
+              <view wx:if="{{item.status === 'living' || item.status === 'replay'}}" class="view-count">
+                <view class="view-icon"></view>
+                {{item.viewCount}}
+              </view>
+              <view wx:if="{{item.status === 'upcoming'}}" class="start-time">
+                {{item.startTime}}
+              </view>
+            </view>
+          </view>
+          
+          <!-- 行动按钮 -->
+          <view class="live-action">
+            <view wx:if="{{item.status === 'living'}}" class="action-btn live-now">立即观看</view>
+            <view wx:elif="{{item.status === 'upcoming'}}" class="action-btn reserve">预约提醒</view>
+            <view wx:else class="action-btn replay">观看回放</view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 直播热卖产品 -->
+      <view class="section-title">
+        <view class="title-text">直播热卖</view>
+        <view class="title-desc">权威临床功效实测</view>
+      </view>
+      
+      <!-- 产品列表 -->
+      <view class="product-list">
+        <view 
+          wx:for="{{featuredProducts}}" 
+          wx:key="id" 
+          class="product-card"
+          bindtap="goToProduct"
+          data-id="{{item.id}}">
+          <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="product-tag">{{item.tag}}</view>
+          <view class="product-info">
+            <view class="product-name">{{item.name}}</view>
+            <view class="product-desc">{{item.desc}}</view>
+            <view class="product-price-row">
+              <view class="price-container">
+                <view class="product-price">¥{{item.price}}</view>
+                <view class="product-original">¥{{item.originalPrice}}</view>
+              </view>
+              <view class="product-sold">已售{{item.sold}}件</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 限时专享 -->
+      <view class="promotion-section">
+        <view class="promotion-title">直播间限时专享</view>
+        <view class="countdown">
+          <text>活动结束时间：2025年6月11日 20:00</text>
+        </view>
+        <view class="countdown">
+          <text>距结束还剩：</text>
+          <text class="time-block">{{promotions.days}}天</text>
+          <text class="time-block">{{promotions.hours}}时</text>
+          <text class="time-block">{{promotions.minutes}}分</text>
+          <text class="time-block">{{promotions.seconds}}秒</text>
+        </view>
+        <view class="coupon-container">
+          <view class="coupon">{{promotions.coupon}}</view>
+          <view class="coupon-btn {{promotions.isCouponReceived ? 'coupon-received' : ''}}" bindtap="getLiveCoupon">
+            {{promotions.isCouponReceived ? '已领取' : '立即领取'}}
+          </view>
+        </view>
+      </view>
+      
+      <!-- 品牌理念 -->
+      <view class="brand-concept">
+        <view class="concept-title">品牌理念</view>
+        <view class="concept-slogan">藏在时光里的约定</view>
+        <view class="concept-desc">HBN，国货护肤品牌中的真功效倡导者，自诞生之初便立下"真功效"的坚定誓言。五年来，始终坚守"让真功效名副其实"的承诺，以实际行动践行诺言，确保消费者的每一分钱都投入到真实可见的功效上。</view>
+      </view>
+      
+      <!-- 底部安全区 -->
+      <view class="safe-bottom-area"></view>
+    </view>
+  </scroll-view>
+  
+  <!-- 直播预约弹窗 -->
+  <view class="reservation-modal" wx:if="{{showReservation}}">
+    <view class="modal-content">
+      <view class="modal-title">直播预约</view>
+      <view class="modal-desc">预约成功后，我们将在直播开始前通过微信通知您</view>
+      <view class="modal-action">
+        <view class="modal-btn cancel" bindtap="closeReservation">取消</view>
+        <view class="modal-btn confirm" bindtap="reserveLive">确认预约</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 直播窗口弹出层 -->
+  <view class="live-popup" wx:if="{{showLivePopup}}">
+    <view class="live-popup-content">
+      <view class="live-popup-header">
+        <view class="live-popup-title">{{currentLive.title}}</view>
+        <view class="live-popup-close" bindtap="closeLivePopup">×</view>
+      </view>
+      <view class="live-popup-body">
+        <live-player 
+          class="live-player"
+          id="livePlayer" 
+          src="rtmp://live.example.com/hbn/{{currentLive.id}}" 
+          mode="live" 
+          autoplay="{{true}}"
+          object-fit="contain">
+        </live-player>
+        <view class="live-popup-info">
+          <view class="live-popup-host">
+            <image class="host-avatar-large" src="{{currentLive.hostAvatar}}"></image>
+            <view class="host-info-detail">
+              <view class="host-name-large">{{currentLive.hostName}}</view>
+              <view class="live-view-count">
+                <view class="view-icon-large"></view>
+                {{currentLive.viewCount}} 人观看
+              </view>
+            </view>
+          </view>
+          <view class="live-popup-products" wx:if="{{currentLive.productId}}">
+            <view class="popup-product-title">主推产品</view>
+            <view class="popup-product-card" bindtap="goToProduct" data-id="{{currentLive.productId}}">
+              <image class="popup-product-image" wx:for="{{featuredProducts}}" wx:key="id" wx:if="{{item.id === currentLive.productId}}" src="{{item.image}}"></image>
+              <view class="popup-product-info" wx:for="{{featuredProducts}}" wx:key="id" wx:if="{{item.id === currentLive.productId}}">
+                <view class="popup-product-name">{{item.name}}</view>
+                <view class="popup-product-price">¥{{item.price}}</view>
+              </view>
+              <view class="popup-product-buy">立即购买</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 回放窗口弹出层 -->
+  <view class="replay-popup" wx:if="{{showReplayPopup}}">
+    <view class="live-popup-content">
+      <view class="live-popup-header">
+        <view class="live-popup-title">{{currentReplay.title}} (回放)</view>
+        <view class="live-popup-close" bindtap="closeReplayPopup">×</view>
+      </view>
+      <view class="live-popup-body">
+        <video 
+          class="replay-player"
+          id="replayPlayer" 
+          src="https://example.com/replay/{{currentReplay.id}}.mp4" 
+          controls="{{true}}"
+          object-fit="contain"
+          autoplay="{{true}}">
+        </video>
+        <view class="live-popup-info">
+          <view class="live-popup-host">
+            <image class="host-avatar-large" src="{{currentReplay.hostAvatar}}"></image>
+            <view class="host-info-detail">
+              <view class="host-name-large">{{currentReplay.hostName}}</view>
+              <view class="live-view-count">
+                <view class="view-icon-large"></view>
+                {{currentReplay.viewCount}} 人观看
+              </view>
+            </view>
+          </view>
+          <view class="live-popup-products" wx:if="{{currentReplay.productId}}">
+            <view class="popup-product-title">主推产品</view>
+            <view class="popup-product-card" bindtap="goToProduct" data-id="{{currentReplay.productId}}">
+              <image class="popup-product-image" wx:for="{{featuredProducts}}" wx:key="id" wx:if="{{item.id === currentReplay.productId}}" src="{{item.image}}"></image>
+              <view class="popup-product-info" wx:for="{{featuredProducts}}" wx:key="id" wx:if="{{item.id === currentReplay.productId}}">
+                <view class="popup-product-name">{{item.name}}</view>
+                <view class="popup-product-price">¥{{item.price}}</view>
+              </view>
+              <view class="popup-product-buy">立即购买</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

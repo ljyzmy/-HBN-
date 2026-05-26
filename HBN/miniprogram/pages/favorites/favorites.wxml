@@ -1,0 +1,89 @@
+<view class="favorites-container">
+  <!-- 顶部操作栏 -->
+  <view class="action-bar">
+    <text class="title">我的收藏 ({{favorites.length}})</text>
+    <view class="right-actions">
+      <view class="portrait-btn" wx:if="{{userPortrait && !isEditMode}}" bindtap="showPortraitAnalysis">
+        <text class="portrait-text">画像分析</text>
+      </view>
+      <text class="edit-btn" bindtap="toggleEditMode">{{isEditMode ? '完成' : '管理'}}</text>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="favorites-list" wx:elif="{{favorites.length > 0}}">
+    <view class="favorite-item" wx:for="{{favorites}}" wx:key="id" bindtap="viewProductDetail" data-id="{{item.id}}" hover-class="item-hover">
+      <!-- 选择框（编辑模式下显示） -->
+      <view class="checkbox {{selectedItems.indexOf(item.id) > -1 ? 'checked' : ''}}" wx:if="{{isEditMode}}" catchtap="toggleSelectItem" data-id="{{item.id}}"></view>
+      
+      <!-- 商品图片 -->
+      <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+      
+      <!-- 商品信息 -->
+      <view class="product-info">
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-category">{{item.category}}</text>
+        
+        <!-- 用户画像标签 - 显示适合当前商品的标签 -->
+        <view class="portrait-tags" wx:if="{{item.portrait_tags && item.portrait_tags.length > 0}}">
+          <text class="portrait-tag" wx:for="{{item.portrait_tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+        </view>
+        
+        <view class="product-bottom">
+          <view class="price-container">
+            <text class="price">¥{{item.price}}</text>
+            <text class="original-price">¥{{item.originalPrice}}</text>
+          </view>
+          
+          <!-- 非编辑模式下显示加入购物车按钮 -->
+          <view class="add-cart-btn" wx:if="{{!isEditMode}}" catchtap="addToCart" data-id="{{item.id}}">
+            <text>加入购物车</text>
+          </view>
+          
+          <!-- 编辑模式下显示删除按钮 -->
+          <view class="delete-btn" wx:if="{{isEditMode}}" catchtap="removeFavorite" data-id="{{item.id}}">
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <image class="empty-icon" src="{{emptyIconPath}}" mode="aspectFit"></image>
+    <text class="empty-text">暂无收藏商品</text>
+    <view class="go-shopping-btn" bindtap="goShopping">
+      <text>去逛逛</text>
+    </view>
+  </view>
+
+  <!-- 底部操作栏（编辑模式） -->
+  <view class="bottom-action-bar" wx:if="{{isEditMode && favorites.length > 0}}">
+    <view class="select-all" bindtap="toggleSelectAll">
+      <view class="checkbox {{selectedItems.length === favorites.length ? 'checked' : ''}}"></view>
+      <text>全选</text>
+    </view>
+    <view class="batch-delete {{selectedItems.length === 0 ? 'disabled' : ''}}" bindtap="batchRemoveFavorites">
+      <text>删除</text>
+      <text wx:if="{{selectedItems.length > 0}}">({{selectedItems.length}})</text>
+    </view>
+  </view>
+  
+  <!-- 添加悬浮购物车按钮 -->
+  <view class="cart-btn" bindtap="goToCart" wx:if="{{!isEditMode && favorites.length > 0}}" animation="{{cartAnimation}}">
+    <image src="https://img.api.aa1.cn/2025/05/12/ef333c6daa6c5.png" class="cart-icon"></image>
+    <view class="cart-badge" wx:if="{{cartCount > 0}}">{{cartCount}}</view>
+  </view>
+  
+  <!-- 数据来源提示 -->
+  <view class="data-source-tip" wx:if="{{cloudSync}}">
+    <text>数据已开启云同步</text>
+  </view>
+</view> 

@@ -1,0 +1,86 @@
+<!-- pages/service/service.wxml -->
+<view class="container">
+  <!-- 顶部横幅 -->
+  <view class="banner-section">
+    <view class="banner-text">
+      <view class="banner-title">HBN客户服务</view>
+      <view class="banner-subtitle">为您的美丽保驾护航</view>
+    </view>
+    <view class="banner-bg"></view>
+  </view>
+
+  <!-- 客服选项卡 -->
+  <view class="service-options">
+    <view 
+      class="service-option" 
+      wx:for="{{serviceOptions}}" 
+      wx:key="id" 
+      bindtap="contactService" 
+      data-type="{{item.id}}"
+      hover-class="hover-effect"
+    >
+      <image class="option-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <view class="option-info">
+        <text class="option-title">{{item.title}}</text>
+        <text class="option-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 客服信息 -->
+  <view class="service-info-box">
+    <view class="section-header">
+      <view class="section-title-bar"></view>
+      <view class="section-title">客服信息</view>
+    </view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="info-label">服务电话：</text>
+        <text class="info-value">{{serviceInfo.phoneNumber}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">服务时间：</text>
+        <text class="info-value">{{serviceInfo.workTime}}</text>
+      </view>
+      <view class="info-item" bindtap="copyServiceInfo" data-type="email">
+        <text class="info-label">邮箱地址：</text>
+        <text class="info-value">{{serviceInfo.email}}</text>
+        <text class="copy-btn">复制</text>
+      </view>
+      <view class="info-item" bindtap="copyServiceInfo" data-type="wechat">
+        <text class="info-label">微信客服：</text>
+        <text class="info-value">{{serviceInfo.wechat}}</text>
+        <text class="copy-btn">复制</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 常见问题 -->
+  <view class="faq-box">
+    <view class="section-header">
+      <view class="section-title-bar"></view>
+      <view class="section-title">常见问题</view>
+    </view>
+    <view class="faq-list">
+      <view 
+        class="faq-item {{expandedFaqId === item.id ? 'expanded' : ''}}" 
+        wx:for="{{faqList}}" 
+        wx:key="id" 
+        bindtap="toggleFaq" 
+        data-id="{{item.id}}"
+      >
+        <view class="faq-question">
+          <text>{{item.question}}</text>
+          <view class="faq-arrow {{expandedFaqId === item.id ? 'expanded' : ''}}"></view>
+        </view>
+        <view class="faq-answer" wx:if="{{expandedFaqId === item.id}}">{{item.answer}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部信息 -->
+  <view class="footer-info">
+    <view class="footer-logo">HBN</view>
+    <view class="footer-slogan">让"真功效"名副其实</view>
+  </view>
+</view> 

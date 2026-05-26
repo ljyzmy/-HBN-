@@ -1,0 +1,592 @@
+/* pages/order/detail.wxss */
+
+/* 基础变量 */
+page {
+  --color-primary: #618a49;
+  --color-secondary: #8aad75;
+  --color-danger: #a64036;
+  --color-warning: #cf985c;
+  --color-background: #f8f8f8;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-text-lighter: #999;
+  --color-border: #eee;
+  --radius-small: 8rpx;
+  --radius-medium: 16rpx;
+  --radius-large: 24rpx;
+  --shadow-small: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  --shadow-large: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  background-color: var(--color-background);
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: 100rpx; /* 为底部按钮留出空间 */
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: var(--shadow-small);
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.nav-back {
+  width: 80rpx;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.nav-placeholder {
+  width: 80rpx;
+  height: 44px;
+}
+
+/* 顶部安全区域 */
+.safe-top {
+  width: 100%;
+}
+
+/* 底部安全区域 */
+.safe-bottom {
+  width: 100%;
+  height: 40rpx;
+}
+
+/* 加载中 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+  flex: 1;
+}
+
+.loading {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.loading-spinner {
+  width: 100%;
+  height: 100%;
+  border: 6rpx solid rgba(97, 138, 73, 0.1);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: var(--color-text-light);
+}
+
+/* 通用卡片样式 */
+.section-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: var(--radius-medium);
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-small);
+}
+
+/* 通用标题样式 */
+.section-title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid var(--color-border);
+  margin-bottom: 20rpx;
+}
+
+.title-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.title-img {
+  width: 100%;
+  height: 100%;
+}
+
+.title-text {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.title-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+}
+
+.right-arrow {
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 2rpx solid var(--color-text-lighter);
+  border-right: 2rpx solid var(--color-text-lighter);
+  transform: rotate(45deg);
+  margin-left: 10rpx;
+}
+
+/* 订单状态 */
+.status-section {
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  color: #fff;
+  margin-bottom: 30rpx;
+  box-shadow: var(--shadow-small);
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+}
+
+.status-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-img {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.status-info {
+  flex: 1;
+}
+
+.status-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.status-unpaid {
+  color: #ffcc00;
+}
+
+.status-desc {
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+/* 地址信息 */
+.address-info {
+  padding: 10rpx 0;
+}
+
+.address-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.address-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-right: 20rpx;
+}
+
+.address-phone {
+  font-size: 28rpx;
+  color: var(--color-text-light);
+}
+
+.address-detail {
+  font-size: 28rpx;
+  color: var(--color-text-light);
+  line-height: 1.4;
+}
+
+/* 物流信息 */
+.logistics-info {
+  padding: 10rpx 0;
+}
+
+.logistics-company {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.logistics-number {
+  margin-left: 10rpx;
+  color: var(--color-text-light);
+}
+
+.logistics-status {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+  line-height: 1.4;
+}
+
+/* 商品信息 */
+.product-card {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.product-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: var(--radius-small);
+  margin-right: 20rpx;
+  background-color: #f9f9f9;
+  border: 1rpx solid var(--color-border);
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.product-specs {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 10rpx;
+}
+
+.product-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 30rpx;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.product-quantity {
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+}
+
+.product-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20rpx 0 0;
+}
+
+.total-label {
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.total-value {
+  font-size: 32rpx;
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+/* 订单信息与售后信息 */
+.info-list {
+  padding: 10rpx 0;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: var(--color-text-light);
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: var(--color-text);
+  max-width: 65%;
+  text-align: right;
+}
+
+.info-value-row {
+  display: flex;
+  align-items: center;
+}
+
+/* 复制按钮 */
+.copy-btn {
+  font-size: 24rpx;
+  color: var(--color-primary);
+  border: 1rpx solid var(--color-primary);
+  border-radius: 30rpx;
+  padding: 2rpx 16rpx;
+  margin-left: 16rpx;
+}
+
+/* 底部操作区 */
+.bottom-action-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.action-btn {
+  padding: 0 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 35rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+
+.action-btn.primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.action-btn.secondary {
+  background-color: #f5f5f5;
+  color: var(--color-text);
+  border: 1rpx solid #e0e0e0;
+}
+
+/* 物流弹窗 */
+.logistics-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+.logistics-popup.popup-show {
+  visibility: visible;
+}
+
+.popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logistics-popup.popup-show .popup-mask {
+  opacity: 1;
+}
+
+.popup-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 80%;
+  background-color: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 30rpx;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.logistics-popup.popup-show .popup-content {
+  transform: translateY(0);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.popup-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.popup-close {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: var(--color-text-light);
+}
+
+.company-info {
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.company-name {
+  font-size: 30rpx;
+  color: var(--color-text);
+  margin-bottom: 10rpx;
+}
+
+.tracking-number {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+}
+
+/* 物流时间线 */
+.logistics-timeline {
+  padding: 20rpx 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 40rpx 40rpx;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item:before {
+  content: '';
+  position: absolute;
+  left: 10rpx;
+  top: 20rpx;
+  bottom: 0;
+  width: 2rpx;
+  background-color: #e0e0e0;
+}
+
+.timeline-item:last-child:before {
+  display: none;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+}
+
+.timeline-item.active .timeline-dot {
+  background-color: var(--color-primary);
+  border: 4rpx solid rgba(97, 138, 73, 0.2);
+  width: 12rpx;
+  height: 12rpx;
+}
+
+.timeline-content {
+  position: relative;
+}
+
+.timeline-time {
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 8rpx;
+}
+
+.timeline-text {
+  font-size: 28rpx;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.timeline-item.active .timeline-time,
+.timeline-item.active .timeline-text {
+  color: var(--color-primary);
+} 

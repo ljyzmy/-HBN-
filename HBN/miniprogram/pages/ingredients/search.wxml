@@ -1,0 +1,146 @@
+<!--pages/ingredients/search.wxml-->
+<view class="container">
+  <!-- 搜索头部 -->
+  <view class="search-header">
+    <view class="search-box">
+      <image class="search-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/搜索.png" mode="aspectFit"></image>
+      <input class="search-input" placeholder="输入成分名称或别名" value="{{searchValue}}" bindinput="onSearchInput" confirm-type="search" bindconfirm="doSearch"/>
+      <view class="search-clear" wx:if="{{searchValue}}" bindtap="clearInput">
+        <view class="clear-icon"></view>
+      </view>
+    </view>
+    <view class="search-button" bindtap="doSearch">搜索</view>
+  </view>
+  
+  <!-- 搜索内容区域 -->
+  <view class="search-content" wx:if="{{!showResult}}">
+    <!-- 搜索历史 -->
+    <view class="search-section" wx:if="{{searchHistory.length > 0}}">
+      <view class="section-header">
+        <text class="section-title">搜索历史</text>
+        <view class="clear-history" bindtap="clearHistory">清除</view>
+      </view>
+      <view class="history-list">
+        <view class="history-item" wx:for="{{searchHistory}}" wx:key="index" bindtap="searchFromHistory" data-keyword="{{item}}">
+          <view class="history-icon"></view>
+          <text class="history-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 热门成分 -->
+    <view class="search-section">
+      <view class="section-header">
+        <text class="section-title">热门成分</text>
+      </view>
+      <view class="popular-list">
+        <view class="popular-item" wx:for="{{popularIngredients}}" wx:key="name" bindtap="searchPopular" data-index="{{index}}">
+          <view class="popular-name">{{item.name}}</view>
+          <view class="popular-category">{{item.category}}</view>
+          <view class="popular-safety" style="background-color: {{safetyLevels[item.safetyLevel-1].color}};">
+            <text>{{safetyLevels[item.safetyLevel-1].description}}</text>
+          </view>
+          <view class="popular-desc">{{item.description}}</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 成分分类 -->
+    <view class="search-section">
+      <view class="section-header">
+        <text class="section-title">按功效分类</text>
+      </view>
+      <view class="category-list">
+        <view class="category-item" wx:for="{{categories}}" wx:key="index">
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 成分详情结果 -->
+  <view class="ingredient-result" wx:if="{{showResult}}">
+    <view class="result-header">
+      <view class="back-button" bindtap="backToSearch">
+        <view class="back-icon"></view>
+        <text>返回</text>
+      </view>
+      <view class="result-title">成分详情</view>
+    </view>
+    
+    <view class="result-content">
+      <!-- 基本信息 -->
+      <view class="info-card">
+        <view class="info-header">
+          <view class="info-name">{{ingredientResult.name}}</view>
+          <view class="info-safety-tag" style="background-color: {{safetyLevels[ingredientResult.safetyLevel-1].color}};">
+            {{safetyLevels[ingredientResult.safetyLevel-1].description}}
+          </view>
+        </view>
+        
+        <view class="info-row">
+          <text class="info-label">英文名：</text>
+          <text class="info-value">{{ingredientResult.englishName}}</text>
+        </view>
+        
+        <view class="info-row" wx:if="{{ingredientResult.alias && ingredientResult.alias.length > 0}}">
+          <text class="info-label">别名：</text>
+          <text class="info-value">{{ingredientResult.alias.join('、')}}</text>
+        </view>
+        
+        <view class="info-row">
+          <text class="info-label">分类：</text>
+          <text class="info-value">{{ingredientResult.category}}</text>
+        </view>
+      </view>
+      
+      <!-- 详细描述 -->
+      <view class="detail-card">
+        <view class="detail-title">成分介绍</view>
+        <view class="detail-text">{{ingredientResult.description}}</view>
+      </view>
+      
+      <!-- 功效 -->
+      <view class="detail-card">
+        <view class="detail-title">主要功效</view>
+        <view class="tag-list">
+          <view class="tag-item" wx:for="{{ingredientResult.benefits}}" wx:key="index">{{item}}</view>
+        </view>
+      </view>
+      
+      <!-- 适用肤质 -->
+      <view class="detail-card">
+        <view class="detail-title">适用肤质</view>
+        <view class="tag-list">
+          <view class="tag-item skin-type" wx:for="{{ingredientResult.suitableSkinTypes}}" wx:key="index">{{item}}</view>
+        </view>
+      </view>
+      
+      <!-- 使用方法 -->
+      <view class="detail-card">
+        <view class="detail-title">使用方法</view>
+        <view class="detail-text">{{ingredientResult.usage}}</view>
+      </view>
+      
+      <!-- 注意事项 -->
+      <view class="detail-card">
+        <view class="detail-title">注意事项</view>
+        <view class="detail-text caution">{{ingredientResult.cautions}}</view>
+      </view>
+      
+      <!-- 常见产品 -->
+      <view class="detail-card">
+        <view class="detail-title">常见产品形式</view>
+        <view class="tag-list">
+          <view class="tag-item product" wx:for="{{ingredientResult.commonProducts}}" wx:key="index">{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 加载中 -->
+  <view class="loading-container" wx:if="{{searching}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">正在搜索...</text>
+  </view>
+</view> 

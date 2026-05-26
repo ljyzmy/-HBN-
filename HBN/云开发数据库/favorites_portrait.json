@@ -1,0 +1,5 @@
+{"_id":"fp_001","user_id":"user_001","portrait_id":"portrait_001","favorites_count":3,"top_categories":["护肤"],"top_tags":["初老肌","油皮","敏感肌"],"last_favorite_time":"2023-06-01 16:33:40","analysis_result":"该用户偏好抗老化和保湿类产品，对价格敏感度低"}
+{"_id":"fp_002","user_id":"user_002","portrait_id":"portrait_002","favorites_count":2,"top_categories":["护肤"],"top_tags":["初老肌","油皮","干皮","熟龄肌"],"last_favorite_time":"2023-05-29 09:15:42","analysis_result":"该用户主要关注抗老化和滋润型产品，价格敏感度中等"}
+{"_id":"fp_003","user_id":"user_003","portrait_id":"portrait_003","favorites_count":2,"top_categories":["护肤"],"top_tags":["油皮","痘肌"],"last_favorite_time":"2023-06-02 10:20:15","analysis_result":"该用户主要关注控油和祛痘类产品，价格敏感度高"}
+{"_id":"fp_004","user_id":"user_004","portrait_id":"portrait_004","favorites_count":2,"top_categories":["护肤"],"top_tags":["干皮","敏感肌"],"last_favorite_time":"2023-06-03 13:40:27","analysis_result":"该用户偏好温和保湿类产品，对成分安全性要求高"}
+{"_id":"fp_005","user_id":"user_005","portrait_id":"portrait_005","favorites_count":1,"top_categories":["护肤"],"top_tags":["混合肌","熟龄肌"],"last_favorite_time":"2023-05-31 08:45:56","analysis_result":"该用户关注抗衰老和平衡性产品，有较高品牌忠诚度"} 

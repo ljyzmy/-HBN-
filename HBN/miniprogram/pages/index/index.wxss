@@ -1,0 +1,1824 @@
+/* 重置容器样式，防止与app.wxss冲突 */
+.page-container {
+  height: 100vh;
+  padding: 0;
+  display: block;
+  justify-content: initial;
+  align-items: initial;
+}
+
+/* 容器样式 */
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--birch-white);
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 30rpx 20rpx 30rpx;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-transparent {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.nav-opaque {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4rpx 20rpx rgba(255, 0, 0, 0.1);
+}
+
+.search-btn {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.nav-center {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 130rpx;
+  width: 240rpx;
+}
+
+.nav-placeholder {
+  width: 80rpx;
+}
+
+/* 主轮播图样式 */
+.main-swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+/* 横向轮播图部分 */
+.banner-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.banner-swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+/* 确保轮播图全屏并位于导航栏下方 */
+.banner-swiper.fullscreen {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 下滑提示 */
+.scroll-tip {
+  position: absolute;
+  bottom: 90rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 24rpx;
+  z-index: 100;
+}
+
+.arrow-down {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 10rpx;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10rpx);
+  }
+}
+
+/* 添加滚动容器包装器 */
+.scroll-container-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 背景视频样式 */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* 视频覆盖层样式 - 半透明效果确保内容可读 */
+.background-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(249, 249, 247, 0.7), 
+    rgba(249, 249, 247, 0.6),
+    rgba(248, 245, 240, 0.7));
+  z-index: 1;
+}
+
+/* 修改滚动容器样式 */
+.scroll-container {
+  position: relative;
+  height: 100%;
+  z-index: 2;
+  padding-top: 170rpx;
+  padding-bottom: 120rpx;
+  box-sizing: border-box;
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 滚动内容样式 */
+.scroll-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* 品牌故事区域 - 修改为半透明效果 */
+.brand-story {
+  margin: 30rpx;
+  padding: 40rpx 30rpx;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03);
+  text-align: center;
+  border-left: 8rpx solid rgba(166, 64, 54, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 取消之前的背景纹理 */
+.brand-story::before {
+  display: none;
+}
+
+/* 加强文本可读性 */
+.brand-slogan {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--cedar-dark); /* 保持文字颜色不变 */
+  margin-bottom: 20rpx;
+  letter-spacing: 4rpx;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+  font-weight: 500;
+  text-shadow: 0 1rpx 3rpx rgba(255, 255, 255, 0.6); /* 添加文字阴影增强可读性 */
+}
+
+.brand-description {
+  font-size: 30rpx;
+  color: #333; /* 加深文字颜色，提高对比度 */
+  margin-bottom: 30rpx;
+  line-height: 1.5;
+  text-shadow: 0 1rpx 3rpx rgba(255, 255, 255, 0.5); /* 添加文字阴影 */
+}
+
+/* 调整徽章样式，确保在半透明背景下仍然可见 */
+.brand-badges {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20rpx;
+  position: relative; /* 确保在正确的层级 */
+  z-index: 1;
+}
+
+.brand-badges::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(97, 138, 73, 0.6), transparent); /* 调整分隔线透明度 */
+  margin: 20rpx 0;
+  opacity: 0.6;
+}
+
+.badge-num {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #618a49;
+  margin-bottom: 8rpx;
+  text-shadow: 0 1rpx 3rpx rgba(255, 255, 255, 0.7); /* 添加文字阴影 */
+}
+
+.badge-text {
+  font-size: 24rpx;
+  color: #666;
+  text-shadow: 0 1rpx 2rpx rgba(255, 255, 255, 0.6); /* 添加文字阴影 */
+}
+
+/* 限时专享区域 - 半透明背景效果 */
+.flash-sale {
+  margin: 30rpx;
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.05);
+  border-right: 8rpx solid rgba(97, 138, 73, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 移除原有背景图片的设置 */
+.flash-sale::before {
+  display: none;
+}
+
+/* 保留轻微纹理装饰增强敦煌风格 */
+.flash-sale::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://img.api.aa1.cn/2025/05/09/ff06cf8e6c851.png');
+  background-size: 200rpx;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 将内容提升到覆盖层上方 */
+.flash-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 确保原有样式保持不变 */
+.flash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.flash-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+  font-weight: 500;
+}
+
+.flash-title::before {
+  content: "";
+  display: inline-block;
+  width: 8rpx;
+  height: 30rpx;
+  background-color: var(--cedar-dark);
+  margin-right: 16rpx;
+  border-radius: 4rpx;
+}
+
+.flash-countdown {
+  display: flex;
+  align-items: center;
+}
+
+.countdown-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.countdown-box {
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #618a49;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  font-weight: bold;
+}
+
+.countdown-colon {
+  margin: 0 5rpx;
+  color: #618a49;
+  font-weight: bold;
+}
+
+/* 限时专享滚动容器 */
+.flash-scroll-container {
+  position: relative;
+  margin: 20rpx 0;
+}
+
+/* 滚动按钮样式 */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60rpx;
+  height: 60rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.scroll-btn:active {
+  transform: translateY(-50%) scale(0.95);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.left-btn {
+  left: 10rpx;
+}
+
+.right-btn {
+  right: 10rpx;
+}
+
+/* 箭头样式 */
+.arrow-left, .arrow-right {
+  width: 20rpx;
+  height: 20rpx;
+  border-style: solid;
+  border-color: #618a49;
+  border-width: 0;
+}
+
+.arrow-left {
+  border-top-width: 3rpx;
+  border-left-width: 3rpx;
+  transform: rotate(-45deg);
+  margin-left: 5rpx;
+}
+
+.arrow-right {
+  border-top-width: 3rpx;
+  border-right-width: 3rpx;
+  transform: rotate(45deg);
+  margin-right: 5rpx;
+}
+
+/* 横向滚动样式优化 */
+.flash-products {
+  display: flex;
+  white-space: nowrap;
+  padding: 10rpx 0;
+  margin: 60 60rpx; /* 为两侧按钮留出空间 */
+  overflow: hidden;
+}
+
+/* 确保产品卡片之间有适当间距 */
+.flash-product {
+  display: inline-block;
+  width: 220rpx;
+  margin: 0 10rpx;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.flash-product:active {
+  transform: scale(0.98);
+}
+
+.flash-product-image {
+  width: 100%;
+  height: 220rpx;
+  object-fit: cover;
+}
+
+.flash-product-discount {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  background-color: rgba(97, 138, 73, 0.9);
+  color: #fff;
+  font-size: 20rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 20rpx;
+}
+
+.flash-product-info {
+  padding: 10rpx;
+}
+
+.flash-product-title {
+  font-size: 24rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flash-product-price-row {
+  display: flex;
+  align-items: baseline;
+}
+
+.flash-product-price {
+  font-size: 28rpx;
+  color: #618a49;
+  font-weight: bold;
+  margin-right: 8rpx;
+}
+
+.flash-product-original {
+  font-size: 20rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* 明星产品系列 - 半透明背景效果 */
+.product-series {
+  margin: 30rpx;
+  padding: 40rpx 30rpx 30rpx 30rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 移除原有背景 */
+.product-series::before {
+  display: none;
+}
+
+/* 保留顶部装饰边框 */
+.product-series::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(to right, rgba(166, 64, 54, 0.8), rgba(207, 152, 92, 0.8));
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+/* 确保内容在背景之上 */
+.product-series .section-header,
+.product-series .series-container {
+  position: relative;
+  z-index: 1;
+}
+
+.series-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.series-card {
+  position: relative;
+  height: 250rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.08);
+  margin-bottom: 20rpx;
+}
+
+.series-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.series-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: #fff;
+  z-index: 2;
+}
+
+.series-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+  text-shadow: 0 1rpx 2rpx rgba(255, 255, 255, 0.5);
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+  font-weight: 500;
+}
+
+.series-desc {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* 产品系列视频容器 */
+.series-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+/* 产品系列视频样式 */
+.series-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20rpx;
+}
+
+/* 视频加载动画 */
+@keyframes seriesVideoFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.series-video {
+  animation: seriesVideoFadeIn 0.5s ease forwards;
+}
+
+/* 通用区块样式 - 更新为更高级的设计 */
+.section {
+  margin: 30rpx;
+  padding: 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+.section-header.elegant::after {
+  content: "";
+  position: absolute;
+  bottom: -10rpx;
+  left: 0;
+  width: 40rpx;
+  height: 3rpx;
+  background-color: #618a49;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--dunhuang-brown);
+  letter-spacing: 1rpx;
+  font-family: "FZLiBian", "FZLTXH--GBK1-0", "方正兰亭黑", sans-serif;
+  font-weight: 500;
+}
+
+.title-text::after {
+  background-color: var(--dunhuang-red);
+}
+
+.more {
+  font-size: 24rpx;
+  color: #618a49;
+  display: flex;
+  align-items: center;
+}
+
+.more::after {
+  content: "";
+  display: inline-block;
+  width: 12rpx;
+  height: 12rpx;
+  border-top: 2rpx solid #618a49;
+  border-right: 2rpx solid #618a49;
+  transform: rotate(45deg);
+  margin-left: 8rpx;
+}
+
+/* 会员福利模块样式 - 更新 */
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-item {
+  display: flex;
+  margin-bottom: 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.benefit-item:active {
+  transform: scale(0.98);
+}
+
+.benefit-image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 16rpx;
+  margin-right: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.benefit-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+
+.benefit-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.benefit-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20rpx;
+}
+
+.benefit-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.benefit-tag {
+  display: inline-block;
+  background-color: rgba(97, 138, 73, 0.1);
+  color: #618a49;
+  font-size: 22rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 30rpx;
+}
+
+.benefit-arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 2rpx solid #ccc;
+  border-right: 2rpx solid #ccc;
+  transform: rotate(45deg);
+  margin-right: 10rpx;
+}
+
+/* 美妆攻略模块样式 - 更新 */
+.strategy-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.strategy-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.strategy-item:active {
+  transform: translateY(4rpx);
+}
+
+.strategy-image {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 16rpx 16rpx 0 0;
+  object-fit: cover;
+}
+
+.strategy-info {
+  padding: 16rpx;
+}
+
+.strategy-title {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 72rpx;
+}
+
+.strategy-read {
+  font-size: 22rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.strategy-read::before {
+  content: "";
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 6rpx;
+}
+
+/* 热售商品模块样式 - 更新 */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product-item:active {
+  transform: scale(0.98);
+}
+
+.product-image {
+  width: 100%;
+  height: 450rpx;
+  object-fit: cover;
+}
+
+.product-content {
+  padding: 16rpx;
+}
+
+.product-title {
+  font-size: 26rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 72rpx;
+  line-height: 1.4;
+}
+
+.product-price-box {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10rpx;
+}
+
+.product-price {
+  font-size: 32rpx;
+  color: #618a49;
+  font-weight: bold;
+  margin-right: 10rpx;
+}
+
+.product-original-price {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.product-sales {
+  font-size: 22rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.product-badge {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  background-color: #618a49;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 6rpx 12rpx;
+  border-radius: 20rpx 0 20rpx 0;
+  box-shadow: 0 2rpx 8rpx rgba(97, 138, 73, 0.4);
+}
+
+/* 品牌理念模块 - 新增 */
+.brand-philosophy {
+  margin: 30rpx;
+  height: 300rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  position: relative;
+  background-image: url('https://img.api.aa1.cn/2025/05/09/24817c7281585.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.08);
+}
+
+.philosophy-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(138, 99, 77, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx;
+  color: #ffffff;
+}
+
+.philosophy-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  letter-spacing: 2rpx;
+  font-family: "FZLiBian", "FZLTXH--GBK1-0", "方正兰亭黑", sans-serif;
+  font-weight: 500;
+}
+
+.philosophy-divider {
+  width: 60rpx;
+  height: 3rpx;
+  background-color: #618a49;
+  margin-bottom: 20rpx;
+}
+
+.philosophy-text {
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 1.6;
+  text-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.3);
+  padding: 0 20rpx;
+}
+
+/* 添加底部安全区域 */
+.safe-bottom-area {
+  height: 100rpx;
+  width: 100%;
+}
+
+/* 会员福利卡片样式 */
+.member-card {
+  position: relative;
+  width: 100%;
+  height: 220rpx; /* 降低高度 */
+  margin-bottom: 90rpx; /* 减少底部间距，原来是140rpx */
+  overflow: visible;
+}
+
+.member-card .card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180rpx; /* 降低高度 */
+  z-index: 1;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.member-card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 修改覆盖层使其更淡 */
+.member-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+  z-index: 2;
+}
+
+/* 会员信息部分样式 */
+.member-info {
+  position: absolute;
+  bottom: -60rpx;
+  left: 0;
+  right: 0;
+  height: 120rpx; /* 降低高度 */
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx;
+  z-index: 3;
+}
+
+.member-info-main {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.avatar-container {
+  position: relative;
+  width: 90rpx; /* 缩小头像 */
+  height: 90rpx;
+  margin-right: 20rpx;
+}
+
+.avatar {
+  width: 90rpx; /* 缩小头像 */
+  height: 90rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ffffff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 编辑徽章样式 */
+.edit-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #618a49;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);
+  border: 2rpx solid #ffffff;
+}
+
+.edit-icon {
+  width: 15rpx;
+  height: 15rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.member-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.member-name {
+  font-size: 28rpx; /* 减小字体 */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6rpx; /* 减小间距 */
+}
+
+.member-level-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6rpx; /* 减小间距 */
+}
+
+.member-level-tag {
+  padding: 2rpx 10rpx; /* 减小内边距 */
+  background: linear-gradient(135deg, #d4af37, #f2dc9d);
+  border-radius: 10rpx; /* 减小圆角 */
+  margin-right: 8rpx;
+}
+
+.member-level-tag text {
+  font-size: 18rpx; /* 减小字体 */
+  color: #6e5110;
+  font-weight: bold;
+}
+
+.member-exp-text {
+  font-size: 18rpx; /* 减小字体 */
+  color: #999;
+}
+
+.member-progress-bar {
+  width: 100%;
+  height: 6rpx; /* 减小高度 */
+  background-color: #f0f0f0;
+  border-radius: 3rpx;
+  overflow: hidden;
+}
+
+.progress-inner {
+  height: 100%;
+  background: linear-gradient(to right, #ff6a00, #ffaa33); /* 修改进度条颜色为橙色 */
+  border-radius: 3rpx;
+}
+
+/* 会员中心链接样式 */
+.member-center-link {
+  padding: 8rpx 16rpx;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.member-center-link text {
+  font-size: 22rpx; /* 减小字体 */
+  color: #666;
+  margin-right: 6rpx;
+}
+
+.arrow-icon {
+  width: 10rpx;
+  height: 10rpx;
+  border-top: 1.5rpx solid #666;
+  border-right: 1.5rpx solid #666;
+  transform: rotate(45deg);
+}
+
+/* 资产信息卡片样式 */
+.member-assets {
+  margin-top: 0rpx; /* 移除顶部间距，原来是10rpx */
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+  margin-bottom: 10rpx; /* 减少底部间距，原来是20rpx */
+}
+
+.assets-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 10rpx;
+}
+
+.asset-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 0;
+}
+
+.asset-value {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 4rpx;
+}
+
+.asset-name {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 调整会员福利列表间距 */
+.benefit-list {
+  margin-top: 80rpx;
+}
+
+/* 会员福利横向滚动样式 */
+.benefit-scroll-container {
+  position: relative;
+  margin: 30rpx 0 20rpx 0; /* 减少顶部间距，原来是80rpx */
+  width: 100%;
+}
+
+/* 福利滚动按钮样式 */
+.benefit-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60rpx;
+  height: 60rpx;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.benefit-scroll-btn:active {
+  transform: translateY(-50%) scale(0.95);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.benefit-scroll-btn.left-btn {
+  left: 0;
+}
+
+.benefit-scroll-btn.right-btn {
+  right: 0;
+}
+
+/* 横向福利列表 - 向左平移 */
+.benefit-list-horizontal {
+  white-space: nowrap;
+  padding: 10rpx 0 10rpx 0;
+  margin-left: 0rpx;
+  margin-right: 0rpx;
+  overflow: hidden;
+}
+
+/* 横向福利项目的第一个元素添加左边距 */
+.benefit-item-horizontal:first-child {
+  margin-left: 0rpx;
+}
+
+/* 如果最后一个元素需要特殊处理 */
+.benefit-item-horizontal:last-child {
+  margin-right: 0rpx;
+}
+
+/* 会员卡片背景 - 添加图片 */
+.member-card .card-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="white" opacity="0.1"><path d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
+  background-repeat: repeat;
+  background-size: 40rpx 40rpx;
+  opacity: 0.15;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 横向福利项目 - 修改间距为1rpx */
+.benefit-item-horizontal {
+  display: inline-block;
+  width: 280rpx;
+  margin-right: 1rpx;
+  border-radius: 16rpx;
+  background-color: transparent;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  vertical-align: top;
+}
+
+/* 横向福利图片 - 修改为圆角图片 */
+.benefit-image-horizontal {
+  width: 100%;
+  height: 250rpx;
+  object-fit: cover;
+  border-radius: 16rpx; /* 直接给图片添加圆角，不依赖容器 */
+}
+
+/* 移除不必要的信息区域 */
+.benefit-info-horizontal {
+  display: none; /* 隐藏图片下方的信息区域 */
+}
+
+/* 修改按钮样式 */
+.action-btn, .checkout-btn, .continue-btn {
+  background: linear-gradient(to right, var(--dunhuang-red), var(--dunhuang-orange));
+  border-radius: 40rpx;
+  box-shadow: 0 6rpx 16rpx rgba(166, 64, 54, 0.2);
+}
+
+/* 产品卡片添加白桦和雪松元素 */
+.product-item, .series-card, .recommend-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-item::after, .series-card::after, .recommend-item::after {
+  content: '';
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background-image: url('https://img.api.aa1.cn/2025/05/07/a80093e62c237.jpg');
+  background-size: contain;
+  opacity: 0.08;
+  z-index: 1;
+}
+
+/* 会员福利模块 - 半透明背景效果 */
+.section.member-benefits {
+  margin: 30rpx;
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-left: 6rpx solid rgba(97, 138, 73, 0.7);
+}
+
+/* 移除原有背景 */
+.section.member-benefits::before {
+  display: none;
+}
+
+/* 确保内容在装饰层之上 */
+.member-benefits .section-header,
+.member-benefits .benefit-scroll-container,
+.member-benefits .member-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* 缩小福利横向滚动容器中的字体大小 */
+.benefit-info-horizontal .benefit-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.benefit-info-horizontal .benefit-desc {
+  font-size: 20rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 12rpx;
+  line-height: 1.4;
+  height: 56rpx;
+}
+
+/* 美妆攻略模块 - 半透明背景效果 */
+.section.fan-strategies {
+  margin: 30rpx;
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-top: 6rpx solid rgba(207, 151, 116, 0.6);
+}
+
+/* 移除原有背景 */
+.section.fan-strategies::before {
+  display: none;
+}
+
+/* 确保内容在装饰层之上 */
+.fan-strategies .section-header,
+.fan-strategies .strategy-list {
+  position: relative;
+  z-index: 1;
+}
+
+/* 热卖好物模块 - 半透明背景效果 */
+.section.hot-sales {
+  margin: 30rpx;
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-right: 6rpx solid rgba(138, 99, 77, 0.7);
+}
+
+/* 移除原有背景 */
+.section.hot-sales::before {
+  display: none;
+}
+
+/* 确保内容在装饰层之上 */
+.hot-sales .section-header,
+.hot-sales .product-list {
+  position: relative;
+  z-index: 1;
+}
+
+/* 视频轮播图样式 */
+.banner-video {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 视频覆盖层样式 */
+.video-overlay {
+  position: absolute;
+  bottom: 140rpx;
+  left: 0;
+  right: 0;
+  padding: 30rpx;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  z-index: 2;
+}
+
+.video-title {
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 增强文字在半透明背景上的可读性 */
+.section-title, 
+.flash-title,
+.series-name, 
+.benefit-title, 
+.strategy-title, 
+.product-title {
+  text-shadow: 0 1rpx 2rpx rgba(255, 255, 255, 0.5);
+}
+
+/* 横向福利视频容器样式 */
+.benefit-video-container {
+  position: relative;
+  width: 100%;
+  height: 180rpx; /* 保持与原图片高度一致 */
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+/* 横向福利视频样式 */
+.benefit-video-horizontal {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16rpx;
+}
+
+/* 视频覆盖层样式 */
+.benefit-video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12rpx;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  border-radius: 0 0 16rpx 16rpx;
+}
+
+/* 覆盖层标题样式 */
+.benefit-title-overlay {
+  color: #ffffff;
+  font-size: 24rpx;
+  text-align: center;
+  text-shadow: 0 1rpx 3rpx rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 调整横向福利项目间距 */
+.benefit-item-horizontal {
+  display: inline-block;
+  width: 280rpx;
+  margin-right: 1rpx; /* 根据之前的要求设为1rpx */
+  border-radius: 16rpx;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  vertical-align: top;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+}
+
+/* 隐藏不必要的信息区域 */
+.benefit-info-horizontal {
+  display: none;
+}
+
+/* 优化横向滚动列表样式 */
+.benefit-list-horizontal {
+  white-space: nowrap;
+  padding: 10rpx 0 10rpx 0;
+  margin-left: 0rpx;
+  margin-right: 0rpx;
+  overflow: hidden;
+}
+
+/* 优化第一个和最后一个元素的边距 */
+.benefit-item-horizontal:first-child {
+  margin-left: 0rpx;
+}
+
+.benefit-item-horizontal:last-child {
+  margin-right: 0rpx;
+}
+
+/* 商品视频容器 */
+.product-video-container {
+  width: 100%;
+  height: 450rpx; /* 保持与原来图片相同的高度 */
+  overflow: hidden;
+  position: relative;
+  border-radius: 16rpx 16rpx 0 0;
+}
+
+/* 商品视频样式 */
+.product-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 视频加载动画 */
+@keyframes productVideoFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.product-video {
+  animation: productVideoFadeIn 0.5s ease forwards;
+}
+
+/* 调整商品项目样式，确保视频正确显示 */
+.product-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* 原product-image样式保留但不使用 */
+.product-image {
+  width: 100%;
+  height: 450rpx;
+  object-fit: cover;
+  display: none; /* 隐藏原图片 */
+}
+
+/* 推荐产品弹窗样式 - 升级版 */
+.recommend-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.recommend-popup.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.recommend-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.recommend-content {
+  position: relative;
+  width: 85%;
+  max-width: 650rpx;
+  background: linear-gradient(135deg, #fff 0%, #f8f5f0 100%);
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 20rpx 50rpx rgba(0, 0, 0, 0.25);
+  z-index: 2001;
+  transform: translateY(50px) rotateX(10deg);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.recommend-popup.show .recommend-content {
+  transform: translateY(0) rotateX(0);
+  opacity: 1;
+}
+
+.recommend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 30rpx;
+  border-bottom: 1rpx solid rgba(166, 64, 54, 0.1);
+  background: linear-gradient(90deg, rgba(166, 64, 54, 0.05), rgba(255, 255, 255, 0));
+}
+
+.recommend-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+  padding-left: 24rpx;
+  letter-spacing: 1rpx;
+}
+
+.recommend-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 28rpx;
+  background: #A64036;
+  border-radius: 3rpx;
+}
+
+.close-btn {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.close-btn:active {
+  transform: scale(0.9);
+  color: #666;
+}
+
+.recommend-product {
+  padding: 30rpx;
+}
+
+.animation-container {
+  position: relative;
+  width: 100%;
+  height: 380rpx;
+  border-radius: 16rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.animation-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 5s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.5); /* 添加加载背景色 */
+}
+
+.recommend-popup.show .product-image {
+  transform: scale(1.05);
+}
+
+.product-badge {
+  position: absolute;
+  top: 20rpx;
+  right: -60rpx;
+  background: linear-gradient(135deg, #A64036, #CF985C);
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+  padding: 8rpx 60rpx;
+  transform: rotate(45deg);
+  box-shadow: 0 4rpx 10rpx rgba(166, 64, 54, 0.3);
+  text-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.2);
+}
+
+.recommend-product-name {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+  position: relative;
+  display: inline-block;
+}
+
+.recommend-product-name::after {
+  content: '';
+  position: absolute;
+  bottom: -6rpx;
+  left: 0;
+  width: 100%;
+  height: 2rpx;
+  background: linear-gradient(90deg, #A64036, transparent);
+}
+
+.recommend-product-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 24rpx;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.recommend-price-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 24rpx;
+}
+
+.recommend-price {
+  font-size: 42rpx;
+  color: #A64036;
+  font-weight: bold;
+  margin-right: 16rpx;
+}
+
+.recommend-original {
+  font-size: 26rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.recommend-btns {
+  display: flex;
+  padding: 0 20rpx 30rpx;
+}
+
+.recommend-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 65rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 44rpx;
+  margin: 0 10rpx;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: all 0.3s;
+}
+
+.recommend-btn::after {
+  border: none;
+}
+
+.recommend-btn:active {
+  transform: translateY(2rpx);
+}
+
+.recommend-btn.close {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.recommend-btn.check {
+  background: linear-gradient(135deg, #A64036, #CF985C);
+  color: #fff;
+  box-shadow: 0 6rpx 15rpx rgba(166, 64, 54, 0.3);
+}
+
+.recommend-btn.check::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.recommend-btn.check:active::before {
+  transform: scale(1);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* 产品视频样式 */
+.product-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.05);
+}

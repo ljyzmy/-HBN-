@@ -1,0 +1,102 @@
+<!--pages/skincare/test.wxml-->
+<view class="container">
+  <!-- 顶部用户信息 -->
+  <view class="header">
+    <view class="user-info">
+      <image class="user-avatar" src="{{userInfo.avatarUrl || 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/默认头像.png'}}" mode="aspectFill"></image>
+      <view class="welcome-text">
+        <text>{{userInfo.nickName || '亲爱的用户'}}</text>
+        <text class="sub-text">欢迎进行皮肤测试</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress-bar-container">
+    <view class="progress-bar">
+      <view class="progress-inner" style="width: {{progress}}%"></view>
+    </view>
+    <text class="progress-text">{{currentStep + 1}}/{{totalSteps}}</text>
+  </view>
+
+  <!-- 测试内容区域 -->
+  <view class="test-content" wx:if="{{!showResult && !analyzing}}">
+    <block wx:for="{{questions}}" wx:key="title">
+      <view class="question-card" wx:if="{{currentStep === index}}">
+        <view class="question-title">{{item.title}}</view>
+        <view class="options-list">
+          <!-- 所有题目都使用单选题选项 -->
+          <view 
+            class="option-item {{item.selected === optionIndex ? 'selected' : ''}}" 
+            wx:for="{{item.options}}" 
+            wx:for-item="option" 
+            wx:for-index="optionIndex"
+            wx:key="*this"
+            bindtap="selectOption" 
+            data-index="{{optionIndex}}"
+          >
+            <view class="radio {{item.selected === optionIndex ? 'checked' : ''}}">
+              <view class="radio-inner" wx:if="{{item.selected === optionIndex}}"></view>
+            </view>
+            <text>{{option}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 导航按钮 -->
+    <view class="nav-buttons">
+      <view class="prev-btn" bindtap="prevStep" wx:if="{{currentStep > 0}}">上一题</view>
+      <view class="next-btn" bindtap="nextStep">{{currentStep === totalSteps - 1 ? '完成测试' : '下一题'}}</view>
+    </view>
+  </view>
+
+  <!-- 分析中状态 -->
+  <view class="analyzing-container" wx:if="{{analyzing}}">
+    <view class="analyzing-animation">
+      <view class="scanning-line"></view>
+      <image class="face-outline" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/面部轮廓.png"></image>
+    </view>
+    <view class="analyzing-text">
+      <text class="main-text">皮肤分析中</text>
+      <text class="sub-text">请稍候...</text>
+    </view>
+  </view>
+  
+  <!-- 测试结果 -->
+  <view class="result-container" wx:if="{{showResult}}">
+    <view class="result-card">
+      <view class="result-header">
+        <image class="result-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/_检测.png"></image>
+        <text>皮肤测试结果</text>
+      </view>
+      
+      <view class="result-content">
+        <view class="result-item">
+          <text class="result-label">皮肤类型：</text>
+          <text class="result-value">{{result.skinType}}</text>
+        </view>
+        
+        <view class="result-item">
+          <text class="result-label">肌肤问题：</text>
+          <view class="concern-tags">
+            <text class="concern-tag" wx:for="{{result.concerns}}" wx:key="*this">{{item}}</text>
+          </view>
+        </view>
+        
+        <view class="result-item">
+          <text class="result-label">护肤建议：</text>
+          <text class="result-recommendation">{{result.recommendation}}</text>
+        </view>
+      </view>
+      
+      <view class="result-actions">
+        <view class="action-btn restart" bindtap="restartTest">重新测试</view>
+        <view class="action-btn plan" bindtap="goToSkincarePlan">查看护肤方案</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom"></view>
+</view> 

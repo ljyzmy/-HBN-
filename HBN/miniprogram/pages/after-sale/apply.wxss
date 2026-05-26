@@ -1,0 +1,348 @@
+/* pages/after-sale/apply.wxss */
+
+/* 基础变量 */
+page {
+  --color-primary: #618a49;
+  --color-secondary: #8aad75;
+  --color-danger: #a64036;
+  --color-warning: #cf985c;
+  --color-background: #f8f8f8;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-text-lighter: #999;
+  --color-border: #eee;
+  --radius-small: 8rpx;
+  --radius-medium: 16rpx;
+  --radius-large: 24rpx;
+  --shadow-small: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  --shadow-large: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  background-color: var(--color-background);
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: var(--shadow-small);
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.nav-back {
+  width: 80rpx;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.nav-placeholder {
+  width: 80rpx;
+  height: 44px;
+}
+
+/* 顶部安全区域 */
+.safe-top {
+  width: 100%;
+}
+
+/* 底部安全区域 */
+.safe-bottom {
+  width: 100%;
+  height: 40rpx;
+}
+
+/* 表单区域 */
+.form-container {
+  width: 100%;
+  flex: 1;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.section {
+  background-color: #fff;
+  border-radius: var(--radius-large);
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: var(--shadow-small);
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  color: var(--color-text);
+}
+
+/* 订单信息 */
+.order-product {
+  display: flex;
+  padding: 20rpx 0;
+  border-radius: var(--radius-medium);
+  background-color: #fafafa;
+}
+
+.product-image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: var(--radius-small);
+  margin-right: 20rpx;
+  background-color: #f9f9f9;
+  border: 1rpx solid var(--color-border);
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.product-specs {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 10rpx;
+}
+
+.product-price-quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 30rpx;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.product-quantity {
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+}
+
+/* 售后类型选择 */
+.type-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.type-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border: 1rpx solid var(--color-border);
+  border-radius: var(--radius-medium);
+  transition: var(--transition-fast);
+}
+
+.type-item.active {
+  background-color: rgba(97, 138, 73, 0.05);
+  border-color: var(--color-primary);
+}
+
+.type-radio {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  border: 1rpx solid #ccc;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.type-item.active .type-radio {
+  border-color: var(--color-primary);
+}
+
+.radio-inner {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+.type-name {
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+/* 退款原因选择器 */
+.reason-picker {
+  padding: 20rpx;
+  border: 1rpx solid var(--color-border);
+  border-radius: var(--radius-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.picker-value {
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.picker-arrow {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-icon {
+  width: 24rpx;
+  height: 24rpx;
+  transition: var(--transition-fast);
+}
+
+/* 问题描述 */
+.description-container {
+  position: relative;
+  border: 1rpx solid var(--color-border);
+  border-radius: var(--radius-medium);
+  padding: 20rpx;
+}
+
+.description-input {
+  width: 100%;
+  height: 200rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.word-count {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+}
+
+/* 图片上传 */
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.image-item {
+  width: 160rpx;
+  height: 160rpx;
+  position: relative;
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  border: 1rpx solid var(--color-border);
+}
+
+.uploaded-image {
+  width: 100%;
+  height: 100%;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.upload-button {
+  width: 160rpx;
+  height: 160rpx;
+  border: 1rpx dashed var(--color-border);
+  border-radius: var(--radius-small);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.upload-icon {
+  font-size: 50rpx;
+  color: var(--color-text-lighter);
+  line-height: 1;
+  margin-bottom: 10rpx;
+}
+
+.upload-text {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+}
+
+.upload-tip {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+}
+
+/* 底部提交按钮 */
+.footer {
+  padding: 30rpx;
+  background-color: #fff;
+  border-top: 1rpx solid var(--color-border);
+}
+
+.submit-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 500;
+  border-radius: 44rpx;
+} 

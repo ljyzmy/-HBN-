@@ -1,0 +1,524 @@
+/* pages/member/center/center.wxss */
+page {
+  background-color: #f8f8f8;
+}
+
+.container {
+  padding: 30rpx 30rpx 50rpx;
+}
+
+/* 会员卡片样式 */
+.member-card {
+  position: relative;
+  background: linear-gradient(135deg, #618a49 0%, #3a5320 100%);
+  border-radius: 24rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  color: #fff;
+  box-shadow: 0 8rpx 20rpx rgba(97, 138, 73, 0.3);
+  overflow: hidden;
+}
+
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.member-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  margin-bottom: 40rpx;
+}
+
+.avatar-container {
+  margin-right: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.8);
+}
+
+.info-content {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.member-level {
+  font-size: 30rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6rpx 16rpx;
+  border-radius: 30rpx;
+  display: inline-block;
+  margin-bottom: 12rpx;
+}
+
+.member-no, .join-date {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-top: 6rpx;
+}
+
+.progress-container {
+  position: relative;
+  z-index: 1;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.view-history {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.progress-bar {
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 16rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.progress-inner {
+  background-color: #fff;
+  height: 100%;
+  border-radius: 8rpx;
+  transition: width 0.3s;
+}
+
+.progress-text {
+  font-size: 22rpx;
+  margin-top: 10rpx;
+  text-align: right;
+  opacity: 0.8;
+}
+
+/* 会员等级样式 */
+.level-container {
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+
+.level-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.level-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  opacity: 0.6;
+  transition: all 0.3s;
+}
+
+.level-item.current {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.level-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.level-name {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.level-threshold {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.rules-link {
+  text-align: right;
+  font-size: 26rpx;
+  color: #618a49;
+  margin-top: 20rpx;
+}
+
+/* 会员权益样式 */
+.benefits-container {
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.benefits-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.benefit-item {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.benefit-item.inactive {
+  opacity: 0.5;
+}
+
+.benefit-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.benefit-name {
+  font-size: 26rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.benefit-status {
+  font-size: 22rpx;
+}
+
+.benefit-status .active {
+  color: #618a49;
+}
+
+.benefit-status .inactive {
+  color: #999;
+}
+
+/* 会员活动样式 */
+.activities-container {
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.activities-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-item {
+  position: relative;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.activity-item:last-child {
+  margin-bottom: 0;
+}
+
+.activity-item image {
+  width: 100%;
+  border-radius: 16rpx;
+}
+
+.activity-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  padding: 30rpx 20rpx 20rpx;
+  color: #fff;
+}
+
+.activity-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 6rpx;
+}
+
+.activity-desc {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  background: linear-gradient(135deg, #ff6b81 0%, #ff8e9a 100%);
+  padding: 40rpx 30rpx 30rpx;
+  color: #fff;
+  border-radius: 0 0 30rpx 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 30rpx;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.6);
+}
+
+.user-detail {
+  flex: 1;
+}
+
+.nickname-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.level-tag {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.level-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+
+.level-progress-container {
+  margin-top: 15rpx;
+}
+
+.level-progress {
+  height: 10rpx;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+
+.level-progress-bar {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.level-progress-text {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.contact-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.contact-btn::after {
+  border: none;
+}
+
+.contact-btn image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 资产信息 */
+.assets-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40rpx;
+  padding-top: 30rpx;
+  border-top: 2rpx solid rgba(255, 255, 255, 0.2);
+}
+
+.asset-item {
+  text-align: center;
+  padding: 0 20rpx;
+  flex: 1;
+}
+
+.asset-value {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.asset-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+/* 菜单部分 */
+.menu-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin: 0 20rpx 30rpx;
+  padding: 30rpx 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding: 0 10rpx;
+}
+
+.view-all {
+  display: flex;
+  align-items: center;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.arrow-icon {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 6rpx;
+}
+
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.menu-icon-wrap {
+  position: relative;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.menu-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.badge {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background-color: #ff6b81;
+  color: #fff;
+  font-size: 20rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  border-radius: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6rpx;
+}
+
+.menu-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 推荐服务 */
+.featured-services {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.featured-service {
+  width: 48%;
+  height: 180rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-service image {
+  width: 100%;
+  height: 100%;
+}
+
+.service-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20rpx;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.service-title {
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6rpx;
+}
+
+.service-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24rpx;
+}
+
+/* 页脚 */
+.footer {
+  text-align: center;
+  padding: 30rpx 0;
+  color: #999;
+  font-size: 24rpx;
+} 

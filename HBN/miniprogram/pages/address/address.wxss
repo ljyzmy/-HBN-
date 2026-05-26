@@ -1,0 +1,217 @@
+/* pages/address/address.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  padding-bottom: 120rpx;
+}
+
+/* 页面内容区域 */
+.content-area {
+  width: 100%;
+  padding: 20rpx 0;
+}
+
+/* 加载中 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx 0;
+}
+
+.loading-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #618a49;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20rpx;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 空状态 */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.empty-tip {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 地址列表 */
+.address-list {
+  padding: 20rpx;
+}
+
+.address-item {
+  margin-bottom: 30rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.address-item:active {
+  transform: scale(0.98);
+  background-color: rgba(97, 138, 73, 0.03);
+}
+
+.address-item.default-item {
+  border-left: 8rpx solid #618a49;
+}
+
+.address-info {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.address-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.address-name-phone {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.address-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+.address-phone {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.address-tags {
+  display: flex;
+  align-items: center;
+}
+
+.address-tag {
+  font-size: 22rpx;
+  color: #618a49;
+  background-color: rgba(97, 138, 73, 0.1);
+  padding: 4rpx 12rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+}
+
+.tag-custom {
+  color: #ff7f50;
+  background-color: rgba(255, 127, 80, 0.1);
+}
+
+.address-detail {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.4;
+}
+
+.address-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20rpx 30rpx;
+  border-top: 1rpx solid #f5f5f5;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  padding: 6rpx 8rpx;
+  border-radius: 30rpx;
+  transition: all 0.3s;
+}
+
+.action-item:active {
+  background-color: rgba(97, 138, 73, 0.08);
+}
+
+.action-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}
+
+.action-item text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 底部按钮 */
+.bottom-btn-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30rpx 20rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.add-address-btn {
+  width: 100%;
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #618a49, #8aad75);
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 38rpx;
+  box-shadow: 0 4rpx 12rpx rgba(97, 138, 73, 0.2);
+  transition: all 0.3s;
+}
+
+.add-address-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(97, 138, 73, 0.2);
+}
+
+.btn-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}

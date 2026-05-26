@@ -1,0 +1,143 @@
+<view class="balance-container">
+  <!-- 余额信息卡片 -->
+  <view class="balance-card">
+    <view class="balance-header">
+      <view class="balance-title">账户余额 (元)</view>
+      <view class="balance-amount">{{balance}}</view>
+    </view>
+    
+    <view class="balance-detail">
+      <view class="balance-item">
+        <text class="label">可用余额</text>
+        <text class="value">¥{{balanceInfo.availableBalance}}</text>
+      </view>
+      <view class="balance-item">
+        <text class="label">冻结余额</text>
+        <text class="value">¥{{balanceInfo.frozenBalance}}</text>
+      </view>
+    </view>
+    
+    <!-- 将按钮放到底部，纵向排列 -->
+    <view class="balance-actions">
+      <button class="action-btn recharge" bindtap="recharge">充值</button>
+      <button class="action-btn withdraw" bindtap="withdraw">提现</button>
+    </view>
+  </view>
+  
+  <!-- 交易统计 -->
+  <view class="balance-stats">
+    <view class="stats-item">
+      <view class="stats-value income">+{{totalIncome}}</view>
+      <view class="stats-label">总收入</view>
+    </view>
+    <view class="stats-divider"></view>
+    <view class="stats-item">
+      <view class="stats-value expense">-{{totalExpense}}</view>
+      <view class="stats-label">总支出</view>
+    </view>
+  </view>
+  
+  <!-- 交易记录标签切换 -->
+  <view class="transaction-tabs">
+    <view class="tab {{activeTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">全部</view>
+    <view class="tab {{activeTab === 'income' ? 'active' : ''}}" bindtap="switchTab" data-tab="income">收入</view>
+    <view class="tab {{activeTab === 'expense' ? 'active' : ''}}" bindtap="switchTab" data-tab="expense">支出</view>
+    <view class="filter-btn" bindtap="toggleFilterPopup">
+      <text>筛选</text>
+      <view class="filter-icon"></view>
+    </view>
+  </view>
+  
+  <!-- 交易记录 -->
+  <view class="transactions-section">
+    <!-- 交易列表 -->
+    <view class="transaction-list">
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{!transactions || transactions.length === 0}}">
+        <image class="empty-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png"></image>
+        <text class="empty-text">暂无交易记录</text>
+      </view>
+      
+      <!-- 交易项 -->
+      <view 
+        class="transaction-item" 
+        wx:for="{{transactions}}" 
+        wx:key="id"
+        bindtap="viewTransactionDetail"
+        data-id="{{item.id}}">
+        
+        <view class="transaction-left">
+          <!-- 交易类型图标 -->
+          <view class="transaction-icon type-{{item.type}}"></view>
+        </view>
+        
+        <view class="transaction-info">
+          <view class="transaction-desc">{{item.desc}}</view>
+          <view class="transaction-date">{{item.date}}</view>
+        </view>
+        
+        <view class="transaction-right">
+          <view class="transaction-amount {{item.amount > 0 ? 'income' : 'expense'}}">
+            {{item.amount > 0 ? '+' : ''}}{{item.amount}}
+          </view>
+          <view class="transaction-status status-{{item.status}}">{{getTransactionStatusText(item.status)}}</view>
+        </view>
+      </view>
+      
+      <!-- 加载更多 -->
+      <view class="loading-more" wx:if="{{loadingMore}}">
+        <view class="loading-icon"></view>
+        <text>加载中...</text>
+      </view>
+      
+      <!-- 没有更多 -->
+      <view class="no-more" wx:if="{{!hasMore && transactions.length > 0}}">
+        <text>没有更多记录了</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 筛选弹窗 -->
+  <view class="filter-popup {{showFilterPopup ? 'show' : ''}}">
+    <view class="popup-mask" bindtap="toggleFilterPopup"></view>
+    <view class="popup-content">
+      <view class="popup-header">
+        <text class="popup-title">筛选</text>
+        <view class="popup-close" bindtap="toggleFilterPopup">×</view>
+      </view>
+      
+      <view class="filter-section">
+        <view class="filter-title">交易类型</view>
+        <view class="filter-options">
+          <view 
+            class="filter-option {{typeFilter === item.value ? 'active' : ''}}" 
+            wx:for="{{typeOptions}}" 
+            wx:key="value"
+            bindtap="selectTypeFilter"
+            data-value="{{item.value}}">
+            {{item.text}}
+          </view>
+        </view>
+      </view>
+      
+      <view class="filter-section">
+        <view class="filter-title">时间范围</view>
+        <view class="filter-options">
+          <view 
+            class="filter-option {{dateFilter === item.value ? 'active' : ''}}" 
+            wx:for="{{dateOptions}}" 
+            wx:key="value"
+            bindtap="selectDateFilter"
+            data-value="{{item.value}}">
+            {{item.text}}
+          </view>
+        </view>
+      </view>
+      
+      <view class="filter-actions">
+        <button class="filter-btn reset" bindtap="resetFilter">重置</button>
+        <button class="filter-btn confirm" bindtap="applyFilter">确定</button>
+      </view>
+    </view>
+  </view>
+</view> 

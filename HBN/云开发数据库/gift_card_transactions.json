@@ -1,0 +1,10 @@
+{"_id":"TR001","cardId":"GC001","userId":"user_001","userName":"职场精英女性","type":"activate","amount":50,"balance":50,"time":"2025-04-15 09:30:00","remark":"礼品卡激活","operatorId":"system"}
+{"_id":"TR002","cardId":"GC002","userId":"user_001","userName":"职场精英女性","type":"activate","amount":100,"balance":100,"time":"2025-05-10 15:20:00","remark":"礼品卡激活","operatorId":"system"}
+{"_id":"TR003","cardId":"GC003","userId":"user_001","userName":"职场精英女性","type":"activate","amount":200,"balance":200,"time":"2025-05-20 11:05:00","remark":"生日礼品卡激活","operatorId":"system"}
+{"_id":"TR004","cardId":"GC004","userId":"user_002","userName":"都市新锐青年","type":"activate","amount":20,"balance":20,"time":"2025-05-18 17:45:00","remark":"礼品卡激活","operatorId":"system"}
+{"_id":"TR005","cardId":"GC005","userId":"user_003","userName":"科研工作者","type":"activate","amount":50,"balance":50,"time":"2025-03-10 10:15:00","remark":"礼品卡激活","operatorId":"system"}
+{"_id":"TR006","cardId":"GC006","userId":"user_003","userName":"科研工作者","type":"activate","amount":50,"balance":50,"time":"2025-03-15 14:30:00","remark":"礼品卡激活","operatorId":"system"}
+{"_id":"TR007","cardId":"GC007","userId":"user_003","userName":"科研工作者","type":"activate","amount":100,"balance":100,"time":"2025-04-05 09:10:00","remark":"礼品卡激活","operatorId":"system"}
+{"_id":"TR008","cardId":"GC008","userId":"user_003","userName":"科研工作者","type":"activate","amount":100,"balance":100,"time":"2025-04-20 16:25:00","remark":"礼品卡激活","operatorId":"system"}
+{"_id":"TR009","cardId":"GC009","userId":"user_003","userName":"科研工作者","type":"activate","amount":200,"balance":200,"time":"2025-05-01 11:20:00","remark":"会员专属礼品卡激活","operatorId":"system"}
+{"_id":"TR010","cardId":"GC010","userId":"user_004","userName":"其他用户","type":"activate","amount":10,"balance":10,"time":"2025-05-15 10:05:00","remark":"新人礼品卡激活","operatorId":"system"} 

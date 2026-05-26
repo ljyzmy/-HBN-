@@ -1,0 +1,64 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-left" bindtap="goBack">
+      <image class="back-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit"></image>
+    </view>
+    <view class="nav-title">{{isSelectMode ? '选择收货地址' : '收货地址'}}</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight + 20}}px;"></view>
+
+  <!-- 页面内容区域 -->
+  <view class="content-area">
+    <!-- 加载中 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+
+    <!-- 地址为空 -->
+    <view class="empty-container" wx:elif="{{!addressList.length}}">
+      <image class="empty-icon" src="https://img.api.aa1.cn/2025/05/16/93ae5f5f6f22a.png" mode="aspectFit"></image>
+      <text class="empty-text">暂无收货地址</text>
+      <text class="empty-tip">点击底部按钮添加收货地址</text>
+    </view>
+
+    <!-- 地址列表 -->
+    <view class="address-list" wx:else>
+      <view class="address-item {{item.isDefault ? 'default-item' : ''}}" wx:for="{{addressList}}" wx:key="id" data-id="{{item.id}}" bindtap="selectAddress">
+        <view class="address-info">
+          <view class="address-top">
+            <view class="address-name-phone">
+              <text class="address-name">{{item.name}}</text>
+              <text class="address-phone">{{item.phone}}</text>
+            </view>
+            <view class="address-tag" wx:if="{{item.isDefault}}">默认</view>
+          </view>
+          <view class="address-detail">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</view>
+        </view>
+        <view class="address-actions" catchtap="stopPropagation">
+          <view class="action-item" catchtap="setDefault" data-id="{{item.id}}" wx:if="{{!item.isDefault}}">
+            <image class="action-icon" src="https://img.api.aa1.cn/2025/05/16/06c18b63c87bd.png" mode="aspectFit"></image>
+            <text>设为默认</text>
+          </view>
+          <view class="action-item" catchtap="editAddress" data-id="{{item.id}}" data-index="{{index}}">
+            <image class="action-icon" src="https://img.api.aa1.cn/2025/05/16/f0f1e1cbc1a84.png" mode="aspectFit"></image>
+            <text>编辑</text>
+          </view>
+          <view class="action-item" catchtap="deleteAddress" data-id="{{item.id}}" data-index="{{index}}">
+            <image class="action-icon" src="https://img.api.aa1.cn/2025/05/16/e53ee20b51e67.png" mode="aspectFit"></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-btn-area">
+    <view class="add-address-btn" bindtap="addAddress">添加收货地址</view>
+  </view>
+</view> 

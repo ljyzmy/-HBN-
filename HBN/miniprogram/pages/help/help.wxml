@@ -1,0 +1,86 @@
+<!-- pages/help/help.wxml -->
+<view class="container">
+  <!-- 搜索区域 -->
+  <view class="search-section">
+    <view class="search-box">
+      <image class="search-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/搜索.png"></image>
+      <input class="search-input" placeholder="搜索您遇到的问题" value="{{searchValue}}" bindinput="onSearchInput" confirm-type="search" bindconfirm="doSearch" />
+      <view class="clear-icon" wx:if="{{searchValue}}" bindtap="clearSearch">
+        <view class="clear-inner"></view>
+      </view>
+    </view>
+    <view class="search-btn" bindtap="doSearch">搜索</view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="search-results" wx:if="{{isSearching}}">
+    <view class="result-header">
+      <text class="result-title">搜索结果</text>
+      <view class="result-count">找到 {{searchResults.length}} 个相关问题</view>
+    </view>
+
+    <view class="no-result" wx:if="{{searchResults.length === 0}}">
+      <image class="no-result-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/帮助中心.png"></image>
+      <view class="no-result-text">没有找到相关问题</view>
+      <view class="contact-service" bindtap="contactCustomerService">联系客服</view>
+    </view>
+
+    <view class="result-list" wx:else>
+      <view class="result-item" wx:for="{{searchResults}}" wx:key="id" bindtap="handleSearchResultClick" data-category-index="{{item.categoryIndex}}" data-question-index="{{item.questionIndex}}">
+        <view class="result-item-category">{{item.categoryName}}</view>
+        <view class="result-item-title">{{item.question}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 帮助中心主内容 -->
+  <view class="help-content" wx:if="{{!isSearching}}">
+    <!-- 分类导航 -->
+    <view class="category-nav">
+      <scroll-view scroll-x="true" class="category-scroll" enhanced="true" show-scrollbar="false">
+        <view 
+          class="category-item {{index === activeCategory ? 'active' : ''}}" 
+          wx:for="{{helpCategories}}" 
+          wx:key="id" 
+          bindtap="switchCategory" 
+          data-index="{{index}}"
+        >
+          <image class="category-icon" src="{{item.icon}}"></image>
+          <view class="category-name">{{item.title}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 问题列表 -->
+    <view class="question-list">
+      <view class="question-section">
+        <view class="section-title">{{helpCategories[activeCategory].title}}</view>
+        
+        <view class="question-items">
+          <view class="question-item" wx:for="{{helpCategories[activeCategory].questions}}" wx:key="id" wx:for-index="qIndex">
+            <view class="question-header" bindtap="toggleQuestion" data-category-index="{{activeCategory}}" data-question-index="{{qIndex}}">
+              <view class="question-title">{{item.question}}</view>
+              <view class="question-arrow {{item.expanded ? 'expanded' : ''}}"></view>
+            </view>
+            <view class="question-answer {{item.expanded ? 'show' : ''}}">
+              <text>{{item.answer}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部联系客服 -->
+  <view class="contact-section">
+    <view class="divider">
+      <view class="divider-line"></view>
+      <view class="divider-text">没有找到需要的答案?</view>
+      <view class="divider-line"></view>
+    </view>
+    <view class="contact-button" bindtap="contactCustomerService">
+      <image class="contact-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/客户服务.png"></image>
+      <text class="contact-text">联系客服</text>
+    </view>
+  </view>
+</view> 

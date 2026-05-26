@@ -1,0 +1,38 @@
+<!-- pages/member/rules/rules.wxml -->
+<view class="container">
+  <view class="header">
+    <image class="header-bg" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/背景/会员规则背景.jpg" mode="aspectFill"></image>
+    <view class="header-content">
+      <view class="title">会员规则</view>
+      <view class="subtitle">了解会员等级与权益</view>
+    </view>
+  </view>
+  
+  <view class="tabs">
+    <scroll-view class="tabs-scroll" scroll-x="{{true}}" enhanced show-scrollbar="{{false}}">
+      <block wx:for="{{rules}}" wx:key="title">
+        <view 
+          class="tab-item {{activeIndex === index ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-index="{{index}}">
+          {{item.title}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  
+  <view class="content">
+    <block wx:for="{{rules[activeIndex].content}}" wx:key="*this">
+      <view class="rule-item">
+        <text class="rule-text">{{item}}</text>
+      </view>
+    </block>
+  </view>
+  
+  <view class="footer">
+    <view class="footer-note">
+      <text>如有任何疑问，请联系客服</text>
+      <button class="contact-btn" open-type="contact">联系客服</button>
+    </view>
+  </view>
+</view> 

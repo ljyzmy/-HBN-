@@ -1,0 +1,220 @@
+/* pages/login/login.wxss */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  padding: 0 40rpx;
+}
+
+/* Logo部分 */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100rpx;
+  margin-bottom: 80rpx;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+}
+
+.slogan {
+  font-size: 28rpx;
+  color: #666666;
+  letter-spacing: 2rpx;
+}
+
+/* 表单部分 */
+.login-form {
+  width: 100%;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 40rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+  padding-bottom: 16rpx;
+}
+
+.input-label {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 12rpx;
+}
+
+.input-group input {
+  height: 50rpx;
+  font-size: 30rpx;
+  color: #333333;
+  width: 100%;
+}
+
+/* 验证码按钮 */
+.code-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.code-group input {
+  width: 60%;
+}
+
+.code-btn {
+  width: 35%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #618a49, #8aad75);
+  border-radius: 30rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.code-btn.disabled {
+  background: #CCCCCC;
+  color: #FFFFFF;
+}
+
+/* 切换登录方式 */
+.switch-type {
+  text-align: right;
+  font-size: 26rpx;
+  color: #618a49;
+  margin-bottom: 40rpx;
+}
+
+/* 协议部分 */
+.protocol-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50rpx;
+}
+
+.checkbox-container {
+  margin-right: 20rpx;
+}
+
+.checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid #DDDDDD;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox.checked {
+  border-color: #618a49;
+  background-color: #618a49;
+}
+
+.check-icon {
+  width: 20rpx;
+  height: 12rpx;
+  border-left: 3rpx solid #FFFFFF;
+  border-bottom: 3rpx solid #FFFFFF;
+  transform: rotate(-45deg);
+}
+
+.protocol-text {
+  font-size: 24rpx;
+  color: #999999;
+  flex: 1;
+}
+
+.protocol-link {
+  color: #618a49;
+}
+
+/* 登录按钮 */
+.login-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: linear-gradient(135deg, #618a49, #8aad75);
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 44rpx;
+  margin-bottom: 60rpx;
+  box-shadow: 0 8rpx 20rpx rgba(97, 138, 73, 0.3);
+}
+
+/* 第三方登录 */
+.third-party-login {
+  margin-top: 30rpx;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.divider .line {
+  flex: 1;
+  height: 1rpx;
+  background-color: #EEEEEE;
+}
+
+.divider .text {
+  padding: 0 30rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.icon-group {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 60rpx;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wechat-icon, .qq-icon, .weibo-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-bottom: 15rpx;
+  background-size: 50rpx;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.wechat-icon {
+  background-color: #07C160;
+  background-image: url("data:image/svg+xml,%3Csvg t='1685377097263' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2022' width='200' height='200'%3E%3Cpath d='M692.3 347.3c11.2 0 22.3 0.8 33.3 2.1-29.8-140.9-178.1-245.5-347.5-245.5-189.3 0-345 129.8-345 295.8 0 95.5 51.5 174 137.9 234.9l-34.5 104.6 120.7-60.9c43.2 8.6 77.8 17.6 120.9 17.6 10.8 0 21.6-0.5 32.2-1.4-6.7-23.3-10.7-47.7-10.7-73.1 0.2-152.4 129.9-274.1 292.7-274.1z m-184.7-93.9c25.9 0 43.2 17.3 43.2 43.6 0 26.2-17.3 43.6-43.2 43.6-25.9 0-52-17.3-52-43.6 0.1-26.2 26.1-43.6 52-43.6z m-240.2 87.2c-25.9 0-52.1-17.3-52.1-43.6 0-26.2 26.2-43.6 52.1-43.6 25.9 0 43.2 17.3 43.2 43.6 0 26.2-17.3 43.6-43.2 43.6z' fill='%23FFFFFF' p-id='2023'%3E%3C/path%3E%3Cpath d='M1010.3 630.1c0-138.1-137.9-250.7-292.7-250.7-164 0-293.2 112.6-293.2 250.7 0 138.3 129.2 250.7 293.2 250.7 34.3 0 68.8-8.8 103.2-17.6l94.3 52.1-25.9-87C958.1 778.3 1010.3 708.5 1010.3 630.1z m-389.4-44c-17.3 0-34.7-17.3-34.7-35 0-17.4 17.3-35 34.7-35 26.2 0 43.4 17.5 43.4 35-0.1 17.7-17.2 35-43.4 35z m190.4 0c-17.2 0-34.3-17.3-34.3-35 0-17.4 17.1-35 34.3-35 25.9 0 43.4 17.5 43.4 35 0 17.7-17.5 35-43.4 35z' fill='%23FFFFFF' p-id='2024'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.qq-icon {
+  background-color: #12B7F5;
+  background-image: url("data:image/svg+xml,%3Csvg t='1685377153678' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2295' width='200' height='200'%3E%3Cpath d='M511.09761 957.257c-80.159 0-153.737-25.019-201.11-62.386-24.057 6.702-54.831 17.489-74.252 30.864-16.617 11.439-14.546 23.106-11.55 27.816 13.15 20.689 225.583 13.211 286.912 6.767v-3.061z' fill='%23FFFFFF' p-id='2296'%3E%3C/path%3E%3Cpath d='M496.65061 957.257c80.157 0 153.737-25.019 201.11-62.386 24.057 6.702 54.83 17.489 74.253 30.864 16.616 11.439 14.543 23.106 11.55 27.816-13.15 20.689-225.584 13.211-286.914 6.767v-3.061z' fill='%23FFFFFF' p-id='2297'%3E%3C/path%3E%3Cpath d='M497.12861 474.524c131.934-0.876 237.669-25.783 273.497-35.34 8.541-2.28 13.11-6.364 13.11-6.364 0.03-1.172 0.542-20.952 0.542-31.155C784.27761 229.833 701.12561 57.173 496.64061 57.162 292.15661 57.173 209.00061 229.832 209.00061 401.665c0 10.203 0.516 29.983 0.547 31.155 0 0 3.717 3.821 10.529 5.67 33.078 8.98 140.803 35.139 276.08 36.034h0.972z' fill='%23FFFFFF' p-id='2298'%3E%3C/path%3E%3Cpath d='M860.28261 619.782c-8.12-26.086-19.204-56.506-30.427-85.72 0 0-6.456-0.795-9.718 0.148-100.71 29.205-222.773 47.818-315.792 46.695h-0.962C410.88561 582.017 289.65061 563.617 189.27961 534.698 185.44461 533.595 177.87261 534.063 177.87261 534.063 166.64961 563.276 155.56661 593.696 147.44761 619.782 108.72961 744.168 121.27261 795.644 130.82461 796.798c20.496 2.474 79.78-93.637 79.78-93.637 0 97.66 88.324 247.617 290.576 248.996a718.01 718.01 0 0 1 5.367 0C708.80161 950.778 797.12261 800.822 797.12261 703.162c0 0 59.284 96.111 79.783 93.637 9.55-1.154 22.093-52.63-16.623-177.017' fill='%23FFFFFF' p-id='2299'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.weibo-icon {
+  background-color: #E6162D;
+  background-image: url("data:image/svg+xml,%3Csvg t='1685377191018' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2549' width='200' height='200'%3E%3Cpath d='M851.4 590.193c-22.196-66.233-90.385-90.422-105.912-91.863-15.523-1.442-29.593-9.94-19.295-27.505 10.302-17.566 29.304-68.684-7.248-104.681-36.564-36.14-116.512-22.462-173.094 0.866-56.434 23.327-53.39 7.055-51.65-8.925 1.89-16.848 32.355-111.02-60.791-122.395C311.395 220.86 154.85 370.754 99.572 457.15 16 587.607 29.208 675.873 29.208 675.873h0.58c10.009 121.819 190.787 218.869 412.328 218.869 190.5 0 350.961-71.853 398.402-169.478 0 0 0.143-0.433 0.575-1.156 4.938-10.506 8.71-21.168 11.035-32.254 6.668-26.205 11.755-64.215-0.728-101.66z m-436.7 251.27c-157.71 0-285.674-84.095-285.674-187.768 0-103.671 127.82-187.76 285.674-187.76 157.705 0 285.673 84.089 285.673 187.76 0 103.815-127.968 187.768-285.673 187.768z' fill='%23FFFFFF' p-id='2550'%3E%3C/path%3E%3Cpath d='M803.096 425.327c2.896 1.298 5.945 1.869 8.994 1.869 8.993 0 17.7-5.328 21.323-14.112 5.95-13.964 8.993-28.793 8.993-44.205 0-62.488-51.208-113.321-114.181-113.321-15.379 0-30.32 3.022-44.396 8.926-11.755 4.896-17.263 18.432-12.335 30.24 4.933 11.662 18.572 17.134 30.465 12.238 8.419-3.46 17.268-5.33 26.41-5.33 37.431 0 67.752 30.241 67.752 67.247 0 9.068-1.735 17.857-5.369 26.202a22.832 22.832 0 0 0 12.335 30.236l0.01 0.01z' fill='%23FFFFFF' p-id='2551'%3E%3C/path%3E%3Cpath d='M726.922 114.157c-25.969 0-51.65 3.744-76.315 10.942-18.423 5.472-28.868 24.622-23.5 42.91 5.509 18.29 24.804 28.657 43.237 23.329a201.888 201.888 0 0 1 56.578-8.064c109.253 0 198.189 88.271 198.189 196.696 0 19.436-2.905 38.729-8.419 57.16-5.508 18.289 4.79 37.588 23.212 43.053 3.342 1.014 6.817 1.442 10.159 1.442 14.943 0 28.725-9.648 33.37-24.48 7.547-24.906 11.462-50.826 11.462-77.175-0.143-146.588-120.278-265.813-267.973-265.813z' fill='%23FFFFFF' p-id='2552'%3E%3C/path%3E%3Cpath d='M388.294 534.47c-84.151 0-152.34 59.178-152.34 132.334 0 73.141 68.189 132.328 152.34 132.328 84.148 0 152.337-59.182 152.337-132.328 0-73.15-68.19-132.334-152.337-132.334zM338.53 752.763c-29.454 0-53.39-23.755-53.39-52.987 0-29.228 23.941-52.989 53.39-52.989 29.453 0 53.39 23.76 53.39 52.989 0 29.227-23.937 52.987-53.39 52.987z m99.82-95.465c-6.382 11.086-19.296 15.696-28.726 10.219-9.43-5.323-11.75-18.717-5.37-29.803 6.386-11.09 19.297-15.7 28.725-10.224 9.43 5.472 11.755 18.864 5.37 29.808z' fill='%23FFFFFF' p-id='2553'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.icon-item text {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.safe-bottom {
+  height: 60rpx;
+} 

@@ -1,0 +1,89 @@
+<!--pages/login/login.wxml-->
+<view class="login-container">
+  <!-- 品牌Logo -->
+  <view class="logo-section">
+    <image class="logo" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.pngss" mode="aspectFit"></image>
+    <text class="slogan">让"真功效"名副其实</text>
+  </view>
+
+  <!-- 登录表单 -->
+  <view class="login-form">
+    <!-- 手机号输入框 -->
+    <view class="input-group">
+      <view class="input-label">手机号</view>
+      <input type="number" placeholder="请输入手机号" maxlength="11" bindinput="inputPhone" />
+    </view>
+    
+    <!-- 密码登录 -->
+    <block wx:if="{{showPasswordLogin}}">
+      <view class="input-group">
+        <view class="input-label">密码</view>
+        <input type="password" placeholder="请输入密码" password="true" bindinput="inputPassword" />
+      </view>
+    </block>
+    
+    <!-- 验证码登录 -->
+    <block wx:else>
+      <view class="input-group code-group">
+        <view class="input-label">验证码</view>
+        <input type="number" placeholder="请输入验证码" maxlength="6" bindinput="inputVerifyCode" />
+        <button 
+          class="code-btn {{countdown > 0 ? 'disabled' : ''}}" 
+          bindtap="getVerifyCode" 
+          disabled="{{countdown > 0}}">
+          {{countdown > 0 ? countdown + 's' : '获取验证码'}}
+        </button>
+      </view>
+    </block>
+    
+    <!-- 切换登录方式 -->
+    <view class="switch-type" bindtap="switchLoginType">
+      {{showPasswordLogin ? '验证码登录' : '密码登录'}}
+    </view>
+    
+    <!-- 协议同意 -->
+    <view class="protocol-section">
+      <view class="checkbox-container" bindtap="toggleAgreement">
+        <view class="checkbox {{agreeProtocol ? 'checked' : ''}}">
+          <view wx:if="{{agreeProtocol}}" class="check-icon"></view>
+        </view>
+      </view>
+      <view class="protocol-text">
+        我已阅读并同意
+        <text class="protocol-link" catchtap="viewProtocol">《用户协议》</text>
+        和
+        <text class="protocol-link" catchtap="viewPrivacy">《隐私政策》</text>
+      </view>
+    </view>
+    
+    <!-- 登录按钮 -->
+    <button class="login-btn" bindtap="login">登录</button>
+    
+    <!-- 第三方登录 -->
+    <view class="third-party-login">
+      <view class="divider">
+        <view class="line"></view>
+        <view class="text">其他登录方式</view>
+        <view class="line"></view>
+      </view>
+      
+      <view class="icon-group">
+        <view class="icon-item">
+          <view class="wechat-icon"></view>
+          <text>微信</text>
+        </view>
+        <view class="icon-item">
+          <view class="qq-icon"></view>
+          <text>QQ</text>
+        </view>
+        <view class="icon-item">
+          <view class="weibo-icon"></view>
+          <text>微博</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部安全区 -->
+  <view class="safe-bottom"></view>
+</view> 

@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千年敦煌·传承经典</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dunhuang-red: #9E2B25;
+            --dunhuang-blue: #3B6E8F;
+            --dunhuang-gold: #CEA45C;
+            --dunhuang-beige: #EADDCF;
+            --dunhuang-green: #417D53;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1000px; /* Changed from 1280px */
+            min-height: 650px; /* Changed from 720px */
+            overflow: auto;
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--dunhuang-beige);
+            color: #333;
+            margin: 0 auto; /* Center the content */
+        }
+        .slide-container {
+            width: 1000px; /* Changed from 1280px */
+            min-height: 650px; /* Changed from 720px */
+            position: relative;
+            overflow: visible; /* 从hidden改为visible，确保内容不会被裁剪 */
+        }
+        .title {
+            font-family: 'Ma Shan Zheng', cursive;
+            color: var(--dunhuang-red);
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            font-family: 'Noto Serif SC', serif;
+            color: #333;
+        }
+        .point-title {
+            color: var(--dunhuang-red);
+            font-weight: bold;
+            border-left: 4px solid var(--dunhuang-gold);
+            padding-left: 12px;
+        }
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://wenyi.gmw.cn/attachement/jpg/site2/20220413/94c69122e3a323c082f503.jpg');
+            background-size: cover;
+            opacity: 0.08;
+            z-index: -1;
+        }
+        .flying-apsara {
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            width: 200px; /* Changed from 250px */
+            height: auto;
+            opacity: 0.8;
+            z-index: -1; /* 从0改为-1，保证不会遮挡内容 */
+        }
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-left: 4px solid var(--dunhuang-gold);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative; /* 添加相对定位 */
+            z-index: 10; /* 确保内容显示在最上层 */
+        }
+        .content-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .dunhuang-border {
+            border: 1px solid var(--dunhuang-gold);
+            background: linear-gradient(to right, rgba(206, 164, 92, 0.05), transparent);
+        }
+        .color-sample {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .red-sample { background-color: var(--dunhuang-red); }
+        .blue-sample { background-color: var(--dunhuang-blue); }
+        .gold-sample { background-color: var(--dunhuang-gold); }
+        .green-sample { background-color: var(--dunhuang-green); }
+        
+        .feature-number {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 1.5rem;
+            color: var(--dunhuang-red);
+            margin-right: 0.5rem;
+        }
+        
+        .phone-mockup {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-radius: 24px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .concept-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .concept-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--dunhuang-red);
+            border-radius: 50%;
+        }
+        
+        /* Media print styles for PDF export */
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .slide-container {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .content-card {
+                break-inside: avoid;
+            }
+            .content-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- 背景图案 -->
+        <div class="background-pattern"></div>
+        
+        <!-- 飞天装饰元素 -->
+        <img src="https://img.redocn.com/sheji/20220620/yuanchuangshouhuidunhuangmeinvyuansu_12465367.jpg.285.jpg" class="flying-apsara" alt="敦煌飞天">
+        
+        <!-- 顶部区域 - 修改为左侧LOGO右侧手机展示的布局 -->
+        <div class="px-8 pt-8 pb-4 relative z-10">
+            <div class="flex items-center justify-between">
+                <!-- 左侧LOGO和标题区域 -->
+                <div class="flex items-center">
+                    <div class="mr-6">
+                        <img src="https://img.picgo.net/2025/06/03/LOGOfb57d466939fef67.png" alt="HBN Logo" class="h-20 mb-2 transform scale-110">
+                        <p class="text-sm text-gray-600">Honeymate Beauty Naturalism</p>
+                        <div class="mt-2 border-b-2 border-dunhuang-gold w-36"></div>
+                        <p class="mt-2 text-xl" style="color: var(--dunhuang-red);">亮出原生白 天然会发光</p>
+                    </div>
+                    <div class="ml-4">
+                        <h1 class="title text-5xl mb-1">千年敦煌·传承经典</h1>
+                        <p class="subtitle text-xl">HBN敦煌风格项目设计主题</p>
+                    </div>
+                </div>
+                
+                <!-- 右侧手机展示区域 -->
+                <div class="flex items-end space-x-(-8)">
+                    <img src="https://img.picgo.net/2025/06/03/1fbdbded3ddd74151.png" alt="敦煌风格小程序界面1" class="phone-mockup h-64 transform rotate-(-5deg)">
+                    <img src="https://img.picgo.net/2025/06/03/2fc2edb3d74841fea.png" alt="敦煌风格小程序界面2" class="phone-mockup h-72 z-10">
+                    <img src="https://img.picgo.net/2025/06/03/326ef1d94323ad8f7.png" alt="敦煌风格小程序界面3" class="phone-mockup h-64 transform rotate-5deg">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 主要内容区 -->
+        <div class="px-16 pt-12 pb-8 grid grid-cols-1 gap-6 relative z-10">
+            <!-- 设计主题和理念介绍 -->
+            <div class="content-card p-8 mb-8">
+                <h2 class="title text-3xl mb-6 text-center">设计主题：敦煌古韵 传承经典</h2>
+                <p class="subtitle text-lg mb-8 text-center">设计理念阐述：</p>
+                
+                <div class="ml-4 grid grid-cols-1 gap-6">
+                    <div class="flex items-start">
+                        <span class="feature-number">1.</span>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2" style="color: var(--dunhuang-red);">自然与古风的融合</h3>
+                            <p class="ml-2 text-base">
+                    <span class="color-sample red-sample"></span>
+                    <span class="color-sample blue-sample"></span>
+                    <span class="color-sample gold-sample"></span>
+                                <span class="color-sample green-sample"></span>
+                                以敦煌色彩为主色调，体现自然、生机与宁静，同时融入古风元素古典山水、书法卷轴以及竹影，营造出优雅古典的氛围，展现品牌的独特韵味。
+                </p>
+                        </div>
+            </div>
+            
+                    <div class="flex items-start">
+                        <span class="feature-number">2.</span>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2" style="color: var(--dunhuang-blue);">和谐与舒适</h3>
+                            <p class="ml-2 text-base">
+                                敦煌哈人以和谐、舒适的感觉，营造出愉悦的视觉体验，让用户在使用过程中感受到放松与安心。设计中巧妙运用壁画纹理、飞天图案等敦煌元素作为界面装饰，通过CSS伪元素以低透明度呈现，不干扰主要内容。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <span class="feature-number">3.</span>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2" style="color: var(--dunhuang-gold);">品牌形象的传达</h3>
+                            <p class="ml-2 text-base">
+                                设计一套关联HBN特点的小图标，使小程序整体和谐底蕴深厚的古典山水作为背景，颜色采用敦煌色为底，优雅古典的氛围通过独特的设计风格，准确传达HBN品牌的价值观和个性，提升品牌的辨识度和影响力。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 01前期调研模块 -->
+            <div class="content-card p-5 mb-8">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">01</span>前期调研 - 品牌定位与核心理念
+                </h2>
+                <div class="ml-10">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <!-- 左侧内容区 -->
+                            <div class="mb-6">
+                                <h3 class="font-bold text-lg mb-2" style="color: var(--dunhuang-red);">
+                                    <i class="fas fa-bullseye mr-2"></i>品牌定位
+                                </h3>
+                                <div class="pl-6 border-l-2" style="border-color: var(--dunhuang-gold);">
+                                    <p class="text-base">国内首个真功效护肤开拓者，专注科研成分，全线产品通过权威功效检测，以A醇抗老技术为核心，为18-35岁初老人群提供有效可见的护肤解决方案。</p>
+                                </div>
+            </div>
+            
+                            <div class="mb-6">
+                                <h3 class="font-bold text-lg mb-2" style="color: var(--dunhuang-blue);">
+                                    <i class="fas fa-users mr-2"></i>用户群体
+                                </h3>
+                                <div class="pl-6 border-l-2" style="border-color: var(--dunhuang-gold);">
+                                    <p class="text-base">22-38岁有抗老美白需求的女性</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h3 class="font-bold text-lg mb-2" style="color: var(--dunhuang-gold);">
+                                    <i class="fas fa-lightbulb mr-2"></i>品牌理念
+                                </h3>
+                                <div class="pl-6 border-l-2" style="border-color: var(--dunhuang-gold);">
+                                    <p class="text-base">让"真功效"名副其实</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <!-- 右侧图表区 -->
+                            <div class="bg-white p-4 rounded-lg shadow-sm" style="height: 300px;">
+                                <!-- 用户年龄分布柱状图 -->
+                                <h4 class="text-center font-bold mb-4" style="color: var(--dunhuang-blue);">用户年龄分布</h4>
+                                <div class="relative h-56">
+                                    <!-- Y轴标签 -->
+                                    <div class="absolute left-0 top-0 bottom-0 w-8 flex flex-col justify-between items-end pr-2">
+                                        <span class="text-xs text-gray-500">100%</span>
+                                        <span class="text-xs text-gray-500">75%</span>
+                                        <span class="text-xs text-gray-500">50%</span>
+                                        <span class="text-xs text-gray-500">25%</span>
+                                        <span class="text-xs text-gray-500">0%</span>
+                                    </div>
+                                    
+                                    <!-- 图表主体 -->
+                                    <div class="ml-8 h-full flex items-end justify-around">
+                                        <!-- 18-22岁 -->
+                                        <div class="w-12 mx-1 flex flex-col items-center">
+                                            <div class="h-16 w-full rounded-t-md" style="background-color: rgba(158, 43, 37, 0.6);"></div>
+                                            <span class="text-xs mt-1">18-22岁</span>
+                                            <span class="text-xs text-gray-500">15%</span>
+                                        </div>
+                                        
+                                        <!-- 23-28岁 -->
+                                        <div class="w-12 mx-1 flex flex-col items-center">
+                                            <div class="h-32 w-full rounded-t-md" style="background-color: rgba(59, 110, 143, 0.6);"></div>
+                                            <span class="text-xs mt-1">23-28岁</span>
+                                            <span class="text-xs text-gray-500">35%</span>
+                                        </div>
+                                        
+                                        <!-- 29-35岁 -->
+                                        <div class="w-12 mx-1 flex flex-col items-center">
+                                            <div class="h-40 w-full rounded-t-md" style="background-color: rgba(206, 164, 92, 0.6);"></div>
+                                            <span class="text-xs mt-1">29-35岁</span>
+                                            <span class="text-xs text-gray-500">40%</span>
+                                        </div>
+                                        
+                                        <!-- 36-42岁 -->
+                                        <div class="w-12 mx-1 flex flex-col items-center">
+                                            <div class="h-10 w-full rounded-t-md" style="background-color: rgba(65, 125, 83, 0.6);"></div>
+                                            <span class="text-xs mt-1">36-42岁</span>
+                                            <span class="text-xs text-gray-500">10%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 用户群体拼图 -->
+                    <div class="mt-6">
+                        <h3 class="font-bold text-lg mb-3" style="color: var(--dunhuang-blue);">
+                            <i class="fas fa-puzzle-piece mr-2"></i>用户群体特征拼图
+                        </h3>
+                        <div class="grid grid-cols-5 gap-2 mt-4">
+                            <div class="dunhuang-border p-3 rounded-lg text-center" style="background-color: rgba(158, 43, 37, 0.1);">
+                                <div class="text-sm font-bold mb-1" style="color: var(--dunhuang-red);">职场女性</div>
+                                <p class="text-xs">25-35岁</p>
+                                <p class="text-xs">高压环境</p>
+                            </div>
+                            <div class="dunhuang-border p-3 rounded-lg text-center" style="background-color: rgba(59, 110, 143, 0.1);">
+                                <div class="text-sm font-bold mb-1" style="color: var(--dunhuang-blue);">新锐青年</div>
+                                <p class="text-xs">22-28岁</p>
+                                <p class="text-xs">追求潮流</p>
+                            </div>
+                            <div class="dunhuang-border p-3 rounded-lg text-center" style="background-color: rgba(206, 164, 92, 0.1);">
+                                <div class="text-sm font-bold mb-1" style="color: var(--dunhuang-gold);">精致妈妈</div>
+                                <p class="text-xs">30-38岁</p>
+                                <p class="text-xs">注重保养</p>
+                            </div>
+                            <div class="dunhuang-border p-3 rounded-lg text-center" style="background-color: rgba(65, 125, 83, 0.1);">
+                                <div class="text-sm font-bold mb-1" style="color: var(--dunhuang-green);">都市白领</div>
+                                <p class="text-xs">25-32岁</p>
+                                <p class="text-xs">熬夜族</p>
+                            </div>
+                            <div class="dunhuang-border p-3 rounded-lg text-center" style="background-color: rgba(158, 43, 37, 0.1);">
+                                <div class="text-sm font-bold mb-1" style="color: var(--dunhuang-red);">医美达人</div>
+                                <p class="text-xs">25-35岁</p>
+                                <p class="text-xs">高消费力</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-6 mt-4">
+                            <div class="dunhuang-border p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.5);">
+                                <h4 class="font-bold mb-2" style="color: var(--dunhuang-blue);">关注点</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(59, 110, 143, 0.2); color: var(--dunhuang-blue);">抗初老 40%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(158, 43, 37, 0.2); color: var(--dunhuang-red);">美白淡斑 25%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: var(--dunhuang-gold);">保湿补水 15%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(65, 125, 83, 0.2); color: var(--dunhuang-green);">敏感修护 10%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(158, 43, 37, 0.2); color: var(--dunhuang-red);">淡化细纹 10%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="dunhuang-border p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.5);">
+                                <h4 class="font-bold mb-2" style="color: var(--dunhuang-red);">消费行为</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(158, 43, 37, 0.2); color: var(--dunhuang-red);">重视功效 35%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(59, 110, 143, 0.2); color: var(--dunhuang-blue);">关注成分 25%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: var(--dunhuang-gold);">看重口碑 20%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(65, 125, 83, 0.2); color: var(--dunhuang-green);">品牌忠诚 10%</span>
+                                    <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(158, 43, 37, 0.2); color: var(--dunhuang-red);">价格敏感 10%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 用户画像分析 -->
+            <div class="content-card p-5">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">02</span>HBN品牌用户画像分析 - 打造针对性的护肤解决方案
+                </h2>
+                <div class="ml-10 text-base grid grid-cols-3 gap-6 mt-6">
+                    <!-- 职场精英女性 -->
+                    <div class="dunhuang-border p-4 rounded-lg relative" style="border-color: #E57F84; border-width: 2px; box-shadow: 0 3px 10px rgba(229, 127, 132, 0.15);">
+                        <div class="text-center">
+                            <div class="flex justify-center">
+                                <img src="https://img.picgo.net/2025/06/05/b0ddb0ae8e2e0c643ba389311889fff53c56e364d6fe62d8.png" alt="职场精英女性" class="w-20 h-20 rounded-full mb-2 object-cover">
+                            </div>
+                            <h3 class="font-bold text-xl" style="color: var(--dunhuang-red);">职场精英女性</h3>
+                            <p class="text-gray-600">陈敏 | 28-35岁</p>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-red);">
+                                <i class="fas fa-user-tie mr-2"></i>基本信息
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>跨国公司中层管理者/金融专业人士</li>
+                                <li>月收入15,000-30,000元</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-red);">
+                                <i class="fas fa-coffee mr-2"></i>生活方式
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>工作时间长，常常加班至晚上9点以后</li>
+                                <li>周末安排SPA、瑜伽等自我放松活动</li>
+                                <li>社交活动频繁，重视个人形象管理</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-red);">
+                                <i class="fas fa-exclamation-circle mr-2"></i>用户痛点
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>面部出现细纹，面部轻微下垂感</li>
+                                <li>肌肤开始失去弹性，熬夜后暗沉明显</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-red);">
+                                <i class="fas fa-heart mr-2"></i>品牌需求
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>有效对抗初老迹象，淡化细纹、提亮肤色</li>
+                                <li>有科学依据的护肤方案，不冒自适随的推广产品</li>
+                                <li>偏好"皇C修复2.0系列"这类系统性解决方案</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 都市新锐青年 -->
+                    <div class="dunhuang-border p-4 rounded-lg relative" style="border-color: #8EBAD5; border-width: 2px; box-shadow: 0 3px 10px rgba(142, 186, 213, 0.15);">
+                        <div class="text-center">
+                            <div class="flex justify-center">
+                                <img src="https://img.picgo.net/2025/06/05/9453a2815eb8c04721294ca05f03c6fb18503f273b8f696d.png" alt="都市新锐青年" class="w-20 h-20 rounded-full mb-2 object-cover">
+                            </div>
+                            <h3 class="font-bold text-xl" style="color: var(--dunhuang-blue);">都市新锐青年</h3>
+                            <p class="text-gray-600">李阳 | 22-27岁</p>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-blue);">
+                                <i class="fas fa-user-tie mr-2"></i>基本信息
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>新媒体行业从业者/创意设计师</li>
+                                <li>月收入8,000-15,000元</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-blue);">
+                                <i class="fas fa-coffee mr-2"></i>生活方式
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>社交媒体活跃用户，热衷分享生活点滴</li>
+                                <li>注重个人形象，随意尝试新品牌和新产品</li>
+                                <li>生活规律不稳定，经常熬夜完成工作</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-blue);">
+                                <i class="fas fa-exclamation-circle mr-2"></i>用户痛点
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>皮肤泛黄暗沉，熬夜后肌肤状态差</li>
+                                <li>开始担忧初老问题</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: var(--dunhuang-blue);">
+                                <i class="fas fa-heart mr-2"></i>品牌需求
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>追求即时提亮效果，改善暗沉肤色</li>
+                                <li>希望产品有好的质地和使用体验，适合拍照分享</li>
+                                <li>喜好"明星发光水"等能快速改善肌肤的单品</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 科研工作者 -->
+                    <div class="dunhuang-border p-4 rounded-lg relative" style="border-color: #9DBF9E; border-width: 2px; box-shadow: 0 3px 10px rgba(157, 191, 158, 0.15);">
+                        <div class="text-center">
+                            <div class="flex justify-center">
+                                <img src="https://img.picgo.net/2025/06/05/d6b992a9ff5fab8aed3ee3b89c6f676c8f9c6b5df9723094.png" alt="科研工作者" class="w-20 h-20 rounded-full mb-2 object-cover">
+                            </div>
+                            <h3 class="font-bold text-xl" style="color: #417D53;">科研工作者</h3>
+                            <p class="text-gray-600">张博 | 30-38岁</p>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h4 class="font-bold flex items-center" style="color: #417D53;">
+                                <i class="fas fa-user-tie mr-2"></i>基本信息
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>医药研发/高校教师/IT工程师</li>
+                                <li>月收入20,000-35,000元</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: #417D53;">
+                                <i class="fas fa-coffee mr-2"></i>生活方式
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>工作强度大，经常面对电脑屏幕超过10小时</li>
+                                <li>生活理性务实，重视健康与科学</li>
+                                <li>消费谨慎，会详细研究产品成分和原理</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: #417D53;">
+                                <i class="fas fa-exclamation-circle mr-2"></i>用户痛点
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>长期用眼疲劳导致眼睛问题突出</li>
+                                <li>黑眼圈、眼袋、细纹同时存在</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h4 class="font-bold flex items-center" style="color: #417D53;">
+                                <i class="fas fa-heart mr-2"></i>品牌需求
+                            </h4>
+                            <ul class="list-disc list-inside text-sm mt-1">
+                                <li>有实际功效的眼部护理产品，改善多种眼部问题</li>
+                                <li>重视产品科研背景和成分创新</li>
+                                <li>偏好"阿喵因素敏修护眼霜"等有专业背书的产品</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 ml-10 text-base">
+                    <p>依据敦煌不同色系与三类用户特点相互映射，为不同人群定制专属的产品体验。每一类用户的设计元素都与敦煌文化中的不同元素相呼应，形成独特且富有文化内涵的品牌形象定位。</p>
+                </div>
+            </div>
+
+            <!-- 03竞品分析模块 -->
+            <div class="content-card p-5 mb-8">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">03</span>竞品分析 - 功效护肤赛道市场现状
+                </h2>
+                
+                <div class="ml-10">
+                    <!-- 模块介绍 -->
+                    <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                        <p class="text-base">功效护肤作为近年来市场的热点赛道，国内外品牌均有布局，了解竞品定位与理念有助于我们明确自身优势，打造差异化的品牌特色。</p>
+                    </div>
+                    
+                    <!-- 国内品牌分析 -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-red);">
+                            <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-red);"></div>
+                            国内功效护肤品牌分析
+                        </h3>
+                        
+                        <div class="grid grid-cols-3 gap-6">
+                            <!-- 薇诺娜 -->
+                            <div class="dunhuang-border p-5 rounded-lg hover:shadow-lg transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.8);">
+                                <div class="flex justify-between items-start mb-4">
+                                    <img src="https://img.picgo.net/2025/06/02/48446ae9308c89d1c9dcf5fac79d034067eb6da52ae2f7ba.png" alt="薇诺娜" class="h-10 mb-2">
+                                    <div class="px-2 py-1 text-xs rounded-full" style="background-color: rgba(158, 43, 37, 0.1); color: var(--dunhuang-red);">敏感修护</div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌定位</h4>
+                                    <p class="text-sm mb-4">专注敏感肌修复的医学护肤品牌</p>
+                                    
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌理念</h4>
+                                    <p class="text-sm">"用科学守护敏感肌肤"，专注医学级皮肤屏障修复解决方案</p>
+                                </div>
+                                
+                                <div class="mt-4 pt-4 border-t" style="border-color: rgba(206, 164, 92, 0.3);">
+                                    <h4 class="font-bold text-sm mb-1" style="color: var(--dunhuang-gold);">市场优势</h4>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">医院渠道</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">敏感肌口碑</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">修复功效</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 悦木之源 -->
+                            <div class="dunhuang-border p-5 rounded-lg hover:shadow-lg transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.8);">
+                                <div class="flex justify-between items-start mb-4">
+                                    <img src="https://img.picgo.net/2025/06/02/Origins5a83a80db20f4e66.png" alt="悦木之源" class="h-10 mb-2">
+                                    <div class="px-2 py-1 text-xs rounded-full" style="background-color: rgba(65, 125, 83, 0.1); color: var(--dunhuang-green);">天然科技</div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌定位</h4>
+                                    <p class="text-sm mb-4">天然成分与科技结合的高端护肤品牌</p>
+                                    
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌理念</h4>
+                                    <p class="text-sm">"源自自然，科技赋能"，强调植物力量与科学结合</p>
+                                </div>
+                                
+                                <div class="mt-4 pt-4 border-t" style="border-color: rgba(206, 164, 92, 0.3);">
+                                    <h4 class="font-bold text-sm mb-1" style="color: var(--dunhuang-gold);">市场优势</h4>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">植物原料</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">高端形象</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">感官体验</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 完美日记 -->
+                            <div class="dunhuang-border p-5 rounded-lg hover:shadow-lg transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.8);">
+                                <div class="flex justify-between items-start mb-4">
+                                    <img src="https://img.picgo.net/2025/06/02/8dcfdbd0919dc1c60caa0558cb987430f56ae1b0b1e89727.png" alt="完美日记" class="h-10 mb-2">
+                                    <div class="px-2 py-1 text-xs rounded-full" style="background-color: rgba(59, 110, 143, 0.1); color: var(--dunhuang-blue);">年轻国货</div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌定位</h4>
+                                    <p class="text-sm mb-4">年轻潮流国货彩妆护肤品牌</p>
+                                    
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌理念</h4>
+                                    <p class="text-sm">"让每个人都能拥有专业级的美"，强调高性价比与时尚潮流</p>
+                                </div>
+                                
+                                <div class="mt-4 pt-4 border-t" style="border-color: rgba(206, 164, 92, 0.3);">
+                                    <h4 class="font-bold text-sm mb-1" style="color: var(--dunhuang-gold);">市场优势</h4>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">性价比高</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">社媒营销</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">年轻市场</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 国际品牌分析 -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-blue);">
+                            <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-blue);"></div>
+                            国际功效护肤品牌分析
+                        </h3>
+                        
+                        <div class="grid grid-cols-3 gap-6">
+                            <!-- The Ordinary -->
+                            <div class="dunhuang-border p-5 rounded-lg hover:shadow-lg transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.8);">
+                                <div class="flex justify-between items-start mb-4">
+                                    <img src="https://img.picgo.net/2025/06/02/theOrdinary-logo5e64ab1ddd05eefa.png" alt="The Ordinary" class="h-10 mb-2">
+                                    <div class="px-2 py-1 text-xs rounded-full" style="background-color: rgba(59, 110, 143, 0.1); color: var(--dunhuang-blue);">成分透明</div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌定位</h4>
+                                    <p class="text-sm mb-4">单一成分透明配方的功效护肤品牌</p>
+                                    
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌理念</h4>
+                                    <p class="text-sm">"诚实、透明、高效"，直接传递产品成分与功效</p>
+                                </div>
+                                
+                                <div class="mt-4 pt-4 border-t" style="border-color: rgba(206, 164, 92, 0.3);">
+                                    <h4 class="font-bold text-sm mb-1" style="color: var(--dunhuang-gold);">市场优势</h4>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">成分党</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">透明定价</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">简约包装</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 雅诗兰黛 -->
+                            <div class="dunhuang-border p-5 rounded-lg hover:shadow-lg transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.8);">
+                                <div class="flex justify-between items-start mb-4">
+                                    <img src="https://img.picgo.net/2025/06/02/dd90513bd035f5dfb683a0452ea762c1392cb0f03ddeb0b6.png" alt="雅诗兰黛" class="h-10 mb-2">
+                                    <div class="px-2 py-1 text-xs rounded-full" style="background-color: rgba(158, 43, 37, 0.1); color: var(--dunhuang-red);">奢华科技</div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌定位</h4>
+                                    <p class="text-sm mb-4">高端奢华综合护肤品牌</p>
+                                    
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌理念</h4>
+                                    <p class="text-sm">"科技创新，定义美丽"，注重高端科技抗衰老</p>
+                                </div>
+                                
+                                <div class="mt-4 pt-4 border-t" style="border-color: rgba(206, 164, 92, 0.3);">
+                                    <h4 class="font-bold text-sm mb-1" style="color: var(--dunhuang-gold);">市场优势</h4>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">高端定位</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">抗衰老</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">品牌历史</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 资生堂 -->
+                            <div class="dunhuang-border p-5 rounded-lg hover:shadow-lg transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.8);">
+                                <div class="flex justify-between items-start mb-4">
+                                    <img src="https://img.picgo.net/2025/06/02/56fd5ab6c24670452f1dad61a89bbdbc617985591ece27a7.png" alt="资生堂" class="h-10 mb-2">
+                                    <div class="px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.1); color: var(--dunhuang-gold);">东方科技</div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌定位</h4>
+                                    <p class="text-sm mb-4">东方美学与科技结合的高端护肤品牌</p>
+                                    
+                                    <h4 class="font-bold text-md mb-1" style="color: var(--dunhuang-blue);">品牌理念</h4>
+                                    <p class="text-sm">"结合东方与西方，传统与创新"，注重科研力量</p>
+                                </div>
+                                
+                                <div class="mt-4 pt-4 border-t" style="border-color: rgba(206, 164, 92, 0.3);">
+                                    <h4 class="font-bold text-sm mb-1" style="color: var(--dunhuang-gold);">市场优势</h4>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">研发实力</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">东方理念</span>
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full" style="background-color: rgba(206, 164, 92, 0.2); color: #8B6914;">全线产品</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 竞品分析总结 -->
+                    <div class="p-5 mt-5 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3); border-left: 4px solid var(--dunhuang-gold);">
+                        <h3 class="font-bold text-lg mb-3" style="color: var(--dunhuang-gold);">竞品分析总结</h3>
+                        <div class="text-sm space-y-2">
+                            <p><span class="font-bold text-md" style="color: var(--dunhuang-red);">国内品牌特点：</span> 近年来国货崛起明显，各品牌均致力于打造差异化特色，薇诺娜聚焦医学护肤，悦木之源侧重天然科技，完美日记则主打年轻市场。</p>
+                            <p><span class="font-bold text-md" style="color: var(--dunhuang-blue);">国际品牌优势：</span> 科研实力雄厚，品牌历史悠久，市场教育成熟，特别是The Ordinary以成分透明度打开市场，雅诗兰黛和资生堂则凭借抗衰老科技树立高端形象。</p>
+                            <p><span class="font-bold text-md" style="color: var(--dunhuang-gold);">HBN差异化机会：</span> 我们可结合敦煌文化元素与现代功效科技，打造兼具中国文化底蕴和真实功效的护肤品牌，填补国内高功效、有文化、可信赖的品牌空白。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 04产品架构模块 -->
+            <div class="content-card p-5 mb-8">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">04</span>产品架构设计 - 功能与体验的深度融合
+                </h2>
+                
+                <div class="ml-10">
+                    <!-- 模块介绍 -->
+                    <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                        <p class="text-base">产品架构是整个小程序的骨架，通过合理的功能规划和页面布局，为用户提供直观、流畅的使用体验，同时融入敦煌风格的设计元素，打造独特的品牌识别度。</p>
+                    </div>
+                    
+                    <!-- 产品架构图 -->
+                    <div class="mb-8 flex justify-center">
+                        <div class="dunhuang-border p-4 rounded-lg inline-block" style="background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <h3 class="font-bold text-lg mb-4 text-center" style="color: var(--dunhuang-red);">HBN小程序产品架构</h3>
+                            <img src="https://img.picgo.net/2025/06/02/50f2df84c396e99506a4f267e93700cea91fe2126755526a.png" alt="产品架构图" class="max-w-full rounded-lg">
+                            <p class="text-center text-sm mt-3 text-gray-600">产品架构图展示了小程序的整体功能结构与页面关系</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 05图标设计模块 -->
+            <div class="content-card p-5 mb-8">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">05</span>图标设计 - 传统敦煌元素与现代设计的融合
+                </h2>
+                
+                <div class="ml-10">
+                    <!-- 模块介绍 -->
+                    <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                        <p class="text-base"></p>
+                    </div>
+                    
+                    <!-- 图标设计展示 -->
+                    <div class="mb-8 flex justify-center">
+                        <div class="dunhuang-border p-4 rounded-lg inline-block" style="background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <h3 class="font-bold text-lg mb-4 text-center" style="color: var(--dunhuang-red);">HBN敦煌风格图标系统</h3>
+                            <img src="https://img.picgo.net/2025/06/02/d65abc329174354d2a9f7c81f49eb1d3ba7c8b2d0b7120bd.png" alt="图标设计系统" class="max-w-full rounded-lg">
+                            <p class="text-center text-sm mt-3 text-gray-600">图标设计融合敦煌壁画元素与现代简约风格</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 06设计规范模块 -->
+            <div class="content-card p-5 mb-8">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">06</span>设计规范 - 统一视觉语言的设计系统
+                </h2>
+                
+                <div class="ml-10">
+                    <!-- 模块介绍 -->
+                    <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                        <p class="text-base">设计规范是保证HBN小程序视觉一致性和品质感的基础，通过建立系统化的设计标准，不仅提高了开发效率，也确保了用户体验的连贯性和品牌识别度。本规范融合敦煌文化元素，打造独具东方韵味的现代设计语言。</p>
+                    </div>
+                    
+                    <!-- 设计规范总览 -->
+                    <div class="grid grid-cols-2 gap-8 mb-8">
+                        <!-- 左侧：色彩和字体 -->
+                        <div>
+                            <!-- 色彩系统 -->
+                            <div class="mb-8">
+                                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-red);">
+                                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-red);"></div>
+                                    色彩系统
+                                </h3>
+                                
+                                <div class="p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3);">
+                                    <p class="text-sm mb-4">基于敦煌壁画色彩定义了主色调，包括敦煌红、蓝、金、橙和绿</p>
+                                    
+                                    <!-- 主色系 -->
+                                    <h4 class="font-bold mb-2">主色系</h4>
+                                    <div class="grid grid-cols-5 gap-2 mb-4">
+                                        <div>
+                                            <div class="h-12 rounded-t-md" style="background-color: var(--dunhuang-red);"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">敦煌红<br>#9E2B25</div>
+                                        </div>
+                                        <div>
+                                            <div class="h-12 rounded-t-md" style="background-color: var(--dunhuang-blue);"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">矿物蓝<br>#3B6E8F</div>
+                                        </div>
+                                        <div>
+                                            <div class="h-12 rounded-t-md" style="background-color: var(--dunhuang-gold);"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">敦煌金<br>#CEA45C</div>
+                                        </div>
+                                        <div>
+                                            <div class="h-12 rounded-t-md" style="background-color: #E88C30;"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">敦煌橙<br>#E88C30</div>
+                                        </div>
+                                        <div>
+                                            <div class="h-12 rounded-t-md" style="background-color: var(--dunhuang-green);"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">敦煌绿<br>#417D53</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 功能色系 -->
+                                    <h4 class="font-bold mb-2">功能色系</h4>
+                                    <div class="grid grid-cols-4 gap-2">
+                                        <div>
+                                            <div class="h-8 rounded-t-md" style="background-color: #EADDCF;"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">背景色</div>
+                                        </div>
+                                        <div>
+                                            <div class="h-8 rounded-t-md" style="background-color: #333333;"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">文本主色</div>
+                                        </div>
+                                        <div>
+                                            <div class="h-8 rounded-t-md" style="background-color: #2ECC71;"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">成功色</div>
+                                        </div>
+                                        <div>
+                                            <div class="h-8 rounded-t-md" style="background-color: #E74C3C;"></div>
+                                            <div class="bg-white p-1 text-xs text-center rounded-b-md">错误色</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 字体规范 -->
+                            <div>
+                                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-blue);">
+                                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-blue);"></div>
+                                    字体规范
+                                </h3>
+                                
+                                <div class="p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3);">
+                                    <p class="text-sm mb-4">使用方正兰亭黑体作为主要字体，明确了各级标题和文本的字号与字重规范</p>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-24 text-xs text-gray-600">大标题</div>
+                                            <div class="text-2xl font-bold">方正兰亭黑体 24px Bold</div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-24 text-xs text-gray-600">中标题</div>
+                                            <div class="text-xl font-bold">方正兰亭黑体 20px Bold</div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-24 text-xs text-gray-600">小标题</div>
+                                            <div class="text-lg font-bold">方正兰亭黑体 16px Bold</div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-24 text-xs text-gray-600">正文</div>
+                                            <div class="text-base">方正兰亭黑体 14px Normal</div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-24 text-xs text-gray-600">辅助文本</div>
+                                            <div class="text-sm text-gray-600">方正兰亭黑体 12px Normal</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧：组件和图标 -->
+                        <div>
+                            <!-- 组件规范 -->
+                            <div class="mb-8">
+                                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-gold);">
+                                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-gold);"></div>
+                                    组件规范
+                                </h3>
+                                
+                                <div class="p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3);">
+                                    <p class="text-sm mb-4">卡片样式设计，强调圆角和轻微阴影，按钮样式分为主按钮和次按钮</p>
+                                    
+                                    <!-- 卡片样式 -->
+                                    <h4 class="font-bold mb-2">卡片样式</h4>
+                                    <div class="grid grid-cols-2 gap-3 mb-4">
+                                        <div class="p-3 rounded-lg bg-white shadow-sm border" style="border-color: var(--dunhuang-gold);">
+                                            <h5 class="text-sm font-bold mb-2" style="color: var(--dunhuang-red);">标准卡片</h5>
+                                            <p class="text-xs">圆角：8px</p>
+                                            <p class="text-xs">阴影：0 2px 8px rgba(0,0,0,0.1)</p>
+                                        </div>
+                                        <div class="p-3 rounded-lg bg-white shadow-sm" style="border-left: 4px solid var(--dunhuang-red);">
+                                            <h5 class="text-sm font-bold mb-2" style="color: var(--dunhuang-red);">强调卡片</h5>
+                                            <p class="text-xs">左侧边框：4px</p>
+                                            <p class="text-xs">颜色：敦煌红/蓝/金</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 按钮样式 -->
+                                    <h4 class="font-bold mb-2">按钮样式</h4>
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <div class="p-2 rounded-md text-center text-white text-sm" style="background-color: var(--dunhuang-red);">
+                                            主按钮
+                                        </div>
+                                        <div class="p-2 rounded-md text-center text-sm border" style="color: var(--dunhuang-red); border-color: var(--dunhuang-red);">
+                                            次按钮
+                                        </div>
+                                        <div class="p-2 rounded-md text-center text-sm text-gray-500 bg-gray-100">
+                                            禁用按钮
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 装饰元素 -->
+                                    <h4 class="font-bold mt-4 mb-2">装饰组件</h4>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div class="p-3 bg-white rounded-lg" style="background-image: url('https://picsum.photos/100/30'); background-size: cover; background-position: center; opacity: 0.2;">
+                                            <p class="text-xs font-bold text-center">敦煌壁画纹理</p>
+                                        </div>
+                                        <div class="p-3 bg-white rounded-lg relative">
+                                            <div class="absolute right-0 bottom-0 w-8 h-8 opacity-30">
+                                                <i class="fas fa-feather-alt" style="color: var(--dunhuang-gold);"></i>
+                                            </div>
+                                            <p class="text-xs font-bold text-center">飞天装饰元素</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 图标规范 -->
+                            <div>
+                                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-green);">
+                                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-green);"></div>
+                                    图标规范
+                                </h3>
+                                
+                                <div class="p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3);">
+                                    <p class="text-sm mb-4">规范了图标尺寸和风格，特定用户画像专属图标路径明确定义</p>
+                                    
+                                    <!-- 图标尺寸 -->
+                                    <h4 class="font-bold mb-2">图标尺寸</h4>
+                                    <div class="flex items-end space-x-4 mb-4">
+                                        <div class="text-center">
+                                            <div class="w-16 h-16 bg-white rounded-md flex items-center justify-center mb-1">
+                                                <i class="fas fa-star" style="color: var(--dunhuang-gold); font-size: 2rem;"></i>
+                                            </div>
+                                            <p class="text-xs">大图标 48px</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-12 h-12 bg-white rounded-md flex items-center justify-center mb-1">
+                                                <i class="fas fa-star" style="color: var(--dunhuang-gold); font-size: 1.5rem;"></i>
+                                            </div>
+                                            <p class="text-xs">中图标 36px</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center mb-1">
+                                                <i class="fas fa-star" style="color: var(--dunhuang-gold); font-size: 1rem;"></i>
+                                            </div>
+                                            <p class="text-xs">小图标 24px</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-6 h-6 bg-white rounded-md flex items-center justify-center mb-1">
+                                                <i class="fas fa-star" style="color: var(--dunhuang-gold); font-size: 0.75rem;"></i>
+                                            </div>
+                                            <p class="text-xs">微图标 16px</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 用户画像图标 -->
+                                    <h4 class="font-bold mb-2">用户画像专属图标</h4>
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <div class="p-2 rounded-md bg-white">
+                                            <div class="flex items-center">
+                                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-2" style="background-color: rgba(158, 43, 37, 0.1);">
+                                                    <i class="fas fa-female" style="color: var(--dunhuang-red);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-xs font-bold" style="color: var(--dunhuang-red);">职场精英</p>
+                                                    <p class="text-xs">红色系图标</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 rounded-md bg-white">
+                                            <div class="flex items-center">
+                                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-2" style="background-color: rgba(59, 110, 143, 0.1);">
+                                                    <i class="fas fa-paint-brush" style="color: var(--dunhuang-blue);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-xs font-bold" style="color: var(--dunhuang-blue);">新锐青年</p>
+                                                    <p class="text-xs">蓝色系图标</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 rounded-md bg-white">
+                                            <div class="flex items-center">
+                                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-2" style="background-color: rgba(65, 125, 83, 0.1);">
+                                                    <i class="fas fa-flask" style="color: var(--dunhuang-green);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-xs font-bold" style="color: var(--dunhuang-green);">科研工作者</p>
+                                                    <p class="text-xs">绿色系图标</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 底部设计规范 -->
+                    <div class="grid grid-cols-2 gap-8">
+                        <!-- 左侧：布局和动效 -->
+                        <div>
+                            <!-- 布局规范 -->
+                            <div class="mb-8">
+                                <h3 class="font-bold text-lg mb-3 flex items-center" style="color: var(--dunhuang-red);">
+                                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-red);"></div>
+                                    布局规范
+                                </h3>
+                                <div class="p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3);">
+                                    <p class="text-sm mb-3">统一了页面边距、组件间距等间距规范，规范了模态框和底部操作栏的样式</p>
+                                    
+                                    <!-- 间距规范 -->
+                                    <div class="bg-white p-3 rounded-md mb-3">
+                                        <h4 class="text-sm font-bold mb-2">间距规范</h4>
+                                        <div class="grid grid-cols-2 gap-2 text-xs">
+                                            <div class="flex items-center">
+                                                <span class="w-32">页面横向边距：</span>
+                                                <span class="font-bold">16px</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-32">卡片内边距：</span>
+                                                <span class="font-bold">16px</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-32">组件间垂直距离：</span>
+                                                <span class="font-bold">24px</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-32">区块内元素间距：</span>
+                                                <span class="font-bold">12px</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 模态框 -->
+                                    <div class="bg-white p-3 rounded-md">
+                                        <h4 class="text-sm font-bold mb-2">特殊组件规范</h4>
+                                        <div class="grid grid-cols-2 gap-2 text-xs">
+                                            <div>
+                                                <p class="font-bold mb-1">模态框</p>
+                                                <p>圆角：12px</p>
+                                                <p>最大宽度：80%</p>
+                                                <p>背景色：白色</p>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold mb-1">底部操作栏</p>
+                                                <p>固定高度：50px</p>
+                                                <p>背景色：白色</p>
+                                                <p>上边框：1px #EEEEEE</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 动效规范 -->
+                            <div>
+                                <h3 class="font-bold text-lg mb-3 flex items-center" style="color: var(--dunhuang-blue);">
+                                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-blue);"></div>
+                                    动效规范
+                                </h3>
+                                <div class="p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3);">
+                                    <p class="text-sm mb-3">定义了标准过渡和快速过渡效果，规范了交互反馈效果</p>
+                                    
+                                    <div class="space-y-4">
+                                        <!-- 过渡效果 -->
+                                        <div class="bg-white p-3 rounded-md">
+                                            <h4 class="text-sm font-bold mb-2">过渡效果</h4>
+                                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                                <div class="flex items-center">
+                                                    <span class="w-20">标准过渡：</span>
+                                                    <span class="font-mono">0.3s ease-in-out</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="w-20">快速过渡：</span>
+                                                    <span class="font-mono">0.15s ease</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 交互反馈 -->
+                                        <div class="bg-white p-3 rounded-md">
+                                            <h4 class="text-sm font-bold mb-2">交互反馈</h4>
+                                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                                <div>
+                                                    <p class="mb-1"><span class="font-bold">按钮点击：</span> 轻微缩放</p>
+                                                    <p class="font-mono">transform: scale(0.98)</p>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-1"><span class="font-bold">卡片悬停：</span> 上移阴影</p>
+                                                    <p class="font-mono">transform: translateY(-3px)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 专属动效 -->
+                                        <div class="bg-white p-3 rounded-md">
+                                            <h4 class="text-sm font-bold mb-2">品牌专属动效</h4>
+                                            <div class="text-xs">
+                                                <p class="mb-1"><span class="font-bold">飞天动画：</span> 轻微漂浮效果</p>
+                                                <p class="font-mono">animation: float 3s ease-in-out infinite</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧：用户画像和响应式 -->
+                        <div>
+                            
+                            <!-- 响应式设计 -->
+                            <div>
+                                <h3 class="font-bold text-lg mb-3 flex items-center" style="color: var(--dunhuang-green);">
+                                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-green);"></div>
+                                    响应式设计
+                                </h3>
+                                <div class="p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3);">
+                                    <p class="text-sm mb-3">定义了商品网格和商品卡片的响应式布局</p>
+                                    
+                                    <!-- 响应式网格 -->
+                                    <div class="bg-white p-3 rounded-md mb-3">
+                                        <h4 class="text-sm font-bold mb-2">商品网格响应</h4>
+                                        <div class="text-xs">
+                                            <table class="w-full text-left">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="pb-2">设备宽度</th>
+                                                        <th class="pb-2">列数</th>
+                                                        <th class="pb-2">间距</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="py-1">小型手机 (<320px)</td>
+                                                        <td>2列</td>
+                                                        <td>8px</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-1">标准手机 (≥320px)</td>
+                                                        <td>2列</td>
+                                                        <td>12px</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-1">大屏手机 (≥375px)</td>
+                                                        <td>2列</td>
+                                                        <td>16px</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-1">超大屏 (≥414px)</td>
+                                                        <td>3列</td>
+                                                        <td>16px</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 卡片响应 -->
+                                    <div class="bg-white p-3 rounded-md">
+                                        <h4 class="text-sm font-bold mb-2">商品卡片响应</h4>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            <div class="text-center">
+                                                <div class="h-32 bg-gray-100 rounded-md mb-1 flex items-center justify-center">
+                                                    <div class="w-full max-w-[120px] p-2">
+                                                        <div class="h-16 bg-white rounded-md mb-1"></div>
+                                                        <div class="h-3 bg-white rounded-full mb-1"></div>
+                                                        <div class="h-3 bg-white rounded-full w-3/4"></div>
+                                                    </div>
+                                                </div>
+                                                <p class="text-xs">紧凑卡片 (≤320px)</p>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="h-32 bg-gray-100 rounded-md mb-1 flex items-center justify-center">
+                                                    <div class="w-full max-w-[150px] p-2">
+                                                        <div class="h-16 bg-white rounded-md mb-1"></div>
+                                                        <div class="h-3 bg-white rounded-full mb-1"></div>
+                                                        <div class="h-3 bg-white rounded-full w-3/4"></div>
+                                                    </div>
+                                                </div>
+                                                <p class="text-xs">标准卡片 (>320px)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 07低保真原型图模块 -->
+            <div class="content-card p-5 mb-8">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">07</span>低保真原型图 
+                </h2>
+                
+                <div class="ml-10">
+                    <!-- 模块介绍 -->
+                    <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                        <p class="text-base"></p>
+                    </div>
+                    
+                    <!-- 低保真原型展示 -->
+                    <div class="mb-8">
+                        <div class="dunhuang-border p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div class="flex justify-center">
+                                <img src="https://img.picgo.net/2025/06/02/c7026c09ad57520cd248cb8367040e01dcae62f3f3a37a2c.png" alt="低保真原型图" class="max-w-full rounded-lg">
+                            </div>
+                            <p class="text-center text-sm mt-4 text-gray-600">低保真原型展示了小程序的页面结构、导航系统和主要功能区块</p>
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+            
+            <!-- 08广告语模块 -->
+            <div class="content-card p-5 mb-8">
+                <h2 class="point-title text-xl mb-3 flex items-center">
+                    <span class="mr-2 text-2xl">08</span>广告语设计
+                </h2>
+                
+                <div class="ml-10">
+                    
+                    <!-- 广告语展示 -->
+                    <div class="mb-8">
+                        <div class="grid grid-cols-3 gap-6">
+                            <!-- 广告语1 -->
+                            <div class="relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(234, 221, 207, 0.9) 100%);">
+                                <div class="absolute top-0 left-0 w-full h-1" style="background-color: var(--dunhuang-red);"></div>
+                                <div class="h-48 p-6 flex flex-col justify-center items-center">
+                                    <div class="absolute top-2 right-2 opacity-10">
+                                        <i class="fas fa-quote-right text-5xl" style="color: var(--dunhuang-red);"></i>
+                                    </div>
+                                    <p class="text-2xl font-bold mb-4 text-center" style="color: var(--dunhuang-red); font-family: 'Ma Shan Zheng', cursive;">真功效，不虚标。</p>
+                                    <div class="w-16 h-1 mb-4" style="background-color: var(--dunhuang-gold);"></div>
+                                    <p class="text-sm text-gray-600 text-center">直击要害，简洁有力<br>强调真实功效，拒绝虚假宣传</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 广告语2 -->
+                            <div class="relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(234, 221, 207, 0.9) 100%);">
+                                <div class="absolute top-0 left-0 w-full h-1" style="background-color: var(--dunhuang-blue);"></div>
+                                <div class="h-48 p-6 flex flex-col justify-center items-center">
+                                    <div class="absolute top-2 right-2 opacity-10">
+                                        <i class="fas fa-quote-right text-5xl" style="color: var(--dunhuang-blue);"></i>
+                                    </div>
+                                    <p class="text-2xl font-bold mb-4 text-center" style="color: var(--dunhuang-blue); font-family: 'Ma Shan Zheng', cursive;">科研守护，肌肤看得见。</p>
+                                    <div class="w-16 h-1 mb-4" style="background-color: var(--dunhuang-gold);"></div>
+                                    <p class="text-sm text-gray-600 text-center">突出科学研发背景<br>强调肌肤效果的可见性</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 广告语3 -->
+                            <div class="relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(234, 221, 207, 0.9) 100%);">
+                                <div class="absolute top-0 left-0 w-full h-1" style="background-color: var(--dunhuang-gold);"></div>
+                                <div class="h-48 p-6 flex flex-col justify-center items-center">
+                                    <div class="absolute top-2 right-2 opacity-10">
+                                        <i class="fas fa-quote-right text-5xl" style="color: var(--dunhuang-gold);"></i>
+                                    </div>
+                                    <p class="text-2xl font-bold mb-4 text-center" style="color: var(--dunhuang-gold); font-family: 'Ma Shan Zheng', cursive;">每一分钱，都花在真功效上。</p>
+                                    <div class="w-16 h-1 mb-4" style="background-color: var(--dunhuang-gold);"></div>
+                                    <p class="text-sm text-gray-600 text-center">传达品牌的诚信和价值观<br>强调产品的性价比和价值主张</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+        </div>
+        
+        <!-- 底部装饰 -->
+        <div class="absolute bottom-0 right-0 w-full h-10 bg-gradient-to-r from-transparent via-dunhuang-gold to-transparent opacity-30"></div>
+    </div>
+    
+    <!-- 09高保真原型图模块 -->
+    <div class="content-card p-5 mb-8">
+        <h2 class="point-title text-xl mb-3 flex items-center">
+            <span class="mr-2 text-2xl">09</span>高保真原型图
+        </h2>
+        
+        <div class="ml-10">
+            <!-- 模块介绍 -->
+            <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                <p class="text-base">高保真原型图展示了HBN小程序的最终视觉效果和交互设计，通过敦煌风格的界面元素，构建功能完善、体验友好的用户界面。</p>
+            </div>
+            
+            <!-- 高保真原型展示-首页 -->
+            <div class="mb-8">
+                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-green);">
+                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-green);"></div>
+                    首页
+                </h3>
+                <div class="flex flex-col">
+                    <div class="w-full overflow-x-auto pb-4">
+                        <div class="flex gap-4 min-w-max">
+                            <img src="https://img.picgo.net/2025/06/03/1df29388d87f05eae.png" alt="首页原型图1" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/2d4663da36e47c0fd.png" alt="首页原型图2" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/355bebb75481c657e.png" alt="首页原型图3" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/42b4982beb858ebcc.png" alt="首页原型图4" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/57be9651896f8883e.png" alt="首页原型图5" class="w-32 h-auto rounded-lg shadow-md">
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <div class="p-5 rounded-lg" style="background: linear-gradient(135deg, rgba(234, 221, 207, 0.3) 0%, rgba(255,255,255,0.5) 100%);">
+                            <h4 class="font-bold mb-3" style="color: var(--dunhuang-green);">首页</h4>
+                            <p class="text-base mb-3">首页五个页面是商品推荐页，推荐了主打商品，介绍HBN的功效，介绍目前畅销的产品组合以及吸引消费者者购买</p>
+                            <ul class="text-sm space-y-2 list-disc list-inside">
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>品牌主题展示区，融入敦煌元素</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>热销产品推荐，直观展示功效</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>简洁导航栏，提供快捷入口</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 高保真原型展示-产品分类 -->
+            <div class="mb-8">
+                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-blue);">
+                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-blue);"></div>
+                    产品分类
+                </h3>
+                <div class="flex flex-col">
+                    <div class="w-full overflow-x-auto pb-4">
+                        <div class="flex gap-4 min-w-max">
+                            <img src="https://img.picgo.net/2025/06/03/1adc9da8e7ee512b3.png" alt="产品分类原型图1" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/2283e706c95ec47bb.png" alt="产品分类原型图2" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/375e058f3e7fb6283.png" alt="产品分类原型图3" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/407471d3414e45718.png" alt="产品分类原型图4" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/54371f6c43a95293d.png" alt="产品分类原型图5" class="w-32 h-auto rounded-lg shadow-md">
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <div class="p-5 rounded-lg" style="background: linear-gradient(135deg, rgba(234, 221, 207, 0.3) 0%, rgba(255,255,255,0.5) 100%);">
+                            <h4 class="font-bold mb-3" style="color: var(--dunhuang-blue);">产品分类</h4>
+                            <p class="text-base mb-3">产品内容页详细的列出HBN的产品由销量从高往底排列</p>
+                            <ul class="text-sm space-y-2 list-disc list-inside">
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>清晰的产品分类与筛选系统</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>产品卡片融入敦煌设计元素</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>突出功效标签与核心卖点</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>销量排序，便于用户快速找到热门产品</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 高保真原型展示-购买流程 -->
+            <div class="mb-8">
+                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-red);">
+                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-red);"></div>
+                    购买流程
+                </h3>
+                <div class="flex flex-col">
+                    <div class="w-full overflow-x-auto pb-4">
+                        <div class="flex gap-4 min-w-max">
+                            <img src="https://img.picgo.net/2025/06/03/13da997764fb49a81.png" alt="购买流程原型图1" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/2d79b5dc7f3de061e.png" alt="购买流程原型图2" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/3d4fb80e46d276660.png" alt="购买流程原型图3" class="w-32 h-auto rounded-lg shadow-md">
+                            <img src="https://img.picgo.net/2025/06/03/4895bc78ba34840d5.png" alt="购买流程原型图4" class="w-32 h-auto rounded-lg shadow-md">
+                            <!-- <img src="https://img1.imgtp.com/2023/06/22/8KSmrygr.png" alt="购买流程原型图5" class="w-32 h-auto rounded-lg shadow-md"> -->
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <div class="p-5 rounded-lg" style="background: linear-gradient(135deg, rgba(234, 221, 207, 0.3) 0%, rgba(255,255,255,0.5) 100%);">
+                            <h4 class="font-bold mb-3" style="color: var(--dunhuang-red);">购买流程</h4>
+                            <p class="text-base mb-3">这四张图是消费者选择产品，选择购买件数，提交订单，购买完成点亮腕窗，恭喜获得的流程图</p>
+                            <ul class="text-sm space-y-2 list-disc list-inside">
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>简化购物流程，降低购买门槛</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>详细的产品信息与功效说明</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>清晰的价格与数量选择界面</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                    <span>购买完成后的奖励反馈机制</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 直播和个人中心模块（水平排列） -->
+            <div class="grid grid-cols-2 gap-8 mb-8">
+                <!-- 高保真原型展示-直播 -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-gold);">
+                        <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-gold);"></div>
+                        直播
+                    </h3>
+                    <div class="flex flex-col">
+                        <div class="w-full overflow-x-auto pb-4">
+                            <div class="flex justify-center">
+                                <img src="https://img.picgo.net/2025/06/03/42b36bcc49a8c1db32597c4e78119f9ace0489b3955c632b.png" alt="直播原型图" class="w-32 h-auto rounded-lg shadow-md">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <div class="p-5 rounded-lg" style="background: linear-gradient(135deg, rgba(234, 221, 207, 0.3) 0%, rgba(255,255,255,0.5) 100%);">
+                                <h4 class="font-bold mb-3" style="color: var(--dunhuang-gold);">直播</h4>
+                                <p class="text-base mb-3">直播模块为用户提供实时互动的购物体验，通过生动的演示和专业讲解展示产品功效</p>
+                                <ul class="text-sm space-y-2 list-disc list-inside">
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>专业美妆顾问在线讲解产品功效与使用方法</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>实时互动，解答用户疑问</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>直播专享优惠，提升转化率</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>敦煌风格界面设计，提升品牌辨识度</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 高保真原型展示-个人中心 -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-green);">
+                        <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-green);"></div>
+                        个人中心
+                    </h3>
+                    <div class="flex flex-col">
+                        <div class="w-full overflow-x-auto pb-4">
+                            <div class="flex justify-center">
+                                <img src="https://img.picgo.net/2025/06/03/967a4a7c6d8c4ddce18de423a70980b14f4c18e975319ad2.png" alt="个人中心原型图" class="w-32 h-auto rounded-lg shadow-md">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <div class="p-5 rounded-lg" style="background: linear-gradient(135deg, rgba(234, 221, 207, 0.3) 0%, rgba(255,255,255,0.5) 100%);">
+                                <h4 class="font-bold mb-3" style="color: var(--dunhuang-green);">个人中心</h4>
+                                <p class="text-base mb-3">个人中心为用户提供全面的账户管理功能，整合订单、收藏、优惠券等信息，提升用户体验</p>
+                                <ul class="text-sm space-y-2 list-disc list-inside">
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>个性化用户界面，展示用户基本信息</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>订单管理系统，便捷查询订单状态</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>收藏夹功能，快速访问感兴趣的产品</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2" style="background-color: var(--dunhuang-gold);"></span>
+                                        <span>优惠券管理，清晰展示可用优惠</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 设计亮点总结 -->
+            <div class="p-5 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3); border-left: 4px solid var(--dunhuang-gold);">
+                <h3 class="font-bold text-lg mb-3" style="color: var(--dunhuang-gold);">设计亮点总结</h3>
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="p-4 rounded-lg bg-white shadow-sm">
+                        <h4 class="font-bold mb-2 flex items-center" style="color: var(--dunhuang-red);">
+                            <i class="fas fa-paint-brush mr-2"></i>敦煌风格的视觉体验
+                        </h4>
+                        <p class="text-sm">运用敦煌色系与图案元素，打造独特的品牌视觉体验，让品牌形象深入人心，提升用户记忆点。</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-white shadow-sm">
+                        <h4 class="font-bold mb-2 flex items-center" style="color: var(--dunhuang-blue);">
+                            <i class="fas fa-layer-group mr-2"></i>功能与美学的平衡
+                        </h4>
+                        <p class="text-sm">在保证功能完整性和易用性的基础上，融入敦煌美学元素，实现实用与审美的完美结合。</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-white shadow-sm">
+                        <h4 class="font-bold mb-2 flex items-center" style="color: var(--dunhuang-green);">
+                            <i class="fas fa-mobile-alt mr-2"></i>优化的移动端体验
+                        </h4>
+                        <p class="text-sm">针对不同尺寸的移动设备进行优化，确保界面元素比例协调、内容清晰可辨，提供流畅的用户体验。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 10界面分析模块 -->
+    <div class="content-card p-5 mb-8">
+        <h2 class="point-title text-xl mb-3 flex items-center">
+            <span class="mr-2 text-2xl">10</span>界面分析
+        </h2>
+        
+        <div class="ml-10">
+            <!-- 模块介绍 -->
+            <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                <p class="text-base">通过对HBN关键界面的详细分析，展示各页面的设计亮点、功能布局和用户体验优化，体现敦煌风格元素如何与现代UI设计完美融合。</p>
+            </div>
+            
+            <!-- 五个页面图片水平展示 -->
+            <div class="mb-8">
+                <h3 class="font-bold text-lg mb-4 flex items-center" style="color: var(--dunhuang-gold);">
+                    <div class="w-2 h-8 mr-3" style="background-color: var(--dunhuang-gold);"></div>
+                    界面总览
+                </h3>
+                <div class="w-full overflow-x-auto pb-4">
+                    <div class="flex gap-4 min-w-max">
+                        <div class="flex flex-col items-center w-32">
+                            <img src="https://img.picgo.net/2025/06/03/46b1d697bf1d06c0bc29cc16e5fc3f14bbdfd901a59f7035.png" alt="展示页面分析" class="w-32 h-auto rounded-lg shadow-md mb-2">
+                            <p class="text-sm text-center font-bold" style="color: var(--dunhuang-red);">展示页面</p>
+                            <p class="text-xs text-center text-gray-600">品牌形象展示窗口，融合敦煌壁画元素</p>
+                        </div>
+                        <div class="flex flex-col items-center w-32">
+                            <img src="https://img.picgo.net/2025/06/03/13da997764fb49a81.png" alt="商品展示页面分析" class="w-32 h-auto rounded-lg shadow-md mb-2">
+                            <p class="text-sm text-center font-bold" style="color: var(--dunhuang-blue);">商品展示页面</p>
+                            <p class="text-xs text-center text-gray-600">详细展示产品功效与成分信息</p>
+                        </div>
+                        <div class="flex flex-col items-center w-32">
+                            <img src="https://img.picgo.net/2025/06/03/1630d819b3bd884a48bcb1ba1470f72a376e9a93ad2af46d.png" alt="首页分析" class="w-32 h-auto rounded-lg shadow-md mb-2">
+                            <p class="text-sm text-center font-bold" style="color: var(--dunhuang-gold);">首页</p>
+                            <p class="text-xs text-center text-gray-600">整合导航与品牌核心产品展示</p>
+                        </div>
+                        <div class="flex flex-col items-center w-32">
+                            <img src="https://img.picgo.net/2025/06/03/326ef1d94323ad8f7.png" alt="全部商品页面分析" class="w-32 h-auto rounded-lg shadow-md mb-2">
+                            <p class="text-sm text-center font-bold" style="color: var(--dunhuang-green);">全部商品页面</p>
+                            <p class="text-xs text-center text-gray-600">清晰分类系统，便于用户快速筛选</p>
+                        </div>
+                        <div class="flex flex-col items-center w-32">
+                            <img src="https://img.picgo.net/2025/06/03/967a4a7c6d8c4ddce18de423a70980b14f4c18e975319ad2.png" alt="个人中心页面分析" class="w-32 h-auto rounded-lg shadow-md mb-2">
+                            <p class="text-sm text-center font-bold" style="color: var(--dunhuang-red);">个人中心页面</p>
+                            <p class="text-xs text-center text-gray-600">便捷的账户管理和订单查询服务</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11页面讲解模块 -->
+    <div class="content-card p-5 mb-8">
+        <h2 class="point-title text-xl mb-3 flex items-center">
+            <span class="mr-2 text-2xl">11</span>页面讲解
+        </h2>
+        
+        <div class="ml-10">
+            <!-- 模块介绍 -->
+            <div class="mb-6 pb-4 border-b" style="border-color: rgba(206, 164, 92, 0.3);">
+                <p class="text-base">通过详细的页面讲解，展示HBN小程序各页面的设计特点、功能布局和视觉元素，帮助理解整体设计理念与用户体验流程。</p>
+            </div>
+            
+            <!-- 首页和商品展示页面讲解 -->
+            <div class="flex flex-col gap-4 mb-6">
+                <!-- 标题 -->
+                <div class="grid grid-cols-2 gap-6">
+                    <h3 class="font-bold text-lg text-center" style="color: var(--dunhuang-red);">首页海报</h3>
+                    <h3 class="font-bold text-lg text-center" style="color: var(--dunhuang-blue);">商品展示页</h3>
+                </div>
+                
+                <!-- 图片展示区 -->
+                <div class="grid grid-cols-2 gap-6 relative">
+                    <!-- 首页海报区域 -->
+                    <div class="relative flex justify-center">
+                        <!-- 左上文本 -->
+                        <div class="absolute top-1/4 left-0 flex items-center">
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-red); max-width: 170px;">
+                                强调了敦煌壁画金色元素的应用及其文化意义
+                            </div>
+                            <div class="h-px w-10 ml-1" style="background-color: var(--dunhuang-green);"></div>
+                        </div>
+                        
+                        <!-- 左下文本 -->
+                        <div class="absolute bottom-1/4 left-0 flex items-center">
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-red); max-width: 170px;">
+                                设计关联HBN特点，使小程序整体和谐
+                            </div>
+                            <div class="h-px w-10 ml-1" style="background-color: var(--dunhuang-green);"></div>
+                        </div>
+                        
+                        <!-- 手机图片 -->
+                        <img src="https://img.picgo.net/2025/06/03/1fbdbded3ddd74151.png" alt="首页海报" class="h-80 object-contain">
+                    </div>
+                    
+                    <!-- 商品展示页区域 -->
+                    <div class="relative flex justify-center">
+                        <!-- 右上文本 -->
+                        <div class="absolute top-1/4 right-0 flex items-center">
+                            <div class="h-px w-10 mr-1" style="background-color: var(--dunhuang-green);"></div>
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-blue); max-width: 170px;">
+                                产品展示背景采用青、绿、赭、褐、金为主敦煌元素
+                            </div>
+                        </div>
+                        
+                        <!-- 右中文本 -->
+                        <div class="absolute top-1/2 right-0 flex items-center">
+                            <div class="h-px w-10 mr-1" style="background-color: var(--dunhuang-green);"></div>
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-blue); max-width: 170px;">
+                                背景采用渐变绿色绘入以和谐、舒适的感觉营造出愉悦的视觉体验
+                            </div>
+                        </div>
+                        
+                        <!-- 右下文本 -->
+                        <div class="absolute bottom-1/4 right-0 flex items-center">
+                            <div class="h-px w-10 mr-1" style="background-color: var(--dunhuang-green);"></div>
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-blue); max-width: 170px;">
+                                符合用户浏览习惯，提升用户体验
+                            </div>
+                        </div>
+                        
+                        <!-- 手机图片 -->
+                        <img src="https://img.picgo.net/2025/06/03/13da997764fb49a81.png" alt="商品展示页" class="h-80 object-contain">
+                    </div>
+                </div>
+                
+                <!-- 图片标题 -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center font-bold text-sm" style="color: var(--dunhuang-gold);">首页海报</div>
+                    <div class="text-center font-bold text-sm" style="color: var(--dunhuang-gold);">商品展示页</div>
+                </div>
+            </div>
+            
+            <!-- 首页宣传页讲解 -->
+            <div class="mb-6">
+                <h3 class="font-bold text-lg mb-4 text-center" style="color: var(--dunhuang-green);">首页宣传页</h3>
+                <div class="grid grid-cols-2 gap-6 relative">
+                    <!-- 首页宣传页1 -->
+                    <div class="relative flex justify-center">
+                        <!-- 左侧文本1 -->
+                        <div class="absolute top-1/3 left-0 flex items-center">
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-green); max-width: 170px;">
+                                页面背景采用壁画纹样、装饰图案
+                            </div>
+                            <div class="h-px w-10 ml-1" style="background-color: var(--dunhuang-green);"></div>
+                        </div>
+                        
+                        <!-- 左侧文本2 -->
+                        <div class="absolute bottom-1/4 left-0 flex items-center">
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-green); max-width: 170px;">
+                                以暖色调为主色调，体现自然、生机与宁静的同时融入古风元素
+                            </div>
+                            <div class="h-px w-10 ml-1" style="background-color: var(--dunhuang-green);"></div>
+                        </div>
+                        
+                        <!-- 手机图片 -->
+                        <img src="https://img.picgo.net/2025/06/03/42b4982beb858ebcc.png" alt="首页宣传页1" class="h-80 object-contain">
+                    </div>
+                    
+                    <!-- 首页宣传页2 -->
+                    <div class="relative flex justify-center">
+                        <!-- 右侧文本 -->
+                        <div class="absolute top-1/3 right-0 flex items-center">
+                            <div class="h-px w-10 mr-1" style="background-color: var(--dunhuang-green);"></div>
+                            <div class="bg-white p-1.5 rounded-md shadow-sm text-xs" style="border-left: 3px solid var(--dunhuang-green); max-width: 170px;">
+                                进入HBN小程序后会跳出广告界面，广告页面宣传HBN主打的王牌产品
+                            </div>
+                        </div>
+                        
+                        <!-- 手机图片 -->
+                        <img src="https://img.picgo.net/2025/06/03/1df29388d87f05eae.png" alt="首页宣传页2" class="h-80 object-contain">
+                    </div>
+                </div>
+                
+                <!-- 设计特点总结 -->
+                <div class="mt-6 p-4 rounded-lg" style="background-color: rgba(234, 221, 207, 0.3); border-left: 4px solid var(--dunhuang-gold);">
+                    <h3 class="font-bold text-lg mb-2" style="color: var(--dunhuang-gold);">设计特点总结</h3>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="p-3 rounded-lg bg-white shadow-sm">
+                            <h4 class="font-bold mb-1 text-sm" style="color: var(--dunhuang-red);">
+                                统一的视觉语言
+                            </h4>
+                            <p class="text-xs">各页面设计遵循统一的敦煌风格视觉语言，确保整体品牌形象的一致性，提升用户对品牌的认知度。</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-white shadow-sm">
+                            <h4 class="font-bold mb-1 text-sm" style="color: var(--dunhuang-blue);">
+                                功能性与美学兼具
+                            </h4>
+                            <p class="text-xs">各元素布局既符合用户使用习惯，保证操作流畅，又通过敦煌元素的运用提升了视觉体验。</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-white shadow-sm">
+                            <h4 class="font-bold mb-1 text-sm" style="color: var(--dunhuang-green);">
+                                情感化设计
+                            </h4>
+                            <p class="text-xs">通过色彩、图案和排版等元素传达品牌温和、专业、高效的品牌情感，与目标用户形成情感共鸣。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

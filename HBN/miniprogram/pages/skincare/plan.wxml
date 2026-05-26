@@ -1,0 +1,136 @@
+<!--pages/skincare/plan.wxml-->
+<view class="container">
+  <!-- 顶部用户信息 -->
+  <view class="header-section">
+    <view class="user-profile">
+      <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <view class="user-name">{{userInfo.nickName}}</view>
+        <view class="test-btn" bindtap="goToSkinTest">
+          <text>重新测试</text>
+          <image class="test-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/_检测.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 皮肤分析结果 -->
+  <view class="analysis-section">
+    <view class="section-title">
+      <text class="title-text">皮肤状态分析</text>
+    </view>
+    <view class="analysis-card" wx:if="{{!loading}}">
+      <view class="skin-type-row">
+        <text class="label">肤质类型：</text>
+        <text class="value">{{skinAnalysis.skinType}}</text>
+      </view>
+      <view class="skin-concern-row">
+        <text class="label">肌肤问题：</text>
+        <view class="concern-tags">
+          <text class="concern-tag" wx:for="{{skinAnalysis.concerns}}" wx:key="index">{{item}}</text>
+        </view>
+      </view>
+      <view class="recommendation-row">
+        <text class="label">护肤建议：</text>
+        <text class="recommendation-text">{{skinAnalysis.recommendation}}</text>
+      </view>
+    </view>
+    <view class="loading-box" wx:else>
+      <view class="loading-spinner"></view>
+      <text>加载中...</text>
+    </view>
+  </view>
+
+  <!-- 护肤步骤和产品推荐 -->
+  <view class="skincare-section">
+    <view class="section-title">
+      <text class="title-text">专属护肤方案</text>
+      <view class="add-all-btn" bindtap="addAllToCart">一键加入购物车</view>
+    </view>
+
+    <!-- 护肤步骤选项卡 -->
+    <view class="step-tabs">
+      <view 
+        class="step-tab {{activeTab === index ? 'active' : ''}}" 
+        wx:for="{{skincareSteps}}" 
+        wx:key="name" 
+        bindtap="changeTab"
+        data-index="{{index}}"
+      >
+        <image class="step-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="step-name">{{item.name}}</text>
+      </view>
+    </view>
+
+    <!-- 步骤对应产品列表 -->
+    <view class="product-list" wx:if="{{!loading}}">
+      <block wx:if="{{skincareSteps[activeTab].products.length > 0}}">
+        <view class="product-card" 
+          wx:for="{{skincareSteps[activeTab].products}}" 
+          wx:key="id"
+          bindtap="viewProduct"
+          data-id="{{item.id}}"
+        >
+          <image class="product-image" 
+            src="{{item.image}}" 
+            mode="aspectFill"
+            lazy-load="true"
+            binderror="handleImageError"
+            data-index="{{index}}"
+          ></image>
+          <view class="product-info">
+            <text class="product-name">{{item.name}}</text>
+            <view class="product-tags" wx:if="{{item.tags && item.tags.length > 0}}">
+              <text class="product-tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+            </view>
+            <text class="product-desc">{{item.description}}</text>
+            <view class="product-price-row">
+              <text class="product-price">¥{{item.price}}</text>
+              <text class="product-original-price">¥{{item.originalPrice}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="empty-tip" wx:else>
+        <image class="empty-icon" src="	cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png" mode="aspectFit"></image>
+        <text>暂无{{skincareSteps[activeTab].name}}产品推荐</text>
+      </view>
+    </view>
+    <view class="loading-box" wx:else>
+      <view class="loading-spinner"></view>
+      <text>加载中...</text>
+    </view>
+  </view>
+
+  <!-- 护肤小贴士 -->
+  <view class="tips-section">
+    <view class="section-title">
+      <text class="title-text">护肤小贴士</text>
+    </view>
+    <view class="tips-content">
+      <view class="tip-item">
+        <view class="tip-number">1</view>
+        <view class="tip-text">按照"清洁→爽肤水→精华→乳霜→防晒"的顺序使用产品，从质地轻薄到厚重</view>
+      </view>
+      <view class="tip-item">
+        <view class="tip-number">2</view>
+        <view class="tip-text">早晚洁面水温不宜过高，以免破坏肌肤屏障</view>
+      </view>
+      <view class="tip-item">
+        <view class="tip-number">3</view>
+        <view class="tip-text">护肤品涂抹手法应轻柔，避免用力拉扯肌肤</view>
+      </view>
+      <view class="tip-item">
+        <view class="tip-number">4</view>
+        <view class="tip-text">日常防晒必不可少，阴天也要做好防晒措施</view>
+      </view>
+      <view class="tip-item">
+        <view class="tip-number">5</view>
+        <view class="tip-text">定期更新护肤方案，根据季节和肌肤状态调整产品</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom"></view>
+</view>

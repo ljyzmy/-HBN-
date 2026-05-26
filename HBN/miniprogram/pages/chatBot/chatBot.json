@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "agent-ui":"/components/agent-ui/index"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#f9f7f5",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black"
+}

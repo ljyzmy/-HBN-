@@ -1,0 +1,379 @@
+/* pages/order/list.wxss */
+
+/* 基础变量 */
+page {
+  --color-primary: #618a49;
+  --color-secondary: #8aad75;
+  --color-danger: #a64036;
+  --color-warning: #cf985c;
+  --color-background: #f8f8f8;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-text-lighter: #999;
+  --color-border: #eee;
+  --radius-small: 8rpx;
+  --radius-medium: 16rpx;
+  --radius-large: 24rpx;
+  --shadow-small: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  --shadow-large: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  background-color: var(--color-background);
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: var(--shadow-small);
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.nav-back {
+  width: 80rpx;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.nav-placeholder {
+  width: 80rpx;
+  height: 44px;
+}
+
+/* 顶部安全区域 */
+.safe-top {
+  width: 100%;
+}
+
+/* 底部安全区域 */
+.safe-bottom {
+  width: 100%;
+  height: 40rpx;
+}
+
+/* 标签栏 */
+.tab-bar {
+  width: 100%;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-small);
+}
+
+.tab-scroll {
+  white-space: nowrap;
+  padding: 0 20rpx;
+  height: 88rpx;
+}
+
+.tab-item {
+  display: inline-block;
+  padding: 0 30rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  font-size: 28rpx;
+  color: var(--color-text-light);
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.tab-item.active {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.tab-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background-color: var(--color-primary);
+  border-radius: 2rpx;
+}
+
+/* 订单列表 */
+.order-list {
+  width: 100%;
+  flex: 1;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.order-item {
+  width: 100%;
+  background-color: #fff;
+  border-radius: var(--radius-large);
+  margin-bottom: 30rpx;
+  box-shadow: var(--shadow-small);
+  overflow: hidden;
+}
+
+/* 订单头部 */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.order-number {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+}
+
+.order-status {
+  font-size: 26rpx;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.status-unpaid {
+  color: var(--color-danger);
+}
+
+/* 订单内容 */
+.order-content {
+  padding: 30rpx;
+  display: flex;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.product-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: var(--radius-small);
+  margin-right: 20rpx;
+  background-color: #f9f9f9;
+  border: 1rpx solid var(--color-border);
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.product-specs {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 10rpx;
+}
+
+.product-price-quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 30rpx;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.product-quantity {
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+}
+
+/* 订单底部 */
+.order-footer {
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.order-time {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+}
+
+.order-amount {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+}
+
+.amount-value {
+  font-size: 30rpx;
+  color: var(--color-danger);
+  font-weight: 500;
+  margin-left: 6rpx;
+}
+
+/* 订单操作按钮 */
+.order-actions {
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.action-btn {
+  padding: 0 30rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 26rpx;
+  border-radius: 32rpx;
+  text-align: center;
+}
+
+.action-btn.primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.action-btn.secondary {
+  background-color: #f5f5f5;
+  color: var(--color-text);
+  border: 1rpx solid #e0e0e0;
+}
+
+/* 加载中状态 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx 0;
+}
+
+.loading {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.loading-spinner {
+  width: 100%;
+  height: 100%;
+  border: 6rpx solid rgba(97, 138, 73, 0.1);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: var(--color-text-light);
+}
+
+/* 空状态 */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 30rpx;
+  color: var(--color-text-light);
+  margin-bottom: 40rpx;
+}
+
+.empty-btn {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+}
+
+/* 下拉刷新样式 */
+.refresh-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 0;
+}
+
+.refresh-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.refresh-text {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+} 

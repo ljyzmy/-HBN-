@@ -1,0 +1,79 @@
+<view class="zaocwana-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="nav-left" bindtap="navigateBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.pngss" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 背景视频 -->
+  <video 
+    id="background-video"
+    src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (4).mp4" 
+    class="background-video"
+    object-fit="cover"
+    autoplay="{{true}}"
+    loop="{{true}}"
+    muted="{{true}}"
+    show-center-play-btn="{{false}}"
+    controls="{{false}}"
+    show-progress="{{false}}"
+    enable-progress-gesture="{{false}}"
+    poster="https://img.api.aa1.cn/2025/05/09/24817c7281585.png"
+    binderror="bgVideoError">
+  </video>
+  
+  <!-- 视频覆盖层 -->
+  <view class="background-video-overlay"></view>
+  
+  <scroll-view scroll-y="{{true}}" class="content-scroll" enhanced="{{true}}" show-scrollbar="{{false}}">
+    <!-- 套装介绍 -->
+    <view class="suite-intro">
+      <view class="suite-title">早C晚A · 焕亮紧致套装</view>
+      <view class="suite-desc">日间御氧焕亮，夜间塑颜抚纹<text>\n</text>科学搭配，见证肌肤新生。</view>
+    </view>
+
+    <!-- 商品卡片 -->
+    <view class="products">
+      <view class="product-card" wx:for="{{products}}" wx:key="id" bindtap="goToDetail" data-id="{{item.detailId}}">
+        <video 
+          class="product-video" 
+          src="{{item.videoUrl}}" 
+          autoplay="{{true}}"
+          loop="{{true}}"
+          muted="{{true}}"
+          show-play-btn="{{false}}"
+          controls="{{false}}"
+          show-center-play-btn="{{false}}"
+          enable-progress-gesture="{{false}}"
+          object-fit="cover"
+          binderror="productVideoError"
+          data-id="{{item.id}}">
+        </video>
+        <view class="product-info">
+          <view class="product-name">{{item.name}}</view>
+          <view class="product-desc">{{item.desc}}</view>
+          <view class="view-detail">查看详情 </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 套装组合优惠 -->
+    <view class="bundle-section">
+      <view class="bundle-title">套装组合优惠</view>
+      <view class="bundle-price">
+        <text class="price">¥278</text>
+        <text class="original-price">¥308</text>
+        <text class="save">省¥30</text>
+      </view>
+      <button class="bundle-btn" bindtap="buyBundle">立即购买套装</button>
+    </view>
+    
+    <!-- 底部安全区域 -->
+    <view class="safe-bottom-area"></view>
+  </scroll-view>
+</view> 

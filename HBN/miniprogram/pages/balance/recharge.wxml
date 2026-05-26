@@ -1,0 +1,92 @@
+<view class="recharge-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav">
+    <view class="nav-back" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-title">余额充值</view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 成功提示 -->
+  <view class="success-popup" wx:if="{{showSuccess}}">
+    <view class="success-icon"></view>
+    <view class="success-title">充值成功</view>
+    <view class="success-desc">￥{{rechargeAmount}} 已充值到您的账户</view>
+    <view class="success-balance">当前余额：￥{{newBalance}}</view>
+  </view>
+
+  <block wx:else>
+    <!-- 账户余额 -->
+    <view class="balance-section">
+      <view class="balance-label">当前余额(元)</view>
+      <view class="balance-value">{{balance}}</view>
+    </view>
+
+    <!-- 充值金额选择 -->
+    <view class="amount-section">
+      <view class="section-title">充值金额</view>
+      <view class="amount-grid">
+        <view 
+          class="amount-item {{selectedIndex === index ? 'selected' : ''}}" 
+          wx:for="{{quickAmounts}}" 
+          wx:key="*this"
+          bindtap="selectAmount"
+          data-index="{{index}}">
+          <text>￥{{item}}</text>
+        </view>
+        <view class="amount-item custom {{selectedIndex === -1 && customAmount ? 'selected' : ''}}">
+          <input 
+            class="custom-input" 
+            type="digit" 
+            placeholder="其他金额" 
+            value="{{customAmount}}"
+            bindinput="inputCustomAmount"
+            />
+        </view>
+      </view>
+    </view>
+
+    <!-- 支付方式 -->
+    <view class="payment-section">
+      <view class="section-title">支付方式</view>
+      <view class="payment-list">
+        <view class="payment-item {{paymentMethod === 'wechat' ? 'selected' : ''}}" bindtap="selectPaymentMethod" data-method="wechat">
+          <view class="payment-icon wechat"></view>
+          <view class="payment-name">微信支付</view>
+          <view class="payment-check" wx:if="{{paymentMethod === 'wechat'}}"></view>
+        </view>
+        
+        <view class="payment-item {{paymentMethod === 'alipay' ? 'selected' : ''}}" bindtap="selectPaymentMethod" data-method="alipay">
+          <view class="payment-icon alipay"></view>
+          <view class="payment-name">支付宝</view>
+          <view class="payment-check" wx:if="{{paymentMethod === 'alipay'}}"></view>
+        </view>
+        
+        <view class="payment-item {{paymentMethod === 'bank' ? 'selected' : ''}}" bindtap="selectPaymentMethod" data-method="bank">
+          <view class="payment-icon bank"></view>
+          <view class="payment-name">银行卡</view>
+          <view class="payment-check" wx:if="{{paymentMethod === 'bank'}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 充值说明 -->
+    <view class="notice-section">
+      <view class="notice-title">温馨提示</view>
+      <view class="notice-item">1. 充值金额将实时到账，可用于HBN美妆商城消费</view>
+      <view class="notice-item">2. 账户余额不可提现，请合理充值</view>
+      <view class="notice-item">3. 充值金额最低10元，最高不超过10000元</view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <button 
+        class="submit-btn {{rechargeAmount > 0 ? 'active' : ''}}" 
+        disabled="{{!rechargeAmount || rechargeAmount <= 0 || isSubmitting}}"
+        bindtap="submitRecharge">
+        {{isSubmitting ? '处理中...' : '确认充值￥' + rechargeAmount}}
+      </button>
+    </view>
+  </block>
+</view> 

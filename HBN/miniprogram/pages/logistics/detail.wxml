@@ -1,0 +1,90 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-back" bindtap="goBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-title">物流详情</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight}}px;"></view>
+  
+  <!-- 内容区域 -->
+  <view class="content-container">
+    <!-- 加载中 -->
+    <view class="loading-container" wx:if="{{!logisticsInfo}}">
+      <view class="loading">
+        <view class="loading-spinner"></view>
+      </view>
+      <view class="loading-text">加载物流信息中...</view>
+    </view>
+    
+    <!-- 物流信息头部 -->
+    <view class="logistics-header" wx:if="{{logisticsInfo}}">
+      <view class="status-section">
+        <view class="status-text">物流状态：{{logisticsInfo.status}}</view>
+        <view class="delivery-company">{{logisticsInfo.company}}</view>
+      </view>
+      
+      <view class="tracking-section">
+        <view class="tracking-label">运单编号：</view>
+        <view class="tracking-number">{{logisticsInfo.number}}</view>
+        <view class="copy-btn" bindtap="copyTrackingNumber">复制</view>
+      </view>
+      
+      <view class="contact-section">
+        <view class="contact-btn" bindtap="callLogistics">
+          <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/电话.png" mode="aspectFit" class="contact-icon"></image>
+          <text>联系快递</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 物流跟踪 -->
+    <view class="tracking-container" wx:if="{{logisticsInfo}}">
+      <view class="section-title">物流跟踪</view>
+      
+      <view class="tracking-timeline">
+        <view 
+          class="timeline-item {{index === 0 ? 'active' : ''}}" 
+          wx:for="{{logisticsInfo.tracks}}" 
+          wx:key="time">
+          <view class="timeline-dot"></view>
+          <view class="timeline-line" wx:if="{{index !== logisticsInfo.tracks.length - 1}}"></view>
+          <view class="timeline-content">
+            <view class="timeline-status">{{item.status}}</view>
+            <view class="timeline-desc">{{item.desc}}</view>
+            <view class="timeline-address">{{item.address}}</view>
+            <view class="timeline-time">{{item.time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 相关商品 -->
+    <view class="product-section" wx:if="{{order && logisticsInfo}}">
+      <view class="section-title">包裹商品</view>
+      
+      <view class="product-item">
+        <image class="product-image" src="{{order.product.image}}" mode="aspectFill"></image>
+        <view class="product-info">
+          <view class="product-name">{{order.product.name}}</view>
+          <view class="product-specs">
+            <text wx:for="{{order.product.specs}}" wx:for-item="spec" wx:for-index="key" wx:key="key">
+              {{key}}:{{spec}}{{index < Object.keys(order.product.specs).length-1 ? ' | ' : ''}}
+            </text>
+          </view>
+          <view class="product-price-quantity">
+            <text class="product-price">¥{{order.product.price}}</text>
+            <text class="product-quantity">x{{order.product.quantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom"></view>
+</view> 

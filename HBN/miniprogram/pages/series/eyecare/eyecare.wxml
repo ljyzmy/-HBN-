@@ -1,0 +1,109 @@
+<view class="eyecare-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="nav-left" bindtap="navigateBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 背景视频 -->
+  <video 
+    id="background-video"
+    src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (4).mp4" 
+    class="background-video"
+    object-fit="cover"
+    autoplay="{{true}}"
+    loop="{{true}}"
+    muted="{{true}}"
+    show-center-play-btn="{{false}}"
+    controls="{{false}}"
+    show-progress="{{false}}"
+    enable-progress-gesture="{{false}}"
+    poster="https://img.api.aa1.cn/2025/05/06/b8093a6d09006.png"
+    binderror="bgVideoError">
+  </video>
+  
+  <!-- 视频覆盖层 -->
+  <view class="background-video-overlay"></view>
+  
+  <scroll-view scroll-y="{{true}}" class="content-scroll" enhanced="{{true}}" show-scrollbar="{{false}}">
+    <!-- 系列介绍 -->
+    <!-- <view class="series-intro">
+      <view class="series-title">眼部护理系列</view>
+      <view class="series-desc">眼周精准护理，即时起效<text>\n</text>淡纹更猛，淡圈更快</view>
+    </view> -->
+
+    <!-- 主推商品卡片 - 带特效 -->
+    <view class="main-product-card" bindtap="goToDetail" data-id="{{mainProduct.detailId}}">
+      <view class="product-image-container">
+        <video 
+          id="main-product-video"
+          src="{{mainProduct.videoUrl}}" 
+          class="main-product-video"
+          object-fit="cover"
+          autoplay="{{true}}"
+          loop="{{true}}"
+          muted="{{true}}"
+          show-center-play-btn="{{false}}"
+          controls="{{false}}"
+          show-progress="{{false}}"
+          enable-progress-gesture="{{false}}"
+          poster="{{mainProduct.image}}"
+          binderror="mainProductVideoError">
+        </video>
+        <view class="highlight-effect"></view>
+      </view>
+      <view class="main-product-info">
+        <view class="main-product-name">{{mainProduct.name}}</view>
+        <view class="main-product-desc">{{mainProduct.desc}}</view>
+        <view class="main-product-full-desc">{{mainProduct.fullDesc}}</view>
+        <view class="view-detail">查看详情 </view>
+      </view>
+    </view>
+
+    <!-- 使用方法 -->
+    <view class="usage-section">
+      <view class="section-title">眼部精准护理方法</view>
+      <view class="usage-steps">
+        <view class="step" wx:for="{{usageSteps}}" wx:key="title">
+          <view class="step-number">{{index + 1}}</view>
+          <view class="step-content">
+            <view class="step-title">{{item.title}}</view>
+            <view class="step-desc">{{item.desc}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 相关产品 -->
+    <!-- <view class="related-products" wx:if="{{relatedProducts.length > 0}}">
+      <view class="section-title">相关产品</view>
+      <view class="products">
+        <view class="product-card" wx:for="{{relatedProducts}}" wx:key="id" bindtap="goToDetail" data-id="{{item.detailId}}">
+          <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="product-info">
+            <view class="product-name">{{item.name}}</view>
+            <view class="product-desc">{{item.desc}}</view>
+            <view class="view-detail">查看详情 </view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+
+    <!-- 购买按钮 -->
+    <!-- <view class="buy-section">
+      <button class="buy-btn" bindtap="buyMainProduct">立即购买咖啡因眼霜</button>
+    </view>
+     -->
+    <!-- 底部安全区域 -->
+    <view class="safe-bottom-area"></view>
+  </scroll-view>
+
+  <!-- 眼部装饰元素 - 创新 -->
+  <view class="eye-decoration left"></view>
+  <view class="eye-decoration right"></view>
+</view> 

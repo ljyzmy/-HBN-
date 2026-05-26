@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 会员信息卡片 -->
+  <view class="member-card">
+    <image class="card-bg" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/背景/会员卡背景.jpg" mode="aspectFill"></image>
+    <view class="member-info">
+      <view class="avatar-container">
+        <image class="avatar" src="{{memberInfo.avatarUrl}}" mode="aspectFill"></image>
+      </view>
+      <view class="info-content">
+        <view class="nickname">{{memberInfo.nickName}}</view>
+        <view class="member-level">{{memberInfo.memberLevel}}</view>
+        <view class="member-no">会员号：{{memberInfo.memberNo}}</view>
+        <view class="join-date">加入日期：{{memberInfo.joinDate}}</view>
+      </view>
+    </view>
+    <view class="progress-container">
+      <view class="progress-info">
+        <text>当前成长值：{{memberInfo.experience}}</text>
+        <text bindtap="goToExperienceHistory" class="view-history">查看历史 ></text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-inner" style="width: {{memberInfo.experience / memberInfo.nextLevel * 100}}%"></view>
+      </view>
+      <view class="progress-text">距离下一等级还需{{memberInfo.nextLevel - memberInfo.experience}}成长值</view>
+    </view>
+  </view>
+
+  <!-- 会员等级列表 -->
+  <view class="level-container">
+    <view class="section-title">会员等级</view>
+    <view class="level-list">
+      <block wx:for="{{memberLevels}}" wx:key="level">
+        <view class="level-item {{currentLevelIndex === index ? 'current' : ''}}">
+          <image class="level-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          <view class="level-name">{{item.level}}</view>
+          <view class="level-threshold">{{item.threshold}}成长值</view>
+        </view>
+      </block>
+    </view>
+    <view class="rules-link" bindtap="goToMemberRules">查看会员规则 ></view>
+  </view>
+
+  <!-- 会员权益 -->
+  <view class="benefits-container">
+    <view class="section-title">会员权益</view>
+    <view class="benefits-list">
+      <block wx:for="{{benefits}}" wx:key="id">
+        <view class="benefit-item {{!item.isActive ? 'inactive' : ''}}" bindtap="viewBenefitDetail" data-id="{{item.id}}">
+          <image class="benefit-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          <view class="benefit-name">{{item.name}}</view>
+          <view class="benefit-status">
+            <text wx:if="{{item.isActive}}" class="active">已激活</text>
+            <text wx:else class="inactive">未激活</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 会员专享活动 -->
+  <view class="activities-container">
+    <view class="section-title">会员专享活动</view>
+    <view class="activities-content">
+      <view class="activity-item">
+        <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/活动/会员日.jpg" mode="widthFix"></image>
+        <view class="activity-info">
+          <view class="activity-title">会员专享日</view>
+          <view class="activity-desc">每月9日，全场额外9折</view>
+        </view>
+      </view>
+      <view class="activity-item">
+        <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/活动/新品体验.jpg" mode="widthFix"></image>
+        <view class="activity-info">
+          <view class="activity-title">新品免费试用</view>
+          <view class="activity-desc">铂金会员及以上可申请</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

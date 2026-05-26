@@ -1,0 +1,118 @@
+<!-- pages/feedback/feedback.wxml -->
+<view class="container">
+  <!-- 标题栏 -->
+  <view class="header">
+    <view class="tab active">填写反馈</view>
+    <view class="tab {{historyFeedbacks.length > 0 ? '' : 'disabled'}}" bindtap="toggleHistory">
+      我的反馈 
+      <text class="badge" wx:if="{{historyFeedbacks.length > 0}}">{{historyFeedbacks.length}}</text>
+    </view>
+  </view>
+  
+  <!-- 反馈表单区域 -->
+  <view class="feedback-form" hidden="{{showHistory}}">
+  <!-- 问题类型选择 -->
+  <view class="section">
+    <view class="section-title">问题类型</view>
+    <view class="problem-types">
+      <view 
+        class="type-item {{formData.typeId === item.id ? 'active' : ''}}" 
+        wx:for="{{problemTypes}}" 
+        wx:key="id" 
+        bindtap="selectProblemType" 
+        data-id="{{item.id}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  
+  <!-- 问题描述 -->
+  <view class="section">
+    <view class="section-title">问题描述 <text class="required">*</text></view>
+    <view class="textarea-box">
+      <textarea 
+        class="content-textarea" 
+        placeholder="请详细描述您遇到的问题或建议，以便我们尽快解决（5-500字）" 
+        placeholder-class="placeholder-style"
+        maxlength="500"
+        bindinput="inputContent"
+        value="{{formData.content}}"
+      ></textarea>
+      <view class="word-count">{{formData.content.length}}/500</view>
+    </view>
+  </view>
+  
+  <!-- 图片上传 -->
+  <view class="section">
+    <view class="section-title">上传图片（最多4张）</view>
+    <view class="image-uploader">
+      <!-- 已上传图片 -->
+      <view class="image-item" wx:for="{{imageList}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" bindtap="previewImage" data-src="{{item}}"></image>
+        <view class="delete-btn" catchtap="deleteImage" data-index="{{index}}">×</view>
+      </view>
+      
+      <!-- 上传按钮 -->
+      <view class="upload-btn" bindtap="chooseImage" wx:if="{{imageList.length < maxImageCount}}">
+          <image src="{{uploadIcon}}" mode="aspectFit" class="upload-icon"></image>
+        <text>添加图片</text>
+      </view>
+    </view>
+    <view class="upload-tips">上传问题截图或相关图片，有助于我们更好地解决问题</view>
+  </view>
+  
+  <!-- 联系方式 -->
+  <view class="section">
+    <view class="section-title">联系方式</view>
+    <input 
+      class="contact-input" 
+      placeholder="请留下您的手机号或微信，方便我们与您联系" 
+      placeholder-class="placeholder-style"
+      bindinput="inputContactWay"
+      value="{{formData.contactWay}}"
+    />
+  </view>
+  
+  <!-- 提交按钮 -->
+  <view class="submit-section">
+    <button 
+        class="submit-btn {{submitDisabled || isSubmitting ? 'disabled' : ''}}" 
+        disabled="{{submitDisabled || isSubmitting}}"
+      bindtap="submitFeedback"
+    >
+        {{isSubmitting ? '提交中...' : '提交反馈'}}
+    </button>
+    <view class="tips-text">感谢您的反馈，我们将会尽快处理</view>
+    </view>
+  </view>
+  
+  <!-- 历史反馈区域 -->
+  <view class="history-list" hidden="{{!showHistory}}">
+    <view class="empty-tip" wx:if="{{historyFeedbacks.length === 0}}">
+      <image class="empty-icon" src="{{uploadIcon}}" mode="aspectFit"></image>
+      <text>您还没有提交过反馈</text>
+      <view class="back-btn" bindtap="toggleHistory">返回填写反馈</view>
+    </view>
+    
+    <view class="feedback-items" wx:else>
+      <view class="feedback-item" wx:for="{{historyFeedbacks}}" wx:key="_id" bindtap="viewFeedbackDetail" data-id="{{item._id}}">
+        <view class="feedback-header">
+          <text class="feedback-type">{{item.typeName}}</text>
+          <text class="feedback-status status-{{item.status}}">{{item.status === 'pending' ? '待处理' : (item.status === 'processing' ? '处理中' : '已完成')}}</text>
+        </view>
+        
+        <view class="feedback-content">{{item.content}}</view>
+        
+        <view class="feedback-footer">
+          <text class="feedback-time">{{item.createTime}}</text>
+          <view class="has-image" wx:if="{{item.imageFileIDs && item.imageFileIDs.length > 0}}">
+            <text class="image-count">{{item.imageFileIDs.length}}张图片</text>
+          </view>
+        </view>
+      </view>
+      
+      <view class="back-btn" bindtap="toggleHistory">返回填写反馈</view>
+    </view>
+  </view>
+</view> 

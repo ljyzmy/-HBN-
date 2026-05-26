@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "专属护肤方案",
+  "navigationBarBackgroundColor": "#618a49",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f8f8f8",
+  "onReachBottomDistance": 50,
+  "usingComponents": {}
+}

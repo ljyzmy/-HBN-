@@ -1,0 +1,363 @@
+/* 容器样式 */
+.withdraw-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  padding-bottom: 40rpx;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: sticky;
+  top: 0;
+  height: 90rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  padding-top: calc(20rpx + env(safe-area-inset-top));
+  z-index: 100;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.nav-back {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.back-icon {
+  width: 36rpx;
+  height: 36rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333333"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.nav-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.nav-placeholder {
+  width: 70rpx;
+}
+
+/* 成功提示 */
+.success-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.success-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  background-color: rgba(97, 138, 73, 0.1);
+  margin-bottom: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.success-icon::before {
+  content: '';
+  width: 60rpx;
+  height: 30rpx;
+  border-left: 6rpx solid #618a49;
+  border-bottom: 6rpx solid #618a49;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 40rpx;
+}
+
+.success-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.success-desc {
+  font-size: 30rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.success-balance {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 余额展示 */
+.balance-section {
+  background-color: #fff;
+  padding: 40rpx 30rpx;
+  margin: 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.balance-label {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
+.balance-value {
+  font-size: 60rpx;
+  font-weight: 500;
+  color: #333;
+  font-family: "DIN Alternate", "DIN-Regular", sans-serif;
+}
+
+/* 金额选择 */
+.amount-section {
+  background-color: #fff;
+  padding: 40rpx 30rpx;
+  margin: 0 30rpx 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 30rpx;
+}
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.amount-item {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  color: #333;
+  transition: all 0.3s;
+  position: relative;
+  border: 2rpx solid transparent;
+}
+
+.amount-item.selected {
+  background-color: rgba(97, 138, 73, 0.1);
+  border-color: #618a49;
+  color: #618a49;
+}
+
+.amount-item.custom {
+  color: #999;
+}
+
+.amount-item.disabled {
+  background-color: #f9f9f9;
+  color: #ccc;
+  pointer-events: none;
+}
+
+.custom-input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* 提现账户 */
+.account-section {
+  background-color: #fff;
+  padding: 40rpx 30rpx;
+  margin: 0 30rpx 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.account-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+}
+
+.account-item:last-child {
+  border-bottom: none;
+}
+
+.account-item.selected {
+  background-color: rgba(97, 138, 73, 0.05);
+}
+
+.account-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  background-size: 60rpx;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.account-icon.wechat {
+  background-color: rgba(9, 187, 7, 0.1);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2309BB07"><path d="M9.5,4C5.36,4 2,6.69 2,10C2,11.89 3.08,13.56 4.78,14.66L4,17L6.5,15.5C7.39,15.81 8.37,16 9.41,16C9.15,15.37 9,14.7 9,14C9,10.69 12.13,8 16,8C16.19,8 16.38,8.05 16.56,8.05C15.54,5.69 12.78,4 9.5,4M6.5,6.5C7.05,6.5 7.5,6.95 7.5,7.5C7.5,8.05 7.05,8.5 6.5,8.5C5.95,8.5 5.5,8.05 5.5,7.5C5.5,6.95 5.95,6.5 6.5,6.5M11.5,6.5C12.05,6.5 12.5,6.95 12.5,7.5C12.5,8.05 12.05,8.5 11.5,8.5C10.95,8.5 10.5,8.05 10.5,7.5C10.5,6.95 10.95,6.5 11.5,6.5M16,9C12.69,9 10,11.24 10,14C10,16.76 12.69,19 16,19C16.67,19 17.31,18.92 17.91,18.75L20,20L19.38,18.13C20.95,17.22 22,15.71 22,14C22,11.24 19.31,9 16,9M14,11.5C14.55,11.5 15,11.95 15,12.5C15,13.05 14.55,13.5 14,13.5C13.45,13.5 13,13.05 13,12.5C13,11.95 13.45,11.5 14,11.5M18,11.5C18.55,11.5 19,11.95 19,12.5C19,13.05 18.55,13.5 18,13.5C17.45,13.5 17,13.05 17,12.5C17,11.95 17.45,11.5 18,11.5Z" /></svg>');
+}
+
+.account-icon.alipay {
+  background-color: rgba(0, 103, 236, 0.1);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230067EC"><path d="M21.2,3.4C20.5,2.7 19.4,2.4 18.2,2.4C17,2.4 15.7,2.8 14.3,3.2C13,3.7 11.6,4.2 10.1,4.2C8.6,4.2 7.2,3.7 5.9,3.2C5.1,3 4.3,2.7 3.5,2.5C3.5,2.8 3.5,3.1 3.5,3.4C3.5,10.6 8.4,16.7 15,19.2V14.7H14.6C9.6,14.7 6.3,11.7 5.9,11.2C5.8,11.1 5.8,11 5.9,10.9L6.1,10.7C6.2,10.6 6.3,10.6 6.4,10.7C6.55,10.8 9.7,13.4 14.6,13.4H17C20.3,10.8 22,7.2 21.6,3.8C21.5,3.7 21.3,3.5 21.2,3.4Z" /></svg>');
+}
+
+.account-icon.bank {
+  background-color: rgba(207, 152, 92, 0.1);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23CF985C"><path d="M11.5,1L2,6V8H21V6M16,10V17H19V10M2,22H21V19H2M10,10V17H13V10M4,10V17H7V10H4Z" /></svg>');
+}
+
+.account-info {
+  flex: 1;
+}
+
+.account-name {
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 4rpx;
+}
+
+.account-number {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.account-check {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #618a49;
+  position: relative;
+  margin-left: 20rpx;
+}
+
+.account-check::before {
+  content: '';
+  width: 20rpx;
+  height: 10rpx;
+  border-left: 3rpx solid #fff;
+  border-bottom: 3rpx solid #fff;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 12rpx;
+  left: 10rpx;
+}
+
+/* 费用信息 */
+.fee-section {
+  background-color: #fff;
+  padding: 30rpx;
+  margin: 0 30rpx 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.fee-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+
+.fee-label {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.fee-value {
+  color: #333;
+  font-size: 28rpx;
+  font-family: "DIN Alternate", "DIN-Regular", sans-serif;
+}
+
+.fee-item.total {
+  margin-top: 10rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx dashed #f0f0f0;
+}
+
+.fee-item.total .fee-label,
+.fee-item.total .fee-value {
+  font-weight: 500;
+  font-size: 32rpx;
+}
+
+/* 提现说明 */
+.notice-section {
+  padding: 20rpx 30rpx;
+  margin: 0 30rpx;
+}
+
+.notice-title {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+}
+
+.notice-item {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+  line-height: 1.6;
+}
+
+/* 提交按钮 */
+.submit-section {
+  padding: 40rpx 30rpx;
+  margin-top: 30rpx;
+}
+
+.submit-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  border: none;
+  transition: all 0.3s;
+}
+
+.submit-btn.active {
+  background: linear-gradient(135deg, #618a49, #8aaa75);
+  box-shadow: 0 8rpx 16rpx rgba(97, 138, 73, 0.2);
+}
+
+button[disabled].submit-btn {
+  background-color: #ccc;
+  color: #fff;
+} 

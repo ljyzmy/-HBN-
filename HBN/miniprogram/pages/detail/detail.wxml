@@ -1,0 +1,282 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="nav-left" bindtap="goBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- Y轴主轮播图 -->
+  <swiper 
+    class="main-swiper" 
+    vertical="true" 
+    duration="300" 
+    bindchange="swiperChange"
+    current="{{currentMainSwiper}}">
+    
+    <!-- 第一部分：X轴轮播图 -->
+    <swiper-item>
+      <swiper 
+        class="banner-swiper" 
+        indicator-dots="{{swiperConfig.indicatorDots}}" 
+        indicator-color="{{swiperConfig.indicatorColor}}"
+        indicator-active-color="{{swiperConfig.indicatorActiveColor}}" 
+        autoplay="{{swiperConfig.autoplay}}" 
+        interval="{{swiperConfig.interval}}"
+        duration="{{swiperConfig.duration}}"
+        circular="{{swiperConfig.circular}}"
+        previous-margin="{{swiperConfig.previousMargin}}"
+        next-margin="{{swiperConfig.nextMargin}}"
+        display-multiple-items="{{swiperConfig.displayMultipleItems}}"
+        bindchange="bannerSwiperChange">
+        
+        <!-- 第一张轮播：视频1 -->
+        <swiper-item>
+          <video 
+            id="product-video-1"
+            src="{{product.productVideo}}" 
+            class="banner-video"
+            object-fit="cover"
+            autoplay="true"
+            loop="true"
+            muted="true"
+            show-center-play-btn="false"
+            controls="false"
+            show-progress="false"
+            enable-progress-gesture="false"
+            poster="{{product.bannerImages[0]}}"
+            binderror="videoError">
+          </video>
+        </swiper-item>
+        
+        <!-- 第二张轮播：视频2 -->
+        <swiper-item>
+          <view class="video-container">
+            <video 
+              id="product-video-2"
+              src="{{product.productVideo2}}" 
+              class="banner-video"
+              object-fit="contain"
+              autoplay="true"
+              loop="true"
+              muted="true"
+              show-center-play-btn="false"
+              controls="false"
+              show-play-btn="false"
+              show-fullscreen-btn="false"
+              show-progress="false"
+              enable-progress-gesture="false"
+              poster="{{product.bannerImages[1]}}"
+              binderror="videoError">
+            </video>
+          </view>
+        </swiper-item>
+        
+        <!-- 其余图片轮播 - 重构为带容器的版本 -->
+        <swiper-item wx:for="{{product.bannerImages}}" wx:key="*this" wx:if="{{index > 1}}">
+          <view class="image-container">
+            <image 
+              src="{{item}}" 
+              mode="aspectFit" 
+              class="banner-image"
+              lazy-load="{{true}}"
+              show-menu-by-longpress="{{false}}"
+              bindtap="viewImage"
+              data-url="{{item}}">
+            </image>
+          </view>
+        </swiper-item>
+      </swiper>
+      
+      <!-- 向下滑动提示 -->
+      <view class="scroll-tip">
+        <text>下滑查看更多详情</text>
+        <image src="https://img.api.aa1.cn/2025/05/12/2c823353b484b.png" mode="aspectFit" class="arrow-down"></image>
+      </view>
+    </swiper-item>
+    
+    <!-- 第二部分：商品详情 -->
+    <swiper-item>
+      <scroll-view 
+        scroll-y="true" 
+        class="detail-scroll"
+        bindscrolltolower="onDetailScrollToLower"
+        lower-threshold="300">
+        
+        <!-- 商品信息 -->
+        <!-- <view class="product-info-section">
+          <view class="product-price-row">
+            <text class="product-price">¥{{product.price}}</text>
+            <text class="product-original">¥{{product.originalPrice}}</text>
+          </view>
+          <view class="product-name">{{product.name}}</view>
+          <view class="product-desc">{{product.description}}</view>
+          <view class="product-sales">已售 {{product.sales}} 件 | 库存 {{product.stock}} 件</view>
+        </view> -->
+        
+        <!-- 商品详情图片 -->
+        <view class="detail-images">
+          <block wx:for="{{loadedDetailImages}}" wx:key="*this" wx:for-index="index">
+            <!-- 判断是否为视频 -->
+            <video 
+              wx:if="{{index === product.detailVideoIndex && product.id === 2}}"
+              id="detail-video"
+              src="{{item}}" 
+              class="detail-video"
+              object-fit="contain"
+              controls="{{true}}"
+              show-center-play-btn="{{true}}"
+              show-play-btn="{{true}}"
+              enable-play-gesture="{{true}}"
+              show-fullscreen-btn="{{true}}"
+              bindtap="detailVideoTap"
+              bindplay="detailVideoPlay"
+              bindpause="detailVideoPause"
+              binderror="detailVideoError">
+            </video>
+            <!-- 普通图片 -->
+            <image 
+              wx:else
+              src="{{item}}" 
+              mode="widthFix" 
+              class="detail-image"
+              lazy-load="{{true}}">
+            </image>
+          </block>
+          
+          <!-- 加载提示 -->
+          <view class="loading-more" wx:if="{{!isDetailImagesFullyLoaded}}">
+            <view class="loading-icon"></view>
+            <text>加载更多商品详情...</text>
+          </view>
+        </view>
+        
+        <!-- 底部安全区域 -->
+        <view class="safe-bottom"></view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  
+  <!-- 底部浮窗 -->
+  <view class="float-actions {{floatExpanded ? '' : 'collapsed'}}">
+    <!-- 右上角展开/闭合按钮 -->
+    <view class="float-toggle-btn" bindtap="toggleFloatExpand">
+      <image 
+        src="https://tucdn.wpon.cn/2025/05/15/536720055f5ec-1747295766.png" 
+        mode="aspectFit" 
+        class="toggle-icon" 
+        wx:if="{{floatExpanded}}"/>
+      <image 
+        src="https://tucdn.wpon.cn/2025/05/15/2034f61638b67-1747295766.png" 
+        mode="aspectFit" 
+        class="toggle-icon" 
+        wx:if="{{!floatExpanded}}"/>
+    </view>
+
+    <!-- 商品简介部分 -->
+    <view class="float-product-info {{floatExpanded ? '' : 'info-collapsed'}}">
+      <!-- 价格信息 - 始终显示 -->
+      <view class="product-price-row">
+        <view class="price-info">
+        <text class="product-price">¥{{currentPrice}}</text>
+        <text class="product-original">¥{{currentOriginalPrice}}</text>
+        </view>
+        <!-- 收藏按钮 -->
+        <view class="favorite-btn" bindtap="toggleFavorite">
+          <image src="{{isFavorite ? 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/已收藏.png' : 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/收藏.png'}}" mode="aspectFit" class="favorite-icon"></image>
+        </view>
+      </view>
+      
+      <!-- 名称和描述 - 仅展开时显示 -->
+      <view class="product-detail-info" wx:if="{{floatExpanded}}">
+        <view class="product-name">{{product.name}}</view>
+        <view class="product-desc">{{product.description}}</view>
+      </view>
+    </view>
+    
+    <!-- 操作按钮部分始终显示 -->
+    <view class="float-actions-btns">
+      <view class="action-left">
+        <view class="nav-btn" bindtap="goToHome">
+          <image src="https://img.api.aa1.cn/2025/05/12/ee390c96d914f.png" mode="aspectFit" class="nav-icon"></image>
+          <text>首页</text>
+        </view>
+        <view class="nav-btn" bindtap="goToCart">
+          <image src="https://img.api.aa1.cn/2025/05/12/ef333c6daa6c5.png" mode="aspectFit" class="nav-icon"></image>
+          <text>购物车</text>
+        </view>
+        <button open-type="contact" class="nav-btn contact-btn">
+          <image src="https://img.api.aa1.cn/2025/05/12/724988eed2266.png" mode="aspectFit" class="nav-icon"></image>
+          <text>客服</text>
+        </button>
+      </view>
+      <view class="action-right">
+        <button class="add-to-cart" bindtap="showCartSelector">加入购物车</button>
+        <button class="buy-now" bindtap="showBuySelector">立即购买</button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 规格选择弹窗 -->
+  <view class="spec-selector {{showSpecSelector ? 'show' : ''}}" catchtouchmove="preventTouchMove">
+    <view class="spec-overlay" bindtap="hideSpecSelector"></view>
+    <view class="spec-content">
+      <!-- 商品简介 -->
+      <view class="spec-product-intro">
+        <image 
+          src="{{product.bannerImages[0]}}" 
+          mode="aspectFill" 
+          class="spec-product-image"
+          bindtap="viewImage"
+          data-url="{{product.bannerImages[0]}}">
+        </image>
+        <view class="spec-product-info">
+          <view class="spec-product-price">¥{{currentPrice}}</view>
+          <view class="spec-product-name">{{product.name}}</view>
+          <view class="spec-product-selected">
+            已选：{{selectedSpecs['规格']}}，{{selectedSpecs['净含量']}}，数量：{{quantity}}件
+          </view>
+        </view>
+        <view class="close-btn" bindtap="hideSpecSelector">×</view>
+      </view>
+      
+      <!-- 规格选择区域 -->
+      <scroll-view scroll-y="true" class="spec-scroll">
+        <view wx:for="{{product.specs}}" wx:key="name" wx:for-item="spec" class="spec-group">
+          <view class="spec-title">{{spec.name}}</view>
+          <view class="spec-options">
+            <view 
+              wx:for="{{spec.options}}" 
+              wx:key="*this"
+              class="spec-option {{selectedSpecs[spec.name] === item ? 'selected' : ''}}"
+              bindtap="selectSpec"
+              data-type="{{spec.name}}"
+              data-value="{{item}}">
+              {{item}}
+            </view>
+          </view>
+        </view>
+        
+        <!-- 添加数量选择模块 -->
+        <view class="spec-group">
+          <view class="spec-title">数量</view>
+          <view class="quantity-selector">
+            <view class="quantity-btn minus {{quantity <= minQuantity ? 'disabled' : ''}}" bindtap="decreaseQuantity">-</view>
+            <input class="quantity-input" type="number" value="{{quantity}}" bindinput="inputQuantity" />
+            <view class="quantity-btn plus {{quantity >= maxQuantity ? 'disabled' : ''}}" bindtap="increaseQuantity">+</view>
+          </view>
+        </view>
+      </scroll-view>
+      
+      <!-- 底部按钮 -->
+      <view class="spec-btns">
+        <button wx:if="{{actionType === 'cart'}}" class="spec-btn-full" bindtap="addToCart">加入购物车</button>
+        <button wx:if="{{actionType === 'buy'}}" class="spec-btn-full" bindtap="buyNow">立即购买</button>
+      </view>
+    </view>
+  </view>
+</view> 

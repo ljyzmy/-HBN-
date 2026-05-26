@@ -1,0 +1,71 @@
+<view class="container">
+  <!-- 页面顶部 -->
+  <view class="header">
+  <view class="user-info" bindtap="goToProfile">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-details">
+      <text class="nickname">{{userInfo.nickName}}</text>
+        <text class="tap-hint">点击查看个人信息</text>
+    </view>
+    <view class="arrow">
+        <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/箭头.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 设置列表 -->
+  <view class="settings-list">
+    <block wx:for="{{settingsList}}" wx:for-item="group" wx:for-index="groupIndex" wx:key="id">
+      <view class="settings-group">
+        <view class="group-title">{{group.name}}</view>
+        <view class="group-content">
+          <block wx:for="{{group.items}}" wx:for-index="itemIndex" wx:key="id">
+            <view class="setting-item" data-id="{{item.id}}" data-url="{{item.url}}" bindtap="handleSettingClick">
+              <view class="item-left">
+                <image class="item-icon" src="{{item.icon}}" mode="aspectFit"></image>
+                <text class="item-name">{{item.name}}</text>
+        </view>
+              <view class="item-right">
+                <block wx:if="{{item.isSwitch}}">
+                  <switch checked="{{item.switchValue}}" color="#618a49" data-group-index="{{groupIndex}}" data-item-index="{{itemIndex}}" bindchange="handleSwitchChange" catchtap="__preventTap"></switch>
+                </block>
+                <block wx:elif="{{item.value}}">
+                  <text class="item-value">{{item.value}}</text>
+                  <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/箭头.png" mode="aspectFit"></image>
+                </block>
+                <block wx:else>
+                  <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/箭头.png" mode="aspectFit"></image>
+          </block>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <!-- 缓存清理 -->
+    <view class="settings-group">
+      <view class="group-title">缓存与存储</view>
+      <view class="group-content">
+        <view class="setting-item" data-id="clearCache" bindtap="clearCache">
+          <view class="item-left">
+            <image class="item-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/清除.png" mode="aspectFit"></image>
+            <text class="item-name">清除缓存</text>
+          </view>
+          <view class="item-right">
+            <text class="item-value">{{cacheSize}}</text>
+            <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/箭头.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 退出登录按钮 -->
+  <view class="logout-button" wx:if="{{isLogged}}" bindtap="logout">退出登录</view>
+  
+  <!-- 底部版权信息 -->
+  <view class="footer">
+    <text>© 2025 HBN 版权所有</text>
+  </view>
+</view> 

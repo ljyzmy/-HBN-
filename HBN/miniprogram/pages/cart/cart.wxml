@@ -1,0 +1,138 @@
+<!--pages/cart/cart.wxml-->
+<view class="container">
+    <!-- 自定义导航栏 -->
+    <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="search-btn" bindtap="goToSearch">
+      <image src="https://img.api.aa1.cn/2025/04/13/62fde02b02f79.png" mode="aspectFit" class="search-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="https://img.api.aa1.cn/2025/04/13/54754b54626e1.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+    <!-- 添加竖向滚动组件 -->
+    <scroll-view 
+    scroll-y="{{true}}" 
+    class="vertical-scroll" 
+    bindscroll="onPageScroll"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}"
+    bounces="{{true}}">
+        <!-- 内容容器 -->
+        <view class="content-container">
+  <!-- 顶部标题和编辑按钮 -->
+  <view class="cart-header">
+    <view class="header-title">购物车</view>
+    <view class="header-actions">
+      <view class="delete-all-btn" wx:if="{{isEditing}}" bindtap="deleteSelected">删除</view>
+      <view class="header-edit" bindtap="toggleEditMode">
+        {{isEditing ? '完成' : '编辑'}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 空购物车状态 -->
+  <view class="empty-cart" wx:if="{{isEmpty}}">
+    <image class="empty-image" src="https://img.api.aa1.cn/2025/04/02/6bea63f3ee313.png" mode="aspectFit"></image>
+    <view class="empty-text">购物车空空如也</view>
+    <view class="empty-tips">添加一些商品开始购物吧~</view>
+    <view class="continue-btn" bindtap="continueShopping">去选购</view>
+  </view>
+
+  <!-- 购物车商品列表 -->
+  <view class="cart-content" wx:else>
+    <view class="cart-list">
+      <view class="cart-item" wx:for="{{cartList}}" wx:key="id">
+        <view class="item-content">
+          <view class="select-btn" catchtap="toggleSelect" data-index="{{index}}">
+            <view class="select-circle {{item.selected ? 'selected' : ''}}">
+              <view class="select-inner" wx:if="{{item.selected}}"></view>
+            </view>
+          </view>
+          
+          <image class="item-image" src="{{item.image}}" mode="aspectFill" bindtap="goToProductDetail" data-id="{{item.id}}"></image>
+          
+          <view class="item-info" bindtap="goToProductDetail" data-id="{{item.id}}">
+            <view class="item-name-row">
+              <view class="item-name">{{item.name}}</view>
+            </view>
+            
+            <view class="item-spec">规格：{{item.specs}}</view>
+            
+            <view class="item-price-row">
+              <view class="price-container">
+                <text class="item-price">¥{{item.price}}</text>
+                <text class="item-original" wx:if="{{item.originalPrice > item.price}}">¥{{item.originalPrice}}</text>
+              </view>
+              
+              <view class="count-control" catchtap>
+                <view class="count-btn minus {{item.count <= 1 ? 'disabled' : ''}}" catchtap="decreaseCount" data-index="{{index}}">-</view>
+                <view class="count-number">{{item.count}}</view>
+                <view class="count-btn plus {{item.count >= item.stock ? 'disabled' : ''}}" catchtap="increaseCount" data-index="{{index}}">+</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 推荐商品 -->
+    <view class="recommend-section">
+      <view class="section-title">
+        <view class="title-line"></view>
+        <view class="title-text">为您推荐</view>
+        <view class="title-line"></view>
+      </view>
+      
+      <!-- 替换为网格布局 -->
+      <view class="recommend-grid">
+        <view class="recommend-item" wx:for="{{recommendProducts}}" wx:key="id">
+          <view class="recommend-content" bindtap="goToProductDetail" data-id="{{item.id}}">
+          <image class="recommend-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="recommend-tag">{{item.tag}}</view>
+          <view class="recommend-name">{{item.name}}</view>
+          <view class="recommend-price-row">
+            <text class="recommend-price">¥{{item.price}}</text>
+            <text class="recommend-original">¥{{item.originalPrice}}</text>
+            </view>
+          </view>
+          <view class="add-to-cart-btn" catchtap="addToCart" data-id="{{item.id}}">+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="cart-footer" wx:if="{{!isEmpty}}">
+    <view class="footer-left">
+      <view class="select-all" bindtap="toggleSelectAll">
+        <view class="select-circle {{allSelected ? 'selected' : ''}}">
+          <view class="select-inner" wx:if="{{allSelected}}"></view>
+        </view>
+        <text class="select-text">全选</text>
+      </view>
+    </view>
+    
+    <view class="footer-right" wx:if="{{!isEditing}}">
+      <view class="total-container">
+        <text class="total-label">合计：</text>
+        <text class="total-price">¥{{totalPrice}}</text>
+      </view>
+      <view class="action-buttons">
+        <!-- <view class="checkout-btn" bindtap="checkout">结算</view> -->
+        <view class="pay-now-btn" bindtap="payNow">立即支付</view>
+      </view>
+    </view>
+    
+    <view class="footer-right" wx:else>
+      <view class="delete-btn" bindtap="deleteSelected">
+        删除选中
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom-area"></view>
+</view>
+</scroll-view>
+</view>

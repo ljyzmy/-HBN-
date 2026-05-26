@@ -1,0 +1,515 @@
+/* pages/search/search.wxss */
+/* 容器样式 */
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #f8f8f8;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 20rpx 10rpx 20rpx;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-transparent {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.nav-opaque {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 搜索栏 */
+.search-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.search-input-box {
+  flex: 1;
+  height: 72rpx;
+  background: linear-gradient(to right, rgba(240, 240, 240, 0.9), rgba(245, 245, 245, 0.9));
+  border-radius: 36rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+
+.search-input-box:focus-within {
+  box-shadow: 0 4rpx 12rpx rgba(97, 138, 73, 0.2);
+  background: linear-gradient(to right, rgba(245, 245, 245, 0.95), rgba(250, 250, 250, 0.95));
+}
+
+.search-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999999"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.clear-icon {
+  width: 36rpx;
+  height: 36rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999999"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.clear-icon:active {
+  transform: scale(1.2);
+}
+
+.cancel-btn {
+  font-size: 28rpx;
+  color: #618a49;
+  margin-left: 20rpx;
+  padding: 10rpx;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.cancel-btn:after {
+  content: '';
+  position: absolute;
+  bottom: 6rpx;
+  left: 50%;
+  width: 0;
+  height: 2rpx;
+  background: #618a49;
+  transition: all 0.3s;
+  transform: translateX(-50%);
+}
+
+.cancel-btn:active:after {
+  width: 80%;
+}
+
+/* 页面内容区域 */
+.page-content {
+  height: 100vh;
+  padding-top: 160rpx; /* 与导航栏高度一致 */
+  box-sizing: border-box;
+}
+
+/* 搜索历史和热门搜索部分 */
+.search-section {
+  background-color: #ffffff;
+  margin: 20rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.history-section {
+  border-left: 6rpx solid #e0e0e0;
+}
+
+.hot-section {
+  border-left: 6rpx solid rgba(97, 138, 73, 0.6);
+}
+
+.recommend-section {
+  border-left: 6rpx solid #f39c12;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.title-icon {
+  margin-right: 8rpx;
+  color: #f39c12;
+  font-size: 32rpx;
+}
+
+.trash-icon {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+.trash-icon:active {
+  transform: rotate(15deg);
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+  padding: 6rpx 12rpx;
+  border-radius: 30rpx;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:active {
+  background-color: #e0e0e0;
+}
+
+.refresh-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 4rpx;
+  transition: transform 0.6s ease;
+}
+
+.refresh-btn:active .refresh-icon {
+  transform: rotate(180deg);
+}
+
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10rpx;
+}
+
+.keyword-item {
+  background: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
+  padding: 12rpx 24rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #666;
+  margin: 10rpx;
+  transition: all 0.3s;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+}
+
+.keyword-item.hot {
+  background: linear-gradient(to bottom, rgba(97, 138, 73, 0.1), rgba(97, 138, 73, 0.2));
+  color: #618a49;
+  font-weight: 500;
+}
+
+.keyword-item:active {
+  transform: scale(0.95);
+  box-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 推荐列表 */
+.recommend-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 10rpx 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  margin: 0 -10rpx;
+}
+
+.recommend-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.recommend-item {
+  flex-shrink: 0;
+  width: 220rpx;
+  margin: 0 10rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.recommend-item:active {
+  transform: translateY(-6rpx);
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.12);
+}
+
+.recommend-image {
+  width: 100%;
+  height: 220rpx;
+  object-fit: cover;
+}
+
+.recommend-tag {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  background: linear-gradient(to right, rgba(97, 138, 73, 0.8), rgba(97, 138, 73, 0.6));
+  color: #ffffff;
+  padding: 4rpx 10rpx;
+  border-radius: 6rpx;
+  font-size: 20rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.15);
+}
+
+.recommend-info {
+  padding: 12rpx;
+}
+
+.recommend-name {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.recommend-price-row {
+  display: flex;
+  align-items: baseline;
+}
+
+.recommend-price {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-right: 6rpx;
+}
+
+.recommend-original {
+  font-size: 20rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* 无结果时的推荐 */
+.no-result-recommend {
+  margin-top: 40rpx;
+  animation: fadeIn 0.8s ease;
+  border-top: 1rpx solid #eee;
+  padding-top: 30rpx;
+}
+
+/* 搜索结果部分 */
+.search-result {
+  padding: 0 20rpx 40rpx;
+}
+
+.result-header {
+  font-size: 28rpx;
+  color: #666;
+  margin: 20rpx 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.result-count {
+  color: #618a49;
+  font-weight: bold;
+}
+
+/* 空结果提示 */
+.empty-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0;
+  animation: fadeIn 0.5s ease;
+}
+
+.empty-icon {
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 30rpx;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10rpx); }
+}
+
+.empty-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.empty-tips {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+
+/* 产品网格 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  animation: fadeIn 0.5s ease;
+}
+
+.product-item {
+  position: relative;
+  background: linear-gradient(to bottom, #ffffff, #fafafa);
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:active {
+  transform: translateY(-6rpx) scale(0.98);
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+}
+
+.product-image {
+  width: 100%;
+  height: 350rpx;
+  object-fit: cover;
+}
+
+/* 闪光效果 */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect:after {
+  content: '';
+  position: absolute;
+  top: -110%;
+  left: -210%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  background: linear-gradient(to right, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: opacity 0.5s;
+}
+
+.product-item:hover .shine-effect:after {
+  opacity: 1;
+  top: -30%;
+  left: -30%;
+  transition: 0.7s;
+}
+
+.product-tag {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  background: linear-gradient(to right, rgba(97, 138, 73, 0.9), rgba(97, 138, 73, 0.7));
+  color: #ffffff;
+  padding: 6rpx 12rpx;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+  padding: 20rpx;
+}
+
+.product-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 80rpx;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.product-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+  height: 68rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.product-price {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-right: 10rpx;
+}
+
+.product-original {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.product-sales {
+  font-size: 22rpx;
+  color: #999;
+} 

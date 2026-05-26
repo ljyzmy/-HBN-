@@ -1,0 +1,111 @@
+<!-- pages/message/center/center.wxml -->
+<view class="container">
+  <!-- 顶部选项卡 -->
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="index" 
+      data-tab="{{index}}" 
+      bindtap="switchTab"
+    >
+      {{item}}
+      <view class="badge" wx:if="{{index === 0 && unreadCount.notification > 0}}">{{unreadCount.notification}}</view>
+      <view class="badge" wx:if="{{index === 1 && unreadCount.activity > 0}}">{{unreadCount.activity}}</view>
+      <view class="badge" wx:if="{{index === 2 && unreadCount.system > 0}}">{{unreadCount.system}}</view>
+    </view>
+  </view>
+  
+  <!-- 消息操作栏 -->
+  <view class="action-bar">
+    <view class="action-btn" bindtap="markAllAsRead">
+      <image src="/assets/icons/read_all.png" mode="aspectFit" class="action-icon"></image>
+      <text>全部已读</text>
+    </view>
+    <view class="action-btn" bindtap="clearAllMessages">
+      <image src="/assets/icons/delete.png" mode="aspectFit" class="action-icon"></image>
+      <text>清空消息</text>
+    </view>
+  </view>
+  
+  <!-- 通知消息列表 -->
+  <view class="message-list" wx:if="{{currentTab === 0}}">
+    <block wx:if="{{messages.notification.length > 0}}">
+      <view class="message-item {{item.isRead ? 'read' : ''}}" 
+        wx:for="{{messages.notification}}" 
+        wx:key="id" 
+        data-id="{{item.id}}" 
+        data-type="{{item.type}}" 
+        bindtap="viewMessageDetail"
+      >
+        <view class="message-dot" wx:if="{{!item.isRead}}"></view>
+        <view class="message-content">
+          <view class="message-title">{{item.title}}</view>
+          <view class="message-desc">{{item.content}}</view>
+          <view class="message-time">{{item.time}}</view>
+        </view>
+        <view class="message-delete" catchtap="deleteMessage" data-id="{{item.id}}">
+          <image src="/assets/icons/delete.png" mode="aspectFit" class="delete-icon"></image>
+        </view>
+      </view>
+    </block>
+    <view class="empty-message" wx:else>
+      <image src="/assets/icons/empty_message.png" mode="aspectFit" class="empty-icon"></image>
+      <text>暂无通知消息</text>
+    </view>
+  </view>
+  
+  <!-- 活动消息列表 -->
+  <view class="message-list" wx:if="{{currentTab === 1}}">
+    <block wx:if="{{messages.activity.length > 0}}">
+      <view class="message-item {{item.isRead ? 'read' : ''}}" 
+        wx:for="{{messages.activity}}" 
+        wx:key="id" 
+        data-id="{{item.id}}" 
+        data-type="{{item.type}}" 
+        bindtap="viewMessageDetail"
+      >
+        <view class="message-dot" wx:if="{{!item.isRead}}"></view>
+        <view class="message-content">
+          <view class="message-title">{{item.title}}</view>
+          <view class="message-desc">{{item.content}}</view>
+          <view class="message-time">{{item.time}}</view>
+        </view>
+        <view class="message-delete" catchtap="deleteMessage" data-id="{{item.id}}">
+          <image src="/assets/icons/delete.png" mode="aspectFit" class="delete-icon"></image>
+        </view>
+      </view>
+    </block>
+    <view class="empty-message" wx:else>
+      <image src="/assets/icons/empty_message.png" mode="aspectFit" class="empty-icon"></image>
+      <text>暂无活动消息</text>
+    </view>
+  </view>
+  
+  <!-- 系统消息列表 -->
+  <view class="message-list" wx:if="{{currentTab === 2}}">
+    <block wx:if="{{messages.system.length > 0}}">
+      <view class="message-item {{item.isRead ? 'read' : ''}}" 
+        wx:for="{{messages.system}}" 
+        wx:key="id" 
+        data-id="{{item.id}}" 
+        data-type="{{item.type}}" 
+        bindtap="viewMessageDetail"
+      >
+        <view class="message-dot" wx:if="{{!item.isRead}}"></view>
+        <view class="message-content">
+          <view class="message-title">{{item.title}}</view>
+          <view class="message-desc">{{item.content}}</view>
+          <view class="message-time">{{item.time}}</view>
+        </view>
+        <view class="message-delete" catchtap="deleteMessage" data-id="{{item.id}}">
+          <image src="/assets/icons/delete.png" mode="aspectFit" class="delete-icon"></image>
+        </view>
+      </view>
+    </block>
+    <view class="empty-message" wx:else>
+      <image src="/assets/icons/empty_message.png" mode="aspectFit" class="empty-icon"></image>
+      <text>暂无系统消息</text>
+    </view>
+  </view>
+</view> 

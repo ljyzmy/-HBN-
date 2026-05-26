@@ -1,0 +1,367 @@
+/* pages/skincare/test.wxss */
+
+/* 容器样式 */
+.container {
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  padding-bottom: 40rpx;
+}
+
+/* 顶部用户信息 */
+.header {
+  background: linear-gradient(135deg, #618a49, #8aad75);
+  padding: 40rpx 30rpx;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.15);
+  margin-right: 20rpx;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-text text:first-child {
+  color: #ffffff;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.sub-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24rpx;
+  margin-top: 6rpx;
+}
+
+/* 进度条 */
+.progress-bar-container {
+  margin: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12rpx;
+  background-color: #e0e0e0;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.progress-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #618a49, #a4c88c);
+  border-radius: 6rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  align-self: flex-end;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* 测试内容区 */
+.test-content {
+  padding: 0 30rpx;
+}
+
+.question-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.question-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.options-list {
+  margin-bottom: 20rpx;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+}
+
+/* 增强选中状态的视觉效果 */
+.option-item.selected {
+  background-color: rgba(97, 138, 73, 0.15);
+  border-left: 6rpx solid #618a49;
+  transform: translateX(4rpx);
+  box-shadow: 0 2rpx 6rpx rgba(97, 138, 73, 0.2);
+}
+
+.radio, .checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ccc;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.checkbox {
+  border-radius: 6rpx;
+}
+
+.radio.checked, .checkbox.checked {
+  border-color: #618a49;
+  background-color: #fff;
+  border-width: 2.5rpx;
+}
+
+.radio-inner, .checkbox-inner {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #618a49;
+  transition: transform 0.2s ease;
+  transform: scale(0);
+}
+
+.checkbox-inner {
+  border-radius: 3rpx;
+}
+
+/* 增强选中状态的动画效果 */
+.radio.checked .radio-inner, 
+.checkbox.checked .checkbox-inner {
+  transform: scale(1);
+}
+
+.tip-text {
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+/* 导航按钮 */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 40rpx 0;
+}
+
+.prev-btn, .next-btn {
+  padding: 20rpx 40rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.prev-btn {
+  background-color: #f0f0f0;
+  color: #666;
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.next-btn {
+  background-color: #618a49;
+  color: #fff;
+  flex: 2;
+  box-shadow: 0 4rpx 10rpx rgba(97, 138, 73, 0.2);
+}
+
+/* 分析中状态 */
+.analyzing-container {
+  padding: 60rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.analyzing-animation {
+  width: 300rpx;
+  height: 300rpx;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+
+.face-outline {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.scanning-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rpx;
+  background: linear-gradient(90deg, transparent, #618a49, transparent);
+  animation: scanning 2s infinite;
+  box-shadow: 0 0 10rpx rgba(97, 138, 73, 0.5);
+}
+
+@keyframes scanning {
+  0% { top: 0; }
+  50% { top: 100%; }
+  100% { top: 0; }
+}
+
+.analyzing-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.analyzing-text .main-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.analyzing-text .sub-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 测试结果 */
+.result-container {
+  padding: 30rpx;
+}
+
+.result-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  padding: 0 0 30rpx;
+  overflow: hidden;
+}
+
+.result-header {
+  background: linear-gradient(135deg, #618a49, #8aad75);
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.result-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.result-content {
+  padding: 30rpx;
+}
+
+.result-item {
+  margin-bottom: 30rpx;
+}
+
+.result-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 10rpx;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.result-value {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.concern-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+}
+
+.concern-tag {
+  background-color: rgba(97, 138, 73, 0.1);
+  color: #618a49;
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.result-recommendation {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  display: block;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  margin-top: 20rpx;
+}
+
+.action-btn {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}
+
+.restart {
+  background-color: #f0f0f0;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.plan {
+  background-color: #618a49;
+  color: #fff;
+  box-shadow: 0 4rpx 10rpx rgba(97, 138, 73, 0.2);
+}
+
+/* 底部安全区域 */
+.safe-bottom {
+  height: 40rpx;
+} 

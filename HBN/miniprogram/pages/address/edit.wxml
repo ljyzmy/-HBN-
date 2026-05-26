@@ -1,0 +1,76 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-left" bindtap="goBack">
+      <image class="back-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit"></image>
+    </view>
+    <view class="nav-title">{{id ? '编辑地址' : '新增地址'}}</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight + 20}}px;"></view>
+
+  <!-- 页面内容区域 -->
+  <view class="content-area">
+    <!-- 加载中 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+
+    <!-- 表单内容 -->
+    <view class="form-wrapper" wx:else>
+      <view class="form-item">
+        <view class="form-label">收货人</view>
+        <input class="form-input" placeholder="请输入收货人姓名" value="{{name}}" bindinput="inputName" />
+      </view>
+
+      <view class="form-item">
+        <view class="form-label">手机号码</view>
+        <input class="form-input" type="number" placeholder="请输入手机号码" value="{{phone}}" bindinput="inputPhone" />
+      </view>
+
+      <view class="form-item">
+        <view class="form-label">所在地区</view>
+        <picker mode="region" bindchange="regionChange" value="{{region}}" class="region-picker">
+          <view class="picker-text" wx:if="{{province}}">{{province}}{{city}}{{district}}</view>
+          <view class="picker-placeholder" wx:else>请选择所在地区</view>
+        </picker>
+        <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/收货地址.png" mode="aspectFit"></image>
+      </view>
+
+      <view class="form-item form-item-textarea">
+        <view class="form-label">详细地址</view>
+        <textarea class="form-textarea" placeholder="请输入详细地址信息，如街道、门牌号、小区等" value="{{detail}}" bindinput="inputDetail" auto-height />
+      </view>
+      
+      <view class="form-item form-item-tags">
+        <view class="form-label">地址标签</view>
+        <view class="tags-container">
+          <view class="tag-item {{selectedTagIndex === index ? 'tag-selected' : ''}}" 
+                wx:for="{{tagOptions}}" 
+                wx:key="*this" 
+                bindtap="selectTag" 
+                data-index="{{index}}">
+            {{item}}
+          </view>
+          <input class="tag-input" placeholder="自定义标签" value="{{selectedTagIndex === -1 ? tag : ''}}" bindinput="customTag" />
+        </view>
+      </view>
+
+      <view class="form-item form-item-switch">
+        <view class="form-label">设为默认地址</view>
+        <switch color="#A64036" checked="{{isDefault}}" bindchange="switchDefault" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部保存按钮 -->
+  <view class="bottom-btn-area" wx:if="{{!loading}}">
+    <view class="save-btn {{submitting ? 'btn-disabled' : ''}}" bindtap="saveAddress">
+      <view class="btn-loading" wx:if="{{submitting}}"></view>
+      <text>{{submitting ? '保存中...' : '保存'}}</text>
+    </view>
+  </view>
+</view> 

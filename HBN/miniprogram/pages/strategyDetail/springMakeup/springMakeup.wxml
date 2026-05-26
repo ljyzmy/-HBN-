@@ -1,0 +1,144 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{scrolled ? 'nav-opaque' : 'nav-transparent'}}">
+    <view class="nav-back" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-center">
+      <text class="nav-title">{{pageTitle}}</text>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 头部图片 -->
+  <view class="header-image-container">
+    <image src="{{pageImage}}" mode="aspectFill" class="header-image"></image>
+    <view class="image-overlay">
+      <view class="title-container">
+        <text class="page-title">{{pageTitle}}</text>
+        <view class="page-meta">
+          <text class="meta-item">{{readCount}}人已读</text>
+          <text class="meta-divider">|</text>
+          <text class="meta-item">{{publishDate}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-container">
+    <!-- 介绍部分 -->
+    <view class="intro-section">
+      <text class="intro-text">{{introduction}}</text>
+    </view>
+
+    <!-- 肤质类型指南 -->
+    <view class="skin-types-container">
+      <block wx:for="{{skinTypes}}" wx:key="type" wx:for-index="typeIndex">
+        <view class="skin-type-card">
+          <view class="skin-type-header">
+            <view class="skin-type-icon {{typeIndex % 2 === 0 ? 'icon-left' : 'icon-right'}}"></view>
+            <text class="skin-type-title">{{item.type}}</text>
+          </view>
+          
+          <text class="skin-type-desc">{{item.description}}</text>
+          
+          <view class="tips-container">
+            <text class="tips-title">护理要点：</text>
+            <view class="tips-list">
+              <view class="tip-item" wx:for="{{item.tips}}" wx:for-item="tip" wx:key="*this">
+                <view class="tip-dot"></view>
+                <text class="tip-text">{{tip}}</text>
+              </view>
+            </view>
+          </view>
+          
+          <view class="recommend-products">
+            <text class="recommend-title">推荐产品</text>
+            <view class="product-list">
+              <view class="product-item" wx:for="{{item.recommendProducts}}" wx:for-item="product" wx:for-index="productIndex" wx:key="name">
+                <!-- 替换图片为视频 -->
+                <view class="product-video-container">
+                  <video 
+                    id="product-video-{{typeIndex}}-{{productIndex}}"
+                    src="{{product.videoUrl}}" 
+                    class="product-video"
+                    poster="{{product.imageUrl}}"
+                    object-fit="cover"
+                    autoplay="{{true}}"
+                    loop="{{true}}"
+                    muted="{{true}}"
+                    show-center-play-btn="{{false}}"
+                    controls="{{false}}"
+                    show-progress="{{false}}"
+                    enable-progress-gesture="{{false}}"
+                    binderror="videoError">
+                  </video>
+                </view>
+                <view class="product-info">
+                  <text class="product-name">{{product.name}}</text>
+                  <text class="product-price">{{product.price}}</text>
+                  <text class="product-desc">{{product.description}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 底妆技巧 -->
+    <view class="makeup-tips-container">
+      <view class="section-title elegant">底妆技巧与注意事项</view>
+      <view class="makeup-tips-list">
+        <view class="tip-card" wx:for="{{makeupTips}}" wx:key="title">
+          <image src="{{item.imageUrl}}" mode="aspectFill" class="tip-image"></image>
+          <view class="tip-content">
+            <text class="tip-title">{{item.title}}</text>
+            <text class="tip-detail">{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 相关产品推荐 -->
+    <view class="related-products-container">
+      <view class="section-title elegant">相关产品推荐</view>
+      <view class="related-products-list">
+        <view class="related-product-item" wx:for="{{relatedProducts}}" wx:key="id" bindtap="goToProduct" data-id="{{item.id}}">
+          <!-- 替换图片为视频 -->
+          <view class="related-product-video-container">
+            <video 
+              id="related-product-video-{{index}}"
+              src="{{item.videoUrl}}" 
+              class="related-product-video"
+              poster="{{item.imageUrl}}"
+              object-fit="cover"
+              autoplay="{{true}}"
+              loop="{{true}}"
+              muted="{{true}}"
+              show-center-play-btn="{{false}}"
+              controls="{{false}}"
+              show-progress="{{false}}"
+              enable-progress-gesture="{{false}}"
+              binderror="videoError">
+            </video>
+          </view>
+          <view class="related-product-info">
+            <text class="related-product-name">{{item.name}}</text>
+            <view class="related-product-price-row">
+              <text class="related-product-price">{{item.price}}</text>
+              <text class="related-product-original">{{item.originalPrice}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部声明 -->
+    <view class="footer-disclaimer">
+      <text class="disclaimer-text">本文内容仅供参考，具体情况请以实际肤质为准。</text>
+      <text class="disclaimer-copyright">© 2025 HBN美妆 版权所有</text>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,163 @@
+<view class="container birch-bg warm-tone">
+    <!-- 自定义导航栏 - 参考detail页面结构 -->
+    <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="nav-left" bindtap="navigateBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 页面内容 -->
+  <scroll-view scroll-y class="content-scroll" bindscroll="onScrollViewScroll">
+    <view class="content-container">
+      <!-- 分类横向滚动 -->
+      <scroll-view scroll-x class="category-scroll" enable-flex show-scrollbar="{{false}}">
+        <view class="category-tabs">
+          <view 
+            class="category-tab {{currentCategory === index ? 'active' : ''}}" 
+            wx:for="{{categoryList}}" 
+            wx:key="id"
+            bindtap="switchCategory"
+            data-index="{{index}}">
+            {{item.name}}
+          </view>
+        </view>
+      </scroll-view>
+      
+      <!-- 系列介绍 -->
+      <view class="category-intro cedar-accent">
+        <view class="intro-bg">
+          <!-- 视频背景 -->
+          <video 
+            class="intro-bg-video" 
+            src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/分类背景视频.mp4"
+            autoplay="{{true}}"
+            loop="{{true}}"
+            muted="{{true}}"
+            show-play-btn="{{false}}"
+            controls="{{false}}"
+            show-center-play-btn="{{false}}"
+            enable-progress-gesture="{{false}}"
+            object-fit="cover">
+          </video>
+          <!-- 添加叠加层，确保文本可读性 -->
+          <view class="video-overlay"></view>
+        </view>
+        <view class="intro-content">
+          <view class="intro-title">{{categoryName}}</view>
+          <view class="intro-desc">{{categoryDesc}}</view>
+          <!-- 如需添加额外信息可以在这里扩展，比如产品数量等 -->
+        </view>
+      </view>
+      
+      <!-- 筛选栏 -->
+      <view class="filter-bar {{scrollTop > 250 ? 'fixed' : ''}}">
+        <view class="search-wrapper" bindtap="focusSearch">
+          <view class="search-icon"></view>
+          <input 
+            class="search-input" 
+            placeholder="搜索商品名称或关键词" 
+            placeholder-class="search-input-placeholder"
+            value="{{searchKeyword}}"
+            confirm-type="search"
+            bindinput="onSearchInput"
+            bindconfirm="doSearch"
+            focus="{{searchFocus}}"
+          />
+          <view class="search-clear" wx:if="{{searchKeyword.length > 0}}" catchtap="clearSearch">
+            <image class="search-clear-icon" src="https://img.api.aa1.cn/2025/05/12/4e49d5ef84fa5.png" mode="aspectFit"></image>
+          </view>
+        </view>
+        
+        <view class="sort-options">
+          <view 
+            class="sort-option {{currentSort === 0 ? 'active' : ''}}" 
+            bindtap="switchSort" 
+            data-index="0">
+            <text class="sort-text">综合</text>
+            <view class="sort-indicator" wx:if="{{currentSort === 0}}"></view>
+          </view>
+          <view 
+            class="sort-option {{currentSort === 1 ? 'active' : ''}}" 
+            bindtap="switchSort" 
+            data-index="1">
+            <text class="sort-text">销量</text>
+            <view class="sort-indicator" wx:if="{{currentSort === 1}}"></view>
+          </view>
+          <view 
+            class="sort-option price-sort {{currentSort === 2 ? 'active' : ''}}" 
+            bindtap="togglePriceSort">
+            <text class="sort-text">价格</text>
+            <view class="price-arrow {{priceSortAsc ? 'asc' : 'desc'}}"></view>
+            <view class="sort-indicator" wx:if="{{currentSort === 2}}"></view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 产品列表 -->
+      <view class="product-list">
+        <view 
+          class="product-card {{item.categoryId === 1 ? 'antiaging-card' : item.categoryId === 2 ? 'whitening-card' : item.categoryId === 3 ? 'hydrating-card' : 'basic-card'}}" 
+          wx:for="{{productList}}" 
+          wx:key="id"
+          bindtap="goToProductDetail"
+          data-id="{{item.id}}">
+          
+          <!-- 替换图片为视频 -->
+          <view class="product-media-container">
+            <video 
+              class="product-video" 
+              src="{{item.videoUrl || 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (4).mp4'}}"
+              autoplay="{{true}}"
+              loop="{{true}}"
+              muted="{{true}}"
+              show-play-btn="{{false}}"
+              controls="{{false}}"
+              show-center-play-btn="{{false}}"
+              enable-progress-gesture="{{false}}"
+              object-fit="cover"
+              binderror="handleVideoError"
+              data-id="{{item.id}}">
+            </video>
+          </view>
+          
+          <view class="product-info">
+            <view class="product-tags">
+              <!-- <view class="product-tag {{item.categoryId === 1 ? 'tag-antiaging' : item.categoryId === 2 ? 'tag-whitening' : item.categoryId === 3 ? 'tag-hydrating' : 'tag-basic'}}" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</view> -->
+            </view>
+            <view class="product-name">{{item.name}}</view>
+            <view class="product-desc">{{item.desc}}</view>
+            <view class="product-price-row">
+              <view class="product-price">¥{{item.price}}</view>
+              <view class="product-original" wx:if="{{item.originalPrice > item.price}}">¥{{item.originalPrice}}</view>
+            </view>
+            <view class="product-sale">已售 {{item.sales}}</view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 空状态提示 -->
+      <view class="empty-state" wx:if="{{productList.length === 0}}">
+        <image class="empty-icon" src="" mode="aspectFit"></image>
+        <view class="empty-text">暂无相关商品</view>
+      </view>
+      
+      <!-- 底部留白 -->
+      <view class="bottom-space"></view>
+    </view>
+  </scroll-view>
+  
+  <!-- 购物车浮窗球 - 移除徽章 -->
+  <view class="cart-float" bindtap="goToCart">
+    <view class="cart-icon"></view>
+    <!-- 徽章已移除 -->
+  </view>
+  
+  <!-- 智能浮窗球 -->
+  <view class="ai-float" bindtap="goToChatBot">
+    <image class="ai-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/智能.png" mode="aspectFit"></image>
+  </view>
+</view> 

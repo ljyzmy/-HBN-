@@ -1,0 +1,273 @@
+<view class="container">
+  <!-- 顶部头像区域 -->
+  <view class="avatar-section">
+    <view class="avatar-wrapper" bindtap="{{isEditing ? 'updateAvatar' : ''}}">
+      <image class="avatar" src="{{isEditing ? tempInfo.avatarUrl : userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="edit-icon" wx:if="{{isEditing}}">
+        <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/编辑.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="nickname">{{isEditing ? tempInfo.nickName : userInfo.nickName}}</view>
+    
+    <!-- 会员等级标签 -->
+    <view class="member-badge" wx:if="{{userInfo.memberLevel}}">
+      {{userInfo.memberLevel}}
+    </view>
+    
+    <!-- 用户画像选择 -->
+    <view class="profile-selector" bindtap="openProfilePicker">
+      <text>切换用户画像</text>
+      <image class="dropdown-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/下拉.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 用户画像类型展示 -->
+  <view class="profile-types">
+    <view class="profile-type {{currentProfile == 0 ? 'active' : ''}}" bindtap="switchUserProfile" data-profile-id="1">
+      职场精英女性
+      </view>
+    <view class="profile-type {{currentProfile == 1 ? 'active' : ''}}" bindtap="switchUserProfile" data-profile-id="2">
+      都市新锐青年
+    </view>
+    <view class="profile-type {{currentProfile == 2 ? 'active' : ''}}" bindtap="switchUserProfile" data-profile-id="3">
+      科研工作者
+    </view>
+  </view>
+
+  <!-- 信息编辑区域 -->
+  <view class="profile-info">
+    <!-- 编辑模式 -->
+    <block wx:if="{{isEditing}}">
+      <view class="info-section">
+        <view class="info-item">
+      <view class="item-label">昵称</view>
+          <input class="item-input" value="{{tempInfo.nickName}}" bindinput="onInputChange" data-field="nickName" placeholder="请输入昵称"/>
+    </view>
+
+        <view class="info-item" bindtap="openGenderPicker">
+      <view class="item-label">性别</view>
+          <view class="item-value">{{tempInfo.gender}}</view>
+          <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/箭头.png" mode="aspectFit"></image>
+        </view>
+
+        <view class="info-item" bindtap="openBirthdayPicker">
+          <view class="item-label">生日</view>
+          <view class="item-value">{{tempInfo.birthday}}</view>
+          <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/箭头.png" mode="aspectFit"></image>
+        </view>
+
+        <view class="info-item">
+          <view class="item-label">手机号</view>
+          <input class="item-input" value="{{tempInfo.phone}}" bindinput="onInputChange" data-field="phone" placeholder="请输入手机号" type="number"/>
+        </view>
+
+        <view class="info-item">
+          <view class="item-label">邮箱</view>
+          <input class="item-input" value="{{tempInfo.email}}" bindinput="onInputChange" data-field="email" placeholder="请输入邮箱"/>
+        </view>
+
+        <view class="info-item" bindtap="openRegionPicker">
+          <view class="item-label">地区</view>
+          <view class="item-value">{{tempInfo.region[0]}} {{tempInfo.region[1]}} {{tempInfo.region[2]}}</view>
+          <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/箭头.png" mode="aspectFit"></image>
+        </view>
+      </view>
+
+      <!-- 底部保存按钮 -->
+      <view class="button-group">
+        <button class="cancel-button" bindtap="cancelEditing">取消</button>
+        <button class="save-button" bindtap="saveProfile">保存</button>
+      </view>
+    </block>
+
+    <!-- 查看模式 -->
+    <block wx:else>
+      <!-- 基本信息 -->
+      <view class="section-title">基本信息</view>
+      <view class="info-section">
+        <view class="info-item">
+          <view class="item-label">昵称</view>
+          <view class="item-value">{{userInfo.nickName}}</view>
+        </view>
+
+        <view class="info-item">
+          <view class="item-label">性别</view>
+          <view class="item-value">{{userInfo.gender}}</view>
+    </view>
+
+        <view class="info-item">
+      <view class="item-label">生日</view>
+          <view class="item-value">{{userInfo.birthday}}</view>
+        </view>
+
+        <view class="info-item">
+          <view class="item-label">手机号</view>
+          <view class="item-value">{{userInfo.phone}}</view>
+        </view>
+
+        <view class="info-item">
+          <view class="item-label">邮箱</view>
+          <view class="item-value">{{userInfo.email}}</view>
+        </view>
+
+        <view class="info-item">
+          <view class="item-label">地区</view>
+          <view class="item-value">{{userInfo.region[0]}} {{userInfo.region[1]}} {{userInfo.region[2]}}</view>
+        </view>
+        
+        <view class="info-item" wx:if="{{userInfo.occupation}}">
+          <view class="item-label">职业</view>
+          <view class="item-value">{{userInfo.occupation}}</view>
+        </view>
+        
+        <view class="info-item" wx:if="{{userInfo.income}}">
+          <view class="item-label">收入</view>
+          <view class="item-value">{{userInfo.income}}</view>
+        </view>
+      </view>
+      
+      <!-- 生活方式 -->
+      <view class="section-title" wx:if="{{userInfo.lifestyle}}">生活方式</view>
+      <view class="info-section" wx:if="{{userInfo.lifestyle}}">
+        <view class="info-list">
+          <view class="list-item" wx:for="{{userInfo.lifestyle}}" wx:key="*this">
+            <view class="bullet">•</view>
+            <view class="list-text">{{item}}</view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 用户分析 -->
+      <view class="section-title" wx:if="{{userInfo.painPoints}}">用户分析</view>
+      <view class="info-section" wx:if="{{userInfo.painPoints}}">
+        <view class="sub-section-title">主要痛点</view>
+        <view class="info-list">
+          <view class="list-item" wx:for="{{userInfo.painPoints}}" wx:key="*this">
+            <view class="bullet">•</view>
+            <view class="list-text">{{item}}</view>
+          </view>
+        </view>
+        
+        <view class="sub-section-title">购买行为</view>
+        <view class="info-text">{{userInfo.purchaseBehavior}}</view>
+        
+        <view class="sub-section-title">决策因素</view>
+        <view class="tags-container">
+          <view class="tag" wx:for="{{userInfo.decisionFactors}}" wx:key="*this">{{item}}</view>
+        </view>
+        
+        <view class="sub-section-title">信息来源</view>
+        <view class="tags-container">
+          <view class="tag" wx:for="{{userInfo.infoSources}}" wx:key="*this">{{item}}</view>
+        </view>
+      </view>
+      
+      <!-- 品牌需求 -->
+      <view class="section-title" wx:if="{{userInfo.brandNeeds}}">品牌需求</view>
+      <view class="info-section" wx:if="{{userInfo.brandNeeds}}">
+        <view class="info-list">
+          <view class="list-item" wx:for="{{userInfo.brandNeeds}}" wx:key="*this">
+            <view class="bullet">•</view>
+            <view class="list-text">{{item}}</view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 购买历史 -->
+      <view class="section-title" wx:if="{{userInfo.purchaseHistory}}">购买历史</view>
+      <view class="info-section" wx:if="{{userInfo.purchaseHistory}}">
+        <view class="purchase-history">
+          <view class="purchase-item" wx:for="{{userInfo.purchaseHistory}}" wx:key="date">
+            <view class="purchase-date">{{item.date}}</view>
+            <view class="purchase-details">
+              <view class="purchase-product">{{item.product}}</view>
+              <view class="purchase-price">{{item.price}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 底部编辑按钮 -->
+      <view class="button-group" wx:if="{{isLogged}}">
+        <button class="edit-button" bindtap="startEditing">编辑</button>
+      </view>
+    </block>
+  </view>
+
+  <!-- 性别选择器 -->
+  <picker-view wx:if="{{showGenderPicker}}" class="picker" indicator-style="height: 50px;" value="{{[0]}}" bindchange="confirmGenderPicker">
+    <view class="picker-header">
+      <view class="picker-cancel" bindtap="closeGenderPicker">取消</view>
+      <view class="picker-title">选择性别</view>
+      <view class="picker-confirm" bindtap="closeGenderPicker">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{genderOptions}}" wx:key="*this" class="picker-item">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+
+  <!-- 日期选择器 -->
+  <view class="picker-mask" wx:if="{{showBirthdayPicker}}" bindtap="closeBirthdayPicker"></view>
+  <picker mode="date" wx:if="{{showBirthdayPicker}}" class="date-picker" value="{{tempInfo.birthday}}" start="1900-01-01" end="2022-12-31" bindchange="confirmBirthdayPicker">
+    <view class="picker-header">
+      <view class="picker-cancel" bindtap="closeBirthdayPicker">取消</view>
+      <view class="picker-title">选择生日</view>
+      <view class="picker-confirm">确定</view>
+    </view>
+  </picker>
+
+  <!-- 地区选择器 -->
+  <view class="picker-mask" wx:if="{{showRegionPicker}}" bindtap="closeRegionPicker"></view>
+  <picker mode="region" wx:if="{{showRegionPicker}}" class="region-picker" value="{{tempInfo.region}}" bindchange="bindRegionChange">
+    <view class="picker-header">
+      <view class="picker-cancel" bindtap="closeRegionPicker">取消</view>
+      <view class="picker-title">选择地区</view>
+      <view class="picker-confirm">确定</view>
+    </view>
+  </picker>
+  
+  <!-- 用户画像选择器 -->
+  <view class="picker-mask" wx:if="{{showProfilePicker}}" bindtap="closeProfilePicker"></view>
+  <view class="profile-picker-container" wx:if="{{showProfilePicker}}">
+    <view class="picker-header">
+      <view class="picker-cancel" bindtap="closeProfilePicker">取消</view>
+      <view class="picker-title">选择用户画像</view>
+      <view class="picker-confirm" bindtap="closeProfilePicker">确定</view>
+    </view>
+    <view class="profile-options">
+      <view class="profile-option {{currentProfile == 0 ? 'selected' : ''}}" 
+            bindtap="confirmProfilePicker" data-index="0">
+        <image class="profile-avatar" src="{{userProfiles[0].info.avatarUrl}}" mode="aspectFill"></image>
+        <view class="profile-option-content">
+          <view class="profile-option-name">{{userProfiles[0].name}}</view>
+          <view class="profile-option-desc">{{userProfiles[0].info.occupation}}</view>
+        </view>
+        <view class="profile-check" wx:if="{{currentProfile == 0}}">✓</view>
+      </view>
+      <view class="profile-option {{currentProfile == 1 ? 'selected' : ''}}" 
+            bindtap="confirmProfilePicker" data-index="1">
+        <image class="profile-avatar" src="{{userProfiles[1].info.avatarUrl}}" mode="aspectFill"></image>
+        <view class="profile-option-content">
+          <view class="profile-option-name">{{userProfiles[1].name}}</view>
+          <view class="profile-option-desc">{{userProfiles[1].info.occupation}}</view>
+        </view>
+        <view class="profile-check" wx:if="{{currentProfile == 1}}">✓</view>
+      </view>
+      <view class="profile-option {{currentProfile == 2 ? 'selected' : ''}}" 
+            bindtap="confirmProfilePicker" data-index="2">
+        <image class="profile-avatar" src="{{userProfiles[2].info.avatarUrl}}" mode="aspectFill"></image>
+        <view class="profile-option-content">
+          <view class="profile-option-name">{{userProfiles[2].name}}</view>
+          <view class="profile-option-desc">{{userProfiles[2].info.occupation}}</view>
+        </view>
+        <view class="profile-check" wx:if="{{currentProfile == 2}}">✓</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 未登录提示 -->
+  <view class="login-tip" wx:if="{{!isLogged}}">
+    <view class="tip-text">您还未登录，请先登录查看完整信息</view>
+    <button class="login-button" bindtap="goToLogin">立即登录</button>
+  </view>
+</view> 

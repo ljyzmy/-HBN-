@@ -1,0 +1,115 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-back" bindtap="goBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-title">评价商品</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight}}px;"></view>
+  
+  <!-- 表单区域 -->
+  <view class="form-container">
+    <!-- 商品信息 -->
+    <view class="section product-info" wx:if="{{order}}">
+      <view class="product-item">
+        <image class="product-image" src="{{order.product.image}}" mode="aspectFill"></image>
+        <view class="product-detail">
+          <view class="product-name">{{order.product.name}}</view>
+          <view class="product-specs">
+            <text wx:for="{{order.product.specs}}" wx:for-item="spec" wx:for-index="key" wx:key="key">
+              {{key}}:{{spec}}{{index < Object.keys(order.product.specs).length-1 ? ' | ' : ''}}
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 星级评分 -->
+    <view class="section">
+      <view class="rating-container">
+        <view class="rating-text">商品满意度</view>
+        <view class="rating-stars">
+          <view class="star {{formData.rating >= 1 ? 'active' : ''}}" data-rating="1" bindtap="setRating"></view>
+          <view class="star {{formData.rating >= 2 ? 'active' : ''}}" data-rating="2" bindtap="setRating"></view>
+          <view class="star {{formData.rating >= 3 ? 'active' : ''}}" data-rating="3" bindtap="setRating"></view>
+          <view class="star {{formData.rating >= 4 ? 'active' : ''}}" data-rating="4" bindtap="setRating"></view>
+          <view class="star {{formData.rating >= 5 ? 'active' : ''}}" data-rating="5" bindtap="setRating"></view>
+        </view>
+        <view class="rating-desc">
+          {{formData.rating === 1 ? '非常差' : ''}}
+          {{formData.rating === 2 ? '差' : ''}}
+          {{formData.rating === 3 ? '一般' : ''}}
+          {{formData.rating === 4 ? '好' : ''}}
+          {{formData.rating === 5 ? '非常好' : ''}}
+        </view>
+      </view>
+    </view>
+    
+    <!-- 评价内容 -->
+    <view class="section">
+      <view class="content-container">
+        <textarea 
+          class="content-input" 
+          placeholder="请分享您对商品的使用体验，例如使用效果、质量、服务等方面..." 
+          maxlength="500"
+          bindinput="inputContent"
+          value="{{formData.content}}"></textarea>
+        <view class="word-count">{{formData.content.length}}/500</view>
+      </view>
+    </view>
+    
+    <!-- 标签选择 -->
+    <view class="section">
+      <view class="section-title">评价标签</view>
+      <view class="tags-container">
+        <view 
+          class="tag-item {{selectedTags.indexOf(item) > -1 ? 'active' : ''}}" 
+          wx:for="{{tagOptions}}" 
+          wx:key="index"
+          data-tag="{{item}}"
+          bindtap="toggleTag">{{item}}</view>
+      </view>
+    </view>
+    
+    <!-- 上传图片 -->
+    <view class="section">
+      <view class="section-title">上传图片</view>
+      <view class="image-uploader">
+        <view class="image-list">
+          <view class="image-item" wx:for="{{imageUrls}}" wx:key="index">
+            <image src="{{item}}" mode="aspectFill" class="uploaded-image" bindtap="previewImage" data-index="{{index}}"></image>
+            <view class="delete-icon" catchtap="deleteImage" data-index="{{index}}">×</view>
+          </view>
+          <view class="upload-button" bindtap="uploadImage" wx:if="{{imageUrls.length < maxUpload}}">
+            <view class="upload-icon">+</view>
+            <view class="upload-text">上传图片</view>
+          </view>
+        </view>
+        <view class="upload-tip">最多上传{{maxUpload}}张图片，单张不超过5M</view>
+      </view>
+    </view>
+    
+    <!-- 匿名评价 -->
+    <view class="section">
+      <view class="anonymity-switch">
+        <view class="switch-label">匿名评价</view>
+        <view class="switch-container {{formData.anonymity ? 'checked' : ''}}" bindtap="toggleAnonymity">
+          <view class="switch-button"></view>
+        </view>
+      </view>
+      <view class="anonymity-tip">开启后，您的用户名将不会在评价中显示</view>
+    </view>
+  </view>
+  
+  <!-- 底部提交按钮 -->
+  <view class="footer">
+    <view class="submit-btn" bindtap="submitRating">提交评价</view>
+  </view>
+  
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom"></view>
+</view> 

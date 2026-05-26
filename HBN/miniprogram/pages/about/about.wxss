@@ -1,0 +1,155 @@
+/* pages/about/about.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+
+/* 公司信息 */
+.company-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 30rpx;
+  background-color: #fff;
+}
+
+.company-logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+}
+
+.company-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.company-slogan {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.version {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 通用section样式 */
+.section {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10rpx;
+  left: 0;
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #ff4500;
+}
+
+/* 公司介绍 */
+.description {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* 功能列表 */
+.feature-list {
+  margin-top: 20rpx;
+}
+
+.feature-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-title {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.arrow-right {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 联系方式 */
+.contact-list {
+  margin-top: 20rpx;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-right: 10rpx;
+}
+
+.contact-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.contact-text {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+}
+
+.copy-btn {
+  font-size: 24rpx;
+  color: #ff4500;
+  padding: 6rpx 20rpx;
+  border: 1rpx solid #ff4500;
+  border-radius: 30rpx;
+}
+
+/* 底部版权 */
+.footer {
+  margin-top: 60rpx;
+  padding: 30rpx;
+  text-align: center;
+}
+
+.footer text {
+  font-size: 24rpx;
+  color: #999;
+} 

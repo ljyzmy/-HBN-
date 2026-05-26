@@ -1,0 +1,794 @@
+/* pages/detail/detail.wxss */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 状态栏占位 */
+.status-bar {
+  height: 88rpx;
+  width: 100%;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 30rpx 20rpx 30rpx;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-transparent {
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+}
+
+.nav-opaque {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.nav-left {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.nav-center {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 130rpx;
+  width: 240rpx;
+}
+
+.nav-placeholder {
+  width: 80rpx;
+}
+
+/* 移除原来的返回按钮样式，因为已经集成到导航栏中 */
+.back-btn {
+  display: none;
+}
+
+/* 修改主轮播图顶部外边距，为导航栏留出空间 */
+.main-swiper {
+  width: 100%;
+  height: 100vh;
+  padding-top: 0; /* 移除原有的padding-top，因为第一页需要全屏效果 */
+}
+
+/* 调整第二部分滚动区域的顶部外边距 */
+.detail-scroll {
+  height: 100vh;
+  background-color: #f8f8f8;
+  padding-top: 180rpx; /* 为导航栏留出空间 */
+}
+
+/* 第一部分：X轴轮播图 */
+.banner-swiper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* 通用视频样式 */
+.banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* 特别针对第二个视频的优化 */
+#product-video-2 {
+  z-index: 5; /* 提高层级，避免被指示点或其他元素遮挡 */
+  object-fit: contain; /* 更改为 contain 模式，确保视频内容完整显示 */
+  background-color: #000; /* 添加黑色背景，避免视频比例问题导致的空白 */
+}
+
+/* 确保轮播容器不会遮挡视频内容 */
+.banner-swiper .wx-swiper-dot {
+  z-index: 10; /* 确保指示点在视频上方 */
+}
+
+/* 添加视频容器类，解决可能的溢出问题 */
+.video-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 轮播图片样式优化 */
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+  transition: opacity 0.3s;
+}
+
+.banner-image:active {
+  opacity: 0.8;
+}
+
+/* 轮播图容器优化 */
+.image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 确保轮播指示点在最上层 */
+.banner-swiper .wx-swiper-dots {
+  z-index: 10;
+}
+
+/* 轮播容器层级调整 */
+.banner-swiper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* swiper-item溢出可见性调整 */
+.banner-swiper .wx-swiper-item {
+  overflow: visible;
+}
+
+/* 向下滑动提示 */
+.scroll-tip {
+  position: absolute;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 28rpx;
+  text-shadow: 0 1rpx 3rpx rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.arrow-down {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 10rpx;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10rpx);
+  }
+}
+
+/* 商品信息区域 */
+.product-info-section {
+  padding: 30rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+/* 商品价格行样式增强，使其在收起状态下更突出 */
+.product-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+/* 价格信息区域 */
+.price-info {
+  display: flex;
+  align-items: baseline;
+  flex: 1; /* 让价格信息区域占据剩余空间 */
+}
+
+.product-price {
+  font-size: 48rpx;
+  color: #618a49;
+  font-weight: bold;
+  margin-right: 16rpx;
+}
+
+.product-original {
+  font-size: 28rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.product-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.product-desc {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16rpx;
+}
+
+.product-sales {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 收藏按钮样式 */
+.favorite-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  margin-left: 20rpx;
+  margin-right: 40rpx; /* 增加右侧间距 */
+  right: 20rpx; /* 向左偏移 */
+}
+
+/* 收藏按钮在折叠状态下的位置调整 */
+.float-actions.collapsed .favorite-btn {
+  margin-right: 70rpx; /* 在折叠状态下增加右侧间距，避免与收起按钮重叠 */
+  right: 30rpx; /* 向左偏移更多 */
+}
+
+.favorite-btn:active {
+  transform: scale(1.2);
+  background-color: rgba(166, 64, 54, 0.1);
+}
+
+.favorite-icon {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+/* 详情图片 */
+.detail-images {
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.detail-image {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* 底部安全区域 */
+.safe-bottom {
+  height: 500rpx;
+}
+
+/* 底部浮窗 */
+.float-actions {
+  position: fixed;
+  bottom: 60rpx;
+  left: 30rpx;
+  right: 30rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: calc(100% - 60rpx);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* 展开/收起按钮 */
+.float-toggle-btn {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx; /* 调整右侧距离 */
+  width: 48rpx;
+  height: 48rpx;
+  z-index: 100; /* 提高层级确保在最上层 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.08);
+}
+
+.toggle-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 收起时浮窗高度调整，但仍显示价格 */
+.float-actions.collapsed {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  min-height: 160rpx; /* 略微增加高度以容纳价格 */
+  height: auto;
+}
+
+/* 商品信息区域样式 */
+.float-product-info {
+  margin-bottom: 16rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* 收起状态下商品信息区域样式调整 */
+.info-collapsed {
+  margin-bottom: 8rpx;
+  padding-bottom: 8rpx;
+  padding-right: 80rpx; /* 为右上角的按钮留出更多空间 */
+}
+
+.info-collapsed .product-price-row {
+  margin-bottom: 0;
+  width: calc(100% - 80rpx); /* 在折叠状态下限制宽度，为收起按钮留出空间 */
+}
+
+/* 产品详细信息区域 */
+.product-detail-info {
+  transition: all 0.3s ease;
+}
+
+/* 按钮布局优化 */
+.float-actions-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* 左侧导航按钮组样式优化 */
+.action-left {
+  display: flex;
+  max-width: 50%;
+  justify-content: space-between; /* 分配空间更均匀 */
+  flex-wrap: wrap; /* 允许按钮换行 */
+}
+
+/* 导航按钮间距调整 */
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx; /* 减小按钮间距，适应4个按钮 */
+  background: none;
+  padding: 0;
+  line-height: normal;
+  font-size: inherit;
+  border-radius: 0;
+  min-height: auto;
+  position: relative; /* 为分隔线定位做准备 */
+  width: 60rpx; /* 减小按钮宽度 */
+}
+
+/* 最后一个按钮不需要右边距 */
+.nav-btn:last-child {
+  margin-right: 0;
+}
+
+/* 按钮之间添加分隔线 */
+.nav-btn:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -12rpx;
+  top: 15%;
+  height: 70%;
+  width: 1rpx;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 图标样式调整 */
+.nav-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 6rpx;
+}
+
+/* 文字样式调整 */
+.nav-btn text {
+  font-size: 18rpx; /* 缩小文字 */
+  color: #666;
+  white-space: nowrap; /* 防止文字折行 */
+}
+
+/* 客服按钮特殊样式优化 */
+.contact-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+  background: none !important;
+  box-sizing: border-box;
+  width: 70rpx !important; /* 与其他按钮宽度一致 */
+}
+
+/* 收藏按钮特殊样式 */
+.nav-btn[bindtap="toggleFavorite"] .nav-icon {
+  transition: transform 0.3s ease;
+}
+
+.nav-btn[bindtap="toggleFavorite"]:active .nav-icon {
+  transform: scale(1.2);
+}
+
+/* 已收藏状态文字颜色 */
+.nav-btn[bindtap="toggleFavorite"] text {
+  color: var(--dunhuang-red, #A64036);
+  font-size: 20rpx;
+}
+
+/* 右侧功能按钮 */
+.action-right {
+  display: flex;
+  max-width: 60%; /* 确保右侧按钮组有足够空间 */
+}
+
+.add-to-cart, .buy-now {
+  padding: 0 24rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 26rpx;
+  border-radius: 38rpx;
+  margin: 0 6rpx;
+  white-space: nowrap;
+  min-width: 120rpx;
+  text-align: center;
+}
+
+.add-to-cart {
+  background-color: rgba(166, 64, 54, 0.15);
+  color: var(--dunhuang-red, #A64036);
+}
+
+.buy-now {
+  background: linear-gradient(135deg, var(--dunhuang-red, #A64036), var(--dunhuang-orange, #CF985C));
+  color: #fff;
+}
+
+/* 规格选择弹窗 */
+.spec-selector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.spec-selector.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.spec-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.spec-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 30rpx 30rpx 0 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.spec-selector.show .spec-content {
+  transform: translateY(0);
+}
+
+/* 规格选择内容样式 */
+.spec-product-intro {
+  padding: 30rpx;
+  display: flex;
+  position: relative;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.spec-product-image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  transition: transform 0.2s;
+}
+
+.spec-product-image:active {
+  transform: scale(0.95);
+}
+
+.spec-product-info {
+  flex: 1;
+}
+
+.spec-product-price {
+  font-size: 36rpx;
+  color: #618a49;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.spec-product-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.spec-product-selected {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999;
+}
+
+/* 规格选择区域 */
+.spec-scroll {
+  max-height: 600rpx;
+  padding: 0 30rpx;
+}
+
+.spec-group {
+  margin: 30rpx 0;
+}
+
+.spec-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.spec-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.spec-option {
+  padding: 10rpx 30rpx;
+  background-color: #f8f8f8;
+  border-radius: 30rpx;
+  margin: 0 20rpx 20rpx 0;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.spec-option.selected {
+  background-color: rgba(97, 138, 73, 0.1);
+  color: #618a49;
+  border: 1px solid #618a49;
+}
+
+/* 规格选择底部按钮 */
+.spec-btns {
+  display: flex;
+  padding: 30rpx;
+  border-top: 1rpx solid #f0f0f0;
+  justify-content: center; /* 添加水平居中 */
+}
+
+.spec-add-cart, .spec-buy-now {
+  /* 移除flex: 1属性，设置固定宽度 */
+  width: 240rpx; /* 设置按钮固定宽度 */
+  height: 88rpx;
+  line-height: 65rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 44rpx;
+  margin: 0 15rpx; /* 稍微增加按钮间距 */
+}
+
+/* 全宽按钮样式，用于只显示一个按钮的场景 */
+.spec-btn-full {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 44rpx;
+  background: linear-gradient(135deg, var(--dunhuang-red, #A64036), var(--dunhuang-orange, #CF985C));
+  color: #fff;
+  width: 100%;
+  border: none;
+}
+
+.spec-add-cart {
+  background-color: rgba(97, 138, 73, 0.2);
+  color: #618a49;
+}
+
+.spec-buy-now {
+  background-color: #618a49;
+  color: #fff;
+}
+
+/* 风格调整，增加一点敦煌元素 */
+.product-price, .spec-product-price {
+  color: var(--dunhuang-red, #A64036);
+}
+
+.add-to-cart, .spec-add-cart {
+  background-color: rgba(166, 64, 54, 0.15);
+  color: var(--dunhuang-red, #A64036);
+}
+
+.buy-now, .spec-buy-now {
+  background: linear-gradient(135deg, var(--dunhuang-red, #A64036), var(--dunhuang-orange, #CF985C));
+  color: #fff;
+}
+
+/* 添加数量选择器样式 */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  height: 60rpx;
+}
+
+.quantity-btn {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 56rpx;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 8rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  border: 1rpx solid #eee;
+  transition: all 0.2s;
+}
+
+.quantity-btn:active {
+  background-color: #ebebeb;
+}
+
+.quantity-btn.disabled {
+  color: #ccc;
+  background-color: #f8f8f8;
+  pointer-events: none;
+}
+
+.quantity-input {
+  width: 100rpx;
+  height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin: 0 10rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  background-color: #fff;
+}
+
+/* 确保数量选择器在小屏设备上正确显示 */
+@media screen and (max-width: 360px) {
+  .quantity-selector {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .quantity-input {
+    width: 80rpx;
+  }
+}
+
+/* 详情视频样式 */
+.detail-video {
+  width: 100%;
+  height: 422rpx; /* 保持16:9的宽高比 */
+  margin: 30rpx 0;
+  background-color: #000;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+}
+
+/* 加载更多提示样式 */
+.loading-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.loading-icon {
+  width: 36rpx;
+  height: 36rpx;
+  border: 3rpx solid #f0f0f0;
+  border-top: 3rpx solid #618a49;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 触摸视频时的效果 */
+.detail-video:active {
+  opacity: 0.9;
+}
+
+/* 移除客服按钮的默认边框 */
+.contact-btn::after {
+  border: none;
+} 

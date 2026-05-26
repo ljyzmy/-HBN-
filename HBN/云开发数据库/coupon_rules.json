@@ -1,0 +1,61 @@
+{
+  "globalRules": {
+    "maxCouponPerOrder": 1,
+    "canCombineWithPoints": false,
+    "canCombineWithGiftCard": false,
+    "excludePromotionProducts": true,
+    "excludeDiscountProducts": true
+  },
+  "userLevelRules": {
+    "normal": {
+      "maxHoldingCoupons": 20,
+      "dailyGetLimit": 3
+    },
+    "silver": {
+      "maxHoldingCoupons": 30,
+      "dailyGetLimit": 5
+    },
+    "gold": {
+      "maxHoldingCoupons": 50,
+      "dailyGetLimit": 10
+    },
+    "platinum": {
+      "maxHoldingCoupons": 100,
+      "dailyGetLimit": 20
+    }
+  },
+  "productCategoryRules": {
+    "skincare": {
+      "maxDiscountPercent": 30,
+      "maxDiscountAmount": 200
+    },
+    "makeup": {
+      "maxDiscountPercent": 25,
+      "maxDiscountAmount": 150
+    },
+    "fragrance": {
+      "maxDiscountPercent": 20,
+      "maxDiscountAmount": 100
+    },
+    "tools": {
+      "maxDiscountPercent": 15,
+      "maxDiscountAmount": 80
+    },
+    "sets": {
+      "maxDiscountPercent": 35,
+      "maxDiscountAmount": 300
+    }
+  },
+  "couponPriorityRules": {
+    "direct": 1,
+    "percent": 2,
+    "discount": 3
+  },
+  "automaticSelectionRules": {
+    "enabled": true,
+    "strategy": "maxDiscount",
+    "alternativeStrategies": ["nearExpiry", "minOrderAmount"]
+  },
+  "expireTipDays": 3,
+  "lastUpdated": "2025-01-01"
+} 

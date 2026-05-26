@@ -1,0 +1,179 @@
+/* pages/message/center/center.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 30rpx;
+}
+
+/* 选项卡样式 */
+.tabs {
+  display: flex;
+  width: 100%;
+  height: 88rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #333;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #ff4500;
+  border-radius: 2rpx;
+}
+
+/* 未读消息数量徽章 */
+.badge {
+  position: absolute;
+  top: 10rpx;
+  right: 50rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  border-radius: 16rpx;
+  background-color: #ff4500;
+  color: #fff;
+  font-size: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6rpx;
+}
+
+/* 消息操作栏 */
+.action-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 70rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.action-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}
+
+/* 消息列表样式 */
+.message-list {
+  padding: 0 20rpx;
+}
+
+.message-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+}
+
+.message-item.read {
+  opacity: 0.8;
+}
+
+.message-dot {
+  position: absolute;
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #ff4500;
+  border-radius: 50%;
+  left: 12rpx;
+  top: 20rpx;
+}
+
+.message-content {
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.message-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+
+.message-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.message-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.message-delete {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rpx;
+}
+
+.delete-icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+/* 空消息状态 */
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200rpx;
+}
+
+.empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-message text {
+  font-size: 28rpx;
+  color: #999;
+} 

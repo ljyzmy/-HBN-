@@ -1,0 +1,148 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-left" bindtap="goBack">
+      <image class="back-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit"></image>
+    </view>
+    <view class="nav-title">确认订单</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight + 50}}px;"></view>
+  
+  <!-- 页面内容区域 -->
+  <view class="content-area">
+    <!-- 加载中 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+    
+    <block wx:else>
+      <!-- 收货地址 -->
+      <view class="address-card" bindtap="selectAddress">
+        <view wx:if="{{address}}" class="address-info">
+          <view class="address-top">
+            <text class="address-name">{{address.name}}</text>
+            <text class="address-phone">{{address.phone}}</text>
+            <text class="default-tag" wx:if="{{address.isDefault}}">默认</text>
+          </view>
+          <view class="address-detail">{{address.province}}{{address.city}}{{address.district}}{{address.detail}}</view>
+        </view>
+        <view class="address-icon" wx:if="{{address}}">
+          <!-- <image class="location-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/选择 .png" mode="aspectFit"></image> -->
+        </view>
+        <view class="no-address" wx:else>请选择收货地址</view>
+        <view class="address-right">
+          <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/选择 .png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <!-- 商品信息 -->
+      <view class="product-card">
+        <view class="product-info">
+          <image class="product-image" src="{{product.image || product.bannerImages[0]}}" mode="aspectFill"></image>
+          <view class="product-detail">
+            <view>
+              <view class="product-name">{{product.name}}</view>
+              <view class="product-specs">
+                <text wx:for="{{product.specs}}" wx:key="index">{{item}}</text>
+              </view>
+            </view>
+            <view class="product-price-row">
+              <text class="product-price">¥{{product.price}}</text>
+              <view class="quantity-selector">
+                <view class="quantity-btn minus {{quantity <= 1 ? 'disabled' : ''}}" bindtap="decreaseQuantity">-</view>
+                <input class="quantity-input" type="number" value="{{quantity}}" disabled />
+                <view class="quantity-btn plus" bindtap="increaseQuantity">+</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 配送方式 -->
+      <view class="order-item">
+        <text class="item-title">配送方式</text>
+        <view class="item-value">
+          <text class="express-fee">快递 {{expressPrice > 0 ? '¥' + expressPrice : '包邮'}}</text>
+        </view>
+      </view>
+      
+      <!-- 优惠券 -->
+      <view class="order-item" bindtap="selectCoupon">
+        <text class="item-title">优惠券</text>
+        <view class="item-value coupon-value">
+          <view wx:if="{{selectedCoupon}}" class="selected-coupon">
+            <text class="coupon-name">{{selectedCoupon.name}}</text>
+            <text class="coupon-remove" catchtap="removeCoupon">×</text>
+          </view>
+          <text wx:else>{{availableCoupons.length > 0 ? '有可用优惠券' : '暂无可用优惠券'}}</text>
+          <image class="arrow-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/优惠券.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <!-- 买家留言 -->
+      <view class="order-item">
+        <text class="item-title">买家留言</text>
+        <input class="message-input" placeholder="选填：请填写留言内容" model:value="{{message}}" />
+      </view>
+      
+      <!-- 支付方式 -->
+      <view class="payment-methods">
+        <text class="payment-title">支付方式</text>
+        <view class="payment-list">
+          <view class="payment-item {{paymentMethod === 'wxpay' ? 'selected' : ''}}" bindtap="selectPayment" data-method="wxpay">
+            <view class="payment-left">
+              <image class="payment-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/微信.png" mode="aspectFit"></image>
+              <text class="payment-name">微信支付</text>
+            </view>
+            <view class="payment-check">
+              <image wx:if="{{paymentMethod === 'wxpay'}}" class="check-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/钩.png" mode="aspectFit"></image>
+              <view wx:else class="check-circle"></view>
+            </view>
+          </view>
+          <view class="payment-item {{paymentMethod === 'balance' ? 'selected' : ''}} {{!balanceEnough ? 'disabled' : ''}}" bindtap="selectPayment" data-method="balance">
+            <view class="payment-left">
+              <image class="payment-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/钱包.png" mode="aspectFit"></image>
+              <view class="payment-info">
+                <text class="payment-name">余额支付</text>
+                <text class="balance-tip">余额: ¥{{userBalance}} <text class="balance-status">{{balanceEnough ? '(余额充足)' : '(余额不足)'}}</text></text>
+              </view>
+            </view>
+            <view class="payment-check">
+              <image wx:if="{{paymentMethod === 'balance'}}" class="check-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/钩.png" mode="aspectFit"></image>
+              <view wx:else class="check-circle"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 价格计算 -->
+      <view class="price-calc">
+        <view class="price-item">
+          <text>商品金额</text>
+          <text>¥{{productTotal}}</text>
+        </view>
+        <view class="price-item">
+          <text>运费</text>
+          <text>¥{{expressPrice}}</text>
+        </view>
+        <view class="price-item" wx:if="{{couponAmount > 0}}">
+          <text>优惠券</text>
+          <text class="discount">-¥{{couponAmount}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <!-- 底部结算栏 -->
+  <view class="bottom-bar">
+    <view class="total-section">
+      <text>合计：</text>
+      <text class="total-price">¥{{totalPrice}}</text>
+    </view>
+    <view class="submit-btn" bindtap="submitOrder">提交订单</view>
+  </view>
+</view> 

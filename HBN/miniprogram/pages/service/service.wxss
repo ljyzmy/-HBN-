@@ -1,0 +1,257 @@
+/* pages/service/service.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  padding-bottom: 40rpx;
+}
+
+/* 顶部横幅 */
+.banner-section {
+  position: relative;
+  height: 220rpx;
+  background: linear-gradient(135deg, #618a49, #8aad75);
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+
+.banner-text {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-title {
+  font-size: 40rpx;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.banner-subtitle {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.banner-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23FFFFFF" opacity="0.1"><circle cx="50" cy="50" r="40"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 200rpx 200rpx;
+  opacity: 0.3;
+}
+
+/* 客服选项卡 */
+.service-options {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.service-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx 10rpx;
+  margin: 0 10rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.hover-effect {
+  transform: scale(0.97);
+  background-color: rgba(97, 138, 73, 0.05);
+}
+
+.service-option:first-child {
+  margin-left: 0;
+}
+
+.service-option:last-child {
+  margin-right: 0;
+}
+
+.option-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.option-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.option-desc {
+  font-size: 22rpx;
+  color: #999;
+  text-align: center;
+}
+
+/* 客服信息 */
+.service-info-box, .faq-box {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin: 0 20rpx 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title-bar {
+  width: 6rpx;
+  height: 30rpx;
+  background-color: #618a49;
+  border-radius: 3rpx;
+  margin-right: 12rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.info-list {
+  padding: 10rpx 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: #666;
+  width: 160rpx;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333;
+  flex: 1;
+}
+
+.copy-btn {
+  font-size: 24rpx;
+  color: #618a49;
+  padding: 4rpx 16rpx;
+  border: 1rpx solid #618a49;
+  border-radius: 30rpx;
+  background-color: rgba(97, 138, 73, 0.05);
+}
+
+/* 常见问题 */
+.faq-list {
+  padding: 10rpx 0;
+}
+
+.faq-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.faq-arrow {
+  width: 26rpx;
+  height: 26rpx;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.faq-arrow:before, .faq-arrow:after {
+  content: '';
+  position: absolute;
+  width: 12rpx;
+  height: 2rpx;
+  background-color: #618a49;
+  top: 12rpx;
+  transition: all 0.3s;
+}
+
+.faq-arrow:before {
+  transform: rotate(45deg);
+  left: 4rpx;
+}
+
+.faq-arrow:after {
+  transform: rotate(-45deg);
+  left: 12rpx;
+}
+
+.faq-arrow.expanded:before {
+  transform: rotate(-45deg);
+}
+
+.faq-arrow.expanded:after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  font-size: 26rpx;
+  color: #666;
+  padding: 20rpx 0 10rpx;
+  line-height: 1.6;
+  border-top: 1rpx dashed #f0f0f0;
+  margin-top: 16rpx;
+}
+
+/* 底部信息 */
+.footer-info {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.footer-logo {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #618a49;
+  margin-bottom: 10rpx;
+}
+
+.footer-slogan {
+  font-size: 24rpx;
+  color: #999;
+} 

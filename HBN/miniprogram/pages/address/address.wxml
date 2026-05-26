@@ -1,0 +1,70 @@
+<view class="container">
+  <!-- 页面内容区域 -->
+  <view class="content-area">
+    <!-- 加载中状态 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+    
+    <!-- 空状态 -->
+    <view class="empty-container" wx:elif="{{!addressList || addressList.length === 0}}">
+      <image class="empty-icon" src="{{emptyIconPath}}" mode="aspectFit"></image>
+      <text class="empty-text">暂无收货地址</text>
+      <text class="empty-tip">添加地址后可更快地完成下单</text>
+    </view>
+    
+    <!-- 地址列表 -->
+    <view class="address-list" wx:else>
+      <view 
+        class="address-item {{item.isDefault ? 'default-item' : ''}}" 
+        wx:for="{{addressList}}" 
+        wx:key="id"
+        bindtap="selectAddress"
+        data-id="{{item.id}}">
+        
+        <view class="address-info">
+          <view class="address-top">
+            <view class="address-name-phone">
+              <text class="address-name">{{item.name}}</text>
+              <text class="address-phone">{{item.phone}}</text>
+            </view>
+            <view class="address-tags">
+            <view class="address-tag" wx:if="{{item.isDefault}}">默认</view>
+              <view class="address-tag tag-custom" wx:if="{{item.tag}}">{{item.tag}}</view>
+            </view>
+          </view>
+          
+          <view class="address-detail">
+            {{item.province}} {{item.city}} {{item.district}} {{item.detail}}
+          </view>
+        </view>
+        
+        <view class="address-actions">
+          <view class="action-item" catchtap="setDefault" data-id="{{item.id}}" wx:if="{{!item.isDefault}}">
+            <image class="action-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/设为默认.png" mode="aspectFit"></image>
+            <text>设为默认</text>
+          </view>
+          
+          <view class="action-item" catchtap="editAddress" data-id="{{item.id}}">
+            <image class="action-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/编辑.png" mode="aspectFit"></image>
+            <text>编辑</text>
+          </view>
+          
+          <view class="action-item" catchtap="deleteAddress" data-id="{{item.id}}" data-index="{{index}}">
+            <image class="action-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/删除.png" mode="aspectFit"></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部按钮 -->
+  <view class="bottom-btn-area">
+    <view class="add-address-btn" bindtap="addAddress">
+      <image class="btn-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/添加.png" mode="aspectFit"></image>
+      <text>添加收货地址</text>
+    </view>
+  </view>
+</view> 

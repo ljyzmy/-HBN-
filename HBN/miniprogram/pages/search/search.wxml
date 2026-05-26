@@ -1,0 +1,165 @@
+<view class="container">
+  <!-- 自定义导航栏与搜索框 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="search-bar">
+      <view class="search-input-box">
+        <view class="search-icon"></view>
+        <input 
+          class="search-input" 
+          placeholder="搜索产品名称或关键词" 
+          value="{{searchText}}"
+          confirm-type="search"
+          focus="{{true}}"
+          bindinput="onSearchInput"
+          bindconfirm="doSearch"
+        />
+        <view class="clear-icon" bindtap="clearSearch" wx:if="{{searchText}}"></view>
+      </view>
+      <view class="cancel-btn" bindtap="cancelSearch">取消</view>
+    </view>
+  </view>
+
+  <!-- 页面内容滚动区 -->
+  <scroll-view 
+    scroll-y="{{true}}" 
+    class="page-content" 
+    bindscroll="onPageScroll"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}"
+    bounces="{{true}}">
+    
+    <!-- 没有搜索文本时显示历史和推荐 -->
+    <block wx:if="{{!searchText}}">
+      <!-- 搜索历史 -->
+      <view class="search-section history-section" wx:if="{{searchHistory.length > 0}}">
+        <view class="section-header">
+          <view class="section-title">搜索历史</view>
+          <view class="clear-history" bindtap="clearHistory">
+            <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/删除.png" class="trash-icon"></image>
+          </view>
+        </view>
+        <view class="keyword-list">
+          <view 
+            class="keyword-item" 
+            wx:for="{{searchHistory}}" 
+            wx:key="index" 
+            bindtap="useHistoryKeyword"
+            data-keyword="{{item}}">{{item}}</view>
+        </view>
+      </view>
+      
+      <!-- 热门搜索 -->
+      <view class="search-section hot-section">
+        <view class="section-header">
+          <view class="section-title">热门搜索</view>
+        </view>
+        <view class="keyword-list">
+          <view 
+            class="keyword-item hot" 
+            wx:for="{{hotKeywords}}" 
+            wx:key="index" 
+            bindtap="useHistoryKeyword"
+            data-keyword="{{item}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+
+      <!-- 猜你喜欢 -->
+      <view class="search-section recommend-section">
+        <view class="section-header">
+          <view class="section-title">
+            <text class="title-icon">♡</text>
+            猜你喜欢
+          </view>
+          <view class="refresh-btn" bindtap="refreshRecommendations">
+            <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/刷新.png" class="refresh-icon"></image>
+            <text>换一批</text>
+          </view>
+        </view>
+        <view class="recommend-list">
+          <view 
+            class="recommend-item" 
+            wx:for="{{recommendations}}" 
+            wx:key="id"
+            bindtap="goToProductDetail"
+            data-id="{{item.id}}">
+            <image class="recommend-image" src="{{item.image || item.imageUrl}}" mode="aspectFill"></image>
+            <view class="recommend-tag">{{item.tag}}</view>
+            <view class="recommend-info">
+              <view class="recommend-name">{{item.name || item.title}}</view>
+              <view class="recommend-price-row">
+                <text class="recommend-price">¥{{item.price}}</text>
+                <text class="recommend-original" wx:if="{{item.originalPrice && item.originalPrice > item.price}}">¥{{item.originalPrice}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 搜索结果 -->
+    <view class="search-result" wx:if="{{searchText && hasSearched}}">
+      <view class="result-header" wx:if="{{searchResults.length > 0}}">
+        找到 <text class="result-count">{{searchResults.length}}</text> 个相关产品
+      </view>
+      
+      <view class="empty-result" wx:if="{{searchResults.length === 0}}">
+        <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/无搜索结果.png" class="empty-icon"></image>
+        <view class="empty-text">未找到相关产品</view>
+        <view class="empty-tips">换个关键词试试吧~</view>
+        
+        <!-- 搜索无结果时也显示猜你喜欢 -->
+        <view class="search-section recommend-section no-result-recommend">
+          <view class="section-header">
+            <view class="section-title">
+              <text class="title-icon">♡</text>
+              你可能喜欢
+            </view>
+          </view>
+          <view class="recommend-list">
+            <view 
+              class="recommend-item" 
+              wx:for="{{recommendations}}" 
+              wx:key="id"
+              bindtap="goToProductDetail"
+              data-id="{{item.id}}">
+              <image class="recommend-image" src="{{item.image || item.imageUrl}}" mode="aspectFill"></image>
+              <view class="recommend-tag">{{item.tag}}</view>
+              <view class="recommend-info">
+                <view class="recommend-name">{{item.name || item.title}}</view>
+                <view class="recommend-price-row">
+                  <text class="recommend-price">¥{{item.price}}</text>
+                  <text class="recommend-original" wx:if="{{item.originalPrice && item.originalPrice > item.price}}">¥{{item.originalPrice}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <view class="product-grid" wx:if="{{searchResults.length > 0}}">
+        <view 
+          class="product-item" 
+          wx:for="{{searchResults}}" 
+          wx:key="id"
+          bindtap="goToProductDetail"
+          data-id="{{item.id}}">
+          <image class="product-image shine-effect" src="{{item.image || item.imageUrl}}" mode="aspectFill"></image>
+          <view class="product-tag" wx:if="{{item.tag}}">{{item.tag}}</view>
+          <view class="product-info">
+            <view class="product-name">{{item.name || item.title}}</view>
+            <view class="product-desc" wx:if="{{item.desc || item.description}}">{{item.desc || item.description}}</view>
+            <view class="product-price-row">
+              <view class="price-container">
+                <text class="product-price">¥{{item.price}}</text>
+                <text class="product-original" wx:if="{{item.originalPrice && item.originalPrice > item.price}}">¥{{item.originalPrice}}</text>
+              </view>
+              <view class="product-sales" wx:if="{{item.salesCount || item.sold}}">已售{{item.salesCount || item.sold}}件</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view> 

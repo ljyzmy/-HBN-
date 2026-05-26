@@ -1,0 +1,140 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-left" bindtap="goBack">
+      <image class="back-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit"></image>
+    </view>
+    <view class="nav-title">{{groupName}}护肤推荐</view>
+    <view class="nav-right" bindtap="showSharePoster">
+      <image class="share-icon" src="https://img.api.aa1.cn/2025/05/17/share-icon.png" mode="aspectFit"></image>
+    </view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight}}px;"></view>
+  
+  <!-- 页面内容区域 -->
+  <view class="content-area">
+    <!-- 加载中 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+    
+    <block wx:else>
+      <!-- 人群介绍卡片 -->
+      <view class="group-card" wx:if="{{currentGroup}}">
+        <image class="group-bg-pattern" src="https://img.api.aa1.cn/2025/05/16/bg-pattern.png" mode="aspectFill"></image>
+        <view class="group-header">
+          <image animation="{{animationData}}" class="group-icon" src="{{currentGroup.icon}}" mode="aspectFill"></image>
+          <view class="group-title-area">
+            <view class="group-title">{{currentGroup.name}}护理方案</view>
+            <view class="group-subtitle">专业定制方案</view>
+          </view>
+        </view>
+        <view class="group-desc">{{currentGroup.description}}</view>
+      </view>
+      
+      <!-- 推荐产品 -->
+      <view class="section-header">
+        <view class="section-title">推荐产品</view>
+        <view class="section-subtitle">为您精选</view>
+      </view>
+      
+      <view class="product-list" wx:if="{{products.length > 0}}">
+        <view class="product-item" wx:for="{{products}}" wx:key="id" bindtap="goToProductDetail" data-id="{{item.id}}">
+          <view class="product-image-container">
+            <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="product-tag">推荐</view>
+          </view>
+          <view class="product-info">
+            <view class="product-name">{{item.name}}</view>
+            <view class="product-desc">{{item.description}}</view>
+            <view class="product-bottom">
+              <view class="product-price">¥{{item.price}}</view>
+              <view class="buy-now">立即购买</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 无推荐产品 -->
+      <view class="empty-tips" wx:else>
+        <image class="empty-icon" src="https://tucdn.wpon.cn/2025/05/15/f79ffb9e9dd78-1747293446.png" mode="aspectFit"></image>
+        <text>暂无推荐产品</text>
+      </view>
+      
+      <!-- 护肤贴士 -->
+      <view class="tips-section">
+        <view class="tips-header">
+          <view class="section-title">护肤贴士</view>
+          <view class="section-subtitle">科学护肤</view>
+        </view>
+        <view class="tips-content">
+          <block wx:if="{{currentGroup.id === 1}}">
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>坚持使用抗老成分，如A醇、肽类等</text>
+            </view>
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>建立早晚完整护肤流程，不可偷懒</text>
+            </view>
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>防晒是最好的抗老方式，全年不间断</text>
+            </view>
+          </block>
+          
+          <block wx:elif="{{currentGroup.id === 2}}">
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>增加维C等抗氧化成分的使用</text>
+            </view>
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>保证充足睡眠，避免熬夜</text>
+            </view>
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>多补水保湿，避免皮肤缺水</text>
+            </view>
+          </block>
+          
+          <block wx:elif="{{currentGroup.id === 3}}">
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>使用专业眼部护理产品，不可用面霜代替</text>
+            </view>
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>轻柔按摩眼周，避免用力揉搓</text>
+            </view>
+            <view class="tip-item">
+              <view class="tip-dot"></view>
+              <text>关注眼部保湿，避免眼周干燥</text>
+            </view>
+          </block>
+        </view>
+      </view>
+      
+      <!-- 品牌承诺 -->
+      <view class="brand-promise">
+        <view class="promise-item">
+          <view class="promise-icon">✓</view>
+          <view class="promise-text">全部产品通过专业测试</view>
+        </view>
+        <view class="promise-item">
+          <view class="promise-icon">✓</view>
+          <view class="promise-text">7天无理由退换</view>
+        </view>
+      </view>
+      
+      <!-- 分享按钮 -->
+      <button class="share-btn {{showShareBtn ? 'show' : ''}}" open-type="share">
+        <image class="share-btn-icon" src="https://img.api.aa1.cn/2025/05/17/share-round.png" mode="aspectFit"></image>
+        <text>分享给好友</text>
+      </button>
+    </block>
+  </view>
+</view> 

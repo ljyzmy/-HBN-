@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "评价商品",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f8f8f8",
+  "navigationStyle": "custom",
+  "usingComponents": {}
+} 

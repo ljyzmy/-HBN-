@@ -1,0 +1,498 @@
+<view class="container page-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav {{navTransparent ? 'nav-transparent' : 'nav-opaque'}}">
+    <view class="search-btn" bindtap="goToSearch">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/搜索.png" mode="aspectFit" class="search-icon"></image>
+    </view>
+    <view class="nav-center">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/LOGO源文件.png" mode="aspectFit" class="nav-logo"></image>
+    </view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- Y轴主轮播图，两页内容 -->
+  <swiper 
+    class="main-swiper" 
+    vertical="true" 
+    duration="300" 
+    autoplay="{{false}}" 
+    circular="{{false}}"
+    easing-function="easeInOutCubic"
+    bindchange="swiperChange"
+    current="{{currentMainSwiper}}">
+    
+    <!-- 第一部分：横向轮播图（视频） -->
+    <swiper-item>
+      <view class="banner-container">
+        <swiper 
+          class="banner-swiper fullscreen" 
+          indicator-dots="{{true}}" 
+          indicator-active-color="#618a49" 
+          autoplay="{{false}}" 
+          interval="{{5000}}" 
+          duration="{{500}}" 
+          circular="{{true}}"
+          bindchange="bannerSwiperChange"
+          current="{{currentVideoIndex}}">
+          <swiper-item wx:for="{{bannerList}}" wx:key="id">
+            <video 
+              id="banner-video-{{index}}"
+              src="{{item.videoUrl}}" 
+              class="banner-video"
+              object-fit="cover"
+              autoplay="{{false}}"
+              loop="{{false}}"
+              muted="{{true}}"
+              show-center-play-btn="{{false}}"
+              controls="{{videoCtrls}}"
+              show-progress="{{false}}"
+              enable-progress-gesture="{{false}}"
+              poster="{{item.coverUrl}}"
+              bindended="videoEnded"
+              binderror="videoError"
+              bindtap="goToDetail" 
+              data-id="{{item.id}}"
+              lazy-load="{{true}}">
+            </video>
+            <view class="video-overlay">
+              <view class="video-title">{{item.title}}</view>
+            </view>
+          </swiper-item>
+        </swiper>
+        
+        <!-- <view class="menu-container">
+          <view class="menu-item" wx:for="{{menuList}}" wx:key="id" bindtap="navigateTo" data-url="{{item.pagePath}}">
+            <image src="{{item.iconPath}}" mode="aspectFit" class="menu-icon"></image>
+            <text class="menu-text">{{item.text}}</text>
+          </view>
+        </view> -->
+        
+        <view class="scroll-tip">
+          <image src="https://img.api.aa1.cn/2025/04/13/d41fff41fcf5a.png" mode="aspectFit" class="arrow-down"></image>
+        </view>
+      </view>
+    </swiper-item>
+    
+    <!-- 第二部分：竖向滚动区域 -->
+    <swiper-item>
+      <view class="scroll-container-wrapper">
+        <!-- 背景视频 -->
+        <video 
+          id="background-video"
+          src="{{scrollContainerBgVideo}}" 
+          class="background-video"
+          object-fit="cover"
+          autoplay="{{false}}"
+          loop="{{true}}"
+          muted="{{videoBgMuted}}"
+          show-center-play-btn="{{false}}"
+          controls="{{false}}"
+          show-progress="{{false}}"
+          enable-progress-gesture="{{false}}"
+          poster="{{scrollContainerBgPoster}}"
+          binderror="bgVideoError"
+          lazy-load="{{true}}">
+        </video>
+        
+        <!-- 视频覆盖层 - 增强内容可读性 -->
+        <view class="background-video-overlay"></view>
+        
+        <!-- 滚动区域 -->
+        <scroll-view 
+          scroll-y="{{true}}" 
+          class="scroll-container" 
+          enable-flex="{{true}}"
+          enhanced="{{true}}"
+          show-scrollbar="{{false}}"
+          bounces="{{true}}"
+          bindscroll="onScrollContainerScroll">
+          
+          <!-- 内容容器 -->
+          <view class="scroll-content">
+            <!-- 品牌故事与价值观展示 -->
+            <view class="brand-story dunhuang-texture">
+              <view class="brand-slogan">千年敦煌·传承经典</view>
+              <view class="brand-description">
+                <text class="story-highlight">HBN</text> 汲取敦煌壁画千年不褪的色彩灵感
+              </view>
+              <view class="brand-badges">
+                <view class="brand-badge">
+                  <view class="badge-num">100%</view>
+                  <view class="badge-text">通过人体功效检测</view>
+                </view>
+                <view class="brand-badge">
+                  <view class="badge-num">60亿</view>
+                  <view class="badge-text">品牌总销售额</view>
+                </view>
+                <view class="brand-badge">
+                  <view class="badge-num">5年</view>
+                  <view class="badge-text">专注功效护肤</view>
+                </view>
+              </view>
+            </view>
+            
+            <!-- 限时专享 -->
+            <view class="flash-sale" style="background-image: url('{{flashSaleBgImage}}');">
+              <!-- 添加背景叠加层 -->
+              <!-- <view class="flash-sale-overlay"></view> -->
+              
+              <!-- 将内容包裹在内容容器中 -->
+              <view class="flash-content">
+                <view class="flash-header">
+                  <view class="flash-title">限时专享</view>
+                  <view class="flash-countdown">
+                    <text class="countdown-label">距结束</text>
+                    <text class="countdown-box">{{flashHours}}</text>
+                    <text class="countdown-colon">:</text>
+                    <text class="countdown-box">{{flashMinutes}}</text>
+                    <text class="countdown-colon">:</text>
+                    <text class="countdown-box">{{flashSeconds}}</text>
+                  </view>
+                </view>
+                
+                <view class="flash-scroll-container">
+                  <!-- 左侧滚动按钮 -->
+                  <view class="scroll-btn left-btn" bindtap="scrollLeft">
+                    <view class="arrow-left"></view>
+                  </view>
+                  
+                  <!-- 横向滚动内容 -->
+                  <scroll-view 
+                    scroll-x="true" 
+                    class="flash-products" 
+                    enable-flex="true" 
+                    show-scrollbar="false"
+                    scroll-left="{{flashScrollLeft}}"
+                    scroll-with-animation="true"
+                    id="flashScroll">
+                    <view 
+                      class="flash-product" 
+                      wx:for="{{flashSaleProducts}}" 
+                      wx:key="id" 
+                      bindtap="goToProduct" 
+                      data-id="{{item.id}}">
+                      <image src="{{item.imageUrl}}" mode="aspectFill" class="flash-product-image"></image>
+                      <view class="flash-product-discount">{{item.discount}}折</view>
+                      <view class="flash-product-info">
+                        <view class="flash-product-title">{{item.title}}</view>
+                        <view class="flash-product-price-row">
+                          <text class="flash-product-price">¥{{item.price}}</text>
+                          <text class="flash-product-original">¥{{item.originalPrice}}</text>
+                        </view>
+                      </view>
+                    </view>
+                  </scroll-view>
+                  
+                  <!-- 右侧滚动按钮 -->
+                  <view class="scroll-btn right-btn" bindtap="scrollRight">
+                    <view class="arrow-right"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            
+            <!-- 明星产品系列 -->
+            <view class="product-series">
+              <view class="section-header elegant">
+                <text class="section-title">明星产品系列</text>
+                <view class="more" bindtap="goToMoreProducts">查看更多</view>
+              </view>
+              <view class="series-container">
+                <!-- 使用循环遍历productSeries数据 -->
+                <view 
+                  class="series-card {{index === 0 ? 'feitian-accent' : ''}}" 
+                  wx:for="{{productSeries}}" 
+                  wx:key="id" 
+                  bindtap="goToSeries" 
+                  data-id="{{item.id}}">
+                  <!-- 替换图片为视频 -->
+                  <view class="series-video-container" data-index="{{index}}">
+                    <video 
+                      id="series-video-{{index}}"
+                      src="{{item.videoUrl}}" 
+                      class="series-video"
+                      poster="{{item.imageUrl}}"
+                      object-fit="cover"
+                      autoplay="{{false}}"
+                      loop="{{true}}"
+                      muted="{{true}}"
+                      show-center-play-btn="{{false}}"
+                      controls="{{false}}"
+                      show-progress="{{false}}"
+                      enable-progress-gesture="{{false}}"
+                      binderror="seriesVideoError"
+                      data-index="{{index}}"
+                      lazy-load="{{true}}"
+                      bindplay="onSeriesVideoPlay">
+                    </video>
+                  </view>
+                  <view class="series-overlay">
+                    <view class="series-name">{{item.name}}</view>
+                    <view class="series-desc">{{item.desc}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            
+            <!-- 会员福利模块 -->
+            <view class="section member-benefits">
+              <view class="section-header elegant">
+                <text class="section-title">会员福利</text>
+                <view class="more" bindtap="goToMoreBenefits">查看更多</view>
+              </view>
+              
+              <!-- 会员卡片 - 改进视觉效果 -->
+              <view class="member-card" wx:if="{{userInfo}}">
+                <!-- 背景视频 -->
+                <view class="card-background">
+                  <video 
+                    id="member-card-video"
+                    src="{{memberCardVideo.videoUrl}}" 
+                    class="member-card-video"
+                    object-fit="cover"
+                    autoplay="{{false}}"
+                    loop="{{true}}"
+                    muted="{{true}}"
+                    show-center-play-btn="{{false}}"
+                    controls="{{false}}"
+                    show-progress="{{false}}"
+                    enable-progress-gesture="{{false}}"
+                    poster="{{memberCardVideo.posterUrl}}"
+                    binderror="memberCardVideoError"
+                    lazy-load="{{true}}">
+                  </video>
+                  
+                </view>
+                
+                <!-- 用户信息部分 -->
+                <view class="member-info">
+                  <view class="member-info-main">
+                    <view class="avatar-container" bindtap="goToProfile">
+                      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+                      <view class="edit-badge" wx:if="{{userInfo.nickName === '请选择'}}">
+                        <view class="edit-icon"></view>
+                      </view>
+                    </view>
+                    <view class="member-details">
+                      <view class="member-name">{{userInfo.nickName}}</view>
+                      <view class="member-level-row">
+                        <view class="member-level-tag">
+                          <text>{{userInfo.memberLevel}}</text>
+                        </view>
+                        <view class="member-exp-text">还需{{userInfo.nextLevel - userInfo.experience}}经验</view>
+                      </view>
+                      <view class="member-progress-bar">
+                        <view class="progress-inner" style="width: {{userInfo.experience / userInfo.nextLevel * 100}}%"></view>
+                      </view>
+                    </view>
+                  </view>
+                  
+                  <view class="member-center-link" bindtap="goToMemberCenter">
+                    <text>会员中心</text>
+                    <view class="arrow-icon"></view>
+                  </view>
+                </view>
+              </view>
+              
+              <!-- 资产信息卡片 -->
+              <view class="member-assets">
+                <view class="assets-content">
+                  <view class="asset-item" bindtap="goToBalance">
+                    <view class="asset-value">¥{{accountBalance}}</view>
+                    <view class="asset-name">账户余额</view>
+                  </view>
+                  <view class="asset-item" bindtap="goToAsset" data-index="0">
+                    <view class="asset-value">{{assets.points}}</view>
+                    <view class="asset-name">积分</view>
+                  </view>
+                  <view class="asset-item" bindtap="goToAsset" data-index="2">
+                    <view class="asset-value">{{assets.giftCards}}张</view>
+                    <view class="asset-name">礼品卡</view>
+                  </view>
+                  <view class="asset-item" bindtap="goToAsset" data-index="1">
+                    <view class="asset-value">{{assets.coupons}}张</view>
+                    <view class="asset-name">优惠券</view>
+                  </view>
+                </view>
+              </view>
+              
+              <!-- 福利横向滚动容器 -->
+              <view class="benefit-scroll-container">
+                <!-- 左侧滚动按钮 -->
+                <view class="benefit-scroll-btn left-btn" bindtap="scrollBenefitLeft">
+                  <view class="arrow-left"></view>
+                </view>
+                
+                <!-- 横向滚动内容 -->
+                <scroll-view 
+                  scroll-x="true" 
+                  class="benefit-list-horizontal" 
+                  enable-flex="true" 
+                  show-scrollbar="false"
+                  scroll-left="{{benefitScrollLeft}}"
+                  scroll-with-animation="true"
+                  id="benefitScroll">
+                  <view 
+                    class="benefit-item-horizontal" 
+                    wx:for="{{benefitList}}" 
+                    wx:key="id" 
+                    bindtap="goToBenefit" 
+                    data-id="{{item.id}}">
+                    <!-- 替换图片为视频 -->
+                    <view class="benefit-video-container" data-index="{{index}}">
+                      <video 
+                        id="benefit-video-{{index}}"
+                        src="{{item.videoUrl}}" 
+                        class="benefit-video-horizontal"
+                        object-fit="cover"
+                        autoplay="{{false}}"
+                        loop="{{true}}"
+                        muted="{{true}}"
+                        show-center-play-btn="{{false}}"
+                        controls="{{false}}"
+                        show-progress="{{false}}"
+                        enable-progress-gesture="{{false}}"
+                        poster="{{item.imageUrl}}"
+                        binderror="benefitVideoError"
+                        bindloadedmetadata="benefitVideoLoaded"
+                        data-index="{{index}}"
+                        lazy-load="{{true}}"
+                        bindplay="onBenefitVideoPlay">
+                      </video>
+                      <!-- 添加半透明覆盖层和标题 -->
+                      <view class="benefit-video-overlay">
+                        <view class="benefit-title-overlay">{{item.title}}</view>
+                      </view>
+                    </view>
+                  </view>
+                </scroll-view>
+                
+                <!-- 右侧滚动按钮 -->
+                <view class="benefit-scroll-btn right-btn" bindtap="scrollBenefitRight">
+                  <view class="arrow-right"></view>
+                </view>
+              </view>
+            </view>
+            
+            <!-- 美妆攻略模块 -->
+            <view class="section fan-strategies">
+              <view class="section-header elegant">
+                <text class="section-title">美妆攻略</text>
+                <view class="more" bindtap="goToMoreStrategies">查看更多</view>
+              </view>
+              <view class="strategy-list">
+                <view class="strategy-item" wx:for="{{strategyList}}" wx:key="id" bindtap="goToStrategy" data-id="{{item.id}}">
+                  <image src="{{item.imageUrl || '/assets/strategies/strategy' + (index+1) + '.png'}}" mode="aspectFill" class="strategy-image"></image>
+                  <view class="strategy-info">
+                    <text class="strategy-title">{{item.title}}</text>
+                    <text class="strategy-read">{{item.readCount}}人已读</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            
+            <!-- 热售模块 -->
+            <view class="section hot-sales">
+              <view class="section-header elegant">
+                <text class="section-title">热卖好物</text>
+                <view class="more" bindtap="goToMoreProducts">查看更多</view>
+              </view>
+              <view class="product-list">
+                <view class="product-item" wx:for="{{productList}}" wx:key="id" bindtap="goToProduct" data-id="{{item.id}}">
+                  <!-- 替换图片为视频 -->
+                  <view class="product-video-container" data-index="{{index}}">
+                    <video 
+                      id="product-video-{{index}}"
+                      src="{{item.videoUrl}}" 
+                      class="product-video"
+                      poster="{{item.imageUrl}}"
+                      object-fit="cover"
+                      autoplay="{{false}}"
+                      loop="{{true}}"
+                      muted="{{true}}"
+                      show-center-play-btn="{{false}}"
+                      controls="{{false}}"
+                      show-progress="{{false}}"
+                      enable-progress-gesture="{{false}}"
+                      binderror="productVideoError"
+                      data-index="{{index}}"
+                      lazy-load="{{true}}"
+                      bindplay="onProductVideoPlay">
+                    </video>
+                  </view>
+                  <view class="product-content">
+                    <text class="product-title">{{item.title}}</text>
+                    <view class="product-price-box">
+                      <text class="product-price">¥{{item.price}}</text>
+                      <text class="product-original-price">¥{{item.originalPrice}}</text>
+                    </view>
+                    <text class="product-sales">已售{{item.salesCount}}件</text>
+                  </view>
+                  <view class="product-badge" wx:if="{{item.originalPrice > item.price}}">折扣</view>
+                </view>
+              </view>
+            </view>
+            
+            <!-- 品牌理念 -->
+            <view class="brand-philosophy">
+              <view class="philosophy-content">
+                <view class="philosophy-title">让"真功效"名副其实</view>
+                <view class="philosophy-divider"></view>
+                <view class="philosophy-text">作为国内首个以真功效为理念的护肤品牌，HBN坚持自主研发，实现品牌100%面护产品均通过权威第三方人体功效检测，推动护肤品进入真功效时代。</view>
+              </view>
+            </view>
+            
+            <!-- 添加底部安全区 -->
+            <view class="safe-bottom-area"></view>
+          </view>
+        </scroll-view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 添加在任意位置用于测试，之后可删除 -->
+  <button style="margin: 20rpx;" bindtap="testZaocwana">测试跳转到早C晚A系列</button>
+  
+  <!-- 推荐产品弹窗 -->
+  <view class="recommend-popup {{recommendPopup.show ? 'show' : ''}}">
+    <view class="recommend-overlay" bindtap="closeRecommendPopup"></view>
+    <view class="recommend-content">
+      <view class="recommend-header">
+        <view class="recommend-title">早C晚A组合</view>
+        <view class="close-btn" bindtap="closeRecommendPopup">×</view>
+      </view>
+      <view class="recommend-product">
+        <view class="animation-container">
+          <!-- 替换图片为视频 -->
+          <video 
+            id="recommend-video"
+            src="{{recommendPopup.product.videoUrl}}" 
+            class="product-video"
+            object-fit="cover"
+            autoplay="{{false}}"
+            loop="{{true}}"
+            muted="{{false}}"
+            show-center-play-btn="{{false}}"
+            controls="{{false}}"
+            show-progress="{{false}}"
+            enable-progress-gesture="{{false}}"
+            poster="{{recommendPopup.product.imageTemp || recommendPopup.product.image}}"
+            binderror="videoError"
+            lazy-load="{{true}}">
+          </video>
+          <view class="product-badge">爆款推荐</view>
+        </view>
+        <view class="recommend-product-name">{{recommendPopup.product.name}}</view>
+        <view class="recommend-product-desc">{{recommendPopup.product.desc}}</view>
+        <view class="recommend-price-row">
+          <text class="recommend-price">¥{{recommendPopup.product.price}}</text>
+          <text class="recommend-original">¥{{recommendPopup.product.originalPrice}}</text>
+        </view>
+      </view>
+      <view class="recommend-btns">
+        <button class="recommend-btn close" bindtap="closeRecommendPopup">稍后查看</button>
+        <button class="recommend-btn check" bindtap="goToRecommendProduct">立即查看</button>
+      </view>
+    </view>
+  </view>
+</view>

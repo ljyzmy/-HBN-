@@ -1,0 +1,128 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="height: {{navHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <view class="nav-back" bindtap="goBack">
+      <image src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/返回.png" mode="aspectFit" class="back-icon"></image>
+    </view>
+    <view class="nav-title">我的订单</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 顶部安全区域 -->
+  <view class="safe-top" style="height: {{navHeight}}px;"></view>
+  
+  <!-- 顶部切换栏 -->
+  <view class="tab-bar">
+    <scroll-view scroll-x class="tab-scroll" scroll-with-animation enhanced show-scrollbar="{{false}}">
+      <view 
+        class="tab-item {{currentTab === item.id ? 'active' : ''}}" 
+        wx:for="{{tabs}}" 
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="switchTab">
+        {{item.name}}
+        <view class="tab-line" wx:if="{{currentTab === item.id}}"></view>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 订单列表区域 -->
+  <view class="order-list">
+    <!-- 加载中 -->
+    <view class="loading-container" wx:if="{{isLoading}}">
+      <view class="loading">
+        <view class="loading-spinner"></view>
+      </view>
+      <view class="loading-text">加载中...</view>
+    </view>
+    
+    <!-- 无订单状态 -->
+    <view class="empty-container" wx:elif="{{noOrder}}">
+      <image class="empty-icon" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png" mode="aspectFit"></image>
+      <view class="empty-text">暂无订单</view>
+      <view class="empty-btn" bindtap="goToShop">去购物</view>
+    </view>
+    
+    <!-- 订单列表 -->
+    <block wx:else>
+      <view 
+        class="order-item" 
+        wx:for="{{filteredOrders}}" 
+        wx:key="orderId" 
+        data-id="{{item.orderId}}"
+        bindtap="viewOrderDetail">
+        <!-- 订单头部 -->
+        <view class="order-header">
+          <view class="order-number">订单号：{{item.orderNumber}}</view>
+          <view class="order-status {{item.status === 'unpaid' ? 'status-unpaid' : ''}}">{{item.statusText}}</view>
+        </view>
+        
+        <!-- 订单内容 -->
+        <view class="order-content">
+          <image class="product-image" src="{{item.product.image}}" mode="aspectFill"></image>
+          <view class="product-info">
+            <view class="product-name">{{item.product.name}}</view>
+            <view class="product-specs">
+              <text wx:for="{{item.product.specs}}" wx:for-item="spec" wx:for-index="key" wx:key="key">
+                {{key}}:{{spec}}{{index < Object.keys(item.product.specs).length-1 ? ' | ' : ''}}
+              </text>
+            </view>
+            <view class="product-price-quantity">
+              <text class="product-price">¥{{item.product.price}}</text>
+              <text class="product-quantity">x{{item.product.quantity}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 订单金额 -->
+        <view class="order-footer">
+          <view class="order-time">{{item.createTime}}</view>
+          <view class="order-amount">
+            <text>共1件商品</text>
+            <text>合计：</text>
+            <text class="amount-value">¥{{item.totalAmount}}</text>
+          </view>
+        </view>
+        
+        <!-- 订单操作 -->
+        <view class="order-actions">
+          <!-- 待付款 -->
+          <block wx:if="{{item.status === 'unpaid'}}">
+            <view class="action-btn secondary" catchtap="cancelOrder" data-id="{{item.orderId}}">取消订单</view>
+            <view class="action-btn primary" catchtap="goToPay" data-id="{{item.orderId}}">去支付</view>
+          </block>
+          
+          <!-- 待发货 -->
+          <block wx:elif="{{item.status === 'unshipped'}}">
+            <view class="action-btn secondary" catchtap="viewOrderDetail" data-id="{{item.orderId}}">查看详情</view>
+          </block>
+          
+          <!-- 待收货 -->
+          <block wx:elif="{{item.status === 'shipped'}}">
+            <view class="action-btn secondary" catchtap="viewLogistics" data-id="{{item.orderId}}">查看物流</view>
+            <view class="action-btn primary" catchtap="confirmReceive" data-id="{{item.orderId}}">确认收货</view>
+          </block>
+          
+          <!-- 已完成 -->
+          <block wx:elif="{{item.status === 'completed'}}">
+            <view class="action-btn secondary" catchtap="applyAfterSale" data-id="{{item.orderId}}">申请售后</view>
+            <view class="action-btn secondary" catchtap="goToRate" data-id="{{item.orderId}}">去评价</view>
+          </block>
+          
+          <!-- 已取消 -->
+          <block wx:elif="{{item.status === 'canceled'}}">
+            <view class="action-btn secondary" catchtap="viewOrderDetail" data-id="{{item.orderId}}">查看详情</view>
+          </block>
+          
+          <!-- 售后中 -->
+          <block wx:elif="{{item.status === 'afterSale'}}">
+            <view class="action-btn secondary" catchtap="viewOrderDetail" data-id="{{item.orderId}}">查看详情</view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom"></view>
+</view> 

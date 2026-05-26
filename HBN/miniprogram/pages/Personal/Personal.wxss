@@ -1,0 +1,1354 @@
+/* pages/Personal/Personal.wxss */
+
+/* 页面容器优化 */
+.container {
+  background-color: var(--birch-lightest);
+  min-height: 150vh;
+  padding-bottom: 80rpx;
+  position: relative;
+}
+
+/* 页面容器背景优化 */
+.container.birch-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://img.api.aa1.cn/2025/05/07/a80093e62c237.jpg');
+  background-repeat: repeat-y;
+  background-size: 200rpx auto;
+  opacity: 0.035;
+  z-index: -1;
+}
+
+/* 优雅滚动效果 */
+page {
+  scroll-behavior: smooth;
+}
+
+/* 底部安全区域优化 */
+.safe-bottom-area {
+  height: 120rpx;
+  position: relative;
+  overflow: hidden;
+  margin-top: 30rpx;
+  padding-bottom: 40rpx;
+}
+
+.safe-bottom-area::before {
+  content: '';
+  position: absolute;
+  bottom: 60rpx;
+  left: 20%;
+  right: 20%;
+  height: 1rpx;
+  background: linear-gradient(to right, transparent, rgba(97, 138, 73, 0.1), transparent);
+}
+
+.safe-bottom-area::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40rpx;
+  background: linear-gradient(to bottom, transparent, rgba(250, 250, 250, 0.5));
+}
+
+/* 用户信息卡片 */
+.user-card {
+  position: relative;
+  width: 100%;
+  height: 320rpx;
+  margin-bottom: 0rpx;
+  overflow: visible;
+}
+
+/* 卡片渐变背景 */
+.card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 280rpx;
+  overflow: hidden;
+  z-index: 1;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+}
+
+/* 视频背景样式 */
+.bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* 视频遮罩层，增加对比度和美观度 */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(138, 99, 77, 0.4), rgba(166, 64, 54, 0.3));
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+
+/* 添加白桦纹理 - 保留但修改透明度 */
+.card-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://img.api.aa1.cn/2025/05/07/a80093e62c237.jpg');
+  background-repeat: repeat;
+  background-size: 200rpx auto;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  z-index: 3;
+}
+
+/* 用户信息容器 */
+.user-info {
+  position: absolute;
+  bottom: -70rpx;
+  left: 30rpx;
+  right: 30rpx;
+  height: 180rpx;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  z-index: 2;
+}
+
+/* 头像容器 */
+.avatar-container {
+  position: relative;
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 30rpx;
+}
+
+/* 头像 */
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  border: 4rpx solid #ffffff;
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 编辑图标 */
+.edit-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #618a49;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.edit-inner {
+  width: 20rpx;
+  height: 20rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 用户详情 */
+.user-details {
+  flex: 1;
+}
+
+/* 用户名列布局替换原来的行布局 */
+.user-name-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15rpx;
+}
+
+/* 用户名样式，调整间距 */
+.user-name {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 用户子信息区域 - 水平布局 */
+.user-sub-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 4rpx;
+}
+
+/* 小型会员标签 */
+.member-tag-small {
+  padding: 2rpx 10rpx;
+  background: linear-gradient(135deg, var(--dunhuang-gold), #e9d197);
+  border-radius: 16rpx;
+  margin-right: 15rpx;
+  flex-shrink: 0;
+}
+
+/* 小型会员等级文本 */
+.member-level-small {
+  font-size: 18rpx;
+  color: var(--dunhuang-brown);
+  font-weight: bold;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 会员标签 */
+.member-tag {
+  padding: 6rpx 16rpx;
+  background: linear-gradient(135deg, var(--dunhuang-gold), #e9d197);
+  border-radius: 30rpx;
+}
+
+/* 会员等级 */
+.member-level {
+  font-size: 24rpx;
+  color: var(--dunhuang-brown);
+  font-weight: bold;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 进度条容器调整 */
+.user-progress-container {
+  flex: 1;
+  max-width: 260rpx;
+}
+
+/* 进度文本调整 */
+.user-progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6rpx;
+}
+
+/* 进度提示调整 */
+.progress-tip {
+  font-size: 18rpx;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* 进度条调整 */
+.user-progress-bar {
+  width: 100%;
+  height: 6rpx;
+  background-color: #f0f0f0;
+  border-radius: 3rpx;
+  overflow: hidden;
+}
+
+/* 进度条内部保持不变 */
+.progress-inner {
+  height: 100%;
+  background: linear-gradient(to right, var(--dunhuang-red), var(--dunhuang-orange));
+  border-radius: 3rpx;
+}
+
+/* 用户控制区 */
+.user-controls {
+  display: flex;
+  align-items: center;
+}
+
+/* 控制按钮 */
+.control-btn {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+  background-color: #f9f9f9;
+}
+
+/* 消息图标 */
+.message-icon {
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333333"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 消息小红点 */
+.message-dot {
+  position: absolute;
+  top: -5rpx;
+  right: -5rpx;
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #ff4d4f;
+  border-radius: 50%;
+  border: 2rpx solid #ffffff;
+}
+
+/* 设置图标 */
+.settings-icon {
+  width: 30rpx;
+  height: 30rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333333"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 资产卡片 */
+.assets-card {
+  margin: 0 30rpx 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 卡片头部 */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+/* 卡片标题 */
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  padding-left: 20rpx;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.card-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rpx;
+  height: 30rpx;
+  background-color: var(--dunhuang-red);
+  border-radius: 4rpx;
+}
+
+/* 更多按钮 */
+.card-more {
+  display: flex;
+  align-items: center;
+}
+
+/* 更多文本 */
+.more-text {
+  font-size: 26rpx;
+  color: #999;
+  margin-right: 8rpx;
+}
+
+/* 右箭头 */
+.arrow-right {
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 2rpx solid #999;
+  border-right: 2rpx solid #999;
+  transform: rotate(45deg);
+}
+
+/* 资产列表 */
+.assets-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 资产项目 */
+.asset-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 资产图标 */
+.asset-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 16rpx;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 积分图标 */
+.points {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-.42 0-.76-.34-.76-.77 0-.42.34-.76.76-.76.43 0 .77.34.77.76 0 .43-.34.77-.77.77zm1.77 5.76h-3.87c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.24V13.5h-.43c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.18c.41 0 .75.34.75.75v4.4h1.18c.41 0 .75.34.75.75s-.34.75-.75.75z"/></svg>');
+}
+
+/* 优惠券图标 */
+.coupon-color {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M22 6v1h-2v10h2v1H2v-1h2V7H2V6h20zM6.5 13.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S5 11.17 5 12s.67 1.5 1.5 1.5zm6 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5z"/></svg>');
+}
+
+/* 礼品卡图标 */
+.gift-card {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>');
+}
+
+/* 资产名称 */
+.asset-name {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 资产值 */
+.asset-value {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #618a49;
+}
+
+/* 订单卡片高级优化 */
+.order-card {
+  margin: 0 30rpx 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 0;
+  box-shadow: 0 10rpx 35rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border: 1rpx solid rgba(97, 138, 73, 0.1);
+}
+
+.order-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rpx;
+  background: linear-gradient(to right, var(--dunhuang-red), var(--dunhuang-orange), transparent 90%);
+}
+
+/* 订单图标优化 */
+.order-status-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 35rpx 15rpx 40rpx;
+  position: relative;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.6));
+}
+
+.order-status-list::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1rpx;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.05), transparent);
+  z-index: 1;
+}
+
+.order-status-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s;
+  padding: 20rpx 0;
+}
+
+/* 状态图标容器高级化 */
+.status-icon-premium {
+  width: 72rpx;
+  height: 72rpx;
+  margin-bottom: 18rpx;
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-block;
+  filter: drop-shadow(0 4rpx 6rpx rgba(0, 0, 0, 0.1));
+}
+
+/* 图标圆形背景 */
+.status-icon-premium::before {
+  content: '';
+  position: absolute;
+  top: -12rpx;
+  left: -12rpx;
+  right: -12rpx;
+  bottom: -12rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(97, 138, 73, 0.08) 0%, rgba(97, 138, 73, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+/* 悬停状态 */
+.order-status-item:active .status-icon-premium::before {
+  background: radial-gradient(circle, rgba(97, 138, 73, 0.15) 0%, rgba(97, 138, 73, 0) 80%);
+}
+
+.status-text-premium {
+  font-size: 26rpx;
+  color: #666;
+  letter-spacing: 2rpx;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.order-status-item:active .status-text-premium {
+  color: var(--cedar-medium);
+  font-weight: 600;
+}
+
+/* 订单卡片底部订单量展示 */
+.order-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0;
+  color: var(--text-light);
+  font-size: 24rpx;
+  letter-spacing: 1rpx;
+}
+
+.order-summary .highlight {
+  color: var(--cedar-medium);
+  font-weight: 500;
+  margin: 0 4rpx;
+  font-family: "DIN Alternate", "DIN-Regular", sans-serif;
+}
+
+/* 服务卡片高级优化 */
+.service-card {
+  margin: 0 30rpx 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 0;
+  box-shadow: 0 10rpx 35rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border: 1rpx solid rgba(97, 138, 73, 0.1);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4rpx;
+  height: 60%;
+  background: linear-gradient(to bottom, var(--dunhuang-red), var(--dunhuang-orange), transparent);
+}
+
+/* 服务网格布局优化 */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 30rpx 15rpx 40rpx;
+  gap: 30rpx;
+  position: relative;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.6));
+}
+
+.service-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.03), transparent);
+}
+
+.service-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+  transition: all 0.28s ease;
+  border-radius: 12rpx;
+  position: relative;
+}
+
+.service-grid-item:active {
+  background-color: rgba(0,0,0,0.02);
+  transform: scale(0.95);
+}
+
+/* 服务图标样式升级 */
+.service-icon-premium {
+  width: 68rpx;
+  height: 68rpx;
+  margin-bottom: 16rpx;
+  position: relative;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  display: inline-block;
+  filter: drop-shadow(0 3rpx 5rpx rgba(0, 0, 0, 0.08));
+}
+
+/* 图标发光效果优化 */
+.service-icon-premium::after {
+  content: '';
+  position: absolute;
+  top: -15rpx;
+  left: -15rpx;
+  right: -15rpx;
+  bottom: -15rpx;
+  background: radial-gradient(circle, rgba(97, 138, 73, 0.08) 0%, rgba(97, 138, 73, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.service-grid-item:active .service-icon-premium::after {
+  background: radial-gradient(circle, rgba(97, 138, 73, 0.15) 0%, rgba(97, 138, 73, 0) 80%);
+  opacity: 1;
+}
+
+.service-name-premium {
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+  letter-spacing: 1rpx;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.service-grid-item:active .service-name-premium {
+  color: var(--cedar-medium);
+  font-weight: 600;
+}
+
+/* 优惠券图标 */
+.coupon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M22 6v1h-2v10h2v1H2v-1h2V7H2V6h20zM6.5 13.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S5 11.17 5 12s.67 1.5 1.5 1.5zm6 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5z"/></svg>');
+}
+
+/* 收藏图标 */
+.favorite {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>');
+}
+
+/* 历史图标 */
+.history {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>');
+}
+
+/* 地址图标 */
+.address {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>');
+}
+
+/* 客服图标 */
+.service {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M21 12.22C21 6.73 16.74 3 12 3c-4.69 0-9 3.65-9 9.28-.6.07-.12.14-.12.22v4.28c0 1.1.9 2 2 2h1v-6.1c0-3.87 3.13-7 7-7s7 3.13 7 7v6.1h1c1.1 0 2-.9 2-2v-4.28c0-.08-.05-.15-.12-.22zM10 17h1c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1v3zm3 0h1c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1v3z"/></svg>');
+}
+
+/* 帮助中心图标 */
+.help {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>');
+}
+
+/* 服务名称 */
+.service-name {
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+}
+
+/* 品牌故事高级优化 */
+.brand-story-premium {
+  margin: 0 30rpx 60rpx;
+  height: 400rpx; /* 修复高度值 */
+  border-radius: 20rpx;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.18);
+  transform: translateZ(0);
+  border: 1rpx solid rgba(138, 99, 77, 0.15);
+}
+
+/* 品牌故事视频背景 */
+.brand-bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.brand-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(138, 99, 77, 0.7), rgba(166, 64, 54, 0.6));
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* 品牌故事背景优化 */
+.brand-parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(138, 99, 77, 0.6), rgba(166, 64, 54, 0.5));
+  z-index: 0;
+  transition: transform 0.5s ease;
+}
+
+.brand-story-premium:active .brand-parallax {
+  transform: scale(1.03);
+}
+
+/* 修改背景，使用视频背景替代原来的图片背景 */
+.brand-parallax::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* 增加文本可见度 */
+.brand-parallax::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+  opacity: 0.7;
+  z-index: 3;
+}
+
+/* 品牌内容层级提高 */
+.brand-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.brand-logo-premium {
+  font-size: 72rpx;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20rpx;
+  text-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 2rpx;
+  opacity: 0.95;
+}
+
+.brand-logo-premium::after {
+  content: '';
+  position: absolute;
+  bottom: -10rpx;
+  left: 20%;
+  right: 20%;
+  height: 2rpx;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent);
+}
+
+.brand-slogan-premium {
+  font-size: 42rpx;
+  color: #ffffff;
+  margin-bottom: 25rpx;
+  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.25);
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  letter-spacing: 2rpx;
+  opacity: 0.95;
+  width: 100%;
+  text-align: center;
+}
+
+.brand-desc-premium {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35rpx;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+  letter-spacing: 1rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* 按钮优化 */
+.brand-button {
+  padding: 18rpx 36rpx;
+  background-color: rgba(255, 255, 255, 0.25);
+  font-size: 28rpx;
+  border-radius: 50rpx;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 2rpx;
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180rpx;
+}
+
+.brand-button:active {
+  transform: translateY(2rpx);
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 统一字重设置 */
+.user-name, .card-title, .story-logo {
+  font-weight: 500;
+}
+
+/* 高端卡片通用样式优化 */
+.premium-card {
+  margin: 0 30rpx 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 0;
+  box-shadow: 0 10rpx 35rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1rpx solid rgba(97, 138, 73, 0.1);
+  position: relative;
+}
+
+/* 高端卡片标题区域优化 */
+.premium-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx 30rpx;
+  position: relative;
+  background: linear-gradient(to right, rgba(250, 250, 250, 0.5), rgba(255, 255, 255, 0.95));
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.premium-title-icon {
+  width: 8rpx;
+  height: 34rpx;
+  background: linear-gradient(to bottom, var(--dunhuang-red), var(--dunhuang-orange));
+  border-radius: 4rpx;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.premium-title-icon::before {
+  content: '';
+  position: absolute;
+  top: -4rpx;
+  left: -4rpx;
+  right: -4rpx;
+  bottom: -4rpx;
+  background: radial-gradient(circle, rgba(166, 64, 54, 0.15), transparent 70%);
+  border-radius: 6rpx;
+}
+
+.premium-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+  letter-spacing: 1rpx;
+  position: relative;
+}
+
+.premium-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8rpx;
+  left: 0;
+  width: 0;
+  height: 2rpx;
+  background: linear-gradient(to right, var(--cedar-medium), transparent);
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.premium-header:active .premium-title::after {
+  width: 100%;
+  opacity: 0.6;
+}
+
+.premium-more {
+  display: flex;
+  align-items: center;
+  opacity: 0.9;
+  transition: all 0.3s;
+  padding: 8rpx 12rpx;
+  border-radius: 30rpx;
+}
+
+.premium-more:active {
+  opacity: 1;
+  background-color: rgba(0,0,0,0.03);
+}
+
+.more-text {
+  font-size: 26rpx;
+  color: #999;
+  margin-right: 10rpx;
+  font-weight: 500;
+}
+
+.premium-arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 2rpx solid #999;
+  border-right: 2rpx solid #999;
+  transform: rotate(45deg);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.premium-more:active .premium-arrow {
+  transform: rotate(45deg) translateX(4rpx);
+}
+
+/* 优雅分割线 */
+.premium-divider {
+  height: 1rpx;
+  background: linear-gradient(to right, rgba(0,0,0,0.06), rgba(0,0,0,0.03), rgba(0,0,0,0.06));
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  40%, 100% {
+    left: 100%;
+  }
+}
+
+/* 资产模块优化 */
+.account-assets {
+  position: relative;
+  padding: 40rpx 20rpx;
+  border-left: none;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin: 80rpx 30rpx 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 35rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(97, 138, 73, 0.1);
+}
+
+.assets-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.asset-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10rpx;
+  transition: all 0.3s;
+}
+
+.asset-column:active {
+  transform: scale(0.95);
+}
+
+.asset-amount {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--cedar-medium);
+  margin-bottom: 10rpx;
+  font-family: "DIN Alternate", "DIN-Regular", sans-serif;
+}
+
+.asset-label {
+  font-size: 24rpx;
+  color: #666;
+  letter-spacing: 1rpx;
+}
+
+/* 修改服务样式为一行一个 */
+.service-list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.service-row-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid var(--birch-light);
+}
+
+.service-row-item:last-child {
+  border-bottom: none;
+}
+
+.service-row-left {
+  display: flex;
+  align-items: center;
+}
+
+.service-row-left .service-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  margin-bottom: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.service-row-left .service-name {
+  font-size: 28rpx;
+  color: #333;
+  text-align: left;
+}
+
+/* 添加用户画像弹窗样式 */
+.avatar-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-modal-content {
+  position: relative;
+  width: 88%;
+  max-height: 80vh;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.avatar-modal-desc {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.avatar-list {
+  max-height: calc(80vh - 240rpx);
+  overflow-y: auto;
+}
+
+.avatar-item {
+  margin-bottom: 30rpx;
+  background-color: #f9f9f9;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.avatar-item:active {
+  transform: scale(0.98);
+  background-color: rgba(97, 138, 73, 0.05);
+}
+
+.avatar-item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar-item-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  border: 2rpx solid #fff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.avatar-item-info {
+  flex: 1;
+}
+
+.avatar-item-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.avatar-item-age {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.avatar-item-detail {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.avatar-item-row {
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar-item-label {
+  font-weight: bold;
+  color: #618a49;
+  margin-right: 10rpx;
+  white-space: nowrap;
+}
+
+.avatar-item-value {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.avatar-modal-btn {
+  margin-top: 30rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  color: #fff;
+  background: linear-gradient(135deg, #618a49, #8aad75);
+  box-shadow: 0 4rpx 12rpx rgba(97, 138, 73, 0.3);
+  transition: all 0.3s;
+}
+
+.avatar-modal-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 6rpx rgba(97, 138, 73, 0.2);
+}
+
+.avatar-modal-btn.cancel {
+  background: linear-gradient(135deg, #999, #bbb);
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 登录模态框 */
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.15);
+}
+
+.modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.modal-desc {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 40rpx;
+}
+
+.modal-btn.cancel {
+  margin-right: 20rpx;
+  border: 1rpx solid #ddd;
+  color: #666;
+}
+
+.modal-btn.confirm {
+  background-color: var(--dunhuang-red);
+  color: #ffffff;
+  box-shadow: 0 4rpx 12rpx rgba(166, 64, 54, 0.3);
+}
+
+/* 品牌故事背景动画 */
+@keyframes subtle-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* 添加按钮光效 */
+.brand-button::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 50%;
+  height: 300%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  animation: shine 6s infinite;
+  animation-delay: 1s;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0.7;
+  }
+  20% {
+    left: 100%;
+    opacity: 0.7;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* 品牌标志呼吸效果 */
+.brand-logo-premium {
+  animation: breathe 5s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.9;
+    text-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.4), 0 0 30rpx rgba(255, 255, 255, 0.15);
+  }
+}

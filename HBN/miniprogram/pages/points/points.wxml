@@ -1,0 +1,148 @@
+<!-- pages/points/points.wxml -->
+<view class="points-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav">
+    <view class="nav-back" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-title">我的积分</view>
+    <view class="nav-right">
+      <button class="share-btn" open-type="share">
+        <view class="share-icon"></view>
+      </button>
+    </view>
+  </view>
+  
+  <!-- 积分概览 -->
+  <view class="points-overview">
+    <view class="points-card">
+      <view class="points-title">可用积分</view>
+      <view class="points-value">{{totalPoints}}</view>
+      <view class="points-actions">
+        <view class="action-btn" bindtap="showExchangePopup">积分兑换</view>
+        <view class="action-btn rules">积分规则</view>
+        <view class="action-btn signin" bindtap="handleSignIn">每日签到</view>
+      </view>
+    </view>
+    
+    <!-- 积分获取渠道展示 -->
+    <view class="points-ways">
+      <view class="ways-title">积分获取方式</view>
+      <view class="ways-grid">
+        <view class="ways-item">
+          <view class="ways-icon purchase"></view>
+          <view class="ways-name">购物消费</view>
+        </view>
+        <view class="ways-item">
+          <view class="ways-icon share"></view>
+          <view class="ways-name">分享好友</view>
+        </view>
+        <view class="ways-item">
+          <view class="ways-icon review"></view>
+          <view class="ways-name">商品评价</view>
+        </view>
+        <view class="ways-item">
+          <view class="ways-icon signin"></view>
+          <view class="ways-name">每日签到</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 签到成功弹窗 -->
+  <view class="signin-popup" wx:if="{{showSignInPopup}}">
+    <view class="popup-mask" bindtap="closeSignInPopup"></view>
+    <view class="popup-content signin-content">
+      <view class="signin-success-icon">
+        <view class="check-mark"></view>
+      </view>
+      <view class="signin-result-title">签到成功</view>
+      <view class="signin-points-info">
+        <view class="signin-points-text">恭喜获得 <text class="signin-points-num">{{signInPoints}}</text> 积分</view>
+        <view class="signin-current-points">当前积分: {{totalPoints}}</view>
+      </view>
+      <button class="signin-confirm-btn" bindtap="closeSignInPopup">确定</button>
+    </view>
+  </view>
+  
+  <!-- 积分记录 -->
+  <view class="points-records">
+    <view class="records-header">
+      <view class="header-title">积分记录</view>
+    </view>
+    
+    <block wx:if="{{pointsRecords.length > 0}}">
+      <view class="records-list">
+        <view class="record-item" wx:for="{{pointsRecords}}" wx:key="id">
+          <view class="record-left">
+            <view class="record-title">{{item.desc}}</view>
+            <view class="record-time">{{item.date}}</view>
+          </view>
+          <view class="record-right">
+            <view class="record-points {{item.type === 'earn' ? 'income' : 'expense'}}">
+              {{item.type === 'earn' ? '+' : ''}}{{item.points}}
+            </view>
+            <view class="record-balance">剩余: {{item.balance}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <view class="no-records" wx:else>
+      <image class="no-records-image" src="cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png" mode="aspectFit"></image>
+      <view class="no-records-text">暂无积分记录</view>
+    </view>
+  </view>
+  
+  <!-- 兑换弹窗 -->
+  <view class="exchange-popup" wx:if="{{showExchangePopup}}">
+    <view class="popup-mask" bindtap="closeExchangePopup"></view>
+    <view class="popup-content">
+      <block wx:if="{{!exchangeSuccess}}">
+        <view class="popup-header">
+          <view class="popup-title">积分兑换</view>
+          <view class="popup-close" bindtap="closeExchangePopup"></view>
+        </view>
+        <view class="popup-body">
+          <view class="exchange-intro">
+            <view class="intro-points">当前积分: {{totalPoints}}</view>
+            <view class="intro-tips">选择您要兑换的礼品卡</view>
+          </view>
+          
+          <view class="gift-card-list">
+            <view class="gift-card-item {{selectedGiftCard.id === item.id ? 'selected' : ''}} {{totalPoints < item.points ? 'disabled' : ''}}" 
+                 wx:for="{{giftCards}}" 
+                 wx:key="id"
+                 data-index="{{index}}"
+                 bindtap="selectGiftCard">
+              <image class="gift-card-image" src="{{item.image}}" mode="aspectFit"></image>
+              <view class="gift-card-info">
+                <view class="gift-card-name">{{item.name}}</view>
+                <view class="gift-card-desc">{{item.desc}}</view>
+                <view class="gift-card-points">{{item.points}}积分</view>
+              </view>
+              <view class="gift-card-check" wx:if="{{selectedGiftCard.id === item.id}}"></view>
+            </view>
+          </view>
+          
+          <button class="exchange-btn {{selectedGiftCard && totalPoints >= selectedGiftCard.points ? 'active' : ''}}"
+                 disabled="{{!selectedGiftCard || totalPoints < selectedGiftCard.points || exchangeLoading}}"
+                 bindtap="exchangeGiftCard">
+            {{exchangeLoading ? '兑换中...' : '确认兑换'}}
+          </button>
+        </view>
+      </block>
+      
+      <!-- 兑换成功 -->
+      <block wx:else>
+        <view class="success-content">
+          <view class="success-icon"></view>
+          <view class="success-title">兑换成功</view>
+          <view class="success-desc">{{selectedGiftCard.name}}已添加到您的账户</view>
+          <view class="success-points">当前积分: {{totalPoints}}</view>
+          <button class="success-btn" bindtap="closeExchangePopup">确定</button>
+        </view>
+      </block>
+    </view>
+  </view>
+</view> 

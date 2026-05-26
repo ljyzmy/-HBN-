@@ -1,0 +1,841 @@
+/* pages/HBN/HBN.wxss */
+/* 重置容器样式，防止与app.wxss冲突 */
+.page-container {
+  height: 100vh;
+  padding: 0;
+  display: block;
+  justify-content: initial;
+  align-items: initial;
+}
+
+/* 容器样式 */
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 添加内容容器样式 */
+.content-container {
+  padding-top: 180rpx; /* 与导航栏高度一致 */
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 30rpx 20rpx 30rpx;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-transparent {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.nav-opaque {
+  background-color: #ffffff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.search-btn {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.nav-center {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 130rpx;
+  width: 240rpx;
+}
+
+.nav-placeholder {
+  width: 80rpx;
+}
+
+/* 顶部横幅 */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+}
+
+/* 添加视频样式 */
+.banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(138, 99, 77, 0.7), transparent);
+  padding: 40rpx 30rpx;
+}
+
+.banner-title {
+  color: #ffffff;
+  font-size: 44rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.banner-subtitle {
+  color: #ffffff;
+  font-size: 32rpx;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 科研实力展示 */
+.science-proof {
+  display: flex;
+  background-color: #ffffff;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 添加白桦纹理 */
+.science-proof::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://example.com/dunhuang-pattern.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.proof-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.proof-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.icon-lab {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M12 22a7 7 0 01-7-7c0-2 1-3.5 3-5l3-3.5V3h2v3.5L16 10c2 1.5 3 3 3 5a7 7 0 01-7 7z"/></svg>');
+}
+
+.icon-certificate {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M13 17.25V21l-1-1-1 1v-3.75c0 .75 2 .75 2 0z"/><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h4.75l.25-.1V19h4v2.15l.25.1H19c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>');
+}
+
+.icon-people {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23618a49"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>');
+}
+
+.proof-text {
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  line-height: 1.3;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 区块标题 */
+.section-title {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.title-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.title-text:after {
+  content: '';
+  position: absolute;
+  bottom: -10rpx;
+  left: 0;
+  width: 40rpx;
+  height: 6rpx;
+  background-color: #618a49;
+  border-radius: 3rpx;
+}
+
+.title-desc {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 直播卡片 */
+.live-list {
+  padding: 0 30rpx;
+}
+
+.live-card {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.08);
+  border-left: 6rpx solid var(--cedar-light);
+}
+
+.live-cover {
+  width: 100%;
+  height: 360rpx;
+}
+
+.live-status {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+
+.status-tag {
+  display: flex;
+  align-items: center;
+  padding: 6rpx 16rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+}
+
+.status-tag.living {
+  background-color: var(--dunhuang-red);
+}
+
+.status-tag.upcoming {
+  background-color: var(--dunhuang-orange);
+}
+
+.status-tag.replay {
+  background-color: #9b9b9b;
+}
+
+.status-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-right: 8rpx;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.live-info {
+  padding: 20rpx;
+}
+
+.live-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  color: #333;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.live-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.host-info {
+  display: flex;
+  align-items: center;
+}
+
+.host-avatar {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.host-name {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.view-count {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.view-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 6rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.start-time {
+  font-size: 24rpx;
+  color: #7daa68;
+}
+
+.live-action {
+  padding: 0 20rpx 20rpx;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 12rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color: #ffffff;
+}
+
+.action-btn.live-now {
+  background-color: var(--dunhuang-red);
+}
+
+.action-btn.reserve {
+  background-color: var(--dunhuang-orange);
+}
+
+.action-btn.replay {
+  background-color: #9b9b9b;
+}
+
+/* 产品卡片 */
+.product-list {
+  padding: 0 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10rpx;
+}
+
+.product-card {
+  position: relative;
+  width: calc(50% - 20rpx);
+  margin: 10rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.08);
+}
+
+.product-image {
+  width: 100%;
+  height: 350rpx;
+}
+
+.product-tag {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  background-color: rgba(97, 138, 73, 0.9);
+  color: #ffffff;
+  padding: 6rpx 12rpx;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+}
+
+.product-info {
+  padding: 20rpx;
+}
+
+.product-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+
+.product-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+  height: 68rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.product-price {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--dunhuang-red);
+  margin-right: 10rpx;
+}
+
+.product-original {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.product-sold {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 限时专享 */
+.promotion-section {
+  margin: 30rpx;
+  padding: 30rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.08);
+}
+
+.promotion-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.time-block {
+  display: inline-block;
+  min-width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #618a49;
+  color: #ffffff;
+  border-radius: 8rpx;
+  margin: 0 6rpx;
+  font-weight: bold;
+  padding: 0 6rpx;
+}
+
+.coupon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f7eb;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  border: 1px dashed #618a49;
+}
+
+.coupon {
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #618a49;
+}
+
+.coupon-btn {
+  background-color: #618a49;
+  color: #ffffff;
+  padding: 16rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+
+.coupon-btn.coupon-received {
+  background-color: #999999;
+  color: #ffffff;
+}
+
+/* 品牌理念 */
+.brand-concept {
+  margin: 30rpx;
+  padding: 30rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.08);
+  background: linear-gradient(135deg, #f8f9f7, var(--dunhuang-beige));
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-concept::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 120rpx;
+  background-image: url('https://img.api.aa1.cn/2025/05/07/a80093e62c237.jpg');
+  background-size: 120rpx auto;
+  background-repeat: repeat-y;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.concept-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  position: relative;
+  z-index: 1;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.concept-slogan {
+  font-size: 30rpx;
+  color: #618a49;
+  margin-bottom: 20rpx;
+  font-weight: normal;
+  position: relative;
+  z-index: 1;
+  font-family: "FZLTXH--GBK1-0", "方正兰亭黑", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+.concept-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 预约弹窗 */
+.reservation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  width: 80%;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+}
+
+.modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.modal-desc {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.modal-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-btn {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+}
+
+.modal-btn.cancel {
+  color: #999;
+  margin-right: 20rpx;
+  border: 1px solid #e0e0e0;
+}
+
+.modal-btn.confirm {
+  background-color: #618a49;
+  color: #ffffff;
+}
+
+/* 添加滚动视图样式 */
+.vertical-scroll {
+  height: 90vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* 底部安全区 */
+.safe-bottom-area {
+  height: 40rpx;
+}
+
+/* 标题字体设置 */
+.banner-title, .title-text, .concept-title {
+  font-weight: 500;
+}
+
+/* 品牌概念标语 */
+.concept-slogan {
+  font-weight: normal;
+}
+
+/* 直播窗口弹出层样式 */
+.live-popup, .replay-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.live-popup-content {
+  width: 95%;
+  height: 90%;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.live-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.live-popup-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.live-popup-close {
+  font-size: 48rpx;
+  color: #999;
+  line-height: 1;
+  padding: 0 10rpx;
+}
+
+.live-popup-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.live-player, .replay-player {
+  width: 100%;
+  height: 60%;
+  background-color: #000;
+}
+
+.live-popup-info {
+  flex: 1;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+.live-popup-host {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.host-avatar-large {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.host-info-detail {
+  flex: 1;
+}
+
+.host-name-large {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.live-view-count {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.view-icon-large {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.live-popup-products {
+  padding: 20rpx 0;
+}
+
+.popup-product-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.popup-product-card {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  position: relative;
+}
+
+.popup-product-image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.popup-product-info {
+  flex: 1;
+}
+
+.popup-product-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.popup-product-price {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--dunhuang-red);
+}
+
+.popup-product-buy {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  background-color: var(--dunhuang-red);
+  color: #ffffff;
+  font-size: 26rpx;
+  padding: 10rpx 24rpx;
+  border-radius: 30rpx;
+}
+
+/* 确保有定义变量 */
+:root {
+  --dunhuang-red: #e74c3c;
+  --dunhuang-orange: #f39c12;
+  --cedar-light: #618a49;
+  --dunhuang-beige: #f5f5dc;
+}

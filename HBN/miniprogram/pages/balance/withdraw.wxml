@@ -1,0 +1,117 @@
+<view class="withdraw-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav">
+    <view class="nav-back" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-title">余额提现</view>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 成功提示 -->
+  <view class="success-popup" wx:if="{{showSuccess}}">
+    <view class="success-icon"></view>
+    <view class="success-title">提现申请成功</view>
+    <view class="success-desc">￥{{actualAmount}} 将在1-3个工作日到账</view>
+    <view class="success-balance">当前余额：￥{{newBalance}}</view>
+  </view>
+
+  <block wx:else>
+    <!-- 账户余额 -->
+    <view class="balance-section">
+      <view class="balance-label">当前余额(元)</view>
+      <view class="balance-value">{{balance}}</view>
+    </view>
+
+    <!-- 提现金额选择 -->
+    <view class="amount-section">
+      <view class="section-title">提现金额</view>
+      <view class="amount-grid">
+        <view 
+          class="amount-item {{selectedIndex === index ? 'selected' : ''}} {{item > balance ? 'disabled' : ''}}" 
+          wx:for="{{quickAmounts}}" 
+          wx:key="*this"
+          bindtap="selectAmount"
+          data-index="{{index}}">
+          <text>￥{{item}}</text>
+        </view>
+        <view class="amount-item custom {{selectedIndex === -1 && customAmount ? 'selected' : ''}}">
+          <input 
+            class="custom-input" 
+            type="digit" 
+            placeholder="其他金额" 
+            value="{{customAmount}}"
+            bindinput="inputCustomAmount"
+            />
+        </view>
+      </view>
+    </view>
+
+    <!-- 提现账户 -->
+    <view class="account-section">
+      <view class="section-title">提现至</view>
+      <view class="account-list">
+        <view class="account-item {{withdrawMethod === 'wechat' ? 'selected' : ''}}" bindtap="selectWithdrawMethod" data-method="wechat">
+          <view class="account-icon wechat"></view>
+          <view class="account-info">
+            <view class="account-name">微信</view>
+            <view class="account-number">{{accountInfo.wechat}}</view>
+          </view>
+          <view class="account-check" wx:if="{{withdrawMethod === 'wechat'}}"></view>
+        </view>
+        
+        <view class="account-item {{withdrawMethod === 'alipay' ? 'selected' : ''}}" bindtap="selectWithdrawMethod" data-method="alipay">
+          <view class="account-icon alipay"></view>
+          <view class="account-info">
+            <view class="account-name">支付宝</view>
+            <view class="account-number">{{accountInfo.alipay}}</view>
+          </view>
+          <view class="account-check" wx:if="{{withdrawMethod === 'alipay'}}"></view>
+        </view>
+        
+        <view class="account-item {{withdrawMethod === 'bank' ? 'selected' : ''}}" bindtap="selectWithdrawMethod" data-method="bank">
+          <view class="account-icon bank"></view>
+          <view class="account-info">
+            <view class="account-name">银行卡</view>
+            <view class="account-number">{{accountInfo.bank}}</view>
+          </view>
+          <view class="account-check" wx:if="{{withdrawMethod === 'bank'}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 费用信息 -->
+    <view class="fee-section" wx:if="{{withdrawAmount > 0}}">
+      <view class="fee-item">
+        <view class="fee-label">提现金额</view>
+        <view class="fee-value">￥{{withdrawAmount}}</view>
+      </view>
+      <view class="fee-item">
+        <view class="fee-label">手续费</view>
+        <view class="fee-value">￥{{fee.toFixed(2)}}</view>
+      </view>
+      <view class="fee-item total">
+        <view class="fee-label">实际到账</view>
+        <view class="fee-value">￥{{actualAmount.toFixed(2)}}</view>
+      </view>
+    </view>
+
+    <!-- 提现说明 -->
+    <view class="notice-section">
+      <view class="notice-title">温馨提示</view>
+      <view class="notice-item">1. 提现将收取0.5%手续费，最低1元</view>
+      <view class="notice-item">2. 提现申请成功后，资金将在1-3个工作日内到账</view>
+      <view class="notice-item">3. 单笔提现最低10元，最高10000元</view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <button 
+        class="submit-btn {{withdrawAmount > 0 && withdrawAmount <= balance ? 'active' : ''}}" 
+        disabled="{{!withdrawAmount || withdrawAmount <= 0 || withdrawAmount > balance || isSubmitting}}"
+        bindtap="submitWithdraw">
+        {{isSubmitting ? '处理中...' : '确认提现'}}
+      </button>
+    </view>
+  </block>
+</view> 
