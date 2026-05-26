@@ -24,7 +24,7 @@ Page({
         name: '【王牌早C晚A】紧致·焕亮·抗初老',
         price: 288.00,
         originalPrice: 599.00,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
         tag: '早C晚A 2.0套组'
       },
       {
@@ -32,7 +32,7 @@ Page({
         name: '【经典版】御氧提亮  熬夜党必备',
         price: 129.00,
         originalPrice: 259.00,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
         tag: '明星发光水熊果苷精粹水2.0'
       },
       {
@@ -40,7 +40,7 @@ Page({
         name: '视黄醇精华乳2.0：初老救星，焕亮抚纹',
         price: 259.00,
         originalPrice: 299.00,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.png',
         tag: '咖啡因紧致眼霜'
       }
     ],

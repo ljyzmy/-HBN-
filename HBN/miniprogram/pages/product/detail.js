@@ -83,7 +83,7 @@ Page({
     
     // 初始化云开发环境
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     
@@ -130,8 +130,8 @@ Page({
         sales: 3399,
         stock: 850,
         tags: ['多效靶向抗初老', '焕亮肌肤'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (3).mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/商品视频/1.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (3).mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/商品视频/1.mp4',
         bannerImages: [
           'https://img.alicdn.com/imgextra/i3/2204177871674/O1CN01YqErYI1OEk2SvfbzZ_!!2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i1/2204177871674/O1CN01sdXQwT1OEju0r9rnG_!!2204177871674.jpg_.webp',
@@ -214,8 +214,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['卓效激活胶原'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/4.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/商品视频/抗老2.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/4.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/商品视频/抗老2.mp4',
         bannerImages: [
           'https://img.alicdn.com/imgextra/i2/2204177871674/O1CN01F7GMyK1OEk3TQzb0s_!!2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i4/2204177871674/O1CN01dUBuQK1OEk4SXad6g-2204177871674.jpg_.webp',
@@ -304,7 +304,7 @@ Page({
         originalPrice: 389.00,
         sales: 3214,
         stock: 546,
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (2).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (2).mp4',
         productVideo2: 'https://www.hbn.cn/videos/product/kl/3/1.mp4',
         bannerImages: [
           'https://www.hbn.cn/assets/3-BxE2s-DI.png',
@@ -398,8 +398,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['卓效激活胶原'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/5.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/商品视频/抗老4.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/5.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/商品视频/抗老4.mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01lIUNJQ1OEk4Vtwfwn-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01FjRoxo1OEjzln3F63_!!2204177871674.jpg_.webp',
@@ -484,7 +484,7 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['源头抗老'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/6.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/6.mp4',
         productVideo2: 'https://www.hbn.cn/videos/product/kl/5/1.mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i1/2204177871674/O1CN01oibIbN1OEk4YB69VN-2204177871674.jpg_.webp',
@@ -570,8 +570,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['卓效淡纹赋弹'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/7.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/7.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i4/2204177871674/O1CN01xHvCF81OEk4Xci1nP-2204177871674.jpg_.webp',
           'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN01In31XW1OEjwQ5K5Xp_!!2204177871674.jpg_.webp',
@@ -656,8 +656,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['紧致抗皱'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/8.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/8.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i1/2204177871674/O1CN01Fy7liQ1OEk4Vtygj9-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01nTvyPF1OEjwDZAsdx_!!2204177871674.jpg_.webp',
@@ -731,8 +731,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['卓效促胶原'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/9.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/9.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://gw.alicdn.com/imgextra/O1CN0146LXVL1OEk4YqlQOp_!!2204177871674-0-yinheaigc.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01GfFUGF1OEjszcLJZd_!!2204177871674.jpg_.webp',
@@ -817,8 +817,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['卓效紧致弹嫩肌肤'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/10.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/10.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i4/2204177871674/O1CN01efxA1C1OEk4XciUuw-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01NfZkUM1OEjx3okHeD_!!2204177871674.jpg_.webp',
@@ -904,8 +904,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['温和淡化颈纹'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/11.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/11.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01bbQfT01OEk4XchQQc-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01ZnVCXe1OEjszdqYvm_!!2204177871674.jpg_.webp',
@@ -991,8 +991,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['卓效激活胶原'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/12.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/12.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://gw.alicdn.com/imgextra/O1CN01kehrji1OEk4VYvOUE_!!2204177871674-0-yinheaigc.jpg_.webp',
           'https://img.alicdn.com/imgextra/i2/2204177871674/O1CN01etkdPo1OEk3r6PNd9_!!2204177871674.jpg_.webp',
@@ -1078,8 +1078,8 @@ Page({
         sales: 4217,
         stock: 620,
         tags: ['多链路抗老'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/13.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/13.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01EuvEcZ1OEk4X9jhHA-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i4/2204177871674/O1CN01pMWj7m1OEjt6vKHsI_!!2204177871674.jpg_.webp',
@@ -1165,10 +1165,10 @@ Page({
         sales: 5628,
         stock: 755,
         tags: ['淡化色斑', '提亮肤色'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
           'https://www.hbn.cn/assets/1-Bsqoo_S0.png',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN016pBonP1OEk4NCa0sE-2204177871674.jpg',
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01aWnQVG1OEk0mNTMJ2_!!2204177871674.jpg'
@@ -1259,8 +1259,8 @@ Page({
         sales: 5628,
         stock: 755,
         tags: ['显著美白淡斑', '温和不刺激'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/2.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/2.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i1/2204177871674/O1CN01O0xtim1OEk4VycMez-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i1/2204177871674/O1CN016JnPXp1OEk4S6dI0B-2204177871674.jpg_.webp',
@@ -1354,8 +1354,8 @@ Page({
         sales: 5628,
         stock: 755,
         tags: ['根源抑黑减黄', '核糖氧双抗'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/3.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/3.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01Zy190x1OEk4X9kZLe-2204177871674.jpg_.webp',
           'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN01DaRiCj1OEk4UOvcCo-2204177871674.jpg_.webp',
@@ -1449,8 +1449,8 @@ Page({
         sales: 5628,
         stock: 755,
         tags: ['多维焕亮减黄', '改善暗沉'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/4.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/4.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN01Fmcqjp1OEk2myYINP_!!4611686018427384634-0-item_pic.jpg_.webp',
           'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN016lLkuT1OEjuK8u3Jd_!!2204177871674.jpg_.webp',
@@ -1545,8 +1545,8 @@ Page({
         sales: 5628,
         stock: 755,
         tags: ['5维卓效淡暗沉', '敷出莹润水光肌'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/5.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/5.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i1/2204177871674/O1CN01O0xtim1OEk4VycMez-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i1/2204177871674/O1CN016JnPXp1OEk4S6dI0B-2204177871674.jpg_.webp',
@@ -1646,10 +1646,10 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['深层保湿', '修护屏障'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/1.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/1.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/1.png',
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/1.png',
           'https://www.hbn.cn/assets/3-BxE2s-DI.png',
           'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN01P57NaE1OEk4NlJ1H3-2204177871674.jpg',
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01XC32Vo1OEk4OTh1C0-2204177871674.jpg'
@@ -1693,8 +1693,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['边修护边抗老', '肌肤嘭弹'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/2.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/2.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01GnML331OEk4R2TBVy-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01zTI0LA1OEk4MinlhQ-2204177871674.jpg_.webp',
@@ -1739,7 +1739,7 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['增厚表皮', '减少泛红'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/3.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/3.mp4',
         productVideo2: 'https://www.hbn.cn/videos/product/xh/3/1.mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN015L6SZn1OEk4aTpiTS-2204177871674.jpg_.webp',
@@ -1785,8 +1785,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['快褪红', '深舒缓'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/4.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/4.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i4/2204177871674/O1CN01s04XmL1OEk4aAksGP-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01tTJVDY1OEjt3TRLK8_!!2204177871674.jpg_.webp',
@@ -1831,8 +1831,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['修护光损', '深润沁透'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/5.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/5.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01GnML331OEk4R2TBVy-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01zTI0LA1OEk4MinlhQ-2204177871674.jpg_.webp',
@@ -1878,8 +1878,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['修护光损', '深润沁透'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/6.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/6.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01GnML331OEk4R2TBVy-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01zTI0LA1OEk4MinlhQ-2204177871674.jpg_.webp',
@@ -1926,8 +1926,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['熬夜急修护', '抵御光老化'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/7.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/7.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01GnML331OEk4R2TBVy-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01zTI0LA1OEk4MinlhQ-2204177871674.jpg_.webp',
@@ -1977,8 +1977,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['净澈体系', '超强起泡'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/1.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/1.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01GnML331OEk4R2TBVy-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01zTI0LA1OEk4MinlhQ-2204177871674.jpg_.webp',
@@ -2024,8 +2024,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['不挑肤质', '一冲即化'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/2.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/2.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://gw.alicdn.com/bao/uploaded/i4/2204177871674/O1CN01wmTMNx1OEk4TMnTOy_!!2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01c0KCjl1OEk2HPQwvz_!!2204177871674.jpg_.webp',
@@ -2071,8 +2071,8 @@ Page({
         sales: 6531,
         stock: 620,
         tags: ['PA++++', '晒不红'],
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/3.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/3.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
         bannerImages: [
           'https://img.alicdn.com/imgextra/i2/2204177871674/O1CN01ISEqVW1OEk4awSQKS_!!4611686018427384634-0-item_pic.jpg_.webp',
           'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN017Z5R0C1OEk4aI2Q4C_!!2204177871674.jpg_.webp',
@@ -2210,7 +2210,7 @@ Page({
     
     // 确保云环境已初始化
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     
@@ -2310,7 +2310,7 @@ Page({
     
     // 调用云函数处理收藏
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     

@@ -18,19 +18,19 @@ Page({
       {
         id: 1,
         name: '职场精英女性',
-        avatar: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/职场精英女性.jpg',
+        avatar: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/职场精英女性.jpg',
         description: '追求高品质生活，注重个人形象'
       },
       {
         id: 2,
         name: '都市新锐青年',
-        avatar: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/都市新锐青年.webp',
+        avatar: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/都市新锐青年.webp',
         description: '热爱潮流，追求个性表达'
       },
       {
         id: 3,
         name: '科研工作者',
-        avatar: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/科研工作者.jpeg',
+        avatar: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/科研工作者.jpeg',
         description: '注重功效，关注产品成分'
       }
     ],
@@ -51,7 +51,7 @@ Page({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
     } else {
       wx.cloud.init({
-        env: 'cloud1-0gxff61z2804383c',
+        env: 'YOUR_CLOUD_ENV_ID',
         traceUser: true,
       });
     }
@@ -467,7 +467,7 @@ Page({
     return {
       title: 'HBN礼品卡',
       path: '/pages/giftCards/giftCards',
-      imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/礼品卡.png'
+      imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/礼品卡.png'
     }
   }
 }) 

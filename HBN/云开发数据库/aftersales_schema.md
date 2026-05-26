@@ -85,7 +85,7 @@
   "type": "return_refund",
   "reason": "商品质量问题",
   "description": "收到商品发现有漏液情况，包装已经湿了一片",
-  "images": ["cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/售后凭证/img001.jpg"],
+  "images": ["cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/售后凭证/img001.jpg"],
   "applyTime": "2023-09-07 08:06:50",
   "status": "pending",
   "statusText": "待处理",

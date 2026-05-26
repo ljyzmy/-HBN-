@@ -1,7 +1,7 @@
 Page({
   data: {
     pageTitle: '十分钟职场妆容教程',
-    pageImage: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/职场女性妆容图片制作.png',
+    pageImage: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/职场女性妆容图片制作.png',
     readCount: 891,
     publishDate: '2025-05-18',
     
@@ -30,19 +30,19 @@ Page({
             name: '保湿打底',
             detail: '先使用HBN发光水α-熊果苷精粹水2.0做基础保湿，再涂抹HBN视黄醇精华乳2.0，均匀抹开。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/fe7a1d82b39c5-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/保湿打底.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/保湿打底.mp4'
           },
           {
             name: '遮瑕',
             detail: '用遮瑕膏点涂在黑眼圈和面部瑕疵处，用手指轻拍推开。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/fe7a1d82b39c5-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/遮瑕.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/遮瑕.mp4'
           },
           {
             name: '粉底',
             detail: '选择质地轻薄的粉底液，用美妆蛋从面部中心向外轻拍，确保边缘自然过渡。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/5e1af8d2c70b3-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/粉底.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/粉底.mp4'
           }
         ]
       },
@@ -53,19 +53,19 @@ Page({
             name: '眉毛',
             detail: '用眉笔沿着眉毛生长方向描绘眉形，注意保持自然，职场妆眉毛不宜太浓。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/7fc253b498e1d-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/眉毛.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/眉毛.mp4'
           },
           {
             name: '眼影',
             detail: '选择浅棕色眼影打底，在眼窝处叠加深棕色增加立体感，注意过渡自然。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/fe7a1d82b39c5-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/眼影.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/眼影.mp4'
           },
           {
             name: '睫毛',
             detail: '使用睫毛夹先夹翘睫毛，再涂抹睫毛膏，从根部往上刷，增加浓密度和卷翘度。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/5e1af8d2c70b3-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/睫毛.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/睫毛.mp4'
           }
         ]
       },
@@ -76,19 +76,19 @@ Page({
             name: '腮红',
             detail: '用腮红刷蘸取适量腮红，微笑时从苹果肌向太阳穴方向轻扫，增添气色但不过分。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/7fc253b498e1d-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/腮红.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/腮红.mp4'
           },
           {
             name: '唇妆',
             detail: '选择偏哑光质地的裸色或者偏橘粉色的口红，先用唇线笔勾勒唇形，再涂抹口红，注意唇部边缘要干净。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/fe7a1d82b39c5-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/唇妆.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/唇妆.mp4'
           },
           {
             name: '定妆',
             detail: '最后用粉扑蘸取少量定妆粉，在T区轻按，确保妆容持久，但保持自然妆感。',
             imageUrl: 'https://tucdn.wpon.cn/2025/05/20/5e1af8d2c70b3-1747734747.jpg',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/十分钟职场妆容/定妆.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/十分钟职场妆容/定妆.mp4'
           }
         ]
       }
@@ -123,7 +123,7 @@ Page({
         originalPrice: '￥289',
         description: '妆前滋润，增强妆容服帖度',
         imageUrl: 'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01KH33QL1OEk49dAfJU-2204177871674.jpg_.webp',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
       },
       {
         id: 4,
@@ -132,7 +132,7 @@ Page({
         originalPrice: '￥199',
         description: '妆前保湿，提亮肤色',
         imageUrl: 'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01FRNyop1OEk4Fglmu9-2204177871674.jpg_.webp',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
       },
       {
         id: 104,
@@ -141,7 +141,7 @@ Page({
         originalPrice: '￥422',
         description: '提亮眼周，增加目光有神',
         imageUrl: 'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01aVv2Zp1OEk4G9TXIx-2204177871674.jpg_.webp',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.mp4'
       }
     ]
   },

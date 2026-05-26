@@ -1,7 +1,7 @@
 Page({
   data: {
     memberInfo: {
-      avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/请选择.png',
+      avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/请选择.png',
       nickName: '用户昵称',
       memberLevel: '黄金会员',
       memberNo: 'HBN10086',
@@ -14,43 +14,43 @@ Page({
         id: 1,
         name: '专属折扣',
         description: '享受商品85折优惠',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/折扣.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/折扣.png',
         isActive: true
       },
       {
         id: 2,
         name: '生日礼包',
         description: '生日当月获赠精美礼包',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/生日.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/生日.png',
         isActive: true
       },
       {
         id: 3,
         name: '积分加速',
         description: '购物积分1.5倍加速',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/积分.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/积分.png',
         isActive: true
       },
       {
         id: 4,
         name: '专属客服',
         description: '享受一对一专属客服服务',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/客服.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/客服.png',
         isActive: false
       },
       {
         id: 5,
         name: '免费试用',
         description: '新品免费试用机会',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/试用.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/试用.png',
         isActive: false
       }
     ],
     memberLevels: [
-      { level: '普通会员', threshold: 0, icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/会员图标/普通会员.png' },
-      { level: '黄金会员', threshold: 500, icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/会员图标/黄金会员.png' },
-      { level: '铂金会员', threshold: 1500, icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/会员图标/铂金会员.png' },
-      { level: '钻石会员', threshold: 3000, icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/会员图标/钻石会员.png' }
+      { level: '普通会员', threshold: 0, icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/会员图标/普通会员.png' },
+      { level: '黄金会员', threshold: 500, icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/会员图标/黄金会员.png' },
+      { level: '铂金会员', threshold: 1500, icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/会员图标/铂金会员.png' },
+      { level: '钻石会员', threshold: 3000, icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/会员图标/钻石会员.png' }
     ],
     currentLevelIndex: 1 // 默认为黄金会员（索引1）
   },

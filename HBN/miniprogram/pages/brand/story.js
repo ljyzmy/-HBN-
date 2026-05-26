@@ -5,17 +5,17 @@ Page({
     banners: [
       {
         id: 1,
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/品牌故事/制作主题图片.png',
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/品牌故事/制作主题图片.png',
         title: '匠心独运',
       },
       {
         id: 2,
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/品牌故事/介绍瀑布及生成瀑布图片.png',
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/品牌故事/介绍瀑布及生成瀑布图片.png',
         title: '极致之美',
       },
       {
         id: 3,
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/品牌故事/矿脉质感与象征.png',
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/品牌故事/矿脉质感与象征.png',
         title: '永恒质感',
       }
     ],
@@ -43,10 +43,10 @@ Page({
     ],
     // 品牌价值观
     values: [
-      { id: 1, title: '真实', desc: '拒绝虚假宣传，只做真功效', icon: '	cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/品牌故事/真实.png' },
-      { id: 2, title: '专业', desc: '严格科学测试，专注肌肤健康', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/品牌故事/专业.png' },
-      { id: 3, title: '创新', desc: '不断突破界限，追求卓越品质', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/品牌故事/创新.png' },
-      { id: 4, title: '责任', desc: '环保配方，尊重自然与生命', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/品牌故事/责任.png' }
+      { id: 1, title: '真实', desc: '拒绝虚假宣传，只做真功效', icon: '	cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/品牌故事/真实.png' },
+      { id: 2, title: '专业', desc: '严格科学测试，专注肌肤健康', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/品牌故事/专业.png' },
+      { id: 3, title: '创新', desc: '不断突破界限，追求卓越品质', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/品牌故事/创新.png' },
+      { id: 4, title: '责任', desc: '环保配方，尊重自然与生命', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/品牌故事/责任.png' }
     ],
     // 品牌荣誉
     awards: [

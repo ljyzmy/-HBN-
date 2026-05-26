@@ -3,7 +3,7 @@ Page({
     favorites: [],
     isEditMode: false, // 是否处于编辑模式
     selectedItems: [], // 选中的商品ID列表
-    emptyIconPath: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png', // 空状态图标
+    emptyIconPath: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/空状态.png', // 空状态图标
     userId: '', // 当前用户ID
     userPortrait: null, // 用户画像数据
     cloudSync: true, // 是否启用云同步
@@ -20,7 +20,7 @@ Page({
       });
     } else {
       wx.cloud.init({
-        env: 'cloud1-0gxff61z2804383c',
+        env: 'YOUR_CLOUD_ENV_ID',
         traceUser: true,
       });
     }

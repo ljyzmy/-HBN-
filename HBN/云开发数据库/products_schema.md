@@ -63,14 +63,14 @@ products
   "price": 298.00,
   "originalPrice": 359.00,
   "description": "富含3%高纯度蓝铜胜肽和2%六胜肽，有效对抗面部细纹，提升肌肤紧致度，改善老化松弛",
-  "mainImage": "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_main.jpg",
+  "mainImage": "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_main.jpg",
   "detailImages": [
-    "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_detail1.jpg",
-    "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_detail2.jpg"
+    "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_detail1.jpg",
+    "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_detail2.jpg"
   ],
   "bannerImages": [
-    "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_banner1.jpg",
-    "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_banner2.jpg"
+    "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_banner1.jpg",
+    "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_banner2.jpg"
   ],
   "stock": 860,
   "sales": 1240,
@@ -98,7 +98,7 @@ products
   "brand": "HBN",
   "shelfLife": "三年",
   "productionDate": "2023-01",
-  "videoUrl": "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_video.mp4",
+  "videoUrl": "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_video.mp4",
   "status": 1,
   "createdAt": 1672531200000,
   "updatedAt": 1693584000000

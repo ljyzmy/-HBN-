@@ -78,10 +78,10 @@
   "price": 298.00,
   "originalPrice": 359.00,
   "description": "富含3%高纯度蓝铜胜肽和2%六胜肽，有效对抗面部细纹，提升肌肤紧致度，改善老化松弛",
-  "mainImage": "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_main.jpg",
+  "mainImage": "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_main.jpg",
   "detailImages": [
-    "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_detail1.jpg",
-    "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/products/product1_detail2.jpg"
+    "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_detail1.jpg",
+    "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/products/product1_detail2.jpg"
   ],
   "stock": 860,
   "sales": 1240,
@@ -121,7 +121,7 @@
   "content": "小程序在查看历史订单时偶尔会闪退，iPhone 13 Pro系统版本16.5",
   "contactWay": "wx123456",
   "imageFileIDs": [
-    "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/feedback/1622531245000_1.jpg"
+    "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/feedback/1622531245000_1.jpg"
   ],
   "status": "processing",
   "createTime": "2023-09-16 09:45:22",
@@ -438,7 +438,7 @@
   "type": "return_refund",
   "reason": "商品质量问题",
   "description": "收到商品发现有漏液情况，包装已经湿了一片",
-  "images": ["cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/售后凭证/img001.jpg"],
+  "images": ["cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/售后凭证/img001.jpg"],
   "status": "pending",
   "statusText": "待处理"
 }
@@ -473,7 +473,7 @@
   "userId": "user123",
   "rating": 5,
   "content": "效果很好，质地清爽不粘腻，用了一个月后皮肤状态改善了很多",
-  "images": ["cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/评价图片/img001.jpg"],
+  "images": ["cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/评价图片/img001.jpg"],
   "anonymity": false,
   "tags": ["商品质量好","效果明显"],
   "time": "2023-09-08 08:12:10",

@@ -107,8 +107,8 @@ Page({
         originalPrice: 299.00,
         sales: 3399,
         tags: ['多效靶向抗初老', '焕亮肌肤'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4',
         categoryId: 1
       },
       { 
@@ -119,8 +119,8 @@ Page({
         originalPrice: 399.00,
         sales: 4217,
         tags: ['卓效激活胶原'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/4.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/4.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/4.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/4.mp4',
         categoryId: 1
       },
       { 
@@ -131,8 +131,8 @@ Page({
         originalPrice: 329.00,
         sales: 3104,
         tags: ['直击四大眼周暗沉'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.mp4',
         categoryId: 1
       },
       { 
@@ -143,8 +143,8 @@ Page({
         originalPrice: 398.00,
         sales: 2891,
         tags: ['12h淡纹提拉¹'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/5.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/5.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/5.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/5.mp4',
         categoryId: 1
       },
       { 
@@ -155,8 +155,8 @@ Page({
         originalPrice: 479.00,
         sales: 2175,
         tags: ['4周淡面部八大顽固深纹'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/6.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/6.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/6.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/6.mp4',
         categoryId: 1
       },
       { 
@@ -167,8 +167,8 @@ Page({
         originalPrice: 469.00,
         sales: 1965,
         tags: ['四重A醇高阶抗老'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/7.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/7.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/7.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/7.mp4',
         categoryId: 1
       },
       { 
@@ -179,8 +179,8 @@ Page({
         originalPrice: 259.00,
         sales: 7823, // 高销量商品
         tags: ['科研级创新"3A+3肽'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/8.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/8.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/8.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/8.mp4',
         categoryId: 1
       },
       { 
@@ -191,8 +191,8 @@ Page({
         originalPrice: 289.00,
         sales: 3562,
         tags: ['深层保湿'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/9.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/9.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/9.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/9.mp4',
         categoryId: 1
       },
       { 
@@ -203,8 +203,8 @@ Page({
         originalPrice: 299.00,
         sales: 3399,
         tags: ['多效靶向抗初老', '焕亮肌肤'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/10.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/10.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/10.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/10.mp4',
         categoryId: 1
       },
       { 
@@ -215,8 +215,8 @@ Page({
         originalPrice: 399.00,
         sales: 4217,
         tags: ['卓效激活胶原'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/11.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/11.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/11.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/11.mp4',
         categoryId: 1
       },
       { 
@@ -227,8 +227,8 @@ Page({
         originalPrice: 329.00,
         sales: 3104,
         tags: ['直击四大眼周暗沉'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/12.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/12.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/12.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/12.mp4',
         categoryId: 1
       },
       { 
@@ -239,8 +239,8 @@ Page({
         originalPrice: 398.00,
         sales: 2891,
         tags: ['12h淡纹提拉¹'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/13.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/13.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/13.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/13.mp4',
         categoryId: 1
       },
       
@@ -253,8 +253,8 @@ Page({
         originalPrice: 199.00,
         sales: 5628,
         tags: ['淡化色斑', '提亮肤色'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4',
         categoryId: 2
       },
       { 
@@ -265,8 +265,8 @@ Page({
         originalPrice: 299.00,
         sales: 3245,
         tags: ['密集修护', '淡斑提亮'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/2.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/2.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/2.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/2.mp4',
         categoryId: 2
       },
       { 
@@ -277,8 +277,8 @@ Page({
         originalPrice: 259.00,
         sales: 4129,
         tags: ['淡斑精华', '改善暗沉'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/3.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/3.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/3.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/3.mp4',
         categoryId: 2
       },
       { 
@@ -289,8 +289,8 @@ Page({
         originalPrice: 359.00,
         sales: 2876,
         tags: ['提亮遮瑕', '美白养肤'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/4.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/4.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/4.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/4.mp4',
         categoryId: 2
       },
       { 
@@ -301,8 +301,8 @@ Page({
         originalPrice: 359.00,
         sales: 2876,
         tags: ['提亮遮瑕', '美白养肤'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/5.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/5.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/5.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/5.mp4',
         categoryId: 2
       },
       
@@ -315,8 +315,8 @@ Page({
         originalPrice: 219.00,
         sales: 6531,
         tags: ['深层保湿', '修护屏障'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/1.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/1.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/1.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/1.mp4',
         categoryId: 3
       },
       { 
@@ -327,8 +327,8 @@ Page({
         originalPrice: 229.00,
         sales: 4872,
         tags: ['急救补水', '舒缓镇静'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/2.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/2.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/2.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/2.mp4',
         categoryId: 3
       },
       { 
@@ -339,8 +339,8 @@ Page({
         originalPrice: 259.00,
         sales: 5134,
         tags: ['深层补水', '长效锁水'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/3.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/3.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/3.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/3.mp4',
         categoryId: 3
       },
       { 
@@ -351,8 +351,8 @@ Page({
         originalPrice: 139.00,
         sales: 7245,
         tags: ['随时补水', '舒缓敏感'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/4.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/4.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/4.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/4.mp4',
         categoryId: 3
       },
       { 
@@ -363,8 +363,8 @@ Page({
         originalPrice: 229.00,
         sales: 4872,
         tags: ['急救补水', '舒缓镇静'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/5.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/5.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/5.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/5.mp4',
         categoryId: 3
       },
       { 
@@ -375,8 +375,8 @@ Page({
         originalPrice: 259.00,
         sales: 5134,
         tags: ['深层补水', '长效锁水'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/6.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/6.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/6.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/6.mp4',
         categoryId: 3
       },
       { 
@@ -387,8 +387,8 @@ Page({
         originalPrice: 139.00,
         sales: 7245,
         tags: ['随时补水', '舒缓敏感'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/7.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/维护保湿/7.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/7.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/维护保湿/7.mp4',
         categoryId: 3
       },
       
@@ -401,8 +401,8 @@ Page({
         originalPrice: 169.00,
         sales: 8752,
         tags: ['温和清洁', '不紧绷'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/1.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/1.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/1.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/1.mp4',
         categoryId: 4
       },
       { 
@@ -413,8 +413,8 @@ Page({
         originalPrice: 189.00,
         sales: 4528,
         tags: ['温和焕肤', '细致毛孔'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/2.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/2.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/2.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/2.mp4',
         categoryId: 4
       },
       { 
@@ -425,8 +425,8 @@ Page({
         originalPrice: 159.00,
         sales: 6321,
         tags: ['控油收敛', '平衡调理'],
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/3.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/基础护肤/3.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/3.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/基础护肤/3.mp4',
         categoryId: 4
       }
       

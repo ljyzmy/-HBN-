@@ -83,7 +83,7 @@
   "userId": "user123",
   "rating": 5,
   "content": "效果很好，质地清爽不粘腻，用了一个月后皮肤状态改善了很多",
-  "images": ["cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/评价图片/img001.jpg"],
+  "images": ["cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/评价图片/img001.jpg"],
   "anonymity": false,
   "tags": ["商品质量好", "效果明显"],
   "time": "2023-09-08 08:12:10",

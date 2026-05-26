@@ -1,7 +1,7 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
-cloud.init({ env: 'cloud1-0gxff61z2804383c' }) // 使用指定的云环境ID
+cloud.init({ env: 'YOUR_CLOUD_ENV_ID' }) // 使用指定的云环境ID
 const db = cloud.database()
 const feedbackCollection = db.collection('feedback')
 const _ = db.command

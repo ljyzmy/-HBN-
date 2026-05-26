@@ -11,21 +11,21 @@ Page({
       desc: '让"真功效"名副其实，专研成分，对抗肌肤老化',
       code: 'HBN123456', // 邀请码
       qrCodeUrl: '', // 二维码图片，将动态生成
-      shareImage: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/分享底图.jpg'
+      shareImage: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/分享底图.jpg'
     },
     
     // 邀请奖励信息
     rewards: [
-      { id: 1, name: '邀请1位好友', reward: '50积分 + 5%优惠券', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/优惠券.png' },
-      { id: 2, name: '邀请5位好友', reward: '300积分 + 10%优惠券', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/优惠券.png' },
-      { id: 3, name: '邀请10位好友', reward: '800积分 + 礼品卡', icon: '	cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/礼品卡.png' }
+      { id: 1, name: '邀请1位好友', reward: '50积分 + 5%优惠券', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/优惠券.png' },
+      { id: 2, name: '邀请5位好友', reward: '300积分 + 10%优惠券', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/优惠券.png' },
+      { id: 3, name: '邀请10位好友', reward: '800积分 + 礼品卡', icon: '	cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/礼品卡.png' }
     ],
     
     // 邀请记录
     inviteRecords: [
-      { id: 1, avatar: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/职场精英女性.jpg', name: '李小姐', time: '2023-05-15', reward: '50积分' },
-      { id: 2, avatar: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/都市新锐青年.webp', name: '王先生', time: '2023-05-10', reward: '50积分' },
-      { id: 3, avatar: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/科研工作者.jpeg', name: '张教授', time: '2023-05-05', reward: '50积分' }
+      { id: 1, avatar: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/职场精英女性.jpg', name: '李小姐', time: '2023-05-15', reward: '50积分' },
+      { id: 2, avatar: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/都市新锐青年.webp', name: '王先生', time: '2023-05-10', reward: '50积分' },
+      { id: 3, avatar: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/科研工作者.jpeg', name: '张教授', time: '2023-05-05', reward: '50积分' }
     ],
     
     // 统计数据
@@ -54,9 +54,9 @@ Page({
     
     // 模拟二维码图片
     mockQrCodeList: [
-      'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/二维码/燃尽了吗.........哈吉米！！！.png',
-      'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/二维码/燃尽了吗.........哈吉米！！！ (1).png',
-      'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/二维码/燃尽了吗.........哈吉米！！！ (2).png',
+      'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/二维码/燃尽了吗.........哈吉米！！！.png',
+      'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/二维码/燃尽了吗.........哈吉米！！！ (1).png',
+      'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/二维码/燃尽了吗.........哈吉米！！！ (2).png',
       
     ]
   },

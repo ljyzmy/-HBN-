@@ -24,8 +24,8 @@ Page({
             name: 'HBN视黄醇精华乳2.0',
             price: '￥199',
             description: '温和修护配方，适合敏感肌使用',
-            imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+            imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.png',
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
           }
         ]
       },
@@ -44,7 +44,7 @@ Page({
             price: '￥129',
             description: '温和保湿，提升肌肤屏障功能',
             imageUrl: 'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01FRNyop1OEk4Fglmu9-2204177871674.jpg_.webp',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
           }
         ]
       },
@@ -63,7 +63,7 @@ Page({
             price: '￥199',
             description: '四季适用，调节肌肤水油平衡',
             imageUrl: 'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01KH33QL1OEk49dAfJU-2204177871674.jpg_.webp',
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
           }
         ]
       }
@@ -74,22 +74,22 @@ Page({
       {
         title: '温和清洁',
         content: '使用酸碱度接近皮肤的弱酸性洁面产品，避免洗面奶起泡过多，水温不宜过热，洗脸时间控制在1分钟内。',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/敏感肌肤全攻略/温和清洁.png'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/敏感肌肤全攻略/温和清洁.png'
       },
       {
         title: '充分保湿',
         content: '敏感肌肤需要更多保湿，可使用HBN发光水进行日常保湿，必要时可湿敷加强补水，提升肌肤屏障功能。',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/敏感肌肤全攻略/充分保湿.png'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/敏感肌肤全攻略/充分保湿.png'
       },
       {
         title: '修护受损屏障',
         content: '使用HBN视黄醇精华乳2.0，其温和配方可修复受损肌肤屏障，减少敏感反应，改善肌肤耐受性。',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/敏感肌肤全攻略/维护受损屏障.png'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/敏感肌肤全攻略/维护受损屏障.png'
       },
       {
         title: '防晒防护',
         content: '选择物理防晒霜，避免含有香精、酒精等刺激成分的防晒产品，室内也要做好防晒工作。',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/敏感肌肤全攻略/防嗮保护.png'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/敏感肌肤全攻略/防嗮保护.png'
       }
     ],
     
@@ -122,7 +122,7 @@ Page({
         originalPrice: '￥289',
         description: '修护敏感肌肤屏障，减少刺激反应',
         imageUrl: 'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01KH33QL1OEk49dAfJU-2204177871674.jpg_.webp',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
       },
       {
         id: 2,
@@ -131,7 +131,7 @@ Page({
         originalPrice: '￥199',
         description: '温和保湿，适合敏感肌日常使用',
         imageUrl: 'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01FRNyop1OEk4Fglmu9-2204177871674.jpg_.webp',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
       },
       {
         id: 3,
@@ -140,7 +140,7 @@ Page({
         originalPrice: '￥289',
         description: '温和修护配方，缓解肌肤不适',
         imageUrl: 'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01KH33QL1OEk49dAfJU-2204177871674.jpg_.webp',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.mp4'
       }
     ]
   },

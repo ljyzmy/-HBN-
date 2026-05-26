@@ -5,29 +5,29 @@ Page({
     bannerList: [
       { 
         id: 1, // 对应第一个商品 - 早C晚A套装
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (3).mp4',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (3).mp4',
         coverUrl: 'https://img.api.aa1.cn/2025/05/09/88192acbd964c.png',
         // title: '敦煌飞天 · 早C晚A套装'
       },
       { 
         id: 2, // 对应第二个商品
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载.mp4',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载.mp4',
         coverUrl: 'https://img.api.aa1.cn/2025/05/09/88192acbd964c.png',
         // title: '敦煌咖啡因 · 眼部修护'
       },
       { 
         id: 3, // 对应第三个商品 - 视黄醇精华乳
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (2).mp4', 
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (2).mp4', 
         coverUrl: 'https://img.api.aa1.cn/2025/05/09/88192acbd964c.png',
         // title: '敦煌凌凤 · 视黄醇精华'
       }
     ],
     // 限时活动数据
     flashSaleProducts: [
-      { id: 101, title: 'HBN早C晚A套装', price: 288.00, originalPrice: 429.00, discount: 6.7, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png' },
-      { id: 102, title: '明星发光水', price: 119.00, originalPrice: 163.00, discount: 7.3, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/经典版发光水.png' },
-      { id: 103, title: '双A醇精华乳', price: 189.00, originalPrice: 262.00, discount: 7.2, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/双A醇精华乳.png' },
-      { id: 104, title: '咖啡因紧致眼霜', price: 279.00, originalPrice: 422.00, discount: 6.6, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/咖啡因眼霜.png' }
+      { id: 101, title: 'HBN早C晚A套装', price: 288.00, originalPrice: 429.00, discount: 6.7, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png' },
+      { id: 102, title: '明星发光水', price: 119.00, originalPrice: 163.00, discount: 7.3, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/经典版发光水.png' },
+      { id: 103, title: '双A醇精华乳', price: 189.00, originalPrice: 262.00, discount: 7.2, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/双A醇精华乳.png' },
+      { id: 104, title: '咖啡因紧致眼霜', price: 279.00, originalPrice: 422.00, discount: 6.6, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/咖啡因眼霜.png' }
     ],
     // 限时活动倒计时
     flashHours: '05',
@@ -40,29 +40,29 @@ Page({
         // title: '新会员专享礼包', 
         description: '新注册用户送70元优惠券享5大权益', 
         imageUrl: 'https://img.api.aa1.cn/2025/05/11/12c7af2b9f9c8.jpg',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/1.0.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/1.0.mp4'
       },
       { 
         id: 2, 
         // title: '每月会员专享优惠券', 
         description: '每月定期上线优惠券，月月不同惊喜', 
         imageUrl: 'https://img.api.aa1.cn/2025/05/11/fe3842d126fb8.jpg',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/2.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/2.mp4'
       },
       { 
         id: 3, 
         // title: '生日惊喜礼遇', 
         description: '生日当月送30积分+送3张优惠券', 
         imageUrl: 'https://img.api.aa1.cn/2025/05/11/bb842b4c7c95d.jpg',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/3.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/3.mp4'
       }
     ],
     // 美妆攻略数据
     strategyList: [
-      { id: 1, title: '春夏底妆选择指南', readCount: 1542, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/春夏底妆展示图制作 .png' },
-      { id: 2, title: '敏感肌护肤全攻略', readCount: 2103, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/温和护肤产品展示.png' },
-      { id: 3, title: '十分钟职场妆容教程', readCount: 891, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/职场女性妆容图片制作.png' },
-      { id: 4, title: '如何选择适合的精华乳', readCount: 1276, imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/护肤品摆拍.png' }
+      { id: 1, title: '春夏底妆选择指南', readCount: 1542, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/春夏底妆展示图制作 .png' },
+      { id: 2, title: '敏感肌护肤全攻略', readCount: 2103, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/温和护肤产品展示.png' },
+      { id: 3, title: '十分钟职场妆容教程', readCount: 891, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/职场女性妆容图片制作.png' },
+      { id: 4, title: '如何选择适合的精华乳', readCount: 1276, imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/护肤品摆拍.png' }
     ],
     // 热售商品数据
     productList: [
@@ -72,8 +72,8 @@ Page({
         price: 288.00, 
         originalPrice: 388.00, 
         salesCount: 2156, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合（无文字）.mp4'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合（无文字）.mp4'
       },
       { 
         id: 2, 
@@ -81,8 +81,8 @@ Page({
         price: 289.00, 
         originalPrice: 389.00, 
         salesCount: 1892, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/咖啡因眼霜.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.mp4'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/咖啡因眼霜.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.mp4'
       },
       { 
         id: 3, 
@@ -90,8 +90,8 @@ Page({
         price: 199.00, 
         originalPrice: 289.00, 
         salesCount: 3214, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/双A醇精华乳.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/双A醇精华乳.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
       },
       { 
         id: 4, 
@@ -99,8 +99,8 @@ Page({
         price: 129.00, 
         originalPrice: 199.00, 
         salesCount: 1675, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/经典版发光水.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/经典版发光水.png',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
       }
     ],
     navTransparent: true,
@@ -111,7 +111,7 @@ Page({
     flashScrollLeft: 0,
     scrollDistance: 240, // 每次滚动的距离
     userInfo: {
-      avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/请选择.png',
+      avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/请选择.png',
       nickName: '请选择',
       memberLevel: '黄金会员',
       experience:0,
@@ -136,12 +136,12 @@ Page({
     currentVideoIndex: 0, // 当前播放的视频索引
     videoCtrls: false, // 不显示视频控制条
     // 背景视频URL
-    scrollContainerBgVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (4).mp4',
+    scrollContainerBgVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (4).mp4',
     scrollContainerBgPoster: 'https://img.api.aa1.cn/2025/05/09/2b59632f2062b.png', // 用原背景图作为封面
     videoBgMuted: true,  // 视频静音
     // 添加会员卡片视频
     memberCardVideo: {
-      videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (4).mp4',
+      videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (4).mp4',
       posterUrl: 'https://img.api.aa1.cn/2025/05/09/24817c7281585.png' // 使用原背景图作为封面
     },
     activeBenefitVideoIndex: -1, // 记录当前活跃的视频索引
@@ -151,15 +151,15 @@ Page({
         id: 1,
         name: "早C晚A系列",
         desc: "日间御氧焕亮，夜间塑颜抚纹",
-        imageUrl: "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/系列图片/早C晚A系列.png",
-        videoUrl: "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/系列图片/早C晚A系列.mp4"
+        imageUrl: "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/系列图片/早C晚A系列.png",
+        videoUrl: "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/系列图片/早C晚A系列.mp4"
       },
       {
         id: 2,
         name: "眼部护理系列",
         desc: "即时起效，淡圈更快，淡纹更猛",
-        imageUrl: "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/系列图片/眼部护理系列.png",
-        videoUrl: "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/系列图片/眼部护理系列.mp4"
+        imageUrl: "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/系列图片/眼部护理系列.png",
+        videoUrl: "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/系列图片/眼部护理系列.mp4"
       }
     ],
     // 推荐产品弹窗数据
@@ -171,9 +171,9 @@ Page({
         desc: '日间御氧焕亮，夜间塑颜抚纹，解决初老带来的皱纹和暗沉',
         price: 288.00,
         originalPrice: 388.00,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
-        imageTemp: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/分类背景.png', // 临时图片URL
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合（无文字）.mp4' // 添加视频URL
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
+        imageTemp: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/分类背景.png', // 临时图片URL
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合（无文字）.mp4' // 添加视频URL
       }
     },
     // 添加视频控制相关状态
@@ -203,7 +203,7 @@ Page({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
     } else {
       wx.cloud.init({
-        env: 'cloud1-0gxff61z2804383c',
+        env: 'YOUR_CLOUD_ENV_ID',
         traceUser: true,
       });
       console.log('云环境初始化成功');

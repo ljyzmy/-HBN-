@@ -67,8 +67,8 @@ Page({
       originalPrice: 388.00,
       sales: 2156,
       stock: 999,
-      productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合视频.mp4',
-      productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/商品视频/1.mp4',
+      productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合视频.mp4',
+      productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/商品视频/1.mp4',
       bannerImages: [
         'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN01tzrFov1OEk4F5DdNn_!!4611686018427384634-0-item_pic.jpg_.webp',
         'https://img.alicdn.com/imgextra/i3/2204177871674/O1CN01YqErYI1OEk2SvfbzZ_!!2204177871674.jpg_.webp',
@@ -190,7 +190,7 @@ Page({
     
     // 确保云环境已初始化
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     
@@ -290,7 +290,7 @@ Page({
     
     // 调用云函数处理收藏
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     
@@ -701,7 +701,7 @@ Page({
     
     // 初始化云开发环境
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     

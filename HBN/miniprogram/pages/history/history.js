@@ -3,7 +3,7 @@ Page({
     history: [],
     isEditMode: false, // 是否处于编辑模式
     selectedItems: [], // 选中的商品ID列表
-    emptyIconPath: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png', // 空状态图标
+    emptyIconPath: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/空状态.png', // 空状态图标
     groupedHistory: [],
     isLoading: true,
     page: 1,

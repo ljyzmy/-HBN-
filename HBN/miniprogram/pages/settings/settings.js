@@ -2,7 +2,7 @@ Page({
   data: {
     // 用户信息
     userInfo: {
-      avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/请选择.png',
+      avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/请选择.png',
       nickName: '请选择',
     },
     
@@ -12,27 +12,27 @@ Page({
         id: 'account',
         name: '账号与安全',
         items: [
-          { id: 'profile', name: '个人资料', url: '/pages/profile/profile', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/个人资料.png' },
-          { id: 'password', name: '修改密码', url: '/pages/password/reset', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/icon_修改密码.png' },
-          { id: 'bindPhone', name: '绑定手机', url: '/pages/bindPhone/bindPhone', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/绑定手机.png' }
+          { id: 'profile', name: '个人资料', url: '/pages/profile/profile', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/个人资料.png' },
+          { id: 'password', name: '修改密码', url: '/pages/password/reset', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/icon_修改密码.png' },
+          { id: 'bindPhone', name: '绑定手机', url: '/pages/bindPhone/bindPhone', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/绑定手机.png' }
         ]
       },
       {
         id: 'preference',
         name: '偏好设置',
         items: [
-          { id: 'notification', name: '通知设置', url: '/pages/notification/settings', icon: '	cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/通知设置.png', isSwitch: true, switchValue: true },
-          { id: 'privacy', name: '隐私设置', url: '/pages/privacy/settings', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/隐私设置.png' },
-          { id: 'language', name: '语言', value: '简体中文', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/语言.png' }
+          { id: 'notification', name: '通知设置', url: '/pages/notification/settings', icon: '	cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/通知设置.png', isSwitch: true, switchValue: true },
+          { id: 'privacy', name: '隐私设置', url: '/pages/privacy/settings', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/隐私设置.png' },
+          { id: 'language', name: '语言', value: '简体中文', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/语言.png' }
         ]
       },
       {
         id: 'about',
         name: '关于',
         items: [
-          { id: 'aboutUs', name: '关于我们', url: '/pages/about/about', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/关于我们.png' },
-          { id: 'feedback', name: '意见反馈', url: '/pages/feedback/feedback', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/_意见反馈.png' },
-          { id: 'version', name: '版本信息', value: 'v1.0.0', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/版本信息提示.png' }
+          { id: 'aboutUs', name: '关于我们', url: '/pages/about/about', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/关于我们.png' },
+          { id: 'feedback', name: '意见反馈', url: '/pages/feedback/feedback', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/_意见反馈.png' },
+          { id: 'version', name: '版本信息', value: 'v1.0.0', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/版本信息提示.png' }
         ]
       }
     ],
@@ -54,7 +54,7 @@ Page({
     if (!userInfo || Object.keys(userInfo).length === 0) {
       // 设置默认用户数据（可以选择任一角色作为默认）
       const defaultUserInfo = {
-        avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/都市新锐青年.webp',
+        avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/都市新锐青年.webp',
         nickName: '都市新锐青年',
         memberLevel: '黄金会员',
         experience: 860,

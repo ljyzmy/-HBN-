@@ -6,7 +6,7 @@ Page({
    */
   data: {
     userInfo: {
-      avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/请选择.png',
+      avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/请选择.png',
       nickName: '请选择',
       memberLevel: '黄金会员',
       experience: 0,
@@ -24,27 +24,27 @@ Page({
       {
         status: 'unpaid',
         name: '待付款',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/待付款.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/待付款.png'
       },
       {
         status: 'unshipped',
         name: '待发货',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/待发货.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/待发货.png'
       },
       {
         status: 'shipped',
         name: '待收货',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/待收货.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/待收货.png'
       },
       {
         status: 'completed',
         name: '已完成',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/已完成.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/已完成.png'
       },
       {
         status: 'afterSale',
         name: '售后',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/售后.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/售后.png'
       }
     ],
     assets: {
@@ -56,17 +56,17 @@ Page({
     messageCount: 3,
     orderCount: 14,
     serviceList: [
-      { id: 1, name: '我的优惠券', icon: 'coupon', url: '/pages/coupons/coupons', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/优惠券.png' },
-      { id: 2, name: '收货地址', icon: 'address', url: '/pages/address/address', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/收货地址.png' },
-      { id: 3, name: '收藏商品', icon: 'collect', url: '/pages/favorites/favorites', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/收藏.png' },
-      { id: 4, name: '浏览历史', icon: 'history', url: '/pages/history/history', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/浏览历史.png' },
-      { id: 11, name: '专属护肤方案', icon: 'skincare', url: '/pages/skincare/plan', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/专属服务.png' },
-      { id: 10, name: '成分查询', icon: 'ingredient', url: '/pages/ingredients/search', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/人体成分.png' },
-      { id: 5, name: '客户服务', icon: 'customer', url: '/pages/service/service', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/客户服务.png' },
-      { id: 6, name: '意见反馈', icon: 'feedback', url: '/pages/feedback/feedback', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/_意见反馈.png' },
-      { id: 7, name: '邀请好友', icon: 'invite', url: '/pages/invite/invite', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/邀请好友.png' },
-      { id: 8, name: '关于我们', icon: 'about', url: '/pages/brand/story', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/关于我们.png' },
-      { id: 9, name: '帮助中心', icon: 'help', url: '/pages/help/help', iconUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/帮助中心.png' }
+      { id: 1, name: '我的优惠券', icon: 'coupon', url: '/pages/coupons/coupons', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/优惠券.png' },
+      { id: 2, name: '收货地址', icon: 'address', url: '/pages/address/address', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/收货地址.png' },
+      { id: 3, name: '收藏商品', icon: 'collect', url: '/pages/favorites/favorites', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/收藏.png' },
+      { id: 4, name: '浏览历史', icon: 'history', url: '/pages/history/history', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/浏览历史.png' },
+      { id: 11, name: '专属护肤方案', icon: 'skincare', url: '/pages/skincare/plan', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/专属服务.png' },
+      { id: 10, name: '成分查询', icon: 'ingredient', url: '/pages/ingredients/search', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/人体成分.png' },
+      { id: 5, name: '客户服务', icon: 'customer', url: '/pages/service/service', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/客户服务.png' },
+      { id: 6, name: '意见反馈', icon: 'feedback', url: '/pages/feedback/feedback', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/_意见反馈.png' },
+      { id: 7, name: '邀请好友', icon: 'invite', url: '/pages/invite/invite', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/邀请好友.png' },
+      { id: 8, name: '关于我们', icon: 'about', url: '/pages/brand/story', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/关于我们.png' },
+      { id: 9, name: '帮助中心', icon: 'help', url: '/pages/help/help', iconUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/帮助中心.png' }
     ],
     accountList: [
       { id: 1, name: 'HBN积分', value: '580', icon: 'points', url: '/pages/points/points' },
@@ -97,7 +97,7 @@ Page({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
     } else {
       wx.cloud.init({
-        env: 'cloud1-0gxff61z2804383c',
+        env: 'YOUR_CLOUD_ENV_ID',
         traceUser: true,
       });
       

@@ -5,7 +5,7 @@ Page({
    */
   data: {
     userInfo: {
-      avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/默认头像.png',
+      avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/默认头像.png',
       nickName: '默认用户',
       gender: '未设置', // 性别
       birthday: '未设置', // 生日
@@ -40,7 +40,7 @@ Page({
         id: 1,
         name: '职场精英女性',
         info: {
-          avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/职场精英女性.jpg',
+          avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/职场精英女性.jpg',
           nickName: '陈敏',
           gender: '女',
           birthday: '1990-05-15',
@@ -81,7 +81,7 @@ Page({
         id: 2,
         name: '都市新锐青年',
         info: {
-          avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/都市新锐青年.webp',
+          avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/都市新锐青年.webp',
           nickName: '李阳',
           gender: '男',
           birthday: '1997-08-23',
@@ -122,7 +122,7 @@ Page({
         id: 3,
         name: '科研工作者',
         info: {
-          avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/科研工作者.jpeg',
+          avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/科研工作者.jpeg',
           nickName: '张博',
           gender: '男',
           birthday: '1986-12-10',

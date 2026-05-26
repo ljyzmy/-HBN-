@@ -7,8 +7,8 @@ Page({
         id: 2,
         name: 'HBN发光水α-熊果苷精粹水2.0提亮保湿爽肤水湿敷水',
         desc: '高纯度α-熊果苷，提亮肤色，补水保湿，温和修护。',
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4',
         detailId: 2
       },
       {
@@ -16,7 +16,7 @@ Page({
         name: 'HBN视黄醇精华乳2.0双a醇乳液紧致抗皱焕亮',
         desc: '双A醇协同，紧致抗皱，淡化细纹，焕亮肤色。',
         image: 'https://www.hbn.cn/assets/1-BZbFkdFc.png',
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4',
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4',
         detailId: 1
       }
     ]

@@ -4,7 +4,7 @@ Page({
     addressList: [],
     isSelectMode: false, // 是否是选择地址模式
     loading: false,
-    emptyIconPath: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态-地址.png', // 空状态图标
+    emptyIconPath: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/空状态-地址.png', // 空状态图标
     submitting: false, // 提交中状态
     currentDocId: '' // 当前用户对应的文档ID
   },
@@ -23,7 +23,7 @@ Page({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
     } else {
       wx.cloud.init({
-        env: 'cloud1-0gxff61z2804383c',
+        env: 'YOUR_CLOUD_ENV_ID',
         traceUser: true,
       });
     }

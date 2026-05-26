@@ -72,8 +72,8 @@ Page({
         originalPrice: 289.00,
         sales: 2156,
         stock: 999,
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (3).mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/商品视频/1.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (3).mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/商品视频/1.mp4',
         bannerImages: [
           'https://www.hbn.cn/assets/1-BZbFkdFc.png',
           'https://img.alicdn.com/imgextra/i3/2204177871674/O1CN01YqErYI1OEk2SvfbzZ_!!2204177871674.jpg_.webp',
@@ -156,10 +156,10 @@ Page({
         originalPrice: 219.00,
         sales: 1892,
         stock: 765,
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载.mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/商品视频/2.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载.mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/商品视频/2.mp4',
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN016pBonP1OEk4NCa0sE-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01aWnQVG1OEk0mNTMJ2_!!2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i2/2204177871674/O1CN01tAUUhn1OEk4Mw5I3u-2204177871674.jpg_.webp'
@@ -244,10 +244,10 @@ Page({
         originalPrice: 289.00,
         sales: 3214,
         stock: 546,
-        productVideo: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (2).mp4',
-        productVideo2: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/商品视频/3.mp4',
+        productVideo: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (2).mp4',
+        productVideo2: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/商品视频/3.mp4',
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.png',
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.png',
           'https://img.alicdn.com/imgextra/i1/2204177871674/O1CN01P57NaE1OEk4NlJ1H3-2204177871674.jpg_.webp',
           'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01XC32Vo1OEk4OTh1C0-2204177871674.jpg_.webp',
           'https://img.alicdn.com/imgextra/i4/2204177871674/O1CN018wo0Ti1OEk2yMA0pq_!!2204177871674.jpg_.webp',
@@ -448,7 +448,7 @@ Page({
     
     // 确保云环境已初始化
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     
@@ -548,7 +548,7 @@ Page({
     
     // 调用云函数处理收藏
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     
@@ -989,7 +989,7 @@ Page({
     
     // 初始化云开发环境
     wx.cloud.init({
-      env: 'cloud1-0gxff61z2804383c',
+      env: 'YOUR_CLOUD_ENV_ID',
       traceUser: true
     });
     

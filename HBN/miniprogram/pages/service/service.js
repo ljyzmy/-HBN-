@@ -46,19 +46,19 @@ Page({
       {
         id: 'online',
         title: '在线客服',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/客户服务.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/客户服务.png',
         desc: '9:00-21:00 实时解答'
       },
       {
         id: 'phone',
         title: '电话客服',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/绑定手机.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/绑定手机.png',
         desc: '400-123-4567'
       },
       {
         id: 'feedback',
         title: '意见反馈',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/_意见反馈.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/_意见反馈.png',
         desc: '帮助我们改进服务'
       }
     ]

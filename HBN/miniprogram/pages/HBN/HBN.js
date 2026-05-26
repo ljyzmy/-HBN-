@@ -9,7 +9,7 @@ Page({
     navTransparent: true,
     banner: {
       image: '/images/hbn_banner.jpg',
-      video: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/video-index (1).mp4',
+      video: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/video-index (1).mp4',
       title: '专业是一种底气',
       subtitle: '让"真功效"名副其实'
     },
@@ -54,7 +54,7 @@ Page({
       {
         id: 101,
         name: '早C晚A2.0套组',
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
         originalPrice: 599,
         price: 288,
         tag: '抗初老套装',
@@ -64,7 +64,7 @@ Page({
       {
         id: 201,
         name: '咖啡因紧致修护眼霜',
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/咖啡因眼霜.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/咖啡因眼霜.png',
         originalPrice: 299,
         price: 259,
         tag: '眼部加浓冰美式',
@@ -392,7 +392,7 @@ Page({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
     } else {
       wx.cloud.init({
-        env: 'cloud1-0gxff61z2804383c',
+        env: 'YOUR_CLOUD_ENV_ID',
         traceUser: true
       });
     }

@@ -1,7 +1,7 @@
 Page({
   data: {
     pageTitle: '春夏底妆选择指南',
-    pageImage: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/春夏底妆展示图制作 .png',
+    pageImage: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/春夏底妆展示图制作 .png',
     // 移除头部视频，保持使用图片
     readCount: 1592,
     publishDate: '2025-05-18',
@@ -19,9 +19,9 @@ Page({
             name: 'HBN发光水α-熊果苷精粹水2.0',
             price: '￥129',
             description: '控油提亮，适合油性肌肤使用',
-            imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
+            imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
             // 添加视频URL
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
           }
         ]
       },
@@ -34,9 +34,9 @@ Page({
             name: 'HBN视黄醇精华乳2.0双a醇乳液',
             price: '￥189',
             description: '滋润保湿，适合干性肌肤',
-            imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png',
+            imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.png',
             // 添加视频URL
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
           }
         ]
       },
@@ -49,17 +49,17 @@ Page({
             name: 'HBN视黄醇精华乳2.0',
             price: '￥189',
             description: '平衡油水，适合混合性肌肤',
-            imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png',
+            imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.png',
             // 添加视频URL
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
           },
           {
             name: 'HBN发光水α-熊果苷精粹水2.0',
             price: '￥119',
             description: '调节肌肤水油平衡',
-            imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
+            imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
             // 添加视频URL
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
           }
         ]
       },
@@ -72,17 +72,17 @@ Page({
             name: 'HBN视黄醇精华乳2.0',
             price: '￥189',
             description: '温和修护，舒缓敏感肌肤',
-            imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png',
+            imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.png',
             // 添加视频URL
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
           },
           {
             name: 'HBN发光水α-熊果苷精粹水2.0',
             price: '￥119',
             description: '温和无刺激，适合敏感肌使用',
-            imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
+            imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
             // 添加视频URL
-            videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+            videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
           }
         ]
       }
@@ -93,17 +93,17 @@ Page({
       {
         title: '春夏底妆持久技巧',
         content: '使用HBN发光水α-熊果苷精粹水2.0作为底妆前的爽肤水步骤，帮助控油提亮，选择合适的妆前乳打底，使用定妆散粉或定妆喷雾。',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/春夏底妆选择指南/底妆技巧分享.png'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/春夏底妆选择指南/底妆技巧分享.png'
       },
       {
         title: '春夏底妆修护重点',
         content: '晚间使用HBN视黄醇精华乳2.0双a醇乳液修护肌肤，选择含SPF的底妆产品，同时肌肤补水非常重要，可使用HBN发光水湿敷补水。',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/春夏底妆选择指南/底妆修护场景.png'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/春夏底妆选择指南/底妆修护场景.png'
       },
       {
         title: '洁面与卸妆步骤',
         content: '春夏季彻底清洁更为重要，卸妆后使用温和洁面产品，确保彻底清洁，然后涂抹HBN视黄醇精华乳2.0修护肌肤。',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/春夏底妆选择指南/女生洁面场景.png'
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/春夏底妆选择指南/女生洁面场景.png'
       }
     ],
     
@@ -115,9 +115,9 @@ Page({
         price: '￥199',
         originalPrice: '￥289',
         description: '紧致抗皱焕亮淡化细纹，双A醇强效修护',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png',
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.png',
         // 添加视频URL
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
       },
       {
         id: 2,
@@ -125,9 +125,9 @@ Page({
         price: '￥129',
         originalPrice: '￥199',
         description: '提亮肤色保湿爽肤水，适合湿敷使用',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.png',
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.png',
         // 添加视频URL
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/美白焕亮/1.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/美白焕亮/1.mp4'
       },
       {
         id: 3,
@@ -135,9 +135,9 @@ Page({
         price: '￥199',
         originalPrice: '￥289',
         description: '紧致抗皱焕亮，高效修护肌肤',
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.png',
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.png',
         // 添加视频URL
-        videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/2.mp4'
+        videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/2.mp4'
       }
     ]
   },

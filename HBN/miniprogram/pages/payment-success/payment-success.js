@@ -11,7 +11,7 @@ Page({
         price: 119.00, 
         originalPrice: 163.00, 
         discount: 7.3, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/经典版发光水.png' 
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/经典版发光水.png' 
       },
       { 
         id: 103, 
@@ -19,7 +19,7 @@ Page({
         price: 189.00, 
         originalPrice: 262.00, 
         discount: 7.2, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/双A醇精华乳.png' 
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/双A醇精华乳.png' 
       },
       { 
         id: 104, 
@@ -27,7 +27,7 @@ Page({
         price: 279.00, 
         originalPrice: 422.00, 
         discount: 6.6, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/咖啡因眼霜.png' 
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/咖啡因眼霜.png' 
       },
       { 
         id: 101, 
@@ -35,7 +35,7 @@ Page({
         price: 288.00, 
         originalPrice: 429.00, 
         discount: 6.7, 
-        imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png' 
+        imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png' 
       }
     ]
   },

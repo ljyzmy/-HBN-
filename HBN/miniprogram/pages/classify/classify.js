@@ -8,13 +8,13 @@ Page({
     navTransparent: true,
     activeTab: 0,
     backgroundVideo: {
-      videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/分类背景视频.mp4',
-      posterUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png'
+      videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/分类背景视频.mp4',
+      posterUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png'
     },
     videoBgMuted: true,
     featuredVideo: {
-      videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/双A醇精华乳.mp4',
-      posterUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
+      videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/双A醇精华乳.mp4',
+      posterUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
       title: '大自然的馈赠',
       subtitle: '专注于将白桦树与雪松的自然精粹注入每一款产品'
     },
@@ -27,7 +27,7 @@ Page({
       { 
         id: 1, 
         name: '早C晚A系列', 
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/下载 (4).mp4',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/下载 (4).mp4',
         isVideo: true,
         products: [
           { id: 101, name: '明星发光水', desc: '熬夜提亮必备', image: 'https://www.hbn.cn/assets/1-Bsqoo_S0.png' },

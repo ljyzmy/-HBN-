@@ -2,7 +2,7 @@
 Page({
   data: {
     userInfo: {
-      avatarUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/头像/职场精英女性.jpg',
+      avatarUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/头像/职场精英女性.jpg',
       nickName: '职场精英女性',
       memberLevel: '铂金会员'
     },
@@ -20,9 +20,9 @@ Page({
     },
     // 会员特权列表
     privileges: [
-      { id: 1, name: '专属客服', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/客户服务.png' },
-      { id: 2, name: '生日礼包', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/生日礼包.png' },
-      { id: 3, name: '积分加速', icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/积分加速.png' }
+      { id: 1, name: '专属客服', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/客户服务.png' },
+      { id: 2, name: '生日礼包', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/生日礼包.png' },
+      { id: 3, name: '积分加速', icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/积分加速.png' }
     ],
     // 会员等级规则
     levelRules: [

@@ -9,7 +9,7 @@ Page({
       {
         id: 1,
         title: '常见问题',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/帮助中心.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/帮助中心.png',
         questions: [
           {
             id: 101,
@@ -40,7 +40,7 @@ Page({
       {
         id: 2,
         title: '订单相关',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/待付款.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/待付款.png',
         questions: [
           {
             id: 201,
@@ -65,7 +65,7 @@ Page({
       {
         id: 3,
         title: '退款/售后',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/售后.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/售后.png',
         questions: [
           {
             id: 301,
@@ -96,7 +96,7 @@ Page({
       {
         id: 4,
         title: '会员积分',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/个人资料.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/个人资料.png',
         questions: [
           {
             id: 401,
@@ -127,7 +127,7 @@ Page({
       {
         id: 5,
         title: '关于HBN',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/关于我们.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/关于我们.png',
         questions: [
           {
             id: 501,

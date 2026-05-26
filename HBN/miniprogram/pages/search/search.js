@@ -54,7 +54,7 @@ Page({
         price: 288.00, 
         originalPrice: 388.00, 
         salesCount: 2156, 
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
         tag: '热销套装'
       },
       { 
@@ -63,7 +63,7 @@ Page({
         price: 289.00, 
         originalPrice: 389.00, 
         salesCount: 1892, 
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/咖啡因眼霜.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/咖啡因眼霜.png',
         tag: '眼部精品'
       },
       { 
@@ -72,7 +72,7 @@ Page({
         price: 199.00, 
         originalPrice: 289.00, 
         salesCount: 3214, 
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/双A醇精华乳.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/双A醇精华乳.png',
         tag: '抗老明星'
       },
       { 
@@ -81,17 +81,17 @@ Page({
         price: 129.00, 
         originalPrice: 199.00, 
         salesCount: 1675, 
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/经典版发光水.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/经典版发光水.png',
         tag: '爆款单品'
       }
     ];
     
     // 从flash sale部分获取商品
     const flashSaleProducts = [
-      { id: 101, title: 'HBN早C晚A套装', price: 288.00, originalPrice: 429.00, salesCount: 8976, image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png', tag: '限时折扣' },
-      { id: 102, title: '明星发光水', price: 119.00, originalPrice: 163.00, salesCount: 6543, image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/经典版发光水.png', tag: '限时折扣' },
-      { id: 103, title: '双A醇精华乳', price: 189.00, originalPrice: 262.00, salesCount: 5421, image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/双A醇精华乳.png', tag: '限时折扣' },
-      { id: 104, title: '咖啡因紧致眼霜', price: 279.00, originalPrice: 422.00, salesCount: 7123, image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/咖啡因眼霜.png', tag: '限时折扣' }
+      { id: 101, title: 'HBN早C晚A套装', price: 288.00, originalPrice: 429.00, salesCount: 8976, image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png', tag: '限时折扣' },
+      { id: 102, title: '明星发光水', price: 119.00, originalPrice: 163.00, salesCount: 6543, image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/经典版发光水.png', tag: '限时折扣' },
+      { id: 103, title: '双A醇精华乳', price: 189.00, originalPrice: 262.00, salesCount: 5421, image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/双A醇精华乳.png', tag: '限时折扣' },
+      { id: 104, title: '咖啡因紧致眼霜', price: 279.00, originalPrice: 422.00, salesCount: 7123, image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/咖啡因眼霜.png', tag: '限时折扣' }
     ];
 
     // 从HBN页面的直播热卖获取商品
@@ -99,7 +99,7 @@ Page({
       {
         id: 201,
         name: '早C晚A2.0套组',
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
         originalPrice: 599,
         price: 288,
         tag: '抗初老套装',
@@ -109,7 +109,7 @@ Page({
       {
         id: 202,
         name: '咖啡因紧致修护眼霜',
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/咖啡因眼霜.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/咖啡因眼霜.png',
         originalPrice: 299,
         price: 259,
         tag: '眼部加浓冰美式',
@@ -125,7 +125,7 @@ Page({
         name: '【王牌早C晚A】紧致·焕亮·抗初老',
         price: 288.00,
         originalPrice: 599.00,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/组合.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/组合.png',
         tag: '早C晚A 2.0套组',
         sold: 12543
       },
@@ -134,7 +134,7 @@ Page({
         name: '【经典版】御氧提亮  熬夜党必备',
         price: 129.00,
         originalPrice: 259.00,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/经典版发光水.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/经典版发光水.png',
         tag: '明星发光水熊果苷精粹水2.0',
         sold: 9876
       },
@@ -143,7 +143,7 @@ Page({
         name: '视黄醇精华乳2.0：初老救星，焕亮抚纹',
         price: 259.00,
         originalPrice: 299.00,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/双A醇精华乳.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/双A醇精华乳.png',
         tag: '视黄醇精华乳',
         sold: 8765
       }

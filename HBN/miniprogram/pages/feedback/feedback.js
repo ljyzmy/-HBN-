@@ -24,7 +24,7 @@ Page({
     // 图片上传相关
     imageList: [],
     maxImageCount: 4,
-    uploadIcon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/上传.png',
+    uploadIcon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/上传.png',
     
     // 提交按钮状态
     submitDisabled: true,

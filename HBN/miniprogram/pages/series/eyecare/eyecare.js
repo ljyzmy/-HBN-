@@ -8,7 +8,7 @@ Page({
       desc: '淡细纹焕亮眼周，抗皱紧致保湿眼霜',
       fullDesc: '3倍咖啡因浓度精准渗透，15分钟快速淡化黑眼圈，28天改善细纹',
       image: 'https://img.alicdn.com/bao/uploaded/i3/2204177871674/O1CN01aVv2Zp1OEk4G9TXIx-2204177871674.jpg_.webp',
-      videoUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.mp4',
+      videoUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.mp4',
       detailId: 3
     },
     // 相关商品数据

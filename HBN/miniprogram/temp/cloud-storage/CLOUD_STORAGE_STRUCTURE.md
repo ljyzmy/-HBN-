@@ -5,7 +5,7 @@
 ## 目录结构
 
 ```
-cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/
+cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/
 ├── 抗老紧致/               # 抗老紧致系列产品资源
 │   ├── 2.png              # 视黄醇精华乳图片
 │   ├── 2.mp4              # 视黄醇精华乳视频

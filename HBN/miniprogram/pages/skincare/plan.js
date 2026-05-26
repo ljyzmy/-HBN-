@@ -15,27 +15,27 @@ Page({
     skincareSteps: [
       {
         name: '清洁',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/清洁.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/清洁.png',
         products: []
       },
       {
         name: '爽肤水',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/爽肤水.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/爽肤水.png',
         products: []
       },
       {
         name: '精华',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/精华液.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/精华液.png',
         products: []
       },
       {
         name: '乳霜',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/乳霜.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/乳霜.png',
         products: []
       },
       {
         name: '防晒',
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/防嗮霜.png',
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/防嗮霜.png',
         products: []
       }
     ],
@@ -55,7 +55,7 @@ Page({
         stock: 850,
         tags: ['多效靶向抗初老', '焕亮肌肤'],
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/3.png'
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/3.png'
         ],
         category: '精华液'
       },
@@ -70,7 +70,7 @@ Page({
         stock: 620,
         tags: ['卓效激活胶原'],
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/4.png'
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/4.png'
         ],
         category: '晚霜'
       },
@@ -85,7 +85,7 @@ Page({
         stock: 546,
         tags: ['补水保湿', '舒缓修护'],
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/5.png'
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/5.png'
         ],
         category: '精华液'
       },
@@ -100,7 +100,7 @@ Page({
         stock: 905,
         tags: ['温和清洁', '不紧绷'],
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/6.png'
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/6.png'
         ],
         category: '洁面'
       },
@@ -115,7 +115,7 @@ Page({
         stock: 723,
         tags: ['舒缓敏感', '均衡水油'],
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/检测.png'
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/检测.png'
         ],
         category: '爽肤水'
       },
@@ -130,7 +130,7 @@ Page({
         stock: 486,
         tags: ['锁水保湿', '提亮肤色'],
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/抗老紧致/8.png'
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/抗老紧致/8.png'
         ],
         category: '面霜'
       },
@@ -145,7 +145,7 @@ Page({
         stock: 635,
         tags: ['清爽控油', '广谱防护'],
         bannerImages: [
-          'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/空状态.png'
+          'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/空状态.png'
         ],
         category: '防晒'
       }
@@ -379,7 +379,7 @@ Page({
           name: product.name,
           price: product.price,
           originalPrice: product.originalPrice,
-          image: product.bannerImages ? product.bannerImages[0] : 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/护肤.png',
+          image: product.bannerImages ? product.bannerImages[0] : 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/护肤.png',
           category: category,
           description: product.description || product.tags?.join('，') || '优质护肤产品',
           tags: product.tags || []
@@ -584,7 +584,7 @@ Page({
     
     // 设置默认图片
     this.setData({
-      [productPath]: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/护肤.png'
+      [productPath]: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/护肤.png'
     });
   },
 })

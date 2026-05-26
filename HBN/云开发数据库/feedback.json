@@ -6,7 +6,7 @@
     "content": "我购买的护肤品包装有轻微损坏，希望能改进物流包装",
     "contactWay": "13812345678",
     "imageFileIDs": [
-      "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/feedback/1622531245000_0.jpg"
+      "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/feedback/1622531245000_0.jpg"
     ],
     "status": "pending",
     "createTime": "2023-09-15 14:32:15",
@@ -22,8 +22,8 @@
     "content": "小程序在查看历史订单时偶尔会闪退，iPhone 13 Pro系统版本16.5",
     "contactWay": "wx123456",
     "imageFileIDs": [
-      "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/feedback/1622531245000_1.jpg",
-      "cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/feedback/1622531245000_2.jpg"
+      "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/feedback/1622531245000_1.jpg",
+      "cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/feedback/1622531245000_2.jpg"
     ],
     "status": "processing",
     "createTime": "2023-09-16 09:45:22",

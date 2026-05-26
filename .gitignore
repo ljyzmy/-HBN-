@@ -1,5 +1,30 @@
-# 不上传到 GitHub 的视频文件（保留本地即可）
+# 视频（仅保留本地）
 *.mp4
 *.mov
 *.avi
 *.mkv
+
+# Node
+node_modules/
+**/node_modules/
+
+# 微信小程序私密配置
+HBN/miniprogram/config/env.js
+HBN/project.private.config.json
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+application-local.properties
+config_local.py
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 模型权重
+*.pt
+*.pth

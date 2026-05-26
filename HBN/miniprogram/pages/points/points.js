@@ -111,7 +111,7 @@ Page({
         id: 'E002',
         title: '10元优惠券',
         points: 1000,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/礼品卡.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/礼品卡.png',
         stock: 800,
         limit: 3
       },
@@ -165,7 +165,7 @@ Page({
         name: '¥10 礼品卡',
         value: 10,
         points: 800,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/礼品卡.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/礼品卡.png',
         desc: '可用于HBN商城购物'
       },
       {
@@ -173,7 +173,7 @@ Page({
         name: '¥20 礼品卡',
         value: 20,
         points: 1500,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/礼品卡.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/礼品卡.png',
         desc: '可用于HBN商城购物'
       },
       {
@@ -181,7 +181,7 @@ Page({
         name: '¥50 礼品卡',
         value: 50,
         points: 3500,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/礼品卡.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/礼品卡.png',
         desc: '可用于HBN商城购物'
       },
       {
@@ -189,7 +189,7 @@ Page({
         name: '¥100 礼品卡',
         value: 100,
         points: 6500,
-        image: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/礼品卡.png',
+        image: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/礼品卡.png',
         desc: '可用于HBN商城购物'
       }
     ],
@@ -207,7 +207,7 @@ Page({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
     } else {
       wx.cloud.init({
-        env: 'cloud1-0gxff61z2804383c',
+        env: 'YOUR_CLOUD_ENV_ID',
         traceUser: true,
       });
     }
@@ -971,7 +971,7 @@ Page({
     return {
       title: '邀请好友得积分',
       path: '/pages/index/index',
-      imageUrl: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/分享.png'
+      imageUrl: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/分享.png'
     }
   }
 }) 

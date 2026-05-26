@@ -11,7 +11,7 @@ Page({
         content: '您的账户已成功登录，如非本人操作，请及时修改密码。',
         date: '2025-05-27',
         isRead: true,
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/系统通知.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/系统通知.png'
       },
       {
         id: 2,
@@ -20,7 +20,7 @@ Page({
         content: 'HBN护肤套装限时85折，错过再等一年！',
         date: '2025-05-26',
         isRead: false,
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/活动消息.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/活动消息.png'
       },
       {
         id: 3,
@@ -29,7 +29,7 @@ Page({
         content: '您的订单O2025052601已发货，预计3天内送达。',
         date: '2025-05-25',
         isRead: false,
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/订单消息.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/订单消息.png'
       },
       {
         id: 4,
@@ -38,7 +38,7 @@ Page({
         content: '恭喜您已升级为铂金会员，可享受更多专属优惠！',
         date: '2025-05-24',
         isRead: true,
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/系统通知.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/系统通知.png'
       },
       {
         id: 5,
@@ -47,7 +47,7 @@ Page({
         content: 'HBN明星产品【靓肤精华液】全新升级版本已上线。',
         date: '2025-05-23',
         isRead: true,
-        icon: 'cloud://cloud1-0gxff61z2804383c.636c-cloud1-0gxff61z2804383c-1333491872/图标/活动消息.png'
+        icon: 'cloud://YOUR_CLOUD_ENV_ID.636c-YOUR_CLOUD_ENV_ID-1333491872/图标/活动消息.png'
       }
     ]
   },
